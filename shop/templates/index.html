@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block block_spotlight %}
+    <!-- Block Spotlight  -->
+		<section class="so-spotlight1 ">
+			<div class="container">
+				<div class="row">
+					<div class="sidebar-menu col-md-3 col-sm-12 hidden-xs ">
+						<div class="responsive so-megamenu ">
+							<div class="so-vertical-menu no-gutter compact-hidden">
+								<nav class="navbar-default">
+									<div class="container-megamenu vertical open">
+										<div id="menuHeading-1">
+											<div class="megamenuToogle-wrapper">
+												<div class="megamenuToogle-pattern">
+													<div class="container">
+														<div>
+															<span></span>
+															<span></span>
+															<span></span>
+														</div>
+														Категории:
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="navbar-header">
+											<button id="show-verticalmenu" data-toggle="collapse" class="navbar-toggle fa fa-list-alt"> </button>
+										</div>
+										<div class="vertical-wrapper " style="display: block;">
+											<span id="remove-verticalmenu" class="fa fa-times"></span>
+											<div class="megamenu-pattern">
+												<div class="container">
+													<ul class="megamenu">
+														<li class="item-vertical">
+															<p class="close-menu"></p>
+															<a href="#" class="clearfix">
+																<span>Операционные системы</span>
+															</a>
+														</li>
+														<li class="item-vertical">
+															<p class="close-menu"></p>
+															<a href="#" class="clearfix">
+																<span>Офисное ПО</span>
+															</a>
+														</li>
+														<li class="item-vertical">
+															<p class="close-menu"></p>
+															<a href="#" class="clearfix">
+																<span> Игры </span>
+															</a>
+														</li>
+
+														<li class="item-vertical">
+															<p class="close-menu"></p>
+															<a href="#" class="clearfix">
+																<span>Антивирусная защита</span>
+															</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<div id="yt_header_right" class="col-sm-12 col-md-9 col-lg-9 ">
+                        <a href="#"><img src="{% static 'img/main_index_picture1.jpg' %}" alt="Наша картинка"></a>
+					</div>
+				</div>
+                <hr>
+				</div>
+			</section>
+    <!-- //Block Spotlight  -->
+{% endblock %}
+
+{% block main_container %}
+    <!-- Main Container  -->
+    <h1>................................................Контент................................................</h1>
+    <!-- //Main Container  -->
+{% endblock %}

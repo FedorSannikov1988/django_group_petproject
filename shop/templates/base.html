@@ -1,0 +1,191 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic page needs
+    ============================================ -->
+    <title>Ducational project -> software store </title>
+    <meta charset="utf-8">
+    <!-- Mobile specific metas
+	============================================ -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Libs CSS
+    ============================================ -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
+    <link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
+    <!-- Theme CSS
+	============================================ -->
+	<link href="{% static 'css/themecss/cpanel.css' %}" type="text/css" media="all">
+	<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
+	<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
+	<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
+	<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
+	<link href="{% static 'css/header1.css' %}" rel="stylesheet">
+	<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
+</head>
+
+<body class="res layout-subpage">
+	<div id="wrapper" class="wrapper-full ">
+
+		<!-- Header Container  -->
+		<header id="header" class=" variantleft type_1">
+            <!-- Header Top -->
+			<div class="header-top">
+				<div class="container">
+					<div class="row">
+						<div class="header-top-right collapsed-block text-right  col-sm-6 col-xs-6 compact-hidden">
+							<div class="tabBlock1" id="TabBlock-1">
+								<ul class="top-link list-inline">
+									<li class="signin"><a href="#" class="top-link-checkout" title="Sign In"><span>Войти</span></a></li>
+									<li class="register"><a href="#" title="Register"><span>Регистрация</span></a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //Header Top -->
+			<!-- Header center -->
+			<div class="header-center left">
+				<div class="container">
+					<div class="row">
+						<!-- Logo -->
+						<div class="navbar-logo col-md-3 col-sm-12 col-xs-7">
+							<a href="{% url 'index' %}"><img src="{% static 'img/logotip.jpg' %}" title="Главная страница магазина" alt="Логотип магазина"></a>
+						</div>
+						<!-- //end Logo -->
+						<!-- Search -->
+						<div id="sosearchpro" class="col-xs-12 col-sm-8 col-md-5 search-pro">
+							<form method="GET" action="index.html">
+								<div id="search0" class="search input-group">
+									<input class="autosearch-input form-control" type="text" value="" size="50" autocomplete="off" placeholder="Поиск продукта..." name="search">
+									<span class="input-group-btn">
+										<button type="submit" class="button-search btn btn-primary" name="submit_search"><i class="fa fa-search"></i></button>
+									</span>
+								</div>
+							</form>
+						</div>
+						<!-- //end Search -->
+						<!-- Secondary menu -->
+						<div class="col-md-4 col-sm-4 col-xs-5 shopping_cart pull-right">
+							<!--cart-->
+							<div id="cart" class=" btn-group btn-shopping-cart">
+								<a data-loading-text="Loading..." class="top_cart dropdown-toggle" data-toggle="dropdown">
+									<div class="shopcart">
+										<span class="handle pull-left"></span>
+										<span class="number-shopping-cart"> 0 </span>
+										<span class="title">Корзина</span>
+										<p class="text-shopping-cart cart-total-full"> 0.00 ₽ </p>
+									</div>
+								</a>
+							</div>
+							<!--//end cart-->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //Header center -->
+
+			<!-- Header Bottom -->
+			<div class="header-bottom">
+				<div class="container">
+					<div class="row">
+
+						<!-- Main menu -->
+						<div class="megamenu-hori header-bottom-right  col-md-12 col-sm-12 col-xs-12 ">
+							<div class="responsive so-megamenu ">
+								<nav class="navbar-default">
+									<div class=" container-megamenu  horizontal">
+										<div class="megamenu-wrapper">
+											<div class="megamenu-pattern">
+												<div class="container">
+													<ul class="megamenu " data-transition="slide" data-animationtime="250">
+
+														<li class="home hover">
+															<p class="close-menu"></p>
+															<a href="{% url 'index' %}" class="menu1">Главная</a>
+														</li>
+
+														<li class="with-sub-menu hover">
+															<p class="close-menu"></p>
+															<a href="#" class="clearfix menu1"> <strong>Категории</strong> </a>
+														</li>
+
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</nav>
+							</div>
+						</div>
+                        <!-- //end Main menu -->
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- //Header Container  -->
+
+        <!-- Block Spotlight  -->
+        {% block block_spotlight %} {% endblock %}
+        <!-- //Block Spotlight  -->
+
+		<!-- Main Container  -->
+        {% block main_container %} {% endblock %}
+		<!-- //Main Container -->
+
+    </div>
+
+        <!-- Footer Container -->
+        <footer class="footer-container type_footer1">
+			<!-- Footer Top Container -->
+			<section class="footer-top">
+				<div class="container content">
+					<div class="">
+						<div class=" collapsed-block ">
+							<div class="module clearfix">
+								<h3 class="modtitle"> Контакты </h3>
+								<div class="modcontent">
+									<ul class="contact-address">
+										<li><p><span class="fa fa-map-marker"></span><span>Адресс : </span> Наш адресс </p></li>
+										<li><span class="fa fa-envelope-o"></span><span>Email : </span> <a href="#"> email@email.com</a></li>
+										<li><p><span class="fa fa-phone"> </span><span>Телефон :</span> 0123456789</p> </li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class=" box-information">
+							<div class="module clearfix">
+								<h3 class="modtitle">ИНФОРМАЦИЯ</h3>
+								<div class="modcontent">
+									<ul class="menu">
+										<li><a href="#">О нас</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class=" box-extras">
+							<div class="module clearfix">
+								<h3 class="modtitle">ДОПОЛНИТЕЛЬНО</h3>
+								<div class="modcontent">
+									<ul class="menu">
+										<li><a href="{% url 'sitemap' %}">Карта сайта</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+            </section>
+        </footer>
+        <!-- //Footer Container -->
+
+</body>
+</html>

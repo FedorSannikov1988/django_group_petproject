@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block main_container %}
+        <!-- Main Container  -->
+		<div class="main-container container">
+            <ul class="header-main ">
+				<li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+				<li>Карта сайта</li>
+			</ul>
+			
+			<div class="row">
+				<div id="content" class="col-sm-12">
+					
+					<h2 class="title"> Карта сайта </h2>
+					<div class="row">
+
+						<div class="col-md-5 col-sm-6">
+							<ul class="simple-list arrow-list bold-list">
+								
+								<li><a href="#">Операционные системы</a>
+									<ul>
+										<li><a href="#">Windows</a> </li>
+										<li><a href="#">Linux</a> </li>
+										<li><a href="#">Mac OS</a> </li>
+									</ul>
+								</li>
+								
+								<li><a href="#">Офисное ПО</a>
+									<ul>
+										<li><a href="#">Microsoft Office</a> </li>
+										<li><a href="#">OpenOffice</a> </li>
+										<li><a href="#">LibreOffice</a> </li>
+									</ul>
+								</li>
+
+								<li><a href="#"> Игры </a>
+									<ul>
+										<li><a href="#">Шутеры</a> </li>
+										<li><a href="#">Стратегии</a> </li>
+										<li><a href="#">RPG-игры</a> </li>
+									</ul>
+								</li>
+
+                                <li><a href="#">Антивирусная защита</a>
+									<ul>
+										<li><a href="#">Kaspersky</a> </li>
+										<li><a href="#">Dr Web</a> </li>
+									</ul>
+								</li>
+
+							</ul>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+							<ul class="simple-list arrow-list bold-list">
+								<li><a href="#">Special Offers</a>
+								</li>
+								<li><a href="my-account.html">My Account</a>
+									<ul>
+										<li><a href="order-history.html">Order History</a>
+										</li>
+										<li><a href="order-information.html">Order Information</a>
+										</li>
+										<li><a href="return.html">Return</a>
+										</li>
+										<li><a href="gift-voucher.html">Gift Voucher</a>
+										</li>
+									</ul>
+								</li>
+								<li><a href="cart.html">Shopping Cart</a>
+								</li>
+								<li><a href="checkout.html">Checkout</a>
+								</li>
+								<li><a href="search.html">Search</a>
+								</li>
+								<li>Information
+									<ul class="sitemap">
+										<li><a href="about-us.html">About Us</a>
+										</li>
+										<li><a href="email-template" target="_blank">Email Template Page</a>
+										</li>
+										<li><a href="elements.html">Elements</a>
+										</li>
+										<li><a href="elements-forms.html">Forms</a>
+										</li>
+										<li><a href="careers.html">Careers</a>
+										</li>
+										<li><a href="faq.html">Faq</a>
+										</li>
+										<li><a href="404.html">404</a>
+										</li>
+										<li><a href="contact-us">Contact Us</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+                    </div>
+                </div>
+            </div>
+            <!-- //Main Container -->
+{% endblock %}

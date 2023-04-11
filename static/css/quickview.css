@@ -1,0 +1,16 @@
+html{
+			overflow: hidden;
+		}
+		#thumb-slider{
+			padding-top: 30px;
+		}
+		#wrapper{box-shadow:none;}
+		#wrapper > *:not(.main-container){display: none;}
+		#content{margin:0}
+		.container{width:100%;}
+
+		.product-info .product-view,.left-content-product,.box-info-product{margin:0;}
+		.left-content-product .content-product-right .box-info-product .cart input{padding:12px 16px;}
+
+		.left-content-product .content-product-right .box-info-product .add-to-links{ width: auto;  float: none; margin-top: 0px; clear:none; }
+		.add-to-links ul li{margin:0;float: left;}
