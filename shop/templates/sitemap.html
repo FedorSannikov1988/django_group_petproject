@@ -1,6 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
 
+<!-- Libs CSS
+============================================ -->
+{% block libs_css %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
+    <link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
+{% endblock %}
+
+<!-- Theme CSS
+============================================ -->
+{% block theme_css %}
+    <link href="{% static 'css/themecss/cpanel.css' %}" type="text/css" media="all">
+	<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
+	<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
+	<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
+	<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
+	<link href="{% static 'css/header1.css' %}" rel="stylesheet">
+	<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
+{% endblock %}
 
 {% block main_container %}
         <!-- Main Container  -->
@@ -54,43 +76,27 @@
                         </div>
                         <div class="col-md-4 col-sm-6">
 							<ul class="simple-list arrow-list bold-list">
-								<li><a href="#">Special Offers</a>
-								</li>
-								<li><a href="my-account.html">My Account</a>
+								<li><a href="#">Заголовок</a>
+                                    <ul>
+                                        <li><a href="#">Текст</a></li>
+                                        <li><a href="#">Текст</a></li>
+                                        <li><a href="#">Текст</a></li>
+                                    </ul>
+                                </li>
+								<li><a href="#">Заголовок</a>
 									<ul>
-										<li><a href="order-history.html">Order History</a>
-										</li>
-										<li><a href="order-information.html">Order Information</a>
-										</li>
-										<li><a href="return.html">Return</a>
-										</li>
-										<li><a href="gift-voucher.html">Gift Voucher</a>
+										<li><a href="#">Текст</a></li>
+                                        <li><a href="#">Текст</a></li>
+                                        <li><a href="#">Текст</a></li>
 										</li>
 									</ul>
 								</li>
-								<li><a href="cart.html">Shopping Cart</a>
-								</li>
-								<li><a href="checkout.html">Checkout</a>
-								</li>
-								<li><a href="search.html">Search</a>
-								</li>
-								<li>Information
+                                <ul class="simple-list arrow-list bold-list">
+								<li><a href="#">Информация</a>
 									<ul class="sitemap">
-										<li><a href="about-us.html">About Us</a>
+										<li><a href="{% url 'about_us' %}">О нас</a>
 										</li>
-										<li><a href="email-template" target="_blank">Email Template Page</a>
-										</li>
-										<li><a href="elements.html">Elements</a>
-										</li>
-										<li><a href="elements-forms.html">Forms</a>
-										</li>
-										<li><a href="careers.html">Careers</a>
-										</li>
-										<li><a href="faq.html">Faq</a>
-										</li>
-										<li><a href="404.html">404</a>
-										</li>
-										<li><a href="contact-us">Contact Us</a>
+										<li><a href="{% url 'about_us' %}">Наши контакты</a>
 										</li>
 									</ul>
 								</li>

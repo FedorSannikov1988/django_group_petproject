@@ -1,6 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
 
+<!-- Libs CSS
+============================================ -->
+{% block libs_css %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
+    <link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
+{% endblock %}
+
+<!-- Theme CSS
+============================================ -->
+{% block theme_css %}
+    <link href="{% static 'css/themecss/cpanel.css' %}" type="text/css" media="all">
+	<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
+	<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
+	<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
+	<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
+	<link href="{% static 'css/header1.css' %}" rel="stylesheet">
+	<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
+{% endblock %}
 
 {% block block_spotlight %}
     <!-- Block Spotlight  -->

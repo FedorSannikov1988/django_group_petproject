@@ -7,28 +7,20 @@
 <head>
     <!-- Basic page needs
     ============================================ -->
-    <title>Ducational project -> software store </title>
+    <title>Ducational Project -> Software Store </title>
     <meta charset="utf-8">
     <!-- Mobile specific metas
 	============================================ -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <!-- Libs CSS
     ============================================ -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
-    <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
-    <link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
-    <link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
-    <link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
+    {% block libs_css %} {% endblock %}
+
     <!-- Theme CSS
 	============================================ -->
-	<link href="{% static 'css/themecss/cpanel.css' %}" type="text/css" media="all">
-	<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
-	<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
-	<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
-	<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
-	<link href="{% static 'css/header1.css' %}" rel="stylesheet">
-	<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
+	{% block theme_css %} {% endblock %}
+
 </head>
 
 <body class="res layout-subpage">
@@ -154,9 +146,9 @@
 								<h3 class="modtitle"> Контакты </h3>
 								<div class="modcontent">
 									<ul class="contact-address">
-										<li><p><span class="fa fa-map-marker"></span><span>Адресс : </span> Наш адресс </p></li>
-										<li><span class="fa fa-envelope-o"></span><span>Email : </span> <a href="#"> email@email.com</a></li>
-										<li><p><span class="fa fa-phone"> </span><span>Телефон :</span> 0123456789</p> </li>
+										<li><p><span class="fa fa-map-marker"></span><span>Адрес : </span>  -  </p></li>
+										<li><p><span class="fa fa-envelope-o"></span><span>Email : </span>  -  </p></li>
+										<li><p><span class="fa fa-phone"> </span><span>Телефон :</span>  -  </p> </li>
 									</ul>
 								</div>
 							</div>
@@ -166,7 +158,8 @@
 								<h3 class="modtitle">ИНФОРМАЦИЯ</h3>
 								<div class="modcontent">
 									<ul class="menu">
-										<li><a href="#">О нас</a></li>
+										<li><a href="{% url 'about_us' %}">О нас</a></li>
+                                        <li><a href="#">Наши контакты</a></li>
 									</ul>
 								</div>
 							</div>

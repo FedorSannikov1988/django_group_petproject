@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Libs CSS
+============================================ -->
+{% block libs_css %}
+    <!--
+    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/owl-carousel/assets/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'js/owl-carousel/assets/owl.theme.default.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
+    <link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
+    -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
+    <link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+<!-- Theme CSS
+============================================ -->
+{% block theme_css %}
+    <!--
+    <link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
+	<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
+	<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
+	<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
+	<link href="{% static 'css/header1.css' %}" rel="stylesheet">
+	<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
+    <link href="{% static 'css/themecss/cpanel.css' %}" type="text/css" media="all">
+    -->
+
+    <link href="{% static 'css/themecss/cpanel.css' %}" type="text/css" media="all">
+	<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
+	<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
+	<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
+	<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
+	<link href="{% static 'css/header1.css' %}" rel="stylesheet">
+	<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block main_container %}
+    <!-- Main Container  -->
+		<div class="main-container container">
+			<ul class="header-main ">
+				<li class="home"><a href="{% url 'index' %}"> Главная <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+				<li>О нас</li>
+			</ul>
+			<div class="row">
+				<div id="content" class="col-sm-12 col-xs-12">
+
+					<div class="about-us about-demo-1">
+						<div class="row">
+							<div class="col-xs-12 col-lg-7 col-md-7 about-info">
+								<h3 class="about-title"><span>О нас</span></h3>
+								<div class="text">
+									<p> Мы являемся командой студентов GikBrains ... </p>
+									<p> ............................................ </p>
+									<p> ............................................ </p>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-lg-12 col-md-12 our-team">
+								<div class="our-team-content">
+									<h2 class="about-title line-hori"><span>Наша команда</span></h2>
+									<div class="our-team-slider">
+										<div class="owl-carousel carousel-member" data-loop="yes" data-nav="yes" data-dots="no" data-margin="15" data-items_xs="1" data-items_sm="3" data-items_md="4">
+                                            <div class="member">
+												<div class="member-image"> <img src="{% static 'img/team_photos/fedor_sannikov.jpg' %}" alt="Фёдор Санников"> </div>
+												<div class="member-info">
+													<h3 class="name-member">Федор Санников</h3>
+													<p class="job-member">Роль в проекте</p>
+													<p class="des-member">Какие задачи выполнил в проекте ... </p>
+												</div>
+											</div>
+											<div class="member">
+												<div class="member-image"> <img src="{% static 'img/team_photos/mikhail zinoviev.jpg' %}" alt="Михаил Зиновьев"> </div>
+												<div class="member-info">
+													<h3 class="name-member">Михаил Зиновьев</h3>
+													<p class="job-member">Роль в проекте</p>
+													<p class="des-member">Какие задачи выполнил в проекте ... </p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    <!-- //Main Container -->
+{% endblock %}

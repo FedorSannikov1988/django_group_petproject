@@ -8,3 +8,6 @@ def index(request):
 
 def sitemap(request):
     return render(request, 'sitemap.html')
+
+def about_us(request):
+    return render(request, 'about_us.html')
