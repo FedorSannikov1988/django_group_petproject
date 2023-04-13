@@ -1,92 +1,198 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<!-- Libs CSS
-============================================ -->
-{% block libs_css %}
-    <!--
-    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
-    <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
-    <link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
-    <link href="{% static 'js/owl-carousel/assets/owl.carousel.css' %}" rel="stylesheet">
-    <link href="{% static 'js/owl-carousel/assets/owl.theme.default.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
-    <link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
-    <link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
-    -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
-    <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
-    <link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
-    <link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
-    <link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
+	<!-- Favicon
+	============================================ -->
+	{% block favicon %}
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="static/ico/apple-touch-icon-144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="static/ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/ico/apple-touch-icon-72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="static/ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="static/ico/favicon.png">
+	{% endblock %}
 
-{% endblock %}
+    <!-- Libs CSS
+    ============================================ -->
+	{% block libs_css %}
+	<link rel="stylesheet" href="static/css/bootstrap/css/bootstrap.min.css">
+	<link href="static/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="static/js/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
+	<link href="static/js/owl-carousel/assets/owl.carousel.css" rel="stylesheet">
+	<link href="static/js/owl-carousel/assets/owl.theme.default.min.css" rel="stylesheet">
+	<link href="static/css/themecss/lib.css" rel="stylesheet">
+	<link href="static/js/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+	{% endblock %}
 
-<!-- Theme CSS
-============================================ -->
-{% block theme_css %}
-    <!--
-    <link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
-	<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
-	<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
-	<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
-	<link href="{% static 'css/header1.css' %}" rel="stylesheet">
-	<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
-    <link href="{% static 'css/themecss/cpanel.css' %}" type="text/css" media="all">
-    -->
+	<!-- Theme CSS
+	============================================ -->
+	{% block theme_css %}
+	<link href="static/css/themecss/so_megamenu.css" rel="stylesheet">
+	<link href="static/css/themecss/so-categories.css" rel="stylesheet">
+	<link href="static/css/themecss/so-listing-tabs.css" rel="stylesheet">
+	<link href="static/css/footer1.css" rel="stylesheet">
+	<link href="static/css/header1.css" rel="stylesheet">
+	<link id="color_scheme" href="static/css/theme.css" rel="stylesheet">
+	{% endblock %}
 
-    <link href="{% static 'css/themecss/cpanel.css' %}" type="text/css" media="all">
-	<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
-	<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
-	<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
-	<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
-	<link href="{% static 'css/header1.css' %}" rel="stylesheet">
-	<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
+	{% block stile_body %}
+<body class="res layout-subpage">
+	<div id="wrapper" class="wrapper-full ">
+		{% endblock %}
 
-{% endblock %}
-
-{% block main_container %}
-    <!-- Main Container  -->
+		<!-- Main Container  -->
+        {% block main_container %}
 		<div class="main-container container">
 			<ul class="header-main ">
-				<li class="home"><a href="{% url 'index' %}"> Главная <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-				<li>О нас</li>
+				<li class="home"><a href="#">Home<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+				<li class="home"><a href="#">Page <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+				<li><a href="#">Contact Us</a></li>
 			</ul>
 			<div class="row">
 				<div id="content" class="col-sm-12 col-xs-12">
 
 					<div class="about-us about-demo-1">
 						<div class="row">
+							<div class="col-lg-5 col-md-5 about-image"> <img src="static/img/demo/about/wellcometoshop.png" alt="About Us"> </div>
 							<div class="col-xs-12 col-lg-7 col-md-7 about-info">
-								<h3 class="about-title"><span>О нас</span></h3>
-								<div class="text">
-									<p> Мы являемся командой студентов GikBrains ... </p>
-									<p> ............................................ </p>
-									<p> ............................................ </p>
+								<h3 class="about-title"><span>About Us</span></h3>
+								<div class="about-text">
+									<p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. </p>
+									<p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</p>
+									<p> Nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. </p>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-lg-12 col-md-12 what-client-say">
+								<div class="client-say-content">
+									<h2 class="about-title line-hori"><span>What Clients Say</span></h2>
+									<div class="owl-carousel" data-nav="no" data-loop="yes" data-dots="yes" data-margin="0" data-items_xs="1" data-items_sm="1" data-items_md="1">
+										<div class="yt-content-slide yt-clearfix yt-content-wrap">
+											<div class="item">
+												<p class="des-member des-client">“Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.”</p>
+												<h3 class="name-member">Jennifer lawrence</h3>
+												<p class="job-member">Co Founder</p>
+											</div>
+										</div>
+										<div class="yt-content-slide yt-clearfix yt-content-wrap">
+											<div class="item">
+												<p class="des-member des-client">“Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.”</p>
+												<h3 class="name-member">Jennifer lawrence</h3>
+												<p class="job-member">Co Founder</p>
+											</div>
+										</div>
+										<div class="yt-content-slide yt-clearfix yt-content-wrap">
+											<div class="item">
+												<p class="des-member des-client">“Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.”</p>
+												<h3 class="name-member">Jennifer lawrence</h3>
+												<p class="job-member">Co Founder</p>
+											</div>
+										</div>
+										<div class="yt-content-slide yt-clearfix yt-content-wrap">
+											<div class="item">
+												<p class="des-member des-client">“Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.”</p>
+												<h3 class="name-member">Jennifer lawrence</h3>
+												<p class="job-member">Co Founder</p>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-xs-12 col-lg-12 col-md-12 our-team">
 								<div class="our-team-content">
-									<h2 class="about-title line-hori"><span>Наша команда</span></h2>
+									<h2 class="about-title line-hori"><span>Our Team</span></h2>
 									<div class="our-team-slider">
 										<div class="owl-carousel carousel-member" data-loop="yes" data-nav="yes" data-dots="no" data-margin="15" data-items_xs="1" data-items_sm="3" data-items_md="4">
-                                            <div class="member">
-												<div class="member-image"> <img src="{% static 'img/team_photos/fedor_sannikov.jpg' %}" alt="Фёдор Санников"> </div>
+											<div class="member">
+												<div class="member-image"> <img src="static/img/demo/about/ourmember04.png" alt="Image Client"> </div>
 												<div class="member-info">
-													<h3 class="name-member">Федор Санников</h3>
-													<p class="job-member">Роль в проекте</p>
-													<p class="des-member">Какие задачи выполнил в проекте ... </p>
+													<h3 class="name-member">Jennifer lawrence</h3>
+													<p class="job-member">Co Founder</p>
+													<p class="des-member">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer condimentum</p>
+													<ul class="social-member">
+														<li class="social-icon rss"><a class="fa fa-rss" href="#" title="RSS"><span>RSS</span></a>
+														</li>
+														<li class="social-icon facebook"><a class="fa fa-facebook" href="#" title="Facebook"><span>Facebook</span></a>
+														</li>
+														<li class="social-icon twitter"><a class="fa fa-twitter" href="#" title="Twitter"><span>Twitter</span></a>
+														</li>
+														<li class="social-icon google"><a class="fa fa-google" href="#" title="Google"><span>Google</span></a>
+														</li>
+													</ul>
 												</div>
 											</div>
 											<div class="member">
-												<div class="member-image"> <img src="{% static 'img/team_photos/mikhail zinoviev.jpg' %}" alt="Михаил Зиновьев"> </div>
+												<div class="member-image"> <img src="static/img/demo/about/ourmember01.png" alt="Image Client"> </div>
 												<div class="member-info">
-													<h3 class="name-member">Михаил Зиновьев</h3>
-													<p class="job-member">Роль в проекте</p>
-													<p class="des-member">Какие задачи выполнил в проекте ... </p>
+													<h3 class="name-member">Jennifer lawrence</h3>
+													<p class="job-member">Co Founder</p>
+													<p class="des-member">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer condimentum</p>
+													<ul class="social-member">
+														<li class="social-icon rss"><a class="fa fa-rss" href="#" title="RSS"><span>RSS</span></a>
+														</li>
+														<li class="social-icon facebook"><a class="fa fa-facebook" href="#" title="Facebook"><span>Facebook</span></a>
+														</li>
+														<li class="social-icon twitter"><a class="fa fa-twitter" href="#" title="Twitter"><span>Twitter</span></a>
+														</li>
+														<li class="social-icon google"><a class="fa fa-google" href="#" title="Google"><span>Google</span></a>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<div class="member">
+												<div class="member-image"> <img src="static/img/demo/about/ourmember02.png" alt="Image Client"> </div>
+												<div class="member-info">
+													<h3 class="name-member">Jennifer lawrence</h3>
+													<p class="job-member">Co Founder</p>
+													<p class="des-member">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer condimentum</p>
+													<ul class="social-member">
+														<li class="social-icon rss"><a class="fa fa-rss" href="#" title="RSS"><span>RSS</span></a>
+														</li>
+														<li class="social-icon facebook"><a class="fa fa-facebook" href="#" title="Facebook"><span>Facebook</span></a>
+														</li>
+														<li class="social-icon twitter"><a class="fa fa-twitter" href="#" title="Twitter"><span>Twitter</span></a>
+														</li>
+														<li class="social-icon google"><a class="fa fa-google" href="#" title="Google"><span>Google</span></a>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<div class="member">
+												<div class="member-image"> <img src="static/img/demo/about/ourmember03.png" alt="Image Client"> </div>
+												<div class="member-info">
+													<h3 class="name-member">Jennifer lawrence</h3>
+													<p class="job-member">Co Founder</p>
+													<p class="des-member">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer condimentum</p>
+													<ul class="social-member">
+														<li class="social-icon rss"><a class="fa fa-rss" href="#" title="RSS"><span>RSS</span></a>
+														</li>
+														<li class="social-icon facebook"><a class="fa fa-facebook" href="#" title="Facebook"><span>Facebook</span></a>
+														</li>
+														<li class="social-icon twitter"><a class="fa fa-twitter" href="#" title="Twitter"><span>Twitter</span></a>
+														</li>
+														<li class="social-icon google"><a class="fa fa-google" href="#" title="Google"><span>Google</span></a>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<div class="member">
+												<div class="member-image"> <img src="static/img/demo/about/ourmember04.png" alt="Image Client"> </div>
+												<div class="member-info">
+													<h3 class="name-member">Jennifer lawrence</h3>
+													<p class="job-member">Co Founder</p>
+													<p class="des-member">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer condimentum</p>
+													<ul class="social-member">
+														<li class="social-icon rss"><a class="fa fa-rss" href="#" title="RSS"><span>RSS</span></a>
+														</li>
+														<li class="social-icon facebook"><a class="fa fa-facebook" href="#" title="Facebook"><span>Facebook</span></a>
+														</li>
+														<li class="social-icon twitter"><a class="fa fa-twitter" href="#" title="Twitter"><span>Twitter</span></a>
+														</li>
+														<li class="social-icon google"><a class="fa fa-google" href="#" title="Google"><span>Google</span></a>
+														</li>
+													</ul>
 												</div>
 											</div>
 										</div>
@@ -98,5 +204,128 @@
 				</div>
 			</div>
 		</div>
-    <!-- //Main Container -->
-{% endblock %}
+        {% endblock %}
+        <!-- //Main Container -->
+
+		<!-- Footer Container -->
+		{% block footer_container %}
+		<footer class="footer-container type_footer1">
+	<!-- Footer Top Container -->
+	<section class="footer-top">
+		<div class="container content">
+			<div class="">
+				<div class=" collapsed-block ">
+					<div class="module clearfix">
+						<h3 class="modtitle">Contact Us	</h3>
+						<div class="modcontent">
+							<ul class="contact-address">
+								<li><p><span class="fa fa-map-marker"></span><span>Address : </span> My Company, 42 avenue des Champs Elysées</p></li>
+								<li><span class="fa fa-envelope-o"></span><span>Email : </span> <a href="#"> sales@yourcompany.com</a></li>
+								<li><p><span class="fa fa-phone"> </span><span>Phone :</span> 0123456789</p> </li>
+							</ul>
+						</div>
+						<div class="share-icon">
+							<ul>
+								<li class="facebook"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li class="twitter"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+								<li class="google"><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+								<li class="skype"><a href=""><i class="fa fa-skype" aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class=" box-information">
+					<div class="module clearfix">
+						<h3 class="modtitle">Information</h3>
+						<div class="modcontent">
+							<ul class="menu">
+								<li><a href="about-us.html">About Us</a></li>
+								<li><a href="faq.html">FAQ</a></li>
+								<li><a href="order-history.html">Order history</a></li>
+								<li><a href="order-information.html">Order information</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class=" box-extras">
+					<div class="module clearfix">
+						<h3 class="modtitle">Extras</h3>
+						<div class="modcontent">
+							<ul class="menu">
+								<li><a href="contact.html">Contact Us</a></li>
+								<li><a href="return.html">Returns</a></li>
+								<li><a href="sitemap.html">Site Map</a></li>
+								<li><a href="my-account.html">My Account</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="box-account">
+					<div class="module clearfix">
+						<h3 class="modtitle">My Account</h3>
+						<div class="modcontent">
+							<ul class="menu">
+								<li><a href="#">Brands</a></li>
+								<li><a href="gift-voucher.html">Gift Vouchers</a></li>
+								<li><a href="#">Affiliates</a></li>
+								<li><a href="#">Specials</a></li>
+								<li><a href="#" target="_blank">Our Blog</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+		</div></section>
+		<!-- /Footer Top Container -->
+		<div class="footer-mid">
+			<div class=" help">
+				<div class=" container">
+					<div class=" row">
+						<div class="footer-mid-left col-sm-6 col-xs-12">
+							<h3>NEED HELP? </h3>
+							<p>SUPPORT TEAM 24/7 AT (844) 555-8386</p>
+						</div>
+						<div class="footer-mid-right col-sm-6 col-xs-12">
+							<div class="btn-sub">
+								<i class="fa fa-envelope" aria-hidden="true"></i>
+								<input class="autosearch-input form-control" type="text" value="" size="50" autocomplete="off" placeholder="Your Email Address..." name="subscribe">
+								<button type="submit" class="button-search btn btn-primary" name="submit_subscribe">Subscribe</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+		{% endblock %}
+		<!-- //Footer Container -->
+
+
+		<!-- Include Libs & Plugins
+		============================================ -->
+		{% block libs_and_plugins %}
+		<script type="text/javascript" src="static/js/jquery-2.2.4.min.js"></script>
+		<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="static/js/owl-carousel/owl.carousel.js"></script>
+		<script type="text/javascript" src="static/js/themejs/libs.js"></script>
+		<script type="text/javascript" src="static/js/unveil/jquery.unveil.js"></script>
+		<script type="text/javascript" src="static/js/countdown/jquery.countdown.min.js"></script>
+		<script type="text/javascript" src="static/js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js"></script>
+		<script type="text/javascript" src="static/js/datetimepicker/moment.js"></script>
+		<script type="text/javascript" src="static/js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+		<script type="text/javascript" src="static/js/jquery-ui/jquery-ui.min.js"></script>
+        {% endblock %}
+
+		<!-- Theme files
+		============================================ -->
+        {% block theme_files %}
+		<script type="text/javascript" src="static/js/themejs/so_megamenu.js"></script>
+		<script type="text/javascript" src="static/js/themejs/addtocart.js"></script>
+		<script type="text/javascript" src="static/js/themejs/application.js"></script>
+        {% endblock %}
