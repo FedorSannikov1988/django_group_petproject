@@ -1,0 +1,251 @@
+/*******************************************
+*   Theme Name: Market
+*   Author: Magentech
+*   Author URI: http://www.magentech.com
+*   Version: 1.0.0
+*   Description: This is html5 Sass template 
+*******************************************/
+
+// Override default value for $dir in directional.scss
+$dir: ltr;
+
+//** simple and lightweight mixin library for Sass **
+//-- url : http://bourbon.io/docs ---
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'directional/rem';
+
+//** Variables for responsive design in bootstrap with sass **
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'directional/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'directional/directional';
+
+//Mixins Utilities & Variables
+@import 'variables/red_home6';
+@import 'variables/utilities';
+@import "variables/theme_variables";
+
+
+/**************************************************************
+BLOCK HEADER 
+**************************************************************/
+
+.header-top{
+	background: #222222;
+	padding-#{$right}: 110px;
+	a{
+		color: #ffffff;
+		
+	}
+	.languages-block form > a, .currencies-block form > a{
+		color: #ffffff;
+		border: 1px solid #3d3d3d;
+		background: #1b1b1b;
+		padding: 2px 10px;
+		
+	}
+	.header-top-left{
+		line-height: 48px;
+		.languages-block form, .currencies-block form{
+			padding: 10px;
+		}
+		.languages-block form{
+			padding-#{$left}: 0;
+		}
+	}
+	.header-top-right{
+		line-height: 48px;
+		ul {
+			margin-bottom: 0;
+			li{
+				padding: 0 20px;
+				@include border-top;
+				&:last-child{
+					padding-#{$right}: 0;
+					&:after{
+						height: 0;
+					}
+				}
+			}
+		}
+		
+	}
+}
+.header-center{
+	.navbar-logo{
+		line-height: 89px;
+	}
+	.megamenu-hori{
+		padding-#{$left}: 60px;
+		ul.megamenu {
+			li {
+				.sub-menu{
+					padding-top: 0;
+				}
+				&:hover{
+					box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+					
+				}
+				a.menu1{
+					padding: 35px;
+					strong{
+						color: #111111;
+						font-weight: 600;
+						font-size: 14px;
+						text-transform: uppercase;
+					}
+					
+				}
+			}
+			li.home a.menu1{
+				font-weight: 600;
+				font-size: 14px;
+				text-transform: uppercase;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			}
+		}
+	}
+	
+	.shopping_cart{
+		.btn-shopping-cart{
+			.top_cart{
+				display: block;
+				overflow: hidden;
+				padding-bottom: 24px;
+				width: 110px;
+				text-align: center;
+				position: absolute;
+				#{$right}: 0;
+				top: -48px;
+				.handle{
+					position: relative;
+					background: url(../img/theme/color/white/home-6/cart.png) no-repeat ;
+					width: 110px;
+					height: 55px;
+					background-position-x: 50%;
+					margin-top: 20px;
+				}
+				.number-shopping-cart{
+					position: absolute;
+					height: 22px;
+					width: 22px;
+					line-height: 22px;
+					background: #222222;
+					color: #fff;
+					border-radius: 100px;
+					text-align: center;
+					top: 48px;
+					#{$right}: 28px;
+				}
+				.my-cart{
+					font-weight: 600;
+					font-size: 14px;
+					color: #fff;
+				}
+				.price{
+					font-size: 14px;
+					color: #fff;
+				}
+			}
+			.shoppingcart-box{
+				#{$right}: 0;
+				top: 79px;
+				margin-top: 10px;
+				width: 330px;
+				border: none;
+				box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.2);
+
+				&:before{
+					border: none;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 1199px){
+	.header-top{
+		padding-#{$right}: 0;
+	}
+	.header-center {
+		.navbar-logo{
+			text-align: center;
+		}
+		.megamenu-hori ul.megamenu li a.menu1{
+			padding: 25px;
+		}
+		.shopping_cart .btn-shopping-cart {
+			.shoppingcart-box{
+				top: 48px;
+			}
+			.top_cart{
+				top: -80px;
+			}
+		}
+		
+	}
+}
+
+@media (max-width: 991px){
+
+	.header-center {
+		.megamenu-hori{
+			padding-#{$left}: 15px;
+		}
+		.shopping_cart .btn-shopping-cart {
+			.shoppingcart-box{
+				top: 38px;
+			}
+			.top_cart{
+				top: -89px;
+			}
+		}
+		.navbar-header .navbar-toggle{
+			padding-#{$left}: 0;
+		}
+	}
+}
+
+@media (max-width: 767px){
+	.header-top .header-top-left {
+		.languages-block, .currencies-block {
+			vertical-align: middle;
+			form{
+				padding: 7px;
+			}
+		}
+		.languages-block{
+			form{
+				padding-#{$left}: 0;
+			}
+		}
+	}
+	.header-top .header-top-right ul li{
+		padding: 0 15px;
+	}
+	.header-center {
+		.shopping_cart .btn-shopping-cart {
+			.shoppingcart-box{
+				top: -9px;
+			}
+			.top_cart{
+				top: -54px;
+				padding: 0;
+				background: none;
+				.handle {
+					margin-top: 0;
+					background: url(../img/theme/color/black/cart.png) no-repeat;
+					background-position-x: 50%;
+				}
+				.number-shopping-cart{
+					top: 20px;
+				}
+			}
+		}
+	}
+}

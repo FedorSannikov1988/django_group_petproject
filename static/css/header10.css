@@ -1,0 +1,167 @@
+/*******************************************
+*   Theme Name: Market
+*   Author: Magentech
+*   Author URI: http://www.magentech.com
+*   Version: 1.0.0
+*   Description: This is html5 Sass template 
+*******************************************/
+/*===============================================
+	[SASS DIRECTORY ]
+	
+    [1] Minxin Link
+    [2] Minxin Buton
+    [3] Minxin Triangle
+   
+    ==============================================*/
+.no-margin {
+  margin: 0 !important; }
+
+.marginbottom__3x {
+  margin-bottom: 30px; }
+
+@-webkit-keyframes animLoadedLogo {
+  to {
+    -webkit-transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0) scale3d(0.65, 0.65, 1); } }
+@keyframes animLoadedLogo {
+  to {
+    -webkit-transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0) scale3d(0.65, 0.65, 1);
+    transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0) scale3d(0.65, 0.65, 1); } }
+@-webkit-keyframes animLoadedLoader {
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1); } }
+@keyframes animLoadedLoader {
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1);
+    transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1); } }
+@-webkit-keyframes animLoadedHeader {
+  to {
+    -webkit-transform: translate3d(0, -100%, 0); } }
+@keyframes animLoadedHeader {
+  to {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0); } }
+@-webkit-keyframes animInitialHeader {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 800px, 0); } }
+@keyframes animInitialHeader {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 800px, 0);
+    transform: translate3d(0, 800px, 0); } }
+/**************************************************************
+BLOCK HEADER 
+**************************************************************/
+#header {
+  background: url(../img/theme/background/bg-1.jpg) no-repeat; }
+  #header .header-top {
+    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+    background: none; }
+    #header .header-top .header-top-left {
+      padding: 0;
+      float: left; }
+      #header .header-top .header-top-left .dropdown-toggle {
+        padding: 0 20px;
+        height: 40px;
+        line-height: 40px !important; }
+      #header .header-top .header-top-left ul {
+        border: none;
+        background: #fff; }
+        #header .header-top .header-top-left ul li a {
+          padding-top: 5px; }
+        #header .header-top .header-top-left ul li:hover {
+          color: #fff; }
+      #header .header-top .header-top-left .currencies-block {
+        border: none;
+        position: relative; }
+        #header .header-top .header-top-left .currencies-block:after {
+          content: "";
+          height: 13px;
+          width: 1px;
+          background: #cccccc;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          margin-top: -6px; }
+      #header .header-top .header-top-left .languages-block {
+        border: none; }
+      #header .header-top .header-top-left .form-group a {
+        line-height: 16px;
+        border: none; }
+      #header .header-top .header-top-left .form-group form > a {
+        color: #cdcdcd; }
+    #header .header-top .header-top-right {
+      float: right; }
+      #header .header-top .header-top-right #TabBlock-1 {
+        float: right;
+        margin: 0; }
+        #header .header-top .header-top-right #TabBlock-1 li {
+          padding: 0 17px;
+          position: relative; }
+          #header .header-top .header-top-right #TabBlock-1 li:after {
+            content: "";
+            height: 13px;
+            width: 1px;
+            background: #cccccc;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -6px; }
+          #header .header-top .header-top-right #TabBlock-1 li:last-child {
+            border-right: none;
+            padding-right: 0; }
+            #header .header-top .header-top-right #TabBlock-1 li:last-child:after {
+              background: none; }
+          #header .header-top .header-top-right #TabBlock-1 li a {
+            color: #cdcdcd; }
+        #header .header-top .header-top-right #TabBlock-1 .top-link {
+          margin: 0; }
+  #header .header-center {
+    padding: 100px 0; }
+    #header .header-center .navbar-logo {
+      padding-bottom: 30px;
+      text-align: center; }
+    #header .header-center .search input {
+      width: 78.95%;
+      height: 45px;
+      border: none;
+      display: inline-block;
+      float: left; }
+    #header .header-center .search button {
+      width: 21.05%;
+      height: 45px;
+      border: none;
+      display: inline-block;
+      float: left;
+      text-transform: uppercase;
+      font-weight: 700; }
+    #header .header-center .megamenu-hori {
+      display: flex;
+      justify-content: center; }
+      #header .header-center .megamenu-hori ul.megamenu li .sub-menu {
+        left: -50%; }
+        #header .header-center .megamenu-hori ul.megamenu li .sub-menu .content {
+          width: 850px; }
+      #header .header-center .megamenu-hori ul.megamenu li.menu-page .sub-menu {
+        left: 0; }
+        #header .header-center .megamenu-hori ul.megamenu li.menu-page .sub-menu .content {
+          width: 450px; }
+
+@media (max-width: 991px) {
+  #header .header-center {
+    padding: 50px 0; }
+    #header .header-center .search input {
+      width: 70%; }
+    #header .header-center .search button {
+      width: 30%; }
+
+  #header .header-center .megamenu-hori ul.megamenu li .sub-menu {
+    left: auto; }
+    #header .header-center .megamenu-hori ul.megamenu li .sub-menu .content {
+      width: auto; } }
+
+/*# sourceMappingURL=header10.css.map */

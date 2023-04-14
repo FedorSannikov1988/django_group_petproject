@@ -1,0 +1,117 @@
+/*******************************************
+*	Theme Name: Market
+*	Author: Magentech
+*	Author URI: http://www.magentech.com
+*	Version: 1.0.0
+*	Description: This is html5 Sass template 
+*******************************************/
+// Override default value for $dir in directional.scss
+$dir: ltr;
+
+//** simple and lightweight mixin library for Sass **
+//-- url : http://bourbon.io/docs ---
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'directional/rem';
+
+//** Variables for responsive design in bootstrap with sass **
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'directional/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'directional/directional';
+
+//Mixins Utilities & Variables
+@import 'variables/yellow';
+@import 'variables/utilities';
+@import "variables/theme_variables";
+
+.footer-container{
+	background: #efefef;
+	.footer-top{
+		padding: 50px 0;
+		h3{
+			color: #000;
+			font-size: 15px;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+		ul {
+			padding: 0;
+			margin: 0;
+			li{
+				list-style: none;
+				a{
+					color: #474747;
+					transition: all .5s ease-in-out;
+					&:hover{
+						
+						padding-#{$left}: 5px;
+						
+					}
+				}
+			}
+		}
+	}
+	.footer-mid{
+		text-align: center;
+		.footer-mid-img{
+			padding: 20px 15px; 
+		}
+		.footer-mid-link{
+			padding-bottom: 20px;
+			ul{
+				margin: 0;
+				padding: 0;
+				li{
+					list-style: none;
+					display: inline-block;
+					a{
+						color: #000;
+						text-transform: uppercase;
+						font-weight: 600;
+						padding: 0 15px;
+						position: relative;
+						display: inline-block;
+						&:after{
+							content: "";
+							display: block;
+							width: 1px;
+							height: 80%;
+							position: absolute;
+							top: 2px;
+							#{$right}: 0;
+							background: #000;
+						}
+						
+						
+					}
+					&:last-child a:after{
+						height: 0;
+					}
+				}
+			}
+		}
+		.footer-mid-text{
+			p{
+				width: 80%;
+				margin: auto;
+			}
+		}
+		.payment{
+			padding: 30px 15px;
+		}
+	}
+	.footer-bot{
+		background: #272420;
+		color: #a8a8a8;
+		text-align: center;
+		padding: 15px 0;
+		p{
+			margin: 0;
+		}
+	}
+}

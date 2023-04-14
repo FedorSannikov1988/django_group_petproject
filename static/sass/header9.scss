@@ -1,0 +1,265 @@
+/*******************************************
+*   Theme Name: Market
+*   Author: Magentech
+*   Author URI: http://www.magentech.com
+*   Version: 1.0.0
+*   Description: This is html5 Sass template 
+*******************************************/
+
+// Override default value for $dir in directional.scss
+$dir: ltr;
+
+//** simple and lightweight mixin library for Sass **
+//-- url : http://bourbon.io/docs ---
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'directional/rem';
+
+//** Variables for responsive design in bootstrap with sass **
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'directional/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'directional/directional';
+
+//Mixins Utilities & Variables
+@import 'variables/orange-home9';
+@import 'variables/utilities';
+@import "variables/theme_variables";
+
+
+/**************************************************************
+BLOCK HEADER 
+**************************************************************/
+
+#header{
+	background: #183544;
+	
+	.header-top{
+		font-size: 12px;
+		$color-border: #ccc; 
+		height: 40px;
+		line-height: 40px;
+		background: #132a36;
+		.header-top-left {
+			padding: 0;
+			float: $left;
+			.dropdown-toggle{
+				padding: 0 20px;
+				height: 40px;
+				line-height: 40px!important;
+				
+			}
+
+			ul{
+				border: none;
+				background: #fff;
+				li{
+					a{
+						padding-top: 5px;
+					}
+					&:hover{
+						color: #fff;
+						
+					}
+				}
+			}
+			.currencies-block {
+				border: none;
+				@include border-top;
+				
+			}
+			.languages-block{
+				border: none;
+				
+			}
+			.form-group{
+				a{
+					line-height: 16px; 
+					border: none;
+				}
+				form > a{
+					color: #cdcdcd;
+				} 
+			}
+		}
+		.header-top-right {
+			float: $right;
+			#TabBlock-1{
+				float: $right;
+				margin: 0;
+				li{
+					padding: 0 17px;
+					@include border-top;
+					&:last-child{
+						border-#{$right}: none;
+						padding-#{$right}: 0;
+						&:after{
+							background: none;
+						}
+					}
+					a{
+						color: #cdcdcd;
+						
+					}
+				}
+				.top-link{
+					margin: 0;
+				}
+			}
+		}
+	}
+	.header-center{
+		font-size: 14px;
+		padding: 31px 0 33px 0;
+		.navbar-logo{
+			padding-top: 7px;
+			float: $left;
+		}
+		#sosearchpro{
+			padding: 7px 15px;
+			float: $left;
+			input{
+				box-shadow: none;
+				position: relative;
+				height: 42px;
+				font-size: 14px;
+				width: 100%;
+			}
+			button{
+				position: absolute;
+				#{$right}: 3px;
+				top: 3px;
+				height: 36px;
+				z-index: 2;
+				border: none;
+				color: #fff;
+				text-transform: uppercase;
+			}
+		}
+		.shopping_cart{
+			padding-#{$right}:15px;
+			padding-#{$left}: 5px;
+			display: block;
+			.btn-shopping-cart{
+				display: inline-block;
+				.handle{
+					position: relative;
+					background: url(../img/theme/color/white/home-9/cart.png) no-repeat ;
+					width: 40px;
+					height: 40px;
+					margin: 5px 10px;
+				}
+				.number-shopping-cart{
+					position: absolute;
+					height: 22px;
+					width: 22px;
+					line-height: 22px;
+					color: #fff;
+					border-radius: 100px;
+					text-align: center;
+					top: 0;
+					#{$right}: 0;
+				}
+				.shoppingcart-box{
+					#{$right}: -125px;
+					margin-top: 10px;
+					width: 330px;
+				}
+			}
+		}
+		.sign-in{
+			.icon-sign-in{
+				background: url(../img/theme/icon/sign-in.png) no-repeat;
+				height: 20px;
+				width: 17px;
+				display: inline-block;
+				float: $left;
+				margin: 15px;
+			}
+			.link{
+				float: $right;
+				a{
+					color: #fff;
+				}
+				span{
+					color: #fff;
+					&.welcome{
+						line-height: 30px;
+					}
+					
+				}
+			}
+		}
+	}
+	.header-bottom{
+		border-top: 1px solid #132a36;
+		.header-bottom-left{
+			.megamenu-wrapper{
+				ul.megamenu  {
+					>li{
+						&>a{
+							text-transform: uppercase;
+
+						}
+						.sub-menu{
+							padding: 0;
+						}
+					}
+
+					li.home > a{
+						padding-#{$left}: 0;
+					}
+				}
+				
+			}
+		}
+		.header-bottom-right{
+			a{
+				color: #fff;
+				font-size: 14px;
+				font-weight: 700;
+				float: $right;
+				padding: 15px 0;
+				&.black{
+					color: #ffd200;
+					padding-#{$left}: 20px;
+					.label-hot{
+						position: absolute;
+						top: 0;
+						#{$right}: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media(max-width: 1199px){
+	#header .header-bottom .header-bottom-right a.black{
+		padding-#{$left}: 15px;
+	}
+}
+@media(max-width: 991px){
+	#header .header-bottom .header-bottom-left .megamenu-wrapper ul.megamenu li.home > a{
+		padding-#{$left}: 10px;
+	}
+	#header .header-center .navbar-logo{
+		text-align: center;
+		padding: 0 0 25px;
+	}
+	
+}
+
+@media(max-width: 767px){
+	#header .header-center .shopping_cart{
+		padding-top: 25px;
+	}
+	#header .header-center .shopping_cart .btn-shopping-cart .shoppingcart-box{
+		#{$right}: auto;
+		width: 310px;
+	}
+}

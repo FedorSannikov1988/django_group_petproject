@@ -1,0 +1,235 @@
+/*******************************************
+*	Theme Name: Market
+*	Author: Magentech
+*	Author URI: http://www.magentech.com
+*	Version: 1.0.0
+*	Description: This is html5 Sass template 
+*******************************************/
+/*===============================================
+	[SASS DIRECTORY ]
+	
+    [1] Minxin Link
+    [2] Minxin Buton
+    [3] Minxin Triangle
+   
+    ==============================================*/
+.no-margin {
+  margin: 0 !important; }
+
+.marginbottom__3x {
+  margin-bottom: 30px; }
+
+@-webkit-keyframes animLoadedLogo {
+  to {
+    -webkit-transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0) scale3d(0.65, 0.65, 1); } }
+@keyframes animLoadedLogo {
+  to {
+    -webkit-transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0) scale3d(0.65, 0.65, 1);
+    transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0) scale3d(0.65, 0.65, 1); } }
+@-webkit-keyframes animLoadedLoader {
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1); } }
+@keyframes animLoadedLoader {
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1);
+    transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1); } }
+@-webkit-keyframes animLoadedHeader {
+  to {
+    -webkit-transform: translate3d(0, -100%, 0); } }
+@keyframes animLoadedHeader {
+  to {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0); } }
+@-webkit-keyframes animInitialHeader {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 800px, 0); } }
+@keyframes animInitialHeader {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 800px, 0);
+    transform: translate3d(0, 800px, 0); } }
+.footer-top {
+  padding: 0;
+  background: #222222; }
+  .footer-top h3 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+    position: relative;
+    padding: 0 0 18px;
+    margin: 0 0 20px;
+    text-transform: uppercase; }
+    .footer-top h3:after {
+      position: absolute;
+      content: "";
+      height: 2px;
+      width: 40px;
+      background: #656565;
+      left: 0;
+      bottom: 0; }
+  .footer-top span {
+    color: #fff;
+    font-weight: 500;
+    padding-right: 10px; }
+  .footer-top a {
+    color: #bbbbbb;
+    line-height: 36px;
+    transition: all 0.3s ease; }
+    .footer-top a:hover {
+      margin-left: 5px; }
+  .footer-top p {
+    color: #bbbbbb;
+    margin: 0;
+    line-height: 30px; }
+  .footer-top .box-information, .footer-top .box-extras, .footer-top .box-account {
+    float: left;
+    box-shadow: -6px -6px 15px -5px rgba(0, 0, 0, 0.2);
+    height: 350px;
+    padding: 50px 15px; }
+  .footer-top .collapsed-block {
+    height: 350px;
+    padding: 50px 15px;
+    background: #1b1b1b; }
+
+.footer-mid {
+  background: #1b1b1b; }
+  .footer-mid .footer-mid-left {
+    padding: 25px 15px 18px 15px;
+    background: #151515;
+    display: block;
+    overflow: hidden; }
+    .footer-mid .footer-mid-left .share-icon ul {
+      padding: 0;
+      margin: 0; }
+      .footer-mid .footer-mid-left .share-icon ul li {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 10px; }
+        .footer-mid .footer-mid-left .share-icon ul li a {
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          border-radius: 3px;
+          font-size: 1.5em;
+          background: #2d2d2d;
+          color: #fff;
+          display: block; }
+  .footer-mid .footer-mid-right {
+    background: #1b1b1b;
+    padding: 25px 15px 18px 15px; }
+    .footer-mid .footer-mid-right .block-help .block-help-left {
+      float: left; }
+      .footer-mid .footer-mid-right .block-help .block-help-left h3 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-top: 0; }
+      .footer-mid .footer-mid-right .block-help .block-help-left p {
+        color: #cccccc;
+        margin: 0; }
+    .footer-mid .footer-mid-right .block-help .block-help-right {
+      line-height: 100px; }
+      .footer-mid .footer-mid-right .block-help .block-help-right .btn-sub i {
+        position: absolute;
+        color: #999999;
+        height: 40px;
+        font-size: 14px;
+        left: 36px;
+        top: 14px;
+        z-index: 999; }
+      .footer-mid .footer-mid-right .block-help .block-help-right .btn-sub input {
+        float: left;
+        width: 80%;
+        border-radius: 3px;
+        height: 45px;
+        position: relative;
+        padding-left: 55px;
+        border: none;
+        box-shadow: none; }
+      .footer-mid .footer-mid-right .block-help .block-help-right .btn-sub button {
+        float: right;
+        border-radius: 3px;
+        height: 45px;
+        text-transform: uppercase;
+        font-size: 12px; }
+
+.footer-bot {
+  background: #222222; }
+  .footer-bot .footer-bot-left {
+    background: #1b1b1b;
+    padding: 47px 15px 48px 15px; }
+    .footer-bot .footer-bot-left .pay {
+      padding: 0;
+      margin: 0; }
+      .footer-bot .footer-bot-left .pay li {
+        list-style: none;
+        display: inline-block;
+        padding-left: 7px;
+        width: 16.6666%;
+        float: left;
+        text-align: center; }
+        .footer-bot .footer-bot-left .pay li img {
+          border-radius: 4px; }
+  .footer-bot .footer-bot-right {
+    background: #222222;
+    padding: 40px 15px; }
+    .footer-bot .footer-bot-right .download h3 {
+      float: left;
+      margin: 0;
+      line-height: 40px;
+      color: #fff;
+      text-transform: uppercase; }
+    .footer-bot .footer-bot-right .download a {
+      float: right; }
+      .footer-bot .footer-bot-right .download a img {
+        border-radius: 3px;
+        margin-right: 10px;
+        border: 1px solid #fff; }
+    .footer-bot .footer-bot-right .copyright p {
+      color: #bbbbbb;
+      margin: 0; }
+      .footer-bot .footer-bot-right .copyright p a:hover {
+        color: #f36f7c; }
+
+@media (max-width: 1199px) {
+  .footer-mid .footer-mid-left {
+    padding: 20px 15px 13px 15px; }
+    .footer-mid .footer-mid-left .share-icon ul li {
+      margin-bottom: 10px; }
+
+  .footer-mid .footer-mid-right {
+    padding: 45px 15px 38px 15px; }
+    .footer-mid .footer-mid-right .block-help .block-help-right .btn-sub input {
+      width: 71%; }
+
+  .footer-bot .footer-bot-right .download {
+    text-align: center; }
+    .footer-bot .footer-bot-right .download h3 {
+      display: none; }
+    .footer-bot .footer-bot-right .download a {
+      float: none; }
+
+  .footer-bot .footer-bot-right {
+    padding: 36px 15px; } }
+@media (max-width: 767px) {
+  .footer-mid .footer-mid-right .block-help .block-help-right {
+    margin-top: 25px; }
+    .footer-mid .footer-mid-right .block-help .block-help-right .btn-sub {
+      text-align: center; }
+      .footer-mid .footer-mid-right .block-help .block-help-right .btn-sub input {
+        width: 100%;
+        padding-left: 15px; }
+      .footer-mid .footer-mid-right .block-help .block-help-right .btn-sub button {
+        float: none; }
+
+  .footer-bot .footer-bot-right .copyright {
+    text-align: center;
+    padding-top: 25px; } }
+
+/*# sourceMappingURL=footer6.css.map */

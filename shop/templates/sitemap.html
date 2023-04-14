@@ -1,300 +1,154 @@
-{% extends 'base.html' %}
-{% load static %}
+        {% extends 'base.html' %}
+        {% load static %}
 
 
-	<!-- Favicon
-	============================================ -->
-	{% block favicon %}
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="static/ico/apple-touch-icon-144-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="static/ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/ico/apple-touch-icon-72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" href="static/ico/apple-touch-icon-57-precomposed.png">
-	<link rel="shortcut icon" href="static/ico/favicon.png">
-	{% endblock %}
+        <!-- Favicon
+        ============================================ -->
+        {% block favicon %}
+            <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/apple-touch-icon-144-precomposed.png' %}">
+            <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/apple-touch-icon-114-precomposed.png' %}">
+            <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/apple-touch-icon-72-precomposed.png' %}">
+            <link rel="apple-touch-icon-precomposed" href="{% static 'ico/apple-touch-icon-57-precomposed.png' %}">
+            <link rel="shortcut icon" href="{% static 'ico/favicon.png' %}">
+        {% endblock %}
 
-    <!-- Libs CSS
-    ============================================ -->
-	{% block libs_css %}
-	<link rel="stylesheet" href="static/css/bootstrap/css/bootstrap.min.css">
-	<link href="static/css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<link href="static/js/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
-	<link href="static/js/owl-carousel/owl.carousel.css" rel="stylesheet">
-	<link href="static/css/themecss/lib.css" rel="stylesheet">
-	<link href="static/js/jquery-ui/jquery-ui.min.css" rel="stylesheet">
-	{% endblock %}
+        <!-- Libs CSS
+        ============================================ -->
+        {% block libs_css %}
+            <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+            <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+            <link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+            <link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
+            <link href="{% static 'js/owl-carousel/assets/owl.theme.default.min.css' %}" rel="stylesheet">
+            <link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
+            <link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
+        {% endblock %}
 
-	<!-- Theme CSS
-	============================================ -->
-	{% block theme_css %}
-	<link href='static/css/themecss/cpanel.css' rel='stylesheet'  type='text/css' media='all' />
-	<link href="static/css/themecss/so_megamenu.css" rel="stylesheet">
-	<link href="static/css/themecss/so-categories.css" rel="stylesheet">
-	<link href="static/css/themecss/so-listing-tabs.css" rel="stylesheet">
-	<link href="static/css/footer1.css" rel="stylesheet">
-	<link href="static/css/header1.css" rel="stylesheet">
-	<link id="color_scheme" href="static/css/theme.css" rel="stylesheet">
-	{% endblock %}
+        <!-- Theme CSS
+        ============================================ -->
+        {% block theme_css %}
+            <link href="{% static 'css/themecss/cpanel.css' %}" rel='stylesheet'  type='text/css' media='all' />
+            <link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
+            <link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
+            <link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
+            <link href="{% static 'css/footer1.css' %}" rel="stylesheet">
+            <link href="{% static 'css/header1.css' %}" rel="stylesheet">
+            <link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
+        {% endblock %}
 
-	{% block stile_body %}
-<body class="res layout-subpage">
-	<div id="wrapper" class="wrapper-full ">
+	    {% block stile_body_two_line %}
+            <body class="res layout-subpage">
+            <div id="wrapper" class="wrapper-full ">
 		{% endblock %}
 
 		<!-- Main Container  -->
 		{% block main_container %}
-		<div class="main-container container">
-			<ul class="header-main ">
-				<li class="home"><a href="#">Home   </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-				<li> Site Map</li>
-			</ul>
-			
-			<div class="row">
-				<div id="content" class="col-sm-12">
-					
-					<h2 class="title">Site Map</h2>
-					<div class="row">
-						
-						<div class="col-md-5 col-sm-6">
-							<ul class="simple-list arrow-list bold-list">
-								
-								<li><a href="category.html">Watches</a>
-									<ul>
-										<li><a href="category.html">Men's Watches</a> </li>
-										<li><a href="category.html">Women's Watches</a> </li>
-										<li><a href="category.html">Kids' Watches</a> </li>
-										<li><a href="category.html">Accessories</a> </li>
-									</ul>
-								</li>
-								
-								<li><a href="category.html">Health &amp; Beauty</a>
-									<ul>
-										<li><a href="category.html">Perfumes</a> </li>
-										<li><a href="category.html">Makeup</a> </li>
-										<li><a href="category.html">Sun Care</a> </li>
-										<li><a href="category.html">Skin Care</a> </li>
-										<li><a href="category.html">Eye Care</a> </li>
-										<li><a href="category.html">Hair Care</a> </li>
-									</ul>
-								</li>
-								<li><a href="category.html">Kids &amp; Babies</a>
-									<ul>
-										<li><a href="category.html">Toys</a> </li>
-										<li><a href="category.html">Games</a>
-											<ul>
-												<li><a href="category.html">test 25</a>
-												</li>
-											</ul>
-										</li>
-										<li><a href="category.html">Puzzles</a> </li>
-										<li><a href="category.html">Hobbies</a> </li>
-										<li><a href="category.html">Strollers</a> </li>
-										<li><a href="category.html">Health &amp; Safety</a> </li>
-									</ul>
-								</li>
-								<li><a href="category.html">Sports</a>
-									<ul>
-										<li><a href="category.html">Cycling</a> </li>
-										<li><a href="category.html">Running</a> </li>
-										<li><a href="category.html">Swimming</a> </li>
-										<li><a href="category.html">Football</a> </li>
-										<li><a href="category.html">Golf</a> </li>
-										<li><a href="category.html">Windsurfing</a> </li>
-									</ul>
-								</li>
-								<li><a href="category.html">Home &amp; Garden</a>
-									<ul>
-										<li><a href="category.html">Bedding</a> </li>
-										<li><a href="category.html">Food</a> </li>
-										<li><a href="category.html">Furniture</a> </li>
-										<li><a href="category.html">Kitchen</a> </li>
-										<li><a href="category.html">Lighting</a> </li>
-										<li><a href="category.html">Tools</a> </li>
-									</ul>
-								</li>
-								<li><a href="category.html">Wines &amp; Spirits</a>
-									<ul>
-										<li><a href="category.html">Wine</a> </li>
-										<li><a href="category.html">Whiskey</a> </li>
-										<li><a href="category.html">Vodka</a> </li>
-										<li><a href="category.html">Liqueurs</a> </li>
-										<li><a href="category.html">Beer</a> </li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-						<div class="col-md-4 col-sm-6">
-							<ul class="simple-list arrow-list bold-list">
-								<li><a href="#">Special Offers</a>
-								</li>
-								<li><a href="my-account.html">My Account</a>
-									<ul>
-										<li><a href="order-history.html">Order History</a>
-										</li>
-										<li><a href="order-information.html">Order Information</a>
-										</li>
-										<li><a href="return.html">Return</a>
-										</li>
-										<li><a href="gift-voucher.html">Gift Voucher</a>
-										</li>
-									</ul>
-								</li>
-								<li><a href="cart.html">Shopping Cart</a>
-								</li>
-								<li><a href="checkout.html">Checkout</a>
-								</li>
-								<li><a href="search.html">Search</a>
-								</li>
-								<li>Information
-									<ul class="sitemap">
-										<li><a href="about-us.html">About Us</a>
-										</li>
-										<li><a href="email-template" target="_blank">Email Template Page</a>
-										</li>
-										<li><a href="elements.html">Elements</a>
-										</li>
-										<li><a href="elements-forms.html">Forms</a>
-										</li>
-										<li><a href="careers.html">Careers</a>
-										</li>
-										<li><a href="faq.html">Faq</a>
-										</li>
-										<li><a href="404.html">404</a>
-										</li>
-										<li><a href="contact-us">Contact Us</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-					</div>
-					
-					
-				</div>
-			</div>
-		</div>
+            <b> </b>
+            <div class="main-container container">
+                <ul class="header-main ">
+                    <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                    <li>Карта сайта</li>
+                </ul>
+
+                <div class="row">
+                    <div id="content" class="col-sm-12">
+
+                        <h2 class="title">Карта сайта</h2>
+                        <div class="row">
+
+                            <div class="col-md-5 col-sm-6">
+                                <ul class="simple-list arrow-list bold-list">
+
+                                    <li><a href="#">Операционные системы</a>
+                                        <ul class="sitemap">
+                                            <li><a href="#">Windows</a> </li>
+                                            <li><a href="#">Linux</a> </li>
+                                            <li><a href="#">Mac OS</a> </li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="#">Офисное ПО</a>
+                                        <ul class="sitemap">
+                                            <li><a href="#">Microsoft Office</a> </li>
+                                            <li><a href="#">OpenOffice</a> </li>
+                                            <li><a href="#">LibreOffice</a> </li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="#"> Игры </a>
+                                        <ul class="sitemap">
+                                            <li><a href="#">Шутеры</a> </li>
+                                            <li><a href="#">Стратегии</a> </li>
+                                            <li><a href="#">RPG-игры</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="#">Антивирусная защита</a>
+                                        <ul class="sitemap">
+                                            <li><a href="#">Антивирус Касперского</a> </li>
+                                            <li><a href="#">Доктор Веб</a> </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <ul class="simple-list arrow-list bold-list">
+
+                                    <li><a href="#">Заголовок</a>
+                                        <ul class="sitemap">
+                                            <li><a href="#">Текст</a> </li>
+                                            <li><a href="#">Текст</a> </li>
+                                            <li><a href="#">Текст</a> </li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="#">Заголовок</a>
+                                        <ul class="sitemap">
+                                            <li><a href="#">Текст</a> </li>
+                                            <li><a href="#">Текст</a> </li>
+                                            <li><a href="#">Текст</a> </li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="#">Информация</a>
+                                        <ul class="sitemap">
+                                            <li><a href="{% url 'about_us' %}">О нас</a> </li>
+                                            <li><a href="{% url 'about_us' %}">Наши контакты</a> </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
 		{% endblock %}
 		<!-- //Main Container -->
-
-		<!-- Footer Container -->
-		{% block footer_container %}
-		<footer class="footer-container type_footer1">
-			<!-- Footer Top Container -->
-			<section class="footer-top">
-				<div class="container content">
-					<div class="">
-						<div class=" collapsed-block ">
-							<div class="module clearfix">
-								<h3 class="modtitle">Contact Us	</h3>
-								<div class="modcontent">
-									<ul class="contact-address">
-										<li><p><span class="fa fa-map-marker"></span><span>Address : </span> My Company, 42 avenue des Champs Elysées</p></li>
-										<li><span class="fa fa-envelope-o"></span><span>Email : </span> <a href="#"> sales@yourcompany.com</a></li>
-										<li><p><span class="fa fa-phone"> </span><span>Phone :</span> 0123456789</p> </li>
-									</ul>
-								</div>
-								<div class="share-icon">
-									<ul>
-										<li class="facebook"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-										<li class="twitter"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-										<li class="google"><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-										<li class="skype"><a href=""><i class="fa fa-skype" aria-hidden="true"></i></a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class=" box-information">
-							<div class="module clearfix">
-								<h3 class="modtitle">Information</h3>
-								<div class="modcontent">
-									<ul class="menu">
-										<li><a href="about-us.html">About Us</a></li>
-										<li><a href="faq.html">FAQ</a></li>
-										<li><a href="order-history.html">Order history</a></li>
-										<li><a href="order-information.html">Order information</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-
-						<div class=" box-extras">
-							<div class="module clearfix">
-								<h3 class="modtitle">Extras</h3>
-								<div class="modcontent">
-									<ul class="menu">
-										<li><a href="contact.html">Contact Us</a></li>
-										<li><a href="return.html">Returns</a></li>
-										<li><a href="sitemap.html">Site Map</a></li>
-										<li><a href="my-account.html">My Account</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-
-						<div class="box-account">
-							<div class="module clearfix">
-								<h3 class="modtitle">My Account</h3>
-								<div class="modcontent">
-									<ul class="menu">
-										<li><a href="#">Brands</a></li>
-										<li><a href="gift-voucher.html">Gift Vouchers</a></li>
-										<li><a href="#">Affiliates</a></li>
-										<li><a href="#">Specials</a></li>
-										<li><a href="#" target="_blank">Our Blog</a></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-
-
-
-					</div>
-				</div></section>
-				<!-- /Footer Top Container -->
-				<div class="footer-mid">
-					<div class=" help">
-						<div class=" container">
-							<div class=" row">
-								<div class="footer-mid-left col-sm-6 col-xs-12">
-									<h3>NEED HELP? </h3>
-									<p>SUPPORT TEAM 24/7 AT (844) 555-8386</p>
-								</div>
-								<div class="footer-mid-right col-sm-6 col-xs-12">
-									<div class="btn-sub">
-										<i class="fa fa-envelope" aria-hidden="true"></i>
-										<input class="autosearch-input form-control" type="text" value="" size="50" autocomplete="off" placeholder="Your Email Address..." name="subscribe">
-										<button type="submit" class="button-search btn btn-primary" name="submit_subscribe">Subscribe</button>
-									</div>
-
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</footer>
-		{% endblock %}
-		<!-- //Footer Container -->
-
 
         <!-- Include Libs & Plugins
 		============================================ -->
         {% block libs_and_plugins %}
-		<script type="text/javascript" src="static/js/jquery-2.2.4.min.js"></script>
-		<script type="text/javascript" src="static/js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="static/js/owl-carousel/owl.carousel.js"></script>
-		<script type="text/javascript" src="static/js/themejs/libs.js"></script>
-		<script type="text/javascript" src="static/js/unveil/jquery.unveil.js"></script>
-		<script type="text/javascript" src="static/js/countdown/jquery.countdown.min.js"></script>
-		<script type="text/javascript" src="static/js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js"></script>
-		<script type="text/javascript" src="static/js/datetimepicker/moment.js"></script>
-		<script type="text/javascript" src="static/js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
-		<script type="text/javascript" src="static/js/jquery-ui/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="static/js/themejs/cpanel.js"></script>
+            <script type="text/javascript" src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+            <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+            <script type="text/javascript" src="{% static 'js/owl-carousel/owl.carousel.js' %}"></script>
+            <script type="text/javascript" src="{% static 'js/themejs/libs.js' %}"></script>
+            <script type="text/javascript" src="{% static 'js/unveil/jquery.unveil.js' %}"></script>
+            <script type="text/javascript" src="{% static 'js/countdown/jquery.countdown.min.js' %}"></script>
+            <script type="text/javascript" src="{% static 'js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js' %}"></script>
+            <script type="text/javascript" src="{% static 'js/datetimepicker/moment.js' %}"></script>
+            <script type="text/javascript" src="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
+            <script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
         {% endblock %}
 
         <!-- Theme files
 		============================================ -->
         {% block theme_files %}
-		<script type="text/javascript" src="static/js/themejs/so_megamenu.js"></script>
-		<script type="text/javascript" src="static/js/themejs/addtocart.js"></script>
-		<script type="text/javascript" src="static/js/themejs/application.js"></script>
+            <script type="text/javascript" src="{% static 'js/themejs/so_megamenu.js' %}"></script>
+            <script type="text/javascript" src="{% static 'js/themejs/addtocart.js' %}"></script>
+            <script type="text/javascript" src="{% static 'js/themejs/application.js' %}"></script>
         {% endblock %}

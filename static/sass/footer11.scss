@@ -1,0 +1,237 @@
+/*******************************************
+*	Theme Name: Market
+*	Author: Magentech
+*	Author URI: http://www.magentech.com
+*	Version: 1.0.0
+*	Description: This is html5 Sass template 
+*******************************************/
+// Override default value for $dir in directional.scss
+$dir: ltr;
+
+//** simple and lightweight mixin library for Sass **
+//-- url : http://bourbon.io/docs ---
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'directional/rem';
+
+//** Variables for responsive design in bootstrap with sass **
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'directional/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'directional/directional';
+
+//Mixins Utilities & Variables
+@import 'variables/yellow';
+@import 'variables/utilities';
+@import "variables/theme_variables";
+
+.footer-container{
+	background: #1f1f1f;
+	.footer-top{
+		.policy-detail{
+			padding: 40px 0;
+			border-bottom: 1px solid #2d2d2d;
+			.banner-policy{
+				display: block;
+				overflow: hidden;
+				border-radius: 3px;
+				width: 100%;
+				.policy{
+					display: block;
+					overflow: hidden;
+					width: 25%;
+					float: $left;
+					span{
+						color: #a8a8a8;
+					}
+					.ico-policy{
+						width: 42px;
+						height: 44px;
+						display: block;
+						float: $left;
+						margin-#{$left}: 18px;
+					}
+					.title{
+						font-weight: 600;
+						font-size: 14px;
+						color: #fff;
+						text-transform: uppercase;
+					}
+				}
+				.policy1{
+					.ico-policy{
+						background: url(../img/theme/icon/home-11/icon-4.png) no-repeat;
+					}
+				}
+				.policy2{
+					.ico-policy{
+						background: url(../img/theme/icon/home-11/icon-3.png) no-repeat;
+					}
+				}
+				.policy3{
+					.ico-policy{
+						background: url(../img/theme/icon/home-11/icon-2.png) no-repeat;
+					}
+				}
+				.policy4{
+					border: none;
+					.ico-policy{
+						background: url(../img/theme/icon/home-11/icon-1.png) no-repeat;
+					}
+				}
+			}
+		}
+		h3{
+			color: #000;
+			font-size: 16px;
+			font-weight: 700;
+			text-transform: uppercase;
+		}
+		
+	}
+	.footer-mid{
+		padding: 70px 0;
+		h3{
+			font-weight: 700;
+			color: #fff;
+			margin-bottom: 30px;
+			text-transform: uppercase;
+		}
+		a, p{
+			color: #a8a8a8;
+			line-height: 28px;
+		}
+		ul{
+			padding: 0;
+			margin: 0;
+			li{
+				list-style: none;
+			}
+		}
+		.contact-info{
+			.social{
+				padding-top: 50px;
+				ul{
+					li{
+						display: inline-block;
+						width: 35px;
+						height: 35px;
+						margin-#{$right}: 5px;
+						a{
+							width: 35px;
+							height: 35px;
+							display: block;
+							background: #fff;
+							line-height: 35px;
+							text-align: center;
+							font-size: 16px;
+							transition: none;
+							&:hover{
+								
+								color: #fff;
+							}
+						}
+					}
+				}
+			}
+		}
+		.support, .your-links{
+			ul li a{
+				transition: padding .3s;
+				&:hover{
+					
+					padding-#{$left}: 5px;
+				}
+			}
+		}
+		.newsletter{
+			.box-input{
+				display: block;
+				overflow: hidden;
+				padding-bottom: 30px;
+				input{
+					width: 235px;
+					height: 42px;
+					border: none;
+					display: inline-block;
+					float: $left;
+				}
+				button{
+					display: inline-block;
+					float: $left;
+					height: 42px;
+					width: 120px;
+					border: none;
+					text-transform: uppercase;
+					
+					color: #000;
+					font-weight: 700;
+				}
+			}
+		}
+		.download{
+			a{
+				display: inline-block;
+				padding-#{$right}: 10px;
+				float: $left;
+				img{
+					border-radius: 5px;
+				}
+			}
+		}
+	}
+	.footer-bot{
+		text-align: center;
+		
+		color: #fff;
+		.payment{
+			padding: 20px 0;
+			border-top: 1px solid #2d2d2d;
+			p{
+				margin: 15px 0 0 0;
+			}
+		}
+	}
+}
+
+@media (max-width: 1199px){
+	.footer-container {
+		.footer-mid .newsletter .box-input{
+			input{
+				width: 100%;
+			}
+			button{
+				margin-top: 10px;
+			}
+		}
+	} 
+}
+
+@media(max-width: 991px){
+	.footer-container{
+		.footer-top .policy-detail .banner-policy .policy .ico-policy{
+			height: 70px;
+			background-position-y: 20px;
+		}
+		.footer-mid{
+			padding: 0 0 20px;
+			.contact-info .social{
+				padding-top: 20px;
+			}
+		}
+	}
+}
+
+@media (max-width: 767px){
+	.footer-container .footer-top .policy-detail .banner-policy .policy{
+		width: 100%;
+		.ico-policy{
+			background-position-y:0
+		}
+	}
+
+}

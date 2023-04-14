@@ -1,0 +1,384 @@
+/*******************************************
+*   Theme Name: Market
+*   Author: Magentech
+*   Author URI: http://www.magentech.com
+*   Version: 1.0.0
+*   Description: This is html5 Sass template 
+*******************************************/
+
+// Override default value for $dir in directional.scss
+$dir: ltr;
+
+//** simple and lightweight mixin library for Sass **
+//-- url : http://bourbon.io/docs ---
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'directional/rem';
+
+//** Variables for responsive design in bootstrap with sass **
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'directional/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'directional/directional';
+
+//Mixins Utilities & Variables
+@import 'variables/utilities';
+@import "variables/theme_variables";
+@import "variables/blue";
+
+
+/**************************************************************
+BLOCK HEADER 
+**************************************************************/
+
+
+
+
+.header-top{
+    font-size: 12px;
+    $color-border: #ccc; 
+    height: 40px;
+    line-height: 40px;
+    background: #f1f1f1;
+    .header-top-left {
+        padding: 0;
+        float: $left;
+        .dropdown-toggle{
+            padding: 0 20px;
+            height: 40px;
+            line-height: 40px!important;
+            
+        }
+
+        ul{
+            border: none;
+            background: #f8f8f8;
+            li{
+                a{
+                    padding-top: 5px;
+                }
+                &:hover{
+                    color: #fff;
+                   
+                }
+            }
+
+
+        }
+        .currencies-block {
+            border: none;
+            @include border-top;
+            
+        }
+        .languages-block{
+            border: none;
+            
+        }
+        .form-group{
+            a{
+                line-height: 16px; 
+                border: none;
+            }
+        }
+    }
+    .header-top-right {
+        float: $right;
+        #TabBlock-1{
+            float: $right;
+            margin: 0;
+            li{
+                padding: 0 17px;
+                @include border-top;
+                &:last-child{
+                    border-#{$right}: none;
+                    padding-#{$right}: 0;
+                    &:after{
+                        background: none;
+                    }
+                }
+                a{
+                    color: #828282;
+                   
+                }
+            }
+            .top-link{
+                margin: 0;
+            }
+        }
+    }
+}
+.header-center{
+    font-size: 14px;
+    padding: 31px 0 33px 0;
+    .navbar-logo{
+        padding-top: 13px;
+        float: $left;
+    }
+    #sosearchpro{
+        padding-top: 7px  ;
+        float: $left;
+        input{
+            border-radius: 150px;
+            box-shadow: none;
+            position: relative;
+            height: 46px;
+            padding-#{$left}: 30px;
+            font-size: 14px;
+
+        }
+        button{
+            position: absolute;
+            height: 100%;
+            #{$right}: 10px;
+            top: 0;
+            border-radius: 100px;
+            background: none;
+            color: #444444;
+            border: none;
+        }
+    }
+    .shopping_cart{
+        float: $right!important;
+        .header-text{
+            float: $left;
+            line-height: 58px;
+            padding-top: 3px;
+            
+            p{
+                margin: 0;
+            }
+        }
+        .btn-shopping-cart{
+            float: $right;
+            padding-#{$right}: 15px;
+            .handle{
+                position: relative;
+                background: url(../img/theme/color/blue/cart.png) no-repeat ;
+                width: 31px;
+                height: 40px;
+                margin: 5px 10px;
+
+            }
+            .number-shopping-cart{
+                position: absolute;
+                height: 22px;
+                width: 22px;
+                line-height: 22px;
+                background: #ff5555;
+                color: #fff;
+                border-radius: 100px;
+                text-align: center;
+                bottom: -20px;
+                #{$left}: 0;
+            }
+            .shoppingcart-box{
+                #{$right}: 20px;
+                margin-top: 10px;
+                width: 330px;
+            }
+        }
+    }
+}
+.header-bottom{ 
+    background: #fff;
+    .sidebar-menu{
+        .megamenuToogle-wrapper{
+            border-radius: 5px 5px 0 0;
+            .megamenuToogle-pattern{
+                
+                border-radius: 5px 5px 0 0;
+                div{
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    
+                }
+                .container{
+                    padding: 14px 15px;
+                }
+            }
+        }
+        
+        .vertical-wrapper{
+            border-top: none;
+            border: 1px solid #dddddd;
+            border-radius: 0 0 5px 5px;
+            .caret{
+                background: none;
+                &:before{
+                    content: "\f0da";
+                    font-family: FontAwesome;
+                }
+            }
+            .megamenu-pattern{
+
+                .megamenu {
+                    li{
+                        border-bottom: 1px solid #dddddd;
+                        background: #f8f8f8;
+                        margin: 0;
+                        ul li{
+                            border: none;
+                            background: #fff;
+                        }
+                        &:hover{
+                            a.clearfix{
+                                background: #f8f8f8;
+                                
+                            }
+                        }
+                    }
+                    li.with-sub-menu:before{
+                        color: #777;
+                        font-family: 'FontAwesome';
+                        content: "\f0da";
+                        font-size: 12px;
+                        position: absolute;
+                        #{$right}: 15px;
+                        top: 50%;
+                        padding: 0;
+                        transform: translateY(-50%);
+
+                    }
+                    li.loadmore{
+                        border: none;
+                        &:hover{
+                            background: #f8f8f8;
+                            
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+    .header-bottom-right{
+        float: $left;
+        .megamenu-wrapper{
+            .megamenu {
+                li {
+                    margin-#{$right}: 20px;
+                    .menu1{
+                        padding: 5px 10px;
+                        border-radius: 3px;
+                        text-transform: uppercase;
+                        font-weight: 600;
+                        transition: none;
+                        color: #444444;
+                        strong{
+                            font-weight: 700;
+                        }
+                        &:hover{
+                            color:  #fff; 
+                            
+                        }
+                    }
+                    .sub-menu{
+                        .content{
+                            a{
+                                color: #828282;
+                                
+                            }
+                            img{
+                                max-width: 100%;
+                            }
+                            .title-submenu{
+                                color: $colorTitle;
+                            }
+                        }
+                    }
+                }
+                li.sub-menu-page{
+                    .content{
+                        width: 350px;
+                    }
+                }
+                li.home .menu1{
+                    color:  #fff!important; 
+                }
+                .main-menu{
+                    text-transform: none;
+                }
+                .active{
+                    a{
+                        
+                        color: #fff;
+                    }
+                }
+            }
+            .container{
+                padding-top: 10px;
+            }
+        } 
+    }
+    .price-old{
+        text-decoration: line-through;
+    }
+}
+@media (max-width: 1199px){
+    .header-text{
+        display: none;
+    }
+    .autosearch-input {
+        width: 73%;
+    }
+}
+@media (max-width: 991px){
+    .header-bottom .header-bottom-right{
+        .navbar-header{
+            float: $right;
+        }
+    }
+    .header-center .navbar-logo{
+        text-align: center;
+        padding-bottom: 20px;
+        padding-top: 0;
+    }
+    .so-megamenu .navbar-default .navbar-toggle .icon-bar{
+        background: #fff;
+    }
+    .navbar-header .navbar-toggle{
+        border: none;
+        margin-#{$right}: 0;
+    }
+    
+}
+@media (max-width: 767px){
+    .header-top .header-top-right #TabBlock-1 li{
+        padding-#{$left}: 0;
+        &:after{
+            height: 0;
+        }
+    }
+    .header-center .shopping_cart .btn-shopping-cart .number-shopping-cart{
+        bottom: -53px;
+    }
+    .header-center{
+        .navbar-logo{
+            padding-top: 15px;
+        }
+        #sosearchpro{
+            padding-top: 20px;
+        }
+        .shopping_cart{
+            position: absolute;
+            #{$right}: 0;
+        }
+    }
+
+    .header-center .shopping_cart .btn-shopping-cart .shoppingcart-box{
+        width: 250px;
+        #{$right}: 15px;
+    }
+    .header-bottom .header-bottom-right{
+        .navbar-header{
+            float: none;
+        }
+    }
+    .table>tbody>tr>td{
+        padding: 3px;
+    }
+}

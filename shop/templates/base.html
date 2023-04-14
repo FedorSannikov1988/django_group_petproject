@@ -1,26 +1,33 @@
-{% load static %}
+    {% load static %}
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+
     <!-- Basic page needs
     ============================================ -->
     <title>Дипломный проект - Интернет магазин програмного обеспечения</title>
     <meta charset="utf-8">
+
 	<!-- Mobile specific metas
 	============================================ -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 	<!-- Favicon
 	============================================ -->
 	{% block favicon %} {% endblock %}
+
     <!-- Libs CSS
     ============================================ -->
 	{% block libs_css %} {% endblock %}
+
 	<!-- Theme CSS
 	============================================ -->
 	{% block theme_css %} {% endblock %}
-</head>
+
+    </head>
         {% block stile_body_two_line %} {% endblock %}
 
         <!-- Header Container  -->
@@ -32,7 +39,6 @@
 						<div class="header-top-right collapsed-block text-right  col-sm-6 col-xs-6 compact-hidden">
 							<div class="tabBlock1" id="TabBlock-1">
 								<ul class="top-link list-inline">
-									<li class="wishlist hidden-xs">Добро пожаловать!</li>
 									<li class="signin"><a href="#" class="top-link-checkout" title="Sign In"><span>Войти</span></a></li>
 									<li class="register"><a href="#" title="Register"><span>Регистрация</span></a></li>
 								</ul>
@@ -70,9 +76,9 @@
 								<a data-loading-text="Loading..." class="top_cart dropdown-toggle" data-toggle="dropdown">
 									<div class="shopcart">
 										<span class="handle pull-left"></span>
-										<span class="number-shopping-cart"> 0 ! </span>
+										<span class="number-shopping-cart"> 0 </span>
 										<span class="title">Моя Корзина</span>
-										<p class="text-shopping-cart cart-total-full"> 0.00 ₽ ! </p>
+										<p class="text-shopping-cart cart-total-full"> 0.00 ₽ </p>
 									</div>
 								</a>
 							</div>
@@ -305,7 +311,7 @@
 						<h3 class="modtitle">Информация:</h3>
 						<div class="modcontent">
 							<ul class="menu">
-								<li><a href="#">О нас</a></li>
+								<li><a href="{% url 'about_us' %}">О нас</a></li>
 							</ul>
 						</div>
 					</div>
@@ -315,8 +321,8 @@
 						<h3 class="modtitle">Дополнительно</h3>
 						<div class="modcontent">
 							<ul class="menu">
-								<li><a href="#">Наши контакты</a></li>
-								<li><a href="#">Карта сайта</a></li>
+								<li><a href="{% url 'about_us' %}">Наши контакты</a></li>
+								<li><a href="{% url 'sitemap' %}">Карта сайта</a></li>
 							</ul>
 						</div>
 					</div>
@@ -326,13 +332,14 @@
 	</section>
 </footer>
         <!-- //Footer Container -->
-</div>
-	<!-- Include Libs & Plugins
-	============================================ -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    {% block libs_and_plugins %} {% endblock %}
-	<!-- Theme files
-	============================================ -->
-    {% block theme_files %} {% endblock %}
-</body>
-</html>
+    </div>
+        <!-- Include Libs & Plugins
+        ============================================ -->
+        <!-- End of the document so the pages load faster -->
+        {% block libs_and_plugins %} {% endblock %}
+
+        <!-- Theme files
+        ============================================ -->
+        {% block theme_files %} {% endblock %}
+    </body>
+    </html>

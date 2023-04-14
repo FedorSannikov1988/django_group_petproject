@@ -1,0 +1,112 @@
+/*******************************************
+*	Theme Name: Market
+*	Author: Magentech
+*	Author URI: http://www.magentech.com
+*	Version: 1.0.0
+*	Description: This is html5 Sass template 
+*******************************************/
+// Override default value for $dir in directional.scss
+$dir: ltr;
+
+//** simple and lightweight mixin library for Sass **
+//-- url : http://bourbon.io/docs ---
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'directional/rem';
+
+//** Variables for responsive design in bootstrap with sass **
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'directional/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'directional/directional';
+
+//Mixins Utilities & Variables
+@import 'variables/orange';
+@import 'variables/utilities';
+@import "variables/theme_variables";
+
+
+.footer-top{
+	padding: 100px 0 60px 0;
+	color: #cccccc;
+	background: #242424;
+	li{
+		padding: 10px 0;
+		a{
+			color: #cccccc;
+			transition: padding 0.3s ease-in-out;
+			&:hover{
+				
+				padding-#{$left}: 5px;
+			}
+		}
+	}
+
+	h3{
+		color: #fff;
+		font-weight: 700;
+		text-transform: uppercase;
+		margin-bottom: 30px;
+	}
+	span{
+		margin-#{$right}: 10px;
+		color: #fff;
+	}
+}
+.footer-mid{
+	background: #1e1e1e;
+	padding: 30px 0;
+	.social{
+		h3{
+			text-transform: uppercase;
+			color: #fff;
+			float: $left;
+		}
+		ul{
+			margin: 0;
+			padding: 0;
+			float: $right;
+			li{
+				display: inline-block;
+				margin: 5px;
+				a{
+					width: 120px;
+					background: #242424;
+					border: 1px solid #353535;
+					color: #fff;
+					padding: 15px 0;
+					text-align: center;
+					display: block;
+
+				}
+			}
+		}
+	}
+}
+.footer-bot {
+	padding: 30px 0 30px 0;
+	background: #222222;
+	border-top: 1px dashed;
+	.text-footer-bot p{
+		line-height: 32px;
+		margin: 0;
+		color: #fff;
+		
+	}
+	.pay{
+		img{
+			float: $right;
+		}
+	}
+}
+
+
+@media (max-width: 767px){
+	.footer-top{
+		padding: 60px 0;
+	}
+}

@@ -1,0 +1,282 @@
+/*******************************************
+*   Theme Name: Market
+*   Author: Magentech
+*   Author URI: http://www.magentech.com
+*   Version: 1.0.0
+*   Description: This is html5 Sass template 
+*******************************************/
+
+// Override default value for $dir in directional.scss
+$dir: ltr;
+
+//** simple and lightweight mixin library for Sass **
+//-- url : http://bourbon.io/docs ---
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'directional/rem';
+
+//** Variables for responsive design in bootstrap with sass **
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'directional/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'directional/directional';
+
+//Mixins Utilities & Variables
+@import 'variables/yellow';
+@import 'variables/utilities';
+@import "variables/theme_variables";
+
+
+/**************************************************************
+BLOCK HEADER 
+**************************************************************/
+
+#header{
+	position: relative;
+	.header-top{
+		font-size: 12px;
+		height: 40px;
+		line-height: 40px;
+		background: #f5f5f5;
+		.header-top-left {
+			padding: 0;
+			float: $left;
+			.dropdown-toggle{
+				padding: 0 20px;
+				height: 40px;
+				line-height: 40px!important;
+				
+			}
+
+			ul{
+				border: none;
+				background: #fff;
+				li{
+					a{
+						padding-top: 5px;
+					}
+					&:hover{
+						color: #fff;
+						
+					}
+				}
+			}
+			.currencies-block {
+				border: none;
+				@include border-top;
+				
+			}
+			.languages-block{
+				border: none;
+				
+			}
+			.form-group{
+				a{
+					line-height: 16px; 
+					border: none;
+				}
+				form > a{
+					color: #464646;
+				} 
+			}
+		}
+		.header-top-right {
+			float: $right;
+			#TabBlock-1{
+				float: $right;
+				margin: 0;
+				li{
+					padding: 0 17px;
+					@include border-top;
+					&:last-child{
+						border-#{$right}: none;
+						padding-#{$right}: 0;
+						&:after{
+							background: none;
+						}
+					}
+					a{
+						color: #464646;
+						
+					}
+				}
+				.top-link{
+					margin: 0;
+				}
+			}
+		}
+	}
+	.header-center{
+		font-size: 14px;
+		padding: 31px 0 60px 0;
+		.navbar-logo{
+			padding-top: 10px;
+			float: $left;
+		}
+		#sosearchpro{
+			padding: 7px 15px;
+			float: $left;
+			input{
+				box-shadow: none;
+				position: relative;
+				height: 42px;
+				font-size: 14px;
+				width: 100%;
+			}
+			button{
+				position: absolute;
+				#{$right}: 3px;
+				font-size: 16px;
+				top: 3px;
+				height: 36px;
+				z-index: 2;
+				border: none;
+				color: #b3b3b3;;
+				background: none;
+			}
+		}
+		.shopping_cart{
+			padding-#{$right}:18px;
+			display: block;
+			.btn-shopping-cart{
+				display: inline-block;
+				.handle{
+					position: relative;
+					background: url(../img/theme/color/white/home-9/cart.png) no-repeat ;
+					width: 40px;
+					height: 40px;
+					margin: 5px 10px;
+				}
+				.number-shopping-cart{
+					position: absolute;
+					height: 22px;
+					width: 22px;
+					line-height: 22px;
+					color: #fff;
+					border-radius: 100px;
+					text-align: center;
+					top: 0;
+					#{$right}: 0;
+				}
+				.shoppingcart-box{
+					#{$right}: -125px;
+					width: 330px;
+				}
+			}
+		}
+		.sign-in{
+			.icon-sign-in{
+				background: url(../img/theme/icon/sign-in-11.png) no-repeat;
+				height: 20px;
+				width: 17px;
+				display: inline-block;
+				float: $left;
+				margin: 15px;
+			}
+			.link{
+				float: $right;
+				a{
+					color: #464646;
+					font-weight: 700;
+				}
+				span{
+					color: #464646;
+					&.welcome{
+						line-height: 30px;
+					}
+					
+				}
+			}
+		}
+	}
+	.header-bottom{
+		z-index: 3;
+		position: absolute;
+		bottom: -24px;
+		#{$left}: 50%;
+		transform: translateX(-50%);
+		.header-bottom-left{
+			.so-megamenu{
+				.megamenu-wrapper{
+					ul.megamenu  {
+						>li{
+							&>a strong{
+								text-transform: uppercase;
+								font-weight: 700;
+								font-size: 14px;
+							}
+							.sub-menu{
+								padding: 0;
+							}
+						}
+					}	
+				}
+			}
+		}
+	}
+}
+
+@media(max-width: 1199px){
+	.header-bottom{
+		position: static;
+		transform: none;
+		.caret{
+			display: none;
+		}
+	}
+}
+
+@media(max-width: 991px){
+	#header{
+		.header-center{
+			padding-bottom: 0;
+			#sosearchpro{
+				float: $right;
+				padding: 0 15px;
+			}
+			.shopping_cart{
+				float: $right;
+				padding-top: 30px;
+				z-index: 99;
+			}
+		}
+		
+		.header-bottom{
+			#{$left}: 0;
+			bottom: 0;
+			transform: none;
+			z-index: 10;
+		}
+	}
+}
+
+@media (max-width: 767px){
+	#header{
+		.header-center{
+			padding: 0;
+			padding-bottom: 65px;
+			.navbar-logo {
+				text-align: center;
+				padding: 20px 15px;
+				z-index: auto
+			}
+			.shopping_cart .btn-shopping-cart .shoppingcart-box{
+				width: 305px;
+				#{$right}: auto;
+				#{$left}: 10px;
+			}
+		}
+		.header-bottom{
+			z-index: auto;
+			.header-bottom-left .so-megamenu{
+				background: none;
+			}
+		}
+	}
+}
+
+

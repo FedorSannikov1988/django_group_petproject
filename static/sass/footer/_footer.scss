@@ -1,0 +1,189 @@
+/*******************************************
+*	Theme Name: Market
+*	Author: Magentech
+*	Author URI: http://www.magentech.com
+*	Version: 1.0.0
+*	Description: This is html5 Sass template 
+*******************************************/
+
+.footer-bottom-block .text-footer-bot p a{
+	color: $linkColor;
+}
+
+/**************************************************************
+	Style  Footer 1
+	**************************************************************/
+	.type_footer1 {
+		.footer-top h3:after{
+			background: $linkColor;
+		}
+		.footer-mid .help .footer-mid-right .btn-sub button{
+			background: $linkColor;
+			border-color: $linkColor;
+		}
+		a:hover{
+			color: $linkColor!important;
+		}
+		.footer-mid .help .footer-mid-left h3, .footer-bottom-block .text-footer-bot p a{
+			color: $linkColor;
+		}
+	}
+
+/**************************************************************
+	Style  Footer 2 
+	**************************************************************/
+
+	.type_footer2{
+		a:hover{
+			color: $linkColor!important;
+		}
+		.footer-top h3:after{
+			background: $linkColor;
+		}
+		.footer-mid .footer-mid-left h3{
+			color: $linkColor;
+		}
+		.footer-mid .footer-mid-right .btn-sub button{
+			background: $linkColor;
+			border-color: $linkColor;
+		}
+		.footer-bottom-block .text-footer-bot p a{
+			color: $linkColor;
+		}
+	}
+
+
+/**************************************************************
+	Style  Footer 3
+	**************************************************************/
+	.type_footer3{
+		.footer-top a:hover{
+			color: $linkColor;
+		}
+		.footer-mid .newsletter .share-icon ul li a i:hover{
+			color: $linkColor;
+		}
+		.footer-mid .newsletter .news-letter .email .subcribe button:hover{
+			background: $linkColor;
+		}
+	}
+
+/**************************************************************
+	Style  Footer 4
+	**************************************************************/
+	.type_footer4{
+		.footer-b .footer-mid ul li:hover a{
+			background: $linkColor;
+		}
+		.footer-b .footer-bot li a:hover{
+			color: $linkColor;
+		}
+	}
+
+/**************************************************************
+	Style  Footer 5
+	**************************************************************/
+	.type_footer5{
+		.footer-b .footer-bot li a:hover{
+			color: $linkColor;
+		}
+		.footer-b .footer-mid ul li:hover a{
+			background: $linkColor;
+		}
+	}
+
+
+
+/**************************************************************
+	Style  Footer 6
+	**************************************************************/
+	.type_footer6{
+		.footer-mid .footer-mid-left .share-icon ul li a:hover{
+			background: $linkColor;
+		}
+		.footer-mid .footer-mid-right .block-help .block-help-left h3{
+			color: $linkColor;
+		}
+		.footer-bot .footer-bot-right .copyright p a
+		{
+			color: $linkColor;
+		}
+		.footer-mid .footer-mid-right .block-help .block-help-right .btn-sub button{
+			background: $linkColor;
+			border-color: $linkColor;
+		}
+	}
+
+/**************************************************************
+	Style  Footer 7
+	**************************************************************/
+	.type_footer7{
+		.footer-top li a:hover{
+			color: $linkColor;
+		}
+		.footer-mid .social ul li a:hover{
+			background: $linkColor;
+		}
+		.footer-bot .text-footer-bot p a{
+			color: $linkColor;
+		}
+	}
+
+
+/**************************************************************
+	Style  Footer 8
+	**************************************************************/
+	.type_footer8{
+		.footer-top h3:after{
+			background: $linkColor;
+		}
+		.footer-top .collapsed-block .share-icon ul li:hover{
+			background: $linkColor;
+		}
+		.footer-mid .footer-mid-right .btn-sub button:hover{
+			background: $linkColor;
+			border-color: $linkColor;
+		}
+		.footer-top a:hover{
+			color: $linkColor;
+		}
+	}
+
+
+/**************************************************************
+	Style  Footer 9,10
+	**************************************************************/
+	.type_footer9, .type_footer10{
+		.footer-top ul li a:hover,
+		.footer-mid .footer-mid-link ul li a:hover
+		{
+			color: $linkColor;
+		}
+	}
+
+
+
+/**************************************************************
+	Style  Footer 11
+	**************************************************************/
+	.type_footer11{
+		.footer-top .policy-detail .banner-policy .policy:hover .title{
+			color: $linkColor;
+		}
+		.footer-mid .support ul li a:hover{
+			color: $linkColor;
+		}
+		.footer-mid .your-links ul li a:hover
+		{
+			color: $linkColor;
+		}
+		.footer-mid .contact-info .social ul li a:hover{
+			background: $linkColor;
+		}
+		.footer-mid .newsletter .box-input button
+		{
+			background: $linkColor;
+		}
+	}
+
+

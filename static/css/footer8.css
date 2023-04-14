@@ -1,0 +1,235 @@
+/*******************************************
+*	Theme Name: Market
+*	Author: Magentech
+*	Author URI: http://www.magentech.com
+*	Version: 1.0.0
+*	Description: This is html5 Sass template 
+*******************************************/
+/*******************************************************
+  Style Color
+********************************************************/
+/*===============================================
+	[SASS DIRECTORY ]
+	
+    [1] Minxin Link
+    [2] Minxin Buton
+    [3] Minxin Triangle
+   
+    ==============================================*/
+.no-margin {
+  margin: 0 !important; }
+
+.marginbottom__3x {
+  margin-bottom: 30px; }
+
+@-webkit-keyframes animLoadedLogo {
+  to {
+    -webkit-transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0) scale3d(0.65, 0.65, 1); } }
+@keyframes animLoadedLogo {
+  to {
+    -webkit-transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0) scale3d(0.65, 0.65, 1);
+    transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0) scale3d(0.65, 0.65, 1); } }
+@-webkit-keyframes animLoadedLoader {
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1); } }
+@keyframes animLoadedLoader {
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1);
+    transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1); } }
+@-webkit-keyframes animLoadedHeader {
+  to {
+    -webkit-transform: translate3d(0, -100%, 0); } }
+@keyframes animLoadedHeader {
+  to {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0); } }
+@-webkit-keyframes animInitialHeader {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 800px, 0); } }
+@keyframes animInitialHeader {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 800px, 0);
+    transform: translate3d(0, 800px, 0); } }
+.footer-container {
+  margin-left: 300px; }
+  .footer-container .footer-top {
+    background: #f5f5f5; }
+    .footer-container .footer-top .container {
+      width: 100%; }
+    .footer-container .footer-top h3 {
+      color: #444444;
+      font-weight: 600;
+      font-size: 18px;
+      position: relative;
+      padding: 0 0 18px;
+      margin: 0 0 20px;
+      text-transform: uppercase; }
+      .footer-container .footer-top h3:after {
+        position: absolute;
+        content: "";
+        height: 2px;
+        width: 40px;
+        left: 0;
+        bottom: 0; }
+    .footer-container .footer-top span {
+      color: #444444;
+      font-weight: 500;
+      padding-right: 10px; }
+    .footer-container .footer-top a {
+      color: #888888;
+      line-height: 36px; }
+    .footer-container .footer-top p {
+      color: #888888;
+      margin: 0;
+      line-height: 30px; }
+    .footer-container .footer-top .collapsed-block {
+      padding: 50px 15px;
+      float: left;
+      background: #eeeeee; }
+      .footer-container .footer-top .collapsed-block .share-icon ul {
+        text-align: left;
+        padding: 0;
+        margin-top: 32px; }
+        .footer-container .footer-top .collapsed-block .share-icon ul li {
+          display: inline-block;
+          list-style: none;
+          text-align: center;
+          background: #fff;
+          color: #fff;
+          border-radius: 3px;
+          margin-right: 5px; }
+          .footer-container .footer-top .collapsed-block .share-icon ul li a {
+            font-size: 1.5em;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            display: block;
+            color: #bbbbbb;
+            transition: none; }
+          .footer-container .footer-top .collapsed-block .share-icon ul li:hover a {
+            color: #fff; }
+    .footer-container .footer-top .footer-top-right {
+      padding-top: 50px; }
+  .footer-container .footer-mid {
+    overflow: hidden;
+    padding: 30px 0; }
+    .footer-container .footer-mid .footer-mid-left {
+      width: 50%;
+      padding: 0 15px;
+      float: left; }
+      .footer-container .footer-mid .footer-mid-left h3 {
+        color: #222222;
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 0;
+        margin-top: 5px; }
+      .footer-container .footer-mid .footer-mid-left p {
+        color: #444444;
+        margin: 0; }
+      .footer-container .footer-mid .footer-mid-left span {
+        font-size: 50px;
+        float: left;
+        margin-right: 30px;
+        color: #dddddd; }
+    .footer-container .footer-mid .footer-mid-right {
+      width: 50%;
+      padding: 0 15px;
+      float: left; }
+      .footer-container .footer-mid .footer-mid-right .btn-sub {
+        position: relative; }
+        .footer-container .footer-mid .footer-mid-right .btn-sub i {
+          position: absolute;
+          color: #999999;
+          height: 40px;
+          font-size: 14px;
+          left: 10px;
+          top: 14px;
+          z-index: 1; }
+        .footer-container .footer-mid .footer-mid-right .btn-sub input {
+          float: left;
+          width: 81%;
+          border-radius: 3px;
+          height: 45px;
+          position: relative;
+          padding-left: 30px;
+          border: 1px solid #eee;
+          box-shadow: none; }
+        .footer-container .footer-mid .footer-mid-right .btn-sub button {
+          float: right;
+          border-radius: 3px;
+          height: 45px;
+          text-transform: uppercase;
+          font-size: 12px;
+          background: #222222;
+          border-color: #222222; }
+  .footer-container .footer-bot {
+    background: #f5f5f5; }
+    .footer-container .footer-bot .container {
+      width: 100%; }
+      .footer-container .footer-bot .container .footer-bot-left {
+        background: #eeeeee;
+        padding: 30px 15px; }
+      .footer-container .footer-bot .container .footer-bot-right {
+        padding-top: 40px; }
+        .footer-container .footer-bot .container .footer-bot-right p {
+          margin: 0; }
+      .footer-container .footer-bot .container .back-to-top {
+        right: 50px; }
+
+@media (max-width: 1199px) {
+  .footer-container .footer-bot .container .footer-bot-right {
+    padding-top: 30px; }
+
+  .footer-container .footer-mid .footer-mid-right .btn-sub input {
+    width: 70%; } }
+@media (max-width: 991px) {
+  .footer-container {
+    margin: 0; }
+    .footer-container .footer-mid .footer-mid-left {
+      width: 100%; }
+      .footer-container .footer-mid .footer-mid-left span {
+        display: none; }
+    .footer-container .footer-mid .footer-mid-right {
+      width: 100%; }
+      .footer-container .footer-mid .footer-mid-right .btn-sub {
+        text-align: center; }
+        .footer-container .footer-mid .footer-mid-right .btn-sub i {
+          display: none; }
+        .footer-container .footer-mid .footer-mid-right .btn-sub input {
+          width: 100%;
+          padding-left: 12px;
+          margin: 30px 0; }
+        .footer-container .footer-mid .footer-mid-right .btn-sub button {
+          float: none; }
+    .footer-container .footer-bot .container .footer-bot-left {
+      text-align: center; } }
+@media (max-width: 767px) {
+  .footer-container {
+    margin: 0; }
+    .footer-container .footer-mid .footer-mid-left {
+      width: 100%; }
+      .footer-container .footer-mid .footer-mid-left span {
+        display: none; }
+    .footer-container .footer-mid .footer-mid-right {
+      width: 100%; }
+      .footer-container .footer-mid .footer-mid-right .btn-sub {
+        text-align: center; }
+        .footer-container .footer-mid .footer-mid-right .btn-sub i {
+          display: none; }
+        .footer-container .footer-mid .footer-mid-right .btn-sub input {
+          width: 100%;
+          padding-left: 12px;
+          margin: 30px 0; }
+        .footer-container .footer-mid .footer-mid-right .btn-sub button {
+          float: none; }
+    .footer-container .footer-bot .container .footer-bot-left {
+      text-align: center; }
+    .footer-container .footer-bot .container .footer-bot-right {
+      text-align: center;
+      padding-bottom: 30px; } }
+
+/*# sourceMappingURL=footer8.css.map */

@@ -1,0 +1,229 @@
+#header{
+    .header-top {
+        .header-top-left {
+            .dropdown-toggle:hover{
+                color: $linkColor;
+            }
+            .languages-block, .currencies-block{
+                ul li a:hover{
+                    color: $linkColor;
+                }
+            }
+        }
+        .header-top-right #TabBlock-1 li a:hover{
+            color: $linkColor;
+        }
+    }
+}
+
+/**************************************************************
+	Style  Header 1
+    **************************************************************/
+    
+    .type_1#header{
+
+
+        .header-center .shopping_cart .header-text i{
+            color: $linkColor;
+        }
+        .header-bottom {
+            background: $linkColor;
+            .header-bottom-right {
+                .megamenu-wrapper .megamenu li{
+                    &.home .menu1{
+                        color: $linkColor;
+                    }
+                }
+                .megamenu-wrapper .megamenu li .sub-menu a:hover{
+                    color: $linkColor;
+                }
+                .megamenu-wrapper .megamenu .active a.menu1{
+                    color: $linkColor;
+                }
+                .megamenu-wrapper .megamenu li .menu1:hover{
+                    color: $linkColor;
+                }
+            }
+        }
+    }
+
+
+/**************************************************************
+	Style  Header 2 
+    **************************************************************/
+    .type_2#header{
+
+        .header-center .shopping_cart .header-text i{
+            color: $linkColor;
+        }
+        .header-bottom {
+            .sidebar-menu {
+                .megamenuToogle-wrapper .megamenuToogle-pattern{
+                    background: $linkColor;
+                }
+                .vertical-wrapper .megamenu-pattern .megamenu li{
+                    &:hover a.clearfix{
+                        color: $linkColor;
+                    }
+                    &.loadmore:hover{
+                        color: $linkColor;
+                    }
+                }
+            }
+            .header-bottom-right .megamenu-wrapper .megamenu li{
+                .menu1:hover{
+                    background: $linkColor;
+                }
+                .sub-menu .content a:hover{
+                    color: $linkColor;
+                }
+                &.home .menu1{
+                    background: $linkColor;
+                }
+                &.active a.menu1{
+                    background: $linkColor;
+                }
+            }
+        }
+        
+        @media(max-width: 991px){
+            .header-bottom{
+                background: $linkColor;
+            }
+        }
+    }
+
+/**************************************************************
+	Style  Header  3, 4
+    **************************************************************/
+    .type_3, .type_4{
+        .header-center .megamenu-hori .megamenu li:hover .menu1{
+            color: $linkColor;
+        }
+        .header-center .megamenu-hori .megamenu li.home .menu1{
+            color: $linkColor;
+        }
+        .header-center .megamenu-hori .megamenu li .menu1:after{
+            background: $linkColor;
+        }
+    }
+
+/**************************************************************
+	Style  Header  5
+    **************************************************************/
+    .type_5#header{
+        .header-center .megamenu-hori .so-megamenu li.home a.menu1, .header-center .megamenu-hori .so-megamenu li a:hover strong{
+            color: $linkColor;
+        }
+    }
+
+
+/**************************************************************
+    Style  Header  6
+    **************************************************************/
+    .type_6#header{
+        .header-center .megamenu-hori ul.megamenu li.home a.menu1{
+            color: $linkColor;
+        }
+        .header-center .megamenu-hori ul.megamenu li:hover a.menu1 strong{
+            color: $linkColor;
+        }
+        .header-center .shopping_cart .btn-shopping-cart .top_cart{
+            background: $linkColor;
+        }
+    }
+
+
+/**************************************************************
+    Style  Header  7
+    **************************************************************/
+    .type_7#header{
+        .header-center .shopping_cart .btn-shopping-cart .price{
+            color: $linkColor;
+        }
+        .header-center .shopping_cart .btn-shopping-cart .number-shopping-cart{
+            background: $linkColor;
+        }
+        .header-bot .megamenu-hori .megamenu-wrapper ul.megamenu li.home a.menu1{
+            color: $linkColor;
+        }
+        .header-bot .megamenu-hori .megamenu-wrapper ul.megamenu li{
+            &.active{
+                a.menu1{
+                    color: $linkColor;
+                }
+            }
+            a.menu1{
+                &:hover{
+                    color: $linkColor;
+                }
+                &:before{
+                    background: $linkColor;
+                }
+            }
+        }
+    }
+
+
+/**************************************************************
+    Style  Header  8
+    **************************************************************/
+    .type_8#header{
+        .header-top .shopping_cart .btn-shopping-cart .top_cart .shopcart .number-shopping-cart{
+            background: $linkColor;
+        }
+        .header-top .shopping_cart .btn-shopping-cart .top_cart:hover .my-cart{
+            color: $linkColor;
+        }
+        .header-mid .megamenu-hori .so-megamenu .megamenu-wrapper ul.megamenu li a.menu1:before{
+            background: $linkColor;
+        }
+        .header-mid .collapsed-block ul li a:hover{
+            color: $linkColor;
+        }
+    }
+
+
+/**************************************************************
+    Style  Header  9
+    **************************************************************/
+    .type_9#header{
+        .header-center #sosearchpro button{
+            background: $linkColor;
+        }
+        .header-center .shopping_cart .btn-shopping-cart .number-shopping-cart{
+            background: $linkColor;
+        }
+        .header-center .sign-in .link a:hover{
+            color: $linkColor;
+        }
+        .header-bottom .header-bottom-right a:hover{
+            color: $linkColor;
+        }
+    }
+
+
+/**************************************************************
+    Style  Header  10
+    **************************************************************/
+    .type_10#header{
+        .header-center .search button{
+            background: $linkColor;
+        }
+    }
+
+
+/**************************************************************
+    Style  Header  11
+    **************************************************************/
+    .type_11#header{
+        .header-center .shopping_cart .btn-shopping-cart .number-shopping-cart{
+            background: $linkColor;
+        }
+        .header-center .sign-in .link a:hover{
+            color: $linkColor;
+        }
+        .header-bottom .header-bottom-left .so-megamenu{
+            background: $linkColor;
+        }
+    }

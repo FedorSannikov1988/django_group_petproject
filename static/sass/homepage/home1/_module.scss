@@ -1,0 +1,463 @@
+
+.so-spotlight1 {
+	padding-top: 20px;
+	.sidebar-menu{
+		.megamenuToogle-wrapper{
+			border-radius: 5px 5px 0 0;
+			.megamenuToogle-pattern{
+				background: $linkColor;
+				border-radius: 5px 5px 0 0;
+				div{
+					text-transform: uppercase;
+					font-weight: 600;
+				}
+			}
+		}
+		
+		.vertical-wrapper{
+			border-top: none;
+			border: 1px solid #dddddd;
+			border-radius: 0 0 5px 5px;
+			position: absolute;
+			display: block!important;
+			.caret{
+				background: none;
+				&:before{
+					content: "\f0da";
+					font-family: FontAwesome;
+				}
+			}
+			.megamenu-pattern{
+				
+				.megamenu {
+					li{
+						border-bottom: 1px solid #dddddd;
+						background: #f8f8f8;
+						margin: 0;
+						position: relative;
+						img{
+							width: 100%;
+						}
+						ul li{
+							line-height: 2.5em;
+							border: none;
+							background: #fff;
+						}
+						&:hover{
+							a.clearfix{
+								background: #f8f8f8;
+								color: $linkColor;
+							}
+						}
+					}
+					li.with-sub-menu:before{
+						color: #777;
+						font-family: 'FontAwesome';
+						content: "\f0da";
+						font-size: 12px;
+						position: absolute;
+						#{$right}: 15px;
+						top: 50%;
+						padding: 0;
+						transform: translateY(-50%);
+
+					}
+					li.loadmore{
+						border: none;
+						&:hover{
+							background: #f8f8f8;
+							color: $linkColor;
+						}
+					}
+				}
+			}
+
+		}
+	}
+
+	.owl-slider-1{
+		position: relative;
+		.owl-nav div{
+			width: 45px;
+			height: 42px;
+			display: block;
+			position: absolute;
+			background: rgba(0, 0, 0, .2);
+			color: #fff;
+			font-size: 18px;
+			line-height: 42px;
+			text-align: center;
+			top: 45%;
+			&:before{
+				background-color: transparent;
+				color: #fff; 
+			}
+
+			&.owl-next{
+				#{$right}:0;
+				border-radius: 3px 0 0 3px ;
+				&:before{
+					content: "\f105";
+					font-family: FontAwesome;
+				}
+			}
+			&.owl-prev{
+				#{$left}:0;
+				border-radius: 0 3px 3px 0 ;
+				&:before{
+					content: "\f104";
+					font-family: FontAwesome;
+
+				}
+			}
+
+			&:hover{
+				background: $linkColor;
+
+				&:before{
+					color: #fff;
+				}
+			}
+		}
+		.owl-dots{
+			position: absolute;
+			bottom: 10px;
+			#{$left}: 50%;
+			transform: translateX(-50%);
+			.owl-dot{
+				width: 10px;
+				height: 10px;
+				background: #fff;
+				display: inline-block;
+				border-radius: 50%;
+				margin: 0 11px;
+			}
+			.owl-dot.active{
+				transform: scale(1.6);
+				-webkit-transform: scale(1.6);
+				-o-transform: scale(1.6);
+				-moz-transform: scale(1.6);
+			}
+		}
+	}
+	.policy-detail{
+		margin: 25px 0 43px 0;
+		border: 1px solid #dddddd;
+		.banner-policy{
+			display: block;
+			overflow: hidden;
+			border-radius: 3px;
+			width: 100%;
+			padding: 20px 0;
+			.policy{
+				display: block;
+				overflow: hidden;
+				width: 33.3333%;
+				border-#{$right}: 1px solid #ddd;
+				float: $left;
+				span{
+					color: #888888;
+				}
+				.ico-policy{
+					width: 50px;
+					height: 44px;
+					display: block;
+					float: $left;
+					margin: 0 18px 0 30px;;
+					opacity: 0.5;
+				}
+				.title{
+					font-weight: 600;
+					font-size: 14px;
+					color: #222222;
+					text-transform: uppercase;
+				}
+				&:hover{
+					.ico-policy{
+						opacity: 1;
+					}
+				}
+			}
+			.policy1{
+				.ico-policy{
+					background: url(../img/theme/icon/icon-freeship.png) no-repeat;
+				}
+			}
+			.policy2{
+				.ico-policy{
+					background: url(../img/theme/icon/icon-money.png) no-repeat;
+				}
+			}
+			.policy3{
+				border: none;
+				.ico-policy{
+					background: url(../img/theme/icon/icon-support.png) no-repeat;
+				}
+			}
+		}
+	}
+}
+.main-container{
+	h3{
+		font-weight: 400;
+	}
+	hr{
+		@include hr-3;
+	}
+	#content{
+		.owl-dead-week{
+			padding-top: 20px;
+			margin-bottom: 23px;
+			.product-layout{
+				@include product-layout;
+				.left-block{
+					display: inline-block;
+					float: $left;
+					padding: 0 15px;
+				}
+				.right-block{
+					display: block;
+					overflow: hidden;
+					.time-offer-end{
+						padding-bottom: 55px;
+						margin-bottom: 30px;
+						border-bottom: 1px solid #dddddd;
+						.title{
+							color: #ff5555;
+							text-transform: uppercase;
+							margin-bottom: 11px;
+							margin-top: 5px;
+						}
+						.time-box{
+							text-align: center;
+							.time{
+								display: inline-block;
+								overflow: hidden;
+								width: 25%;
+								float: $left;
+								.num-time{
+									font-size: 22px;
+									line-height: 1.5em;
+									color: #222222;
+									position: relative;
+									font-weight: 500;
+								}
+
+								.num-day, .num-hour, .num-min{
+									&:after{
+										content: ":";
+										position: absolute;
+										#{$right}: 0px;
+									}
+								}
+								
+								.num-sec:after{
+									content: "";
+								}
+								.name-time{
+									text-align: center;
+								}
+								
+							}
+						}
+					}
+					.caption{
+						h4 {
+							margin-bottom: 10px;
+							a{
+								font-size: 18px;
+								color: #222222;
+							}
+						}
+					}
+					.ratings{
+						float: $right;
+						margin: 10px 0;
+					}
+					.price{
+						margin: 25px 0 30px 0!important;
+					}
+				}
+			}
+			.owl-nav{
+				@include owl-nav2(30px, 3px);
+				top: -47px;
+				#{$right}: 0;
+			}
+		}
+	}
+	.banner-wraps {
+		.banners img{
+			max-width:  100%;
+		}
+		.htmlconten1{
+			margin-bottom: 15px;	
+			.banner1-1 div{
+				margin-#{$right}: -8px;
+			}
+			.banner1-2 div{
+				margin-#{$left}: -8px;
+			}
+		}
+		.htmlconten2{
+			.banner2-1 div{
+				margin-#{$right}: -12px;
+			}
+			.banner2-2 div{
+				margin: 0 -4px;
+			}
+			.banner2-3 div{
+				margin-#{$left}: -12px;
+			}
+		}
+	}
+	.wrap-categoriesz{
+		padding-top: 20px;
+	}
+	.smartphone-tablet {
+		padding-top: 43px;
+	}
+	.smartphone-tablet-owl{
+		padding: 20px 0;
+		text-align: center;
+		.owl-nav{
+			@include owl-nav2(30px, 3px);
+			top: -64px;
+			#{$right}: 0;
+		}
+	}
+	.latest-blog{
+		padding-bottom: 22px;
+		padding-top: 24px;
+		.latest-owl{
+			margin-top: 20px;
+			.article-image{
+				padding: 5px;
+				position: relative;
+				border-radius: 3px;
+				border: 1px solid #dddddd;
+				a{
+					display: block;
+					overflow: hidden;
+					&:before{
+						background-color: inherit;
+						position: absolute;
+						top: 0;
+						bottom: 0;
+						#{$left}: 0;
+						#{$right}: 0;
+						content: "";
+						width: 100%;
+						height: 100%;
+						transition: all 0.5s;
+					}
+				}
+				&:hover{
+					a{
+						background: rgba(0,0,0,.3);
+						display: block;
+						overflow: hidden;
+					}
+					.text{
+						display: block;
+					}
+				}
+
+				.day{
+					@include day(17px, 17px);
+				}
+				.text{
+					display: none;
+					color: #fff;
+					position: absolute;
+					bottom: 0;
+					font-size: 14px;
+					padding: 0 10px;
+				}
+			}
+			.owl-nav{
+				@include owl-nav2(30px, 3px);
+				top: -64px;
+				#{$right}: 0;
+			}
+		} 
+	}
+}
+@media (max-width: 1199px){
+	
+	
+}
+@media (max-width: 991px) {
+	.so-spotlight1 {
+		padding-top: 0;
+		.sidebar-menu{
+			#menuHeading-1{
+				display: none;
+			}
+			.navbar-header{
+				position: relative;
+				top: -46px;
+				#{$right}: 0;
+				float: $right;
+				button{
+					margin-#{$right}: 0;
+				}
+			}
+		} 
+	}
+	
+	.so-spotlight1 .sidebar-menu .vertical-wrapper{
+		position: fixed;
+	}
+	.main-container #content .owl-dead-week .product-layout {
+		
+		.product-item-container .left-block .hover .icon-search{
+			display: none;
+		}
+	}
+	.product-layout .product-item-container {
+		.left-block .hover .icon-search{
+			display: none;
+		}
+		.right-block{
+			padding: 0;
+		}
+	}
+	.main-container .banner-wraps .htmlconten2 .banner2-2 div{
+		margin: 0;
+	}
+	.main-container .smartphone-tablet-owl .owl-nav{
+		top: 19;
+	}
+	.so-spotlight1 .policy-detail .banner-policy .policy {
+		.service-info{
+			padding-#{$right}: 7px;
+		}
+		.ico-policy{
+			background-position: 0 20px;
+			height: 80px;
+		}
+	}
+}
+@media (max-width: 767px) {
+	.so-spotlight1 .owl-slider-1 .owl-nav {
+		display: none;
+	}
+	.so-spotlight1 .policy-detail {
+		border-radius: 4px;
+		.banner-policy {
+			padding: 10px 0;
+			.policy{
+				width: 100%;
+				border: none;
+				padding: 10px 0;
+
+				.ico-policy{
+					height: 60px;
+					background-position: 0;
+				}
+			}
+		}
+		
+	}
+}

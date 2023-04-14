@@ -1,0 +1,215 @@
+/*******************************************
+*	Theme Name: Market
+*	Author: Magentech
+*	Author URI: http://www.magentech.com
+*	Version: 1.0.0
+*	Description: This is html5 Sass template 
+*******************************************/
+/*===============================================
+	[SASS DIRECTORY ]
+	
+    [1] Minxin Link
+    [2] Minxin Buton
+    [3] Minxin Triangle
+   
+    ==============================================*/
+.no-margin {
+  margin: 0 !important; }
+
+.marginbottom__3x {
+  margin-bottom: 30px; }
+
+@-webkit-keyframes animLoadedLogo {
+  to {
+    -webkit-transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0) scale3d(0.65, 0.65, 1); } }
+@keyframes animLoadedLogo {
+  to {
+    -webkit-transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0) scale3d(0.65, 0.65, 1);
+    transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0) scale3d(0.65, 0.65, 1); } }
+@-webkit-keyframes animLoadedLoader {
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1); } }
+@keyframes animLoadedLoader {
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1);
+    transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1); } }
+@-webkit-keyframes animLoadedHeader {
+  to {
+    -webkit-transform: translate3d(0, -100%, 0); } }
+@keyframes animLoadedHeader {
+  to {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0); } }
+@-webkit-keyframes animInitialHeader {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 800px, 0); } }
+@keyframes animInitialHeader {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 800px, 0);
+    transform: translate3d(0, 800px, 0); } }
+.footer-container .footer-top {
+  padding-top: 55px;
+  padding-bottom: 21px;
+  background: #f5f5f5; }
+  .footer-container .footer-top h3 {
+    color: #333333;
+    font-weight: 600;
+    position: relative;
+    padding: 0 0 18px;
+    text-transform: uppercase; }
+  .footer-container .footer-top span {
+    color: #777777;
+    font-weight: 500;
+    padding-right: 13px; }
+  .footer-container .footer-top a {
+    color: #777777;
+    line-height: 36px;
+    transition: all .3s; }
+    .footer-container .footer-top a:hover {
+      padding-left: 5px; }
+  .footer-container .footer-top p {
+    color: #777777;
+    margin: 0;
+    line-height: 30px; }
+  .footer-container .footer-top .collapsed-block {
+    width: 40%;
+    float: left; }
+  .footer-container .footer-top .box-information {
+    width: 20%;
+    float: left; }
+  .footer-container .footer-top .box-extras {
+    width: 20%;
+    float: left; }
+  .footer-container .footer-top .box-account {
+    width: 20%;
+    float: left; }
+.footer-container .footer-mid {
+  padding: 65px 0 45px 0; }
+  .footer-container .footer-mid .newsletter .news-letter h3 {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 2.8rem;
+    font-weight: 700;
+    width: 32%;
+    float: left; }
+    .footer-container .footer-mid .newsletter .news-letter h3 span {
+      font-size: 14px;
+      font-weight: 400;
+      color: #777777; }
+  .footer-container .footer-mid .newsletter .news-letter .email {
+    margin-top: 10px; }
+    .footer-container .footer-mid .newsletter .news-letter .email input {
+      display: inline-block;
+      width: 350px;
+      border: none;
+      border-bottom: 1px solid #eeeeee;
+      box-shadow: none; }
+    .footer-container .footer-mid .newsletter .news-letter .email .subcribe {
+      display: inline-block;
+      margin-left: 5px; }
+      .footer-container .footer-mid .newsletter .news-letter .email .subcribe button {
+        width: 100px;
+        height: 33px;
+        padding: 0;
+        border: none;
+        background: #333333;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 12px; }
+  .footer-container .footer-mid .newsletter .share-icon {
+    margin-top: 17px; }
+    .footer-container .footer-mid .newsletter .share-icon ul {
+      padding: 0;
+      margin: 0; }
+      .footer-container .footer-mid .newsletter .share-icon ul li {
+        background: #fff;
+        display: inline-block;
+        list-style: none;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center; }
+        .footer-container .footer-mid .newsletter .share-icon ul li a {
+          width: 30px;
+          height: 30px;
+          line-height: 30px;
+          text-align: center; }
+          .footer-container .footer-mid .newsletter .share-icon ul li a i {
+            font-size: 2rem;
+            color: #cecece; }
+
+.footer-bottom-block {
+  background: #f5f5f5;
+  padding-top: 32px;
+  padding-bottom: 30px;
+  position: relative; }
+  .footer-bottom-block .pay ul {
+    margin: 0;
+    float: right; }
+    .footer-bottom-block .pay ul li {
+      list-style: none;
+      display: inline-block;
+      padding-left: 7px; }
+      .footer-bottom-block .pay ul li img {
+        border-radius: 4px; }
+  .footer-bottom-block .text-footer-bot {
+    color: #cccccc;
+    padding-right: 15px; }
+    .footer-bottom-block .text-footer-bot p {
+      margin-bottom: 0;
+      margin-top: 5px;
+      font-size: 93%;
+      color: #777777; }
+  .footer-bottom-block .on-top a {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background: gray;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 3em;
+    color: #fff;
+    right: 20px;
+    bottom: 20px; }
+
+@media (max-width: 991px) {
+  .footer-container .footer-top h3 {
+    font-size: 18px; } }
+@media (max-width: 767px) {
+  .footer-container .footer-top .collapsed-block {
+    width: 100%; }
+  .footer-container .footer-top .box-information {
+    width: 100%; }
+  .footer-container .footer-top .box-extras {
+    width: 100%; }
+  .footer-container .footer-top .box-account {
+    width: 100%; }
+
+  .footer-container .footer-mid {
+    text-align: center;
+    padding: 20px 0; }
+    .footer-container .footer-mid .newsletter .news-letter .email input {
+      width: 100%; }
+    .footer-container .footer-mid .newsletter .news-letter .email .subcribe {
+      padding-top: 20px;
+      text-align: center;
+      width: 100%; }
+    .footer-container .footer-mid .newsletter .share-icon {
+      text-align: center;
+      margin-top: 30px; }
+    .footer-container .footer-mid .newsletter .news-letter h3 {
+      width: 100%;
+      float: none; }
+
+  .footer-bottom-block {
+    text-align: center;
+    padding: 20px 0; }
+    .footer-bottom-block .pay ul li {
+      padding: 5px; } }
+
+/*# sourceMappingURL=footer3.css.map */

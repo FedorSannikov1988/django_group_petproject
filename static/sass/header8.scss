@@ -1,0 +1,317 @@
+/*******************************************
+*   Theme Name: Market
+*   Author: Magentech
+*   Author URI: http://www.magentech.com
+*   Version: 1.0.0
+*   Description: This is html5 Sass template 
+*******************************************/
+
+// Override default value for $dir in directional.scss
+$dir: ltr;
+
+//** simple and lightweight mixin library for Sass **
+//-- url : http://bourbon.io/docs ---
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'directional/rem';
+
+//** Variables for responsive design in bootstrap with sass **
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'directional/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'directional/directional';
+
+//Mixins Utilities & Variables
+@import 'variables/orange';
+@import 'variables/utilities';
+@import "variables/theme_variables";
+
+
+/**************************************************************
+BLOCK HEADER 
+**************************************************************/
+#header{
+	top: 0;
+	#{$left}: 0;
+	height: 100%;
+	width: 300px;
+	background: #222222;
+	position: fixed;
+	z-index: 999;
+	.header-top{
+		font-size: 12px;
+		line-height: 40px;
+		padding: 0 15px;
+		.header-top-languages{
+			padding-top: 15px;
+			.currencies-block{
+				margin-#{$right}: 10px;
+			}
+			.languages-block form > a, .currencies-block form > a{
+				color: #ffffff;
+				border: 1px solid #3d3d3d;
+				background: #1b1b1b;
+				padding: 8px 15px;
+				
+			}
+		}
+		.navbar-logo{
+			padding: 20px 0;
+		}
+		.shopping_cart{
+			.btn-shopping-cart{
+				.top_cart{
+					overflow: hidden;
+
+					padding: 15px 0;
+					border-top: 1px solid #2d2d2d;
+					border-bottom: 1px solid #2d2d2d;
+					.shopcart{
+						.handle{
+							background: url(../img/theme/color/white/cart.png) no-repeat;
+							background-size: cover;
+							width: 25px;
+							height: 32px;
+							margin-#{$right}: 20px;
+						}
+						span{
+							color: #fff;
+							text-transform: uppercase;
+						}
+						.number-shopping-cart{
+							height: 24px;
+							width: 24px;
+							line-height: 24px;
+							text-align: center;
+							float: $right;
+							border-radius: 50%;
+							margin-top: 7px;
+						}
+					}
+				}
+				
+				.shoppingcart-box{
+					width: 115%;
+				}
+			}
+		}
+	}
+	.header-mid{ 
+		padding: 20px 0;
+		.megamenu-hori{
+			padding: 0;
+			.so-megamenu{
+				width: 80%;
+				.megamenu-wrapper{
+					ul.megamenu {
+						li {
+							float: none;
+							display: block;
+							width: 300px;
+							a.menu1{
+								padding: 10px 15px;
+								color: #cccccc;
+								transition: padding .3s;
+								&:hover{
+									background: #404040;
+									color: #fff;
+									padding-#{$left}: 20px;
+									&:before{
+										height: 38px;
+									}
+								}
+								&:before{
+									content: "";
+									width: 2px;
+									height: 0;
+									position: absolute;
+									top: 0;
+									#{$left}: 0;
+								}
+								strong{
+									font-weight: 600;
+									font-size: 14px;
+									text-transform: uppercase;
+								}
+							}
+							.sub-menu{
+								padding-top: 0;
+								#{$left}: 300px;
+								top: 0;
+								.content{
+									width: 850px;
+								}
+							}
+						}
+						li.menu-page{
+							.sub-menu .content{
+								width: 300px;
+							}
+						}
+						li.home{
+							.sub-menu{
+								top: -120px;
+							}
+							a{
+								font-weight: 600;
+								font-size: 14px;
+								text-transform: uppercase;
+
+							}
+
+						} 
+					}
+				}
+			}
+		}
+		.search{
+			
+			padding: 20px 15px;
+			.input-search{
+				width: 100%;
+				position: relative;
+				input{
+					background: #242424;
+					border: none;
+					border-top: 1px solid #4c4c4c;
+					border-bottom: 1px solid #4c4c4c;
+					height: 45px;
+					width: 100%;
+					outline: 0;
+				}
+				button{
+					background: none;
+					border: none;
+					position: absolute;
+					line-height: 45px;
+					padding: 0;
+					font-size: 18px;
+					color: #fff;
+					#{$right}: 15px;
+					top: 0;
+				}
+			}
+		}
+		.price-old{
+			text-decoration: line-through;
+		}
+		.collapsed-block{
+			padding: 0 15px;
+			ul{
+				padding: 0;
+				margin: 0;
+				li{
+					list-style: none;
+					padding: 10px 0;
+					a{
+						color: #fff;
+						font-weight: 600;
+						font-size: 14px;
+						text-transform: uppercase;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 1199px){
+	#header .header-mid .megamenu-hori .so-megamenu .megamenu-wrapper ul.megamenu li .sub-menu .content{
+		width: 660px;
+	}
+}
+
+@media (max-width: 991px){
+	#header.open{
+		#{$left}: 0;
+	}
+	.vidiblle-header{
+		position: fixed;
+		top: 50%;
+		transition: left 0.3s;
+		#{$left}: 0;
+		z-index: 2;
+		&.open{
+			#{$left}: 300px;
+			button i{
+				&:before{
+					content: "\f00d";
+				}
+			}
+		}
+		button{
+			background: #222222;
+			i{
+				color: #fff;
+			}
+			
+		}
+	}
+	#header{
+		#{$left}: -300px;
+		transition: left .3s;
+		.header-mid{
+			.megamenu-hori .so-megamenu {
+				.horizontal{
+					.navbar-header{
+						display: none;
+					}
+					.megamenu-wrapper{
+						position: relative;
+						transform: translate3d(0, 0, 0);
+						visibility: visible;
+						background: none;
+						border: none;
+						z-index: 4;
+						ul.megamenu > li {
+							width: auto;
+							border-top: none;
+							border-bottom: 1px solid #525252;
+							.sub-menu{
+								#{$left}: 0;
+								.content{
+									width: auto;
+									overflow-y: auto;
+									overflow-x: hidden; 
+									max-height: 370px;
+								}
+							}
+							&.active{
+								.close-menu{
+									background: none;
+								}
+							}
+							a.menu1{
+								color: #fff!important;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+@media (max-width: 767px){
+	#header{
+		width: 280px;
+		overflow-y: auto;
+		.megamenu-wrapper{
+			width: 260px;
+		}
+		.vidiblle-header.open{
+			#{$left}: 280px;
+		}
+		.header-top .shopping_cart .btn-shopping-cart .shoppingcart-box{
+			width: 100%;
+		}
+		.shopping_cart .shoppingcart-box a.view-cart{
+			margin-#{$right}: -11px;
+		}
+	}
+}

@@ -1,0 +1,340 @@
+/*******************************************
+*	Theme Name: Market
+*	Author: Magentech
+*	Author URI: http://www.magentech.com
+*	Version: 1.0.0
+*	Description: This is html5 Sass template 
+*******************************************/
+
+// Override default value for $dir in directional.scss
+$dir: ltr;
+
+//** simple and lightweight mixin library for Sass **
+//-- url : http://bourbon.io/docs ---
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'directional/rem';
+
+//** Variables for responsive design in bootstrap with sass **
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'directional/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'directional/directional';
+
+//Mixins Utilities & Variables
+@import 'variables/utilities';
+@import 'variables/theme_variables';
+@import "variables/blue";
+
+
+
+.footer-container{
+	direction: $dir;
+	background: $colorTitle;
+	.footer-top{
+		padding-top : 55px; 
+		padding-bottom: 21px;
+		h3{
+			color: #fff;
+			font-weight: 600;
+			font-size: 18px;
+			position: relative;
+			padding: 0 0 18px;
+			margin: 0 0 20px;
+			text-transform: uppercase;
+			&:after{
+				position: absolute;
+				content: "";
+				height: 2px;
+				width: 40px;
+				background:  $linkColor;
+				#{$left}: 0;
+				bottom: 0;
+			}
+		}
+		span{
+			color: #fff;
+			font-weight: 500;
+			padding-#{$right}: 10px;
+		}
+		a{
+			color: #cccccc;
+			line-height: 36px;
+			transition: all .3s;
+			&:hover{
+				padding-left: 5px;
+			}
+		}
+		p{
+			color: #cccccc;
+			margin: 0;
+			line-height: 30px;
+		}
+		.collapsed-block{
+			float: $left;
+			width: 40%;
+			.share-icon{
+				ul{
+					text-align: $left;
+					padding: 0;
+					margin-top: 32px;
+					li{
+						display: inline-block;
+						list-style: none;
+						width: 40px;
+						height: 40px;
+						line-height: 47px;
+						text-align: center;
+						background: #434343;
+						color: #fff;
+						border-radius: 3px;
+						margin-#{$right}: 5px;
+						a{
+							font-size: 1.5em;
+							
+							i{
+								background: none;
+								color: #fff;
+								padding: 0;
+							}
+						}
+					}
+					.twitter{
+						background:  #1d9ffa;
+						&:hover{
+							background: #b9def9;
+						}
+					}
+					.facebook{
+						background: #456bbe;
+						&:hover{
+							background: #8e9dbd;
+						}
+					}
+					.google{
+						background: #e04d3f;
+						&:hover{
+							background: #e2aba6;
+						}
+					}
+					.skype{
+						background: #4899d2;
+						&:hover{
+							background: #abc4d6;
+						}
+					}
+				}
+
+			}
+		}
+		.box-information{
+			width: 20%;
+			float: $left;
+		}
+		.box-extras{
+			width: 20%;
+			float: $left;
+		}
+		.box-account{
+			width: 20%;
+			float: $left;
+		}
+	}
+	.footer-mid{
+		background: #181818;
+		padding: 25px 0 18px 0;
+		.help{
+			
+			.footer-mid-left{
+				float: $left;
+				h3{
+					font-size: 20px;
+					font-weight: 600;
+					margin-top: 0;
+				}
+				p{
+					color: #cccccc;
+					margin: 0;
+				}
+			}
+			.footer-mid-right{
+				line-height: 100px;
+				.btn-sub{
+					i{
+						position: absolute;
+						color: #999999;
+						height: 40px;
+						font-size: 14px;
+						#{$left}: 36px;
+						top: 14px;
+						z-index: 999;
+					}
+					input{
+						float: $left;
+						width: 81%;
+						border-radius: 3px;
+						height: 45px;
+						position: relative;
+						padding-#{$left}: 55px;
+						border: none;
+						box-shadow: none;
+					}
+					button{
+						float: $right;
+						border-radius: 3px;
+						height: 45px;
+						text-transform: uppercase;
+						font-size: 12px;
+						
+					}
+				}
+			}
+		}
+	}
+}
+.footer-bottom-block {
+	background: $colorTitle;
+	padding: 32px 0;
+	position: relative;
+	.download{
+		float: $left;
+		h3{
+			float: $left;
+			margin: 0;
+			line-height: 40px;
+			color: #fff;
+			text-transform: uppercase;
+		}
+		a{
+			float: $right;
+			img{
+				border-radius: 3px;
+				margin-#{$right}: 10px;
+				border: 1px solid #fff;
+			}
+			
+		}
+	}
+	.pay{
+		
+		ul{
+			float: $right;
+			li{
+				list-style: none;
+				display: inline-block;
+				padding-#{$left}: 7px;
+				img{
+					border-radius: 4px;
+				}
+			}
+		}
+	}
+	.text-footer-bot{
+		color: #cccccc;
+		float: $right;
+		padding: 0 15px;
+		p{
+			margin-bottom: 0;
+			margin-top: 5px;
+		}
+	}
+	.on-top a{
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+		background: gray;
+		border-radius: 3px;
+		text-align: center;
+		font-size: 3em;
+		color: #fff;
+		#{$right}: 20px;
+		bottom: 20px;
+	}
+}
+
+
+@media (max-width: 1199px){
+	.footer-bottom-block .download h3{
+		display: none;
+	}
+	.footer-container .footer-mid .help {
+		.footer-mid-right .btn-sub input{
+			width: 79%;
+		}
+	}
+}
+@media (max-width: 991px){
+	.footer-container .footer-mid .help {
+		.footer-mid-right .btn-sub input{
+			width: 73%;
+		}
+	}
+	
+	.footer-bottom-block .download 
+	{
+		h3{
+			margin-#{$right}: 15px;
+		}
+		a{
+			float: none;
+		}
+	}
+	.footer-bottom-block {
+		text-align: center;
+		.pay{
+			padding-bottom: 20px;
+			ul{
+				padding: 0;
+				float: none;
+			}
+		}
+	}
+	.footer-bottom-block .text-footer-bot{
+		float: none;
+	}
+	
+}
+@media (max-width: 767px){
+	.footer-bottom-block .download{
+		padding-bottom: 20px;
+	}
+	.footer-bottom-block .pay ul{
+		padding: 0;
+	}
+	.footer-container .footer-mid .help .footer-mid-right .btn-sub i{
+		display: none;
+	}
+	.footer-container .footer-top {
+		.collapsed-block, .box-information, .box-extras, .box-account{
+			width: 100%
+		}
+	}
+	.footer-bottom-block .pay ul li{
+		padding: 7px;
+	}
+	.footer-container .footer-mid .help .footer-mid-right  {
+		.btn-sub{
+			text-align: center;
+			i{
+				display: none;
+			}
+			input{
+				padding-#{$left}: 12px;
+				width: 100%;
+				float: none;
+			}
+			button{
+				float: none;
+			}
+		}
+	}
+	.footer-container .footer-mid .help .footer-mid-left{
+		text-align: center;
+		padding-bottom: 20px;
+	}
+}

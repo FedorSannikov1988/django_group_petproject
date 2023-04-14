@@ -1,0 +1,116 @@
+/*******************************************
+*	Theme Name: Market
+*	Author: Magentech
+*	Author URI: http://www.magentech.com
+*	Version: 1.0.0
+*	Description: This is html5 Sass template 
+*******************************************/
+/*===============================================
+	[SASS DIRECTORY ]
+	
+    [1] Minxin Link
+    [2] Minxin Buton
+    [3] Minxin Triangle
+   
+    ==============================================*/
+.no-margin {
+  margin: 0 !important; }
+
+.marginbottom__3x {
+  margin-bottom: 30px; }
+
+@-webkit-keyframes animLoadedLogo {
+  to {
+    -webkit-transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0) scale3d(0.65, 0.65, 1); } }
+@keyframes animLoadedLogo {
+  to {
+    -webkit-transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0) scale3d(0.65, 0.65, 1);
+    transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0) scale3d(0.65, 0.65, 1); } }
+@-webkit-keyframes animLoadedLoader {
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1); } }
+@keyframes animLoadedLoader {
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1);
+    transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1); } }
+@-webkit-keyframes animLoadedHeader {
+  to {
+    -webkit-transform: translate3d(0, -100%, 0); } }
+@keyframes animLoadedHeader {
+  to {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0); } }
+@-webkit-keyframes animInitialHeader {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 800px, 0); } }
+@keyframes animInitialHeader {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 800px, 0);
+    transform: translate3d(0, 800px, 0); } }
+.footer-container {
+  background: #efefef; }
+  .footer-container .footer-top {
+    padding: 50px 0; }
+    .footer-container .footer-top h3 {
+      color: #000;
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase; }
+    .footer-container .footer-top ul {
+      padding: 0;
+      margin: 0; }
+      .footer-container .footer-top ul li {
+        list-style: none; }
+        .footer-container .footer-top ul li a {
+          color: #474747;
+          transition: all .5s ease-in-out; }
+          .footer-container .footer-top ul li a:hover {
+            padding-left: 5px; }
+  .footer-container .footer-mid {
+    text-align: center; }
+    .footer-container .footer-mid .footer-mid-img {
+      padding: 20px 15px; }
+    .footer-container .footer-mid .footer-mid-link {
+      padding-bottom: 20px; }
+      .footer-container .footer-mid .footer-mid-link ul {
+        margin: 0;
+        padding: 0; }
+        .footer-container .footer-mid .footer-mid-link ul li {
+          list-style: none;
+          display: inline-block; }
+          .footer-container .footer-mid .footer-mid-link ul li a {
+            color: #000;
+            text-transform: uppercase;
+            font-weight: 600;
+            padding: 0 15px;
+            position: relative;
+            display: inline-block; }
+            .footer-container .footer-mid .footer-mid-link ul li a:after {
+              content: "";
+              display: block;
+              width: 1px;
+              height: 80%;
+              position: absolute;
+              top: 2px;
+              right: 0;
+              background: #000; }
+          .footer-container .footer-mid .footer-mid-link ul li:last-child a:after {
+            height: 0; }
+    .footer-container .footer-mid .footer-mid-text p {
+      width: 80%;
+      margin: auto; }
+    .footer-container .footer-mid .payment {
+      padding: 30px 15px; }
+  .footer-container .footer-bot {
+    background: #272420;
+    color: #a8a8a8;
+    text-align: center;
+    padding: 15px 0; }
+    .footer-container .footer-bot p {
+      margin: 0; }
+
+/*# sourceMappingURL=footer10.css.map */

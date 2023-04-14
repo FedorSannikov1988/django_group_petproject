@@ -1,0 +1,237 @@
+/*******************************************
+*   Theme Name: Market
+*   Author: Magentech
+*   Author URI: http://www.magentech.com
+*   Version: 1.0.0
+*   Description: This is html5 Sass template 
+*******************************************/
+
+// Override default value for $dir in directional.scss
+$dir: ltr;
+
+//** simple and lightweight mixin library for Sass **
+//-- url : http://bourbon.io/docs ---
+@import 'bourbon/bourbon';
+
+//** Mixins for Rem Font Sizing **
+//-- url : http://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@import 'directional/rem';
+
+//** Variables for responsive design in bootstrap with sass **
+//-- url : https://gist.github.com/webinfinita/11407836
+@import 'directional/bootstrap_breakpoints';
+
+//** Makes supporting both left-to-right (LTR) and right-to-left (RTL) easy.**
+//-- url : https://github.com/tysonmatanich/directional-scss
+@import 'directional/directional';
+
+//Mixins Utilities & Variables
+@import 'variables/red';
+@import 'variables/utilities';
+@import "variables/theme_variables";
+
+
+/**************************************************************
+BLOCK HEADER 
+**************************************************************/
+
+.header-top{
+	background: #111111;
+	padding: 20px 0;
+	a{
+		color: #ffffff;
+		
+	}
+	.languages-block form > a, .currencies-block form > a{
+		color: #ffffff;
+		
+	}
+	.header-top-left{
+		line-height: 38px;
+		.languages-block, .currencies-block{
+			padding: 0 20px;
+		}
+		.languages-block{
+			@include border-top;
+			padding-#{$left}: 0;
+		}
+	}
+	.navbar-logo{
+		line-height: 38px;
+	}
+	.header-top-right{
+		line-height: 38px;
+		ul {
+			margin: 0;
+			li{
+				padding: 0 20px;
+				@include border-top;
+				&:last-child{
+					padding-#{$right}: 0;
+					&:after{
+						height: 0;
+					}
+				}
+			}
+		}
+		
+	}
+}
+.header-center{
+	padding: 25px 0;
+	.megamenu-hori .so-megamenu{
+		display: flex;
+		justify-content: center;
+		li a {
+			padding: 15px 30px;
+			strong{
+				color: #111111;
+				font-weight: 600;
+				font-size: 14px;
+				text-transform: uppercase;
+			}
+		}
+		
+		li.home a{
+			font-weight: 600;
+			font-size: 14px;
+			text-transform: uppercase;
+		}
+	}
+	.shopping_cart{
+		position: absolute;
+		top: 0;
+		#{$right}: 0;
+		.search{
+			float: $right;
+			#{$right}: 16px;
+			top: 5px;
+			position: relative;
+			.input-search{
+				display: none;
+			}
+
+			.input-search.open{
+				display: block;
+				padding: 0;
+				width: 220px;
+				top: 53px;
+				#{$right}: -60px;
+				position: absolute;
+				z-index: 2;
+				input{
+					height: 33px;
+					padding-#{$right}: 32px;
+					width: 100%;
+					border: 1px solid #aaa;
+				}
+				button{
+					float: $right;
+					position: absolute;
+					#{$right}: 5px;
+					top: 5px;
+					color: #000;
+				}
+			}
+			button{
+				background: none;
+				color: #111111;
+				border: none;
+				font-size: 2rem;
+				outline: none;
+			}
+			.btn-search.open{
+				display: block;
+				overflow: hidden;
+				width: 50px;
+				float: $right;
+				margin-#{$right}: -7px;
+				i:before{
+					content: "\f00d";
+				}
+			}
+
+		}
+		.btn-shopping-cart{
+			float: $right;
+			.shopcart{
+				display: block;
+				overflow: hidden;
+				.handle{
+					position: relative;
+					background: url(../img/theme/color/black/cart.png) no-repeat ;
+					width: 31px;
+					height: 40px;
+					margin: 5px 10px;
+
+				}
+				.number-shopping-cart{
+					position: absolute;
+					height: 22px;
+					width: 22px;
+					line-height: 22px;
+					background: #ff5555;
+					color: #fff;
+					border-radius: 100px;
+					text-align: center;
+					bottom: 0;
+					#{$left}: 0;
+				}
+			}
+			.shoppingcart-box{
+				#{$right}: 0;
+				margin-top: 10px;
+				width: 330px;
+				border: none;
+				box-shadow: 0 0px 10px 0px rgba(0, 0, 0, 0.2);
+				&:before{
+					border: none;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 991px){
+	.header-center{
+		padding: 5px 0;
+		.megamenu-hori .so-megamenu{
+			display: block;
+		}
+		.shopping_cart .btn-shopping-cart .shoppingcart-box{
+			margin-top: 0;
+		}
+	}
+
+	 
+}
+
+@media (max-width: 767px){
+	.header-top {
+		padding-top: 5px;
+		.header-top-left{
+			.languages-block, .currencies-block{
+				padding: 8px 12px;
+
+			}
+			.languages-block{
+				padding-#{$left}: 0;
+			}
+		}
+		.header-top-right{
+			position: absolute;
+			top: 5px;
+			#{$right}: 0;
+			ul li{
+				padding: 0 15px;
+			}
+		}
+		.navbar-logo{
+			margin: 30px 0;
+			text-align: center;
+		}
+	}
+	.header-center{
+		padding: 10px 0;
+	}
+}

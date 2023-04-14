@@ -1,0 +1,175 @@
+/*******************************************
+*	Theme Name: Market
+*	Author: Magentech
+*	Author URI: http://www.magentech.com
+*	Version: 1.0.0
+*	Description: This is html5 Sass template 
+*******************************************/
+/*===============================================
+	[SASS DIRECTORY ]
+	
+    [1] Minxin Link
+    [2] Minxin Buton
+    [3] Minxin Triangle
+   
+    ==============================================*/
+.no-margin {
+  margin: 0 !important; }
+
+.marginbottom__3x {
+  margin-bottom: 30px; }
+
+@-webkit-keyframes animLoadedLogo {
+  to {
+    -webkit-transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0) scale3d(0.65, 0.65, 1); } }
+@keyframes animLoadedLogo {
+  to {
+    -webkit-transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0) scale3d(0.65, 0.65, 1);
+    transform: translate3d(0, 100%, 0) translate3d(0, 50px, 0) scale3d(0.65, 0.65, 1); } }
+@-webkit-keyframes animLoadedLoader {
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1); } }
+@keyframes animLoadedLoader {
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1);
+    transform: translate3d(0, -100%, 0) scale3d(0.3, 0.3, 1); } }
+@-webkit-keyframes animLoadedHeader {
+  to {
+    -webkit-transform: translate3d(0, -100%, 0); } }
+@keyframes animLoadedHeader {
+  to {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0); } }
+@-webkit-keyframes animInitialHeader {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 800px, 0); } }
+@keyframes animInitialHeader {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 800px, 0);
+    transform: translate3d(0, 800px, 0); } }
+.footer-top {
+  padding: 100px 0;
+  background: #f8f8f8; }
+  .footer-top .sign-up h3 {
+    font-weight: 500;
+    font-size: 36px;
+    color: #333333;
+    line-height: 50px;
+    margin: 0;
+    text-transform: uppercase; }
+  .footer-top .email input {
+    width: 75%;
+    float: left;
+    height: 50px;
+    box-shadow: none; }
+  .footer-top .email .subcribe {
+    width: 25%;
+    float: left;
+    padding-left: 10px; }
+  .footer-top .email button {
+    height: 50px;
+    border: none;
+    background: #333333;
+    color: #fff;
+    text-transform: uppercase; }
+
+.footer-b {
+  background: #222222; }
+  .footer-b .footer-mid {
+    padding: 100px 0 60px 0;
+    text-align: center;
+    border-bottom: 1px dashed #434343; }
+    .footer-b .footer-mid ul {
+      list-style: none;
+      padding: 30px 0 0 0; }
+      .footer-b .footer-mid ul li {
+        display: inline-block;
+        margin: 0 5px; }
+        .footer-b .footer-mid ul li a {
+          width: 40px;
+          height: 40px;
+          display: block;
+          color: #fff;
+          background: #2d2d2d;
+          line-height: 40px;
+          border-radius: 50%;
+          font-size: 14px; }
+  .footer-b .footer-bot {
+    padding: 100px 0 60px 0;
+    color: #cccccc; }
+    .footer-b .footer-bot li {
+      padding: 10px 0; }
+      .footer-b .footer-bot li a {
+        color: #cccccc;
+        transition: padding 0.3s ease-in-out; }
+        .footer-b .footer-bot li a:hover {
+          padding-left: 5px; }
+    .footer-b .footer-bot h3 {
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px; }
+    .footer-b .footer-bot span {
+      margin-right: 10px;
+      color: #fff; }
+
+.footer-bottom-block {
+  padding: 30px 0 30px 0;
+  position: relative; }
+  .footer-bottom-block .text-footer-bot p {
+    line-height: 32px;
+    margin: 0; }
+  .footer-bottom-block .pay ul {
+    list-style: none; }
+    .footer-bottom-block .pay ul li {
+      display: inline-block;
+      float: right;
+      margin: 0 3px; }
+  .footer-bottom-block .on-top a {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background: gray;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 3em;
+    color: #fff;
+    right: 20px;
+    bottom: 20px; }
+
+@media (max-width: 1199px) {
+  .footer-top {
+    padding: 50px 0; }
+
+  .footer-b .footer-mid, .footer-b .footer-bot {
+    padding: 50px 0; }
+
+  .footer-bottom-block {
+    padding: 30px 0; } }
+@media (max-width: 767px) {
+  .footer-top .news-letter {
+    text-align: center; }
+    .footer-top .news-letter .email .subcribe {
+      width: 100%;
+      padding-top: 20px; }
+    .footer-top .news-letter input {
+      width: 100%; }
+
+  .footer-bottom-block .pay ul {
+    padding: 0;
+    margin: 0 -3px; }
+    .footer-bottom-block .pay ul li {
+      float: none;
+      margin: 3px; }
+
+  .footer-top .sign-up h3 {
+    margin-bottom: 20px; }
+
+  .footer-bottom-block {
+    text-align: center; } }
+
+/*# sourceMappingURL=footer4.css.map */

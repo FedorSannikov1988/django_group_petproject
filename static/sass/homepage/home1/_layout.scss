@@ -1,0 +1,53 @@
+
+.so-spotlight3{
+	hr{
+		@include hr-3;
+	}
+	h4{
+		margin-top: 10px!important;
+		a{
+			font-size: 14px!important;
+			font-weight: 400!important;
+			color: #222222;
+			&:hover{
+				color: $linkColor;
+			}
+		}
+
+	} 
+	h3{
+		font-size: 22px;
+		font-weight: 400;
+		color: #222222;
+	}
+	.owl-new-arrivals, .owl-featured, .owl-bestsellers, .owl-hot-sale{
+		.owl-nav{
+			@include owl-nav2(30px, 3px);
+			top: -17%;
+			#{$right}: 0%;
+		}
+	}
+	.brands{
+		margin-top: 47px;
+		.owl-fetured-brand{
+			margin: 25px 0;
+			position: relative;
+			.img-brand{
+				img{
+					transition: all .5s;
+					&:hover{
+						-webkit-transform: scale(1.2);
+						-moz-transform: scale(1.2);
+						transform: scale(1.2);
+					}
+				}
+			}
+			.owl-nav{
+				display: block!important;
+				@include owl-nav2(30px, 3px);
+				top: -70px;
+				#{$right}: 0;
+			}
+		}
+	}
+}

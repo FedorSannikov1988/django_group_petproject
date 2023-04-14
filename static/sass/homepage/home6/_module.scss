@@ -1,0 +1,220 @@
+.content-main{
+	.container-fluid{
+		padding: 0;
+	}
+
+	.so-spotlight1{
+		.owl-loaded{
+			.owl-nav{
+				@include owl-nav(90px, 50%);
+				div{
+					background: rgba(225,225,225, .3);
+					color: #9a989c;
+					font-size: 40px;
+					line-height: 90px;
+					text-align: center;
+					top: 50%;
+					transform: translateY(-50%);
+					color: #fff;
+					&:hover{
+						background: rgba(225,225,225, .3);
+						&:after{
+							color: $linkColor;
+						}
+						
+					}
+				}
+				.owl-next{
+					#{$right}: 20px; 
+				}
+				.owl-prev{
+					#{$left}: 20px;
+				}
+			}
+		}
+	}
+	.so-spotlight2{
+		.policy-detail{
+			.banner-policy{
+				.policy{
+					width: 33.3333%;
+					float: $left;
+					display: block;
+					text-align: center;
+					padding: 50px 0;
+					.service-info{
+						h3{
+							font-size: 15px;
+							font-weight: 600;
+							color: #333333;
+						}
+						p{
+							color: #777777;
+						}
+					}
+					.icon-policy{
+						height: 54px;
+						width: 100%;
+						opacity: 0.5;
+					}
+					&:hover{
+						box-shadow: 0 0 30px rgba(0,0,0, .1); 
+						.icon-policy{
+							opacity: 1;
+						}
+					}
+					&:last-child{
+						border: none;
+					}
+				}
+				.policy1{
+					.icon-policy{
+						background: url(../img/theme/icon/home-3/icon-1.jpg) no-repeat center;
+					}
+				}
+				.policy2{
+					.icon-policy{
+						background: url(../img/theme/icon/home-3/icon-2.jpg) no-repeat center;
+					}
+				}
+				.policy3{
+					.icon-policy{
+						background: url(../img/theme/icon/home-3/icon-3.jpg) no-repeat center;
+					}
+				}
+			}
+		}
+	}
+	.so-spotlight3{
+		text-align: center;
+		padding: 60px 0;
+		background: #fafafa;
+		.owl-carousel{
+			.owl-stage{
+				padding-bottom: 1px;
+			}
+			.product-layout {
+				@include product-layout-home-6($linkColor, 0);
+			}
+		}
+	}
+	.so-spotlight4{
+		.block-banner, .block-product{
+			width: 50%;
+			float: $left;
+		}
+		.block-product{
+			text-align: center;
+			padding: 0 20px;
+			hr{
+				@include hr-home-3;
+			}
+			.owl-carousel{
+				.item .product-layout {
+					@include product-layout-home-6($linkColor, 0);
+					.product-item-container .left-block .hover-1 ul li{
+						margin: 0;
+					}
+				}
+				.owl-dots{
+					display: block;
+					position: absolute;
+					#{$left}: 50%;
+					bottom: -20px;
+					transform: translateX(-50%);
+					.owl-dot{
+						display: inline-block;
+						width: 12px;
+						height: 12px;
+						border: 2px solid #cccccc;
+						margin: 6px;
+						&:hover, &.active{
+							background: $linkColor;
+							border-color: $linkColor;
+						}
+					}
+				}
+			}
+			
+		}
+	}
+	.so-spotlight5{
+		padding: 50px 0;
+		.collections{
+			margin: 0 -10px;
+			.collection{
+				width: 20%;
+				float: $left;
+				display: inline-block;
+				padding: 0 10px;
+				a{
+					text-align: center;
+					.img-collection{
+						position: relative;
+						&:before{
+							content: "";
+							position: absolute;
+							width: 100%;
+							height: 100%;
+							top: 0;
+							bottom: 0;
+							#{$right}: 0;
+							#{$left}: 0;
+							background: inherit;
+						}
+					}
+					
+					h4{
+						font-size: 18px;
+						text-transform: uppercase;
+						font-weight: 700;
+					}
+					&:hover{
+						.img-collection{
+							background: rgba(225,225,225, .4);
+						}
+					}
+				}
+			}
+		}
+	}
+	.so-spotlight6{
+		.brand{
+			.item-brand:hover{
+				box-shadow: 0 0 20px rgba(0,0,0, .1);
+			}
+		}	
+	}
+}
+
+@media (max-width: 1199px){
+	.product-layout .product-item-container .left-block .hover-1 ul .icon-search{
+		display: none!important;
+	}
+	.content-main .so-spotlight4 .block-product .owl-carousel .owl-dots{
+		display: none;
+	}
+}
+
+@media (max-width: 991px){
+	.content-main .so-spotlight4 .block-product{
+		width: 100%;
+	}
+}
+
+@media (max-width: 767px){
+	.content-main {
+		.so-spotlight1 .owl-loaded .owl-nav {
+			display: none;
+		}
+		.so-spotlight2 .policy-detail .banner-policy .policy{
+			width: 100%;
+			padding: 20px 0;
+		}
+		.so-spotlight5 .collections .collection{
+			width: 100%;
+			padding: 20px 0;
+		}
+	}
+	
+}
