@@ -1,0 +1,228 @@
+{% extends 'base_entry.html' %}
+{% load static %}
+
+<!-- Favicon
+============================================ -->
+{% block favicon %}
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/apple-touch-icon-144-precomposed.png' %}">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/apple-touch-icon-114-precomposed.png' %}">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/apple-touch-icon-72-precomposed.png' %}">
+<link rel="apple-touch-icon-precomposed" href="{% static 'ico/apple-touch-icon-57-precomposed.png' %}">
+<link rel="shortcut icon" href="{% static 'ico/favicon.png' %}">
+{% endblock %}
+
+<!-- Libs CSS
+============================================ -->
+{% block libs_css %}
+<link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+<link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+<link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+<link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
+<link href="{% static 'js/owl-carousel/assets/owl.theme.default.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
+<link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
+{% endblock %}
+
+<!-- Theme CSS
+============================================ -->
+{% block theme_css %}
+<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
+<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
+<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
+<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
+<link href="{% static 'css/header1.css' %}" rel="stylesheet">
+<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block stile_body_two_line %}
+    <body class="res layout-subpage">
+        <div id="wrapper" class="wrapper-full ">
+{% endblock %}
+
+<!-- Main Container  -->
+{% block main_container %}
+<div class="main-container container">
+    <ul class="header-main ">
+        <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+        <li>Регистрация</li>
+    </ul>
+
+    <div class="row">
+        <div id="content" class="col-sm-12">
+            <h2 class="title">Регистрация аккаунта</h2>
+            <p>Если вы уже зарегистрированы, пожалуйста, войдите в<a href="#">свою учетную запись</a>.</p>
+            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal account-register clearfix">
+                <fieldset id="account">
+                    <legend>Ваши персональные данные</legend>
+                    <div class="form-group required" style="display: none;">
+                        <label class="col-sm-2 control-label">Customer Group</label>
+                        <div class="col-sm-10">
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="customer_group_id" value="1" checked="checked"> Default
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-firstname">Имя</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="firstname" value="" placeholder="Имя" id="input-firstname" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-lastname">Фамилия</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="lastname" value="" placeholder="Last Фамилия" id="input-lastname" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-email">E-Mail</label>
+                        <div class="col-sm-10">
+                            <input type="email" name="email" value="" placeholder="E-Mail" id="input-email" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-telephone">Телефон</label>
+                        <div class="col-sm-10">
+                            <input type="tel" name="telephone" value="" placeholder="Телефон" id="input-telephone" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-fax">Факс</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="fax" value="" placeholder="Факс" id="input-fax" class="form-control">
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset id="address">
+                    <legend>Ваш адрес</legend>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-company">Название компании</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="company" value="" placeholder="Название компании" id="input-company" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-address-1">Адрес 1</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="address_1" value="" placeholder="Адрес 1" id="input-address-1" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="input-address-2">Адрес 2</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="address_2" value="" placeholder="Адрес 2" id="input-address-2" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-city">Город</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="city" value="" placeholder="Город" id="input-city" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-postcode">Индекс</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="postcode" value="" placeholder="Индекс" id="input-postcode" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-country">Страна</label>
+                        <div class="col-sm-10">
+                            <select name="country_id" id="input-country" class="form-control">
+                                <option value=""> --- Выберете из списка --- </option>
+                                <option value="244">Исландские острова</option>
+                                <option value="1">Россия</option>
+                                <option value="2">Афганистан</option>
+                                <option value="3">Албания</option>
+                                <option value="4">Алжир</option>
+                                <option value="5">Франция</option>
+                                <option value="6">Андорра</option>
+                                <option value="7">Ангола</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-zone">Область / Штат</label>
+                        <div class="col-sm-10">
+                            <select name="zone_id" id="input-zone" class="form-control">
+                                <option value=""> --- Выберете из списка --- </option>
+                                <option value="3513">Астраханская</option>
+                                <option value="3514">Архангельская</option>
+                                <option value="3515">Адыгейская</option>
+                                <option value="3516">Владимирская</option>
+                                <option value="3516">Московская</option>
+                                <option value="3516">Иркутская</option>
+                                <option value="3516">Томская</option>
+
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Ваш пароль</legend>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-password">Пароль</label>
+                        <div class="col-sm-10">
+                            <input type="password" name="password" value="" placeholder="Пароль" id="input-password" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label class="col-sm-2 control-label" for="input-confirm">Подтвердите пароль</label>
+                        <div class="col-sm-10">
+                            <input type="password" name="confirm" value="" placeholder="Подтвердите пароль" id="input-confirm" class="form-control">
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Новостная рассылка</legend>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Подписаться</label>
+                        <div class="col-sm-10">
+                            <label class="radio-inline">
+                                <input type="radio" name="newsletter" value="1"> Да
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="newsletter" value="0" checked="checked"> Нет
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="buttons">
+                    <div class="pull-right">Я прочитал и даю согласие на <a href="#" class="agree"><b>обработку персональных данных</b></a>
+                        <input class="box-checkbox" type="checkbox" name="agree" value="1"> &nbsp;
+                        <input type="submit" value="Continue" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<!-- //Main Container -->
+
+<!-- Include Libs & Plugins
+============================================ -->
+{% block libs_and_plugins %}
+<script type="text/javascript" src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/owl-carousel/owl.carousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/themejs/libs.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/unveil/jquery.unveil.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/countdown/jquery.countdown.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/datetimepicker/moment.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
+{% endblock %}
+
+
+
+<!-- Theme files
+============================================ -->
+{% block theme_files %}
+<script type="text/javascript" src="{% static 'js/themejs/so_megamenu.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/themejs/addtocart.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/themejs/application.js' %}"></script>
+{% endblock %}
