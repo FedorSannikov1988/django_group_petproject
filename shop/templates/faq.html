@@ -1,0 +1,151 @@
+			{% extends 'base.html' %}
+			{% load static %}
+
+
+	<!-- Mobile specific metas
+	============================================ -->
+<!--	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">-->
+
+	<!-- Favicon
+	============================================ -->
+{% block favicon %}
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/apple-touch-icon-144-precomposed.png' %}">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/apple-touch-icon-114-precomposed.png' %}">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/apple-touch-icon-72-precomposed.png' %}">
+	<link rel="apple-touch-icon-precomposed" href="{% static 'ico/apple-touch-icon-57-precomposed.png' %}">
+	<link rel="shortcut icon" href="{% static 'ico/favicon.png' %}">
+{% endblock %}
+
+	<!-- Google web fonts
+	============================================ -->
+	<link href="{% static 'https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' %}" rel="stylesheet">
+
+    <!-- Libs CSS
+    ============================================ -->
+{% block libs_css %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
+    <link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
+{% endblock %}
+	<!-- Theme CSS
+	============================================ -->
+{% block theme_css %}
+	<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
+	<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
+	<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
+	<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
+	<link href="{% static 'css/header1.css' %}" rel="stylesheet">
+	<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
+{% endblock %}
+	<!-- <link href="css/responsive.css" rel="stylesheet"> -->
+
+
+
+{% block stile_body_two_line %}
+	<body class="res layout-subpage">
+	<div id="wrapper" class="wrapper-full ">
+{% endblock %}
+
+
+		<!-- Main Container  -->
+        {% block main_container %}
+		<div class="main-container container">
+			<ul class="header-main ">
+				<li class="home"><a href="{% url 'index' %}">Главная   </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+				<li>   Вопрос, ответ</li>
+			</ul>
+
+			<div class="row">
+				<div id="content" class="col-sm-12">
+					<h3>Got Questions? We’ve Got Answers!</h3>
+					<p>Asunt in anim uis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in anim id est laborum. Allamco laboris nisi ut aliquip ex ea commodo consequat. Aser velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in anim id est laborum.</p>
+					<p>
+						<br>
+					</p>
+                    <div class="col-sm-12">
+                        <ul class="yt-accordion">
+                            <li class="accordion-group">
+                                <h3 class="accordion-heading"><i class="fa fa-plus-square"></i><span>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</span></h3>
+                                <div class="accordion-inner">
+                                    <p>Fusce eu dui. Integer vel nibh sit amet turpis vulputate aliquet. Phasellus id nisi vitae odio pretium aliquam. Pellentesque a leo. Donec consequat lectus sed felis. Quisque vestibulum massa. Nulla ornare. Nulla libero. Donec et mi eu massa ultrices scelerisque. </p>
+                                    <p>Nullam ac nisi non eros gravida venenatis. Ut euismod, turpis sollicitudin lobortis pellentesque, libero massa dapibus dui, eu dictum justo urna et mi. Integer dictum est vitae sem. Vestibulum justo. Nulla mauris ipsum, convallis ut, vestibulum eu, tincidunt vel, nisi.</p>
+                                </div>
+                            </li>
+                            <li class="accordion-group">
+                                <h3 class="accordion-heading"><i class="fa fa-plus-square"></i><span>Donec eros tellus scelerisque nec rhoncus eget laoreet sit amet</span></h3>
+                                <div class="accordion-inner">
+                                    <p>Fusce eu dui. Integer vel nibh sit amet turpis vulputate aliquet. Phasellus id nisi vitae odio pretium aliquam. Pellentesque a leo. Donec consequat lectus sed felis. Quisque vestibulum massa. Nulla ornare. Nulla libero. Donec et mi eu massa ultrices scelerisque. </p>
+                                    <p>Nullam ac nisi non eros gravida venenatis. Ut euismod, turpis sollicitudin lobortis pellentesque, libero massa dapibus dui, eu dictum justo urna et mi. Integer dictum est vitae sem. Vestibulum justo. Nulla mauris ipsum, convallis ut, vestibulum eu, tincidunt vel, nisi.</p>
+                                </div>
+                            </li>
+                            <li class="accordion-group">
+                                <h3 class="accordion-heading"><i class="fa fa-plus-square"></i><span>Curabitur molestie euismod erat. Proin eros odio?</span></h3>
+                                <div class="accordion-inner" >
+                                    <p>Fusce eu dui. Integer vel nibh sit amet turpis vulputate aliquet. Phasellus id nisi vitae odio pretium aliquam. Pellentesque a leo. Donec consequat lectus sed felis. Quisque vestibulum massa. Nulla ornare. Nulla libero. Donec et mi eu massa ultrices scelerisque.</p>
+                                    <p> Nullam ac nisi non eros gravida venenatis. Ut euismod, turpis sollicitudin lobortis pellentesque, libero massa dapibus dui, eu dictum justo urna et mi. Integer dictum est vitae sem. Vestibulum justo. Nulla mauris ipsum, convallis ut, vestibulum eu, tincidunt vel, nisi.</p>
+                                </div>
+                            </li>
+                            <li class="accordion-group">
+                                <h3 class="accordion-heading"><i class="fa fa-plus-square"></i><span>In scelerisque sem at dolor. Maecenas mattis</span></h3>
+                                <div class="accordion-inner">
+                                    <p>Fusce eu dui. Integer vel nibh sit amet turpis vulputate aliquet. Phasellus id nisi vitae odio pretium aliquam. Pellentesque a leo. Donec consequat lectus sed felis. Quisque vestibulum massa. Nulla ornare. Nulla libero. Donec et mi eu massa ultrices scelerisque. Nullam ac nisi non eros gravida venenatis. Ut euismod, turpis sollicitudin lobortis pellentesque, libero massa dapibus dui, eu dictum justo urna et mi. Integer dictum est vitae sem. Vestibulum justo. Nulla mauris ipsum, convallis ut, vestibulum eu, tincidunt vel, nisi.</p>
+                                </div>
+                            </li>
+                            <li class="accordion-group">
+                                <h3 class="accordion-heading"><i class="fa fa-plus-square"></i><span>Nunc feugiat mi a tellus consequat imperdiet</span></h3>
+                                <div class="accordion-inner">
+                                    <p>Fusce eu dui. Integer vel nibh sit amet turpis vulputate aliquet. Phasellus id nisi vitae odio pretium aliquam. Pellentesque a leo. Donec consequat lectus sed felis. Quisque vestibulum massa. Nulla ornare. Nulla libero. Donec et mi eu massa ultrices scelerisque. Nullam ac nisi non eros gravida venenatis. Ut euismod, turpis sollicitudin lobortis pellentesque, libero massa dapibus dui, eu dictum justo urna et mi. Integer dictum est vitae sem. Vestibulum justo. Nulla mauris ipsum, convallis ut, vestibulum eu, tincidunt vel, nisi.</p>
+                                </div>
+                            </li>
+                            <li class="accordion-group">
+                                <h3 class="accordion-heading"><i class="fa fa-plus-square"></i><span>Vestibulum ante ipsum primis in faucibus orci luctus </span></h3>
+                                <div class="accordion-inner" >
+                                    <p>Fusce eu dui. Integer vel nibh sit amet turpis vulputate aliquet. Phasellus id nisi vitae odio pretium aliquam. Pellentesque a leo. Donec consequat lectus sed felis. Quisque vestibulum massa. Nulla ornare. Nulla libero. Donec et mi eu massa ultrices scelerisque. Nullam ac nisi non eros gravida venenatis. Ut euismod, turpis sollicitudin lobortis pellentesque, libero massa dapibus dui, eu dictum justo urna et mi. Integer dictum est vitae sem. Vestibulum justo. Nulla mauris ipsum, convallis ut, vestibulum eu, tincidunt vel, nisi.</p>
+                                </div>
+                            </li>
+                            <li class="accordion-group">
+                                <h3 class="accordion-heading"><i class="fa fa-plus-square"></i><span>SmartAddons membership fee is one-time fee, or I have to pay extra?</span></h3>
+                                <div class="accordion-inner" >
+                                    <p>Fusce eu dui. Integer vel nibh sit amet turpis vulputate aliquet. Phasellus id nisi vitae odio pretium aliquam. Pellentesque a leo. Donec consequat lectus sed felis. Quisque vestibulum massa. Nulla ornare. Nulla libero. Donec et mi eu massa ultrices scelerisque. Nullam ac nisi non eros gravida venenatis. Ut euismod, turpis sollicitudin lobortis pellentesque, libero massa dapibus dui, eu dictum justo urna et mi. Integer dictum est vitae sem. Vestibulum justo. Nulla mauris ipsum, convallis ut, vestibulum eu, tincidunt vel, nisi.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+			</div>
+		</div>
+    {% endblock %}
+		<!-- //Main Container -->
+
+
+
+
+<!-- Include Libs & Plugins
+	============================================ -->
+	<!-- Placed at the end of the document so the pages load faster -->
+{% block libs_and_plugins %}
+	<script type="text/javascript" src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/owl-carousel/owl.carousel.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/themejs/libs.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/unveil/jquery.unveil.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/countdown/jquery.countdown.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/datetimepicker/moment.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
+{% endblock %}
+
+	<!-- Theme files
+	============================================ -->
+
+	{% block theme_files %}
+	<script type="text/javascript" src="{% static 'js/themejs/so_megamenu.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/themejs/addtocart.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/themejs/application.js' %}"></script>
+	{% endblock %}
