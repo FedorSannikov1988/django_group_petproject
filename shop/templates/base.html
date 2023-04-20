@@ -1,37 +1,38 @@
-    {% load static %}
+{% load static %}
 
 
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
+<head>
 
-    <!-- Basic page needs
-    ============================================ -->
-    <title>Дипломный проект - Интернет магазин програмного обеспечения</title>
-    <meta charset="utf-8">
+<!-- Basic page needs
+============================================ -->
+<title>Дипломный проект - Интернет магазин програмного обеспечения</title>
+<meta charset="utf-8">
 
-	<!-- Mobile specific metas
-	============================================ -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!-- Mobile specific metas
+============================================ -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<!-- Favicon
-	============================================ -->
-	{% block favicon %} {% endblock %}
+<!-- Favicon
+============================================ -->
+{% block favicon %} {% endblock %}
 
-    <!-- Libs CSS
-    ============================================ -->
-	{% block libs_css %} {% endblock %}
+<!-- Libs CSS
+============================================ -->
+{% block libs_css %} {% endblock %}
 
-	<!-- Theme CSS
-	============================================ -->
-	{% block theme_css %} {% endblock %}
+<!-- Theme CSS
+============================================ -->
+{% block theme_css %} {% endblock %}
 
-    </head>
-        {% block stile_body_two_line %} {% endblock %}
+</head>
 
-        <!-- Header Container  -->
-		<header id="header" class=" variantleft type_1">
+{% block stile_body_two_line %} {% endblock %}
+
+<!-- Header Container  -->
+<header id="header" class=" variantleft type_1">
             <!-- Header Top -->
 			<div class="header-top">
 				<div class="container">
@@ -274,23 +275,23 @@
 				</div>
 			</div>
 		</header>
-        <!-- //Header Container  -->
+<!-- //Header Container  -->
 
-		<!-- Block Spotlight1  -->
-		{% block spotlight1 %} {% endblock %}
-		<!-- //Block Spotlight1  -->
+<!-- Block Spotlight1  -->
+{% block spotlight1 %} {% endblock %}
+<!-- //Block Spotlight1  -->
 
-		<!-- Main Container  -->
-		{% block main_container %} {% endblock %}
-		<!-- //Main Container -->
+<!-- Main Container  -->
+{% block main_container %} {% endblock %}
+<!-- //Main Container -->
 
-		<!-- Block Spotlight3  -->
-		{% block spotlight3 %} {% endblock %}
-		<!-- //Block Spotlight3  -->
+<!-- Block Spotlight3  -->
+{% block spotlight3 %} {% endblock %}
+<!-- //Block Spotlight3  -->
 
-        <!-- Footer Container -->
-		<footer class="footer-container type_footer1">
-	<!-- Footer Top Container -->
+<!-- Footer Container -->
+<footer class="footer-container type_footer1">
+    <!-- Footer Top Container -->
 	<section class="footer-top">
 		<div class="container content">
 			<div class="">
@@ -331,15 +332,16 @@
 		</div>
 	</section>
 </footer>
-        <!-- //Footer Container -->
-    </div>
-        <!-- Include Libs & Plugins
-        ============================================ -->
-        <!-- End of the document so the pages load faster -->
-        {% block libs_and_plugins %} {% endblock %}
+<!-- //Footer Container -->
 
-        <!-- Theme files
-        ============================================ -->
-        {% block theme_files %} {% endblock %}
-    </body>
-    </html>
+</div>
+<!-- Include Libs & Plugins
+============================================ -->
+<!-- End of the document so the pages load faster -->
+{% block libs_and_plugins %} {% endblock %}
+
+<!-- Theme files
+============================================ -->
+{% block theme_files %} {% endblock %}
+</body>
+</html>
