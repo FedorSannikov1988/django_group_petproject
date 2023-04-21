@@ -1,0 +1,38 @@
+[
+  {
+    "model": "shop.softwarecategory",
+    "pk": 1,
+    "fields": {
+      "name": "Операционные системы",
+      "description": "",
+      "image": "images_software_сategory/operating_systems.jpg"
+    }
+  },
+  {
+    "model": "shop.softwarecategory",
+    "pk": 2,
+    "fields": {
+      "name": "Офисное ПО",
+      "description": "",
+      "image": "images_software_сategory/office_software.jpg"
+    }
+  },
+  {
+    "model": "shop.softwarecategory",
+    "pk": 3,
+    "fields": {
+      "name": "Игры",
+      "description": "",
+      "image": "images_software_сategory/games.jpg"
+    }
+  },
+  {
+    "model": "shop.softwarecategory",
+    "pk": 4,
+    "fields": {
+      "name": "Антивирусная защита",
+      "description": "",
+      "image": "images_software_сategory/antivirus.jpg"
+    }
+  }
+]

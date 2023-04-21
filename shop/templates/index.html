@@ -79,9 +79,14 @@
                                                                                             <ul>
                                                                                                 <li>
                                                                                                     <ul>
+                                                                                                        {% for one_subcategory_os in software_subcategories_operating_systems %}
+                                                                                                            <li><a href="#"> {{ one_subcategory_os.name }} </a></li>
+                                                                                                        {% endfor %}
+                                                                                                        <!--
                                                                                                         <li><a href="#">Windows</a></li>
                                                                                                         <li><a href="#">Linux</a></li>
                                                                                                         <li><a href="#">Mac OS</a></li>
+                                                                                                        -->
                                                                                                     </ul>
                                                                                                 </li>
                                                                                             </ul>

@@ -1,0 +1,112 @@
+[
+  {
+    "model": "shop.softwaresubcategories",
+    "pk": 1,
+    "fields": {
+      "name": "Windows",
+      "description": "",
+      "image": "images_software_subcategories/windows.jpg",
+      "category": 1
+    }
+  },
+  {
+    "model": "shop.softwaresubcategories",
+    "pk": 2,
+    "fields": {
+      "name": "Linux",
+      "description": "",
+      "image": "images_software_subcategories/linux.jpg",
+      "category": 1
+    }
+  },
+  {
+    "model": "shop.softwaresubcategories",
+    "pk": 3,
+    "fields": {
+      "name": "Mac OS",
+      "description": "",
+      "image": "images_software_subcategories/mac_os.jpg",
+      "category": 1
+    }
+  },
+  {
+    "model": "shop.softwaresubcategories",
+    "pk": 4,
+    "fields": {
+      "name": "Microsoft Office",
+      "description": "",
+      "image": "images_software_subcategories/microsoft_office.jpg",
+      "category": 2
+    }
+  },
+  {
+    "model": "shop.softwaresubcategories",
+    "pk": 5,
+    "fields": {
+      "name": "OpenOffice",
+      "description": "",
+      "image": "images_software_subcategories/openoffice.jpg",
+      "category": 2
+    }
+  },
+  {
+    "model": "shop.softwaresubcategories",
+    "pk": 6,
+    "fields": {
+      "name": "LibreOffice",
+      "description": "",
+      "image": "images_software_subcategories/libreoffic.jpg",
+      "category": 2
+    }
+  },
+  {
+    "model": "shop.softwaresubcategories",
+    "pk": 7,
+    "fields": {
+      "name": "Шутеры",
+      "description": "",
+      "image": "images_software_subcategories/shooters.jpg",
+      "category": 3
+    }
+  },
+  {
+    "model": "shop.softwaresubcategories",
+    "pk": 8,
+    "fields": {
+      "name": "Стратегии",
+      "description": "",
+      "image": "images_software_subcategories/strategies_eYLGj6I.jpg",
+      "category": 3
+    }
+  },
+  {
+    "model": "shop.softwaresubcategories",
+    "pk": 9,
+    "fields": {
+      "name": "RPG-игры",
+      "description": "",
+      "image": "images_software_subcategories/rpg_games.jpg",
+      "category": 3
+    }
+  },
+  {
+    "model": "shop.softwaresubcategories",
+    "pk": 10,
+    "fields": {
+      "name": "Лаборатория Касперского",
+      "description": "",
+      "image": "images_software_subcategories/kaspersky_lab.jpg",
+      "category": 4
+    }
+  },
+  {
+    "model": "shop.softwaresubcategories",
+    "pk": 11,
+    "fields": {
+      "name": "Dr. WEB",
+      "description": "",
+      "image": "images_software_subcategories/dr_web.jpg",
+      "category": 4
+    }
+  }
+]
