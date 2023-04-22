@@ -8,7 +8,8 @@
 
 <!-- Basic page needs
 ============================================ -->
-<title>Дипломный проект - Интернет магазин програмного обеспечения</title>
+{#<title>Дипломный проект - Интернет магазин программного обеспечения</title>#}
+<title>{{ title_base }}</title>
 <meta charset="utf-8">
 
 <!-- Mobile specific metas
@@ -313,6 +314,7 @@
 						<div class="modcontent">
 							<ul class="menu">
 								<li><a href="{% url 'about_us' %}">О нас</a></li>
+								<li><a href="{% url 'faq' %}">Полезная информация</a></li>
 							</ul>
 						</div>
 					</div>
