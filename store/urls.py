@@ -8,6 +8,7 @@ from shop.views import sitemap
 from shop.views import about_us
 from shop.views import login
 from shop.views import register
+from shop.views import cart
 
 urlpatterns = [
     path("", index, name='index'),
@@ -15,4 +16,5 @@ urlpatterns = [
     path("about_us", about_us, name='about_us'),
     path("login", login, name='login'),
     path("register", register, name='register'),
+    path("cart", cart, name='cart'),
 ]
