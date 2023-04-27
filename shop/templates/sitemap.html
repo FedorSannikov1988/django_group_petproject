@@ -48,52 +48,37 @@
                     <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
                     <li>Карта сайта</li>
                 </ul>
-
                 <div class="row">
                     <div id="content" class="col-sm-12">
-
                         <h2 class="title">Карта сайта</h2>
                         <div class="row">
-
                             <div class="col-md-5 col-sm-6">
                                 <ul class="simple-list arrow-list bold-list">
-
-                                    <li><a href="#">Операционные системы</a>
+                                    <li><a href="#"><!--Операционные системы--> {{ software_category.0.name }}</a>
                                         <ul class="sitemap">
-                                            <li><a href="#">Windows</a> </li>
-                                            <li><a href="#">Linux</a> </li>
-                                            <li><a href="#">Mac OS</a> </li>
+                                          {% for one_subcategory_os in software_subcategories_operating_systems %}
+                                              <li><a href="#"> {{ one_subcategory_os.name }} </a></li>
+                                          {% endfor %}
                                         </ul>
                                     </li>
-
-                                    <li><a href="#">Офисное ПО</a>
+                                    <li><a href="#"><!--Офисное ПО--> {{ software_category.1.name }}</a>
                                         <ul class="sitemap">
-                                            <li><a href="#">Microsoft Office</a> </li>
-                                            <li><a href="#">OpenOffice</a> </li>
-                                            <li><a href="#">LibreOffice</a> </li>
+                                          {% for one_subcategory_os in software_subcategories_operating_systems %}
+                                              <li><a href="#"> {{ one_subcategory_os.name }} </a></li>
+                                          {% endfor %}
                                         </ul>
                                     </li>
-
-                                    <li><a href="#"> Игры </a>
+                                    <li><a href="#"><!--Антивирусная защита--> {{ software_category.2.name }}</a>
                                         <ul class="sitemap">
-                                            <li><a href="#">Шутеры</a> </li>
-                                            <li><a href="#">Стратегии</a> </li>
-                                            <li><a href="#">RPG-игры</a></li>
+                                          {% for one_subcategory_os in software_subcategories_antivirus_protection %}
+                                              <li><a href="#"> {{ one_subcategory_os.name }} </a></li>
+                                          {% endfor %}
                                         </ul>
                                     </li>
-
-                                    <li><a href="#">Антивирусная защита</a>
-                                        <ul class="sitemap">
-                                            <li><a href="#">Антивирус Касперского</a> </li>
-                                            <li><a href="#">Доктор Веб</a> </li>
-                                        </ul>
-                                    </li>
-
                                 </ul>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <ul class="simple-list arrow-list bold-list">
-
                                     <li><a href="#">Заголовок</a>
                                         <ul class="sitemap">
                                             <li><a href="#">Текст</a> </li>
@@ -101,28 +86,15 @@
                                             <li><a href="#">Текст</a> </li>
                                         </ul>
                                     </li>
-
-                                    <li><a href="#">Заголовок</a>
-                                        <ul class="sitemap">
-                                            <li><a href="#">Текст</a> </li>
-                                            <li><a href="#">Текст</a> </li>
-                                            <li><a href="#">Текст</a> </li>
-                                        </ul>
-                                    </li>
-
                                     <li><a href="#">Информация</a>
                                         <ul class="sitemap">
                                             <li><a href="{% url 'about_us' %}">О нас</a> </li>
                                             <li><a href="{% url 'about_us' %}">Наши контакты</a> </li>
                                         </ul>
                                     </li>
-
                                 </ul>
                             </div>
-
                         </div>
-
-
                     </div>
                 </div>
             </div>
