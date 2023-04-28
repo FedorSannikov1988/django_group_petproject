@@ -40,7 +40,7 @@
 
 <!-- Block Spotlight1  -->
 {% block spotlight1 %}
-<section class="so-spotlight1 ">
+            <section class="so-spotlight1 ">
                 <div class="container">
                     <div class="row">
                         <div class="sidebar-menu col-md-3 col-sm-12 hidden-xs ">
@@ -61,80 +61,14 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="vertical-wrapper " style="display: block;">
+                                            <div class="vertical-wrapper" style="display: block;">
                                                 <span id="remove-verticalmenu" class="fa fa-times"></span>
                                                 <div class="megamenu-pattern">
                                                     <div class="container">
                                                         <ul class="megamenu">
-                                                            <li class="item-vertical with-sub-menu hover">
-                                                                <p class="close-menu"></p>
-                                                                <a href="#" class="clearfix"> <span> <!--Операционные системы--> {{ software_category.0.name }} </span> </a>
-                                                                <div class="sub-menu" data-subwidth="25" style="width: 270px; display: none; right: 0px;">
-                                                                    <div class="content" style="display: none;">
-                                                                        <div class="row">
-                                                                            <div class="col-sm-12">
-                                                                                <div class="row">
-                                                                                    <div class="col-sm-12 hover-menu">
-                                                                                        <div class="menu">
-                                                                                            <ul>
-                                                                                                {% for one_subcategory_os in software_subcategories_operating_systems %}
-                                                                                                    <li><a href="#"> {{ one_subcategory_os.name }} </a></li>
-                                                                                                {% endfor %}
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="item-vertical with-sub-menu hover">
-                                                                <p class="close-menu"></p>
-                                                                <a href="#" class="clearfix"> <span> <!--Офисное ПО--> {{ software_category.1.name }} </span> </a>
-                                                                <div class="sub-menu" data-subwidth="25" style="width: 0px; display: none; right: 0px;">
-                                                                    <div class="content" style="display: none;">
-                                                                        <div class="row">
-                                                                            <div class="col-md-12">
-                                                                                <div class="row">
-                                                                                    <div class="col-sm-12 hover-menu">
-                                                                                        <div class="menu">
-                                                                                            <ul>
-                                                                                                {% for one_subcategory_os in software_subcategories_office_software %}
-                                                                                                    <li><a href="#"> {{ one_subcategory_os.name }} </a></li>
-                                                                                                {% endfor %}
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                            <li class="item-vertical with-sub-menu hover">
-                                                                <p class="close-menu"></p>
-                                                                <a href="#" class="clearfix"> <span> <!--Анитивирусная защита--> {{ software_category.2.name }} </span> </a>
-                                                                <div class="sub-menu" data-subwidth="25" style="width: 270px; display: none; right: 0px;">
-                                                                    <div class="content" style="display: none;">
-                                                                        <div class="row">
-                                                                            <div class="col-sm-12">
-                                                                                <div class="row">
-                                                                                    <div class="col-sm-12 hover-menu">
-                                                                                        <div class="menu">
-                                                                                            <ul>
-                                                                                                {% for one_subcategory_os in software_subcategories_antivirus_protection %}
-                                                                                                    <li><a href="#"> {{ one_subcategory_os.name }} </a></li>
-                                                                                                {% endfor %}
-                                                                                            </ul>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
+                                                            {% for one_category in software_category %}
+                                                            <li> <a href="#" class="clearfix"> <span>  {{ one_category.name }} </span> </a> </li>
+                                                            {% endfor %}
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -159,25 +93,20 @@
                         </div>
                     </div>
                 </div>
-</section>
+            </section>
 {% endblock %}
 <!-- //Block Spotlight1  -->
 
 <!-- Main Container  -->
 {% block main_container %}
-<div class="main-container container">
+                <div class="main-container container">
                     <div class="row">
-                            <hr>
-                            <hr>
-                            <hr>
+                    <hr> <hr> <hr>
                         <div class="smartphone-tablet col-sm-12">
-                            <h3 class="modtitle"> Все програмное обеспечение </h3>
-                            <hr>
-                            <hr>
-                            <hr>
+                            <h3 class="modtitle"> Все програмное обеспечение продающееся в магазине </h3>
+                            <hr> <hr> <hr>
                             <div class="smartphone-tablet-owl">
                                 <div class=" owl-carousel related-owl " data-dots="yes" data-nav="yes" data-loop="yes" data-items_xs="1" data-items_sm="3" data-items_md="5" data-margin="10" >
-
                                     {% for one_soft in all_soft %}
                                     <div class="product-layout">
                                         <div class="product-item-container">
@@ -202,12 +131,111 @@
                                         </div>
                                     </div>
                                     {% endfor %}
-
                                 </div>
                             </div>
                         </div>
+                        <hr> <hr> <hr>
+                        <div class="smartphone-tablet col-sm-12">
+                            <h3 class="modtitle"> {{ software_category.0.name }} </h3>
+                            <hr> <hr> <hr>
+                            <div class="smartphone-tablet-owl">
+                                <div class=" owl-carousel related-owl " data-dots="yes" data-nav="yes" data-loop="yes" data-items_xs="1" data-items_sm="3" data-items_md="5" data-margin="10" >
+                                    {% for one_software_antivirus in software_antivirus_protection %}
+                                    <div class="product-layout">
+                                        <div class="product-item-container">
+                                            <div class="left-block">
+                                                <div class="product-image-container  second_img ">
+                                                    <a href="#" class="product-img"><img src="{{ one_software_antivirus.image.url }}" alt=""></a>
+                                                    <!--Sale Label-->
+                                                    <!-- <span class="sale">-95%</span> -->
+                                                    <!-- <span class="new">Old</span> -->
+                                                </div>
+                                            </div>
+                                            <div class="right-block">
+                                                <div class="caption">
+                                                    <h4><a href="#">{{ one_software_antivirus.name }}</a></h4>
+                                                    <div class="ratings">
+                                                    </div>
+                                                    <div class="price">
+                                                        <span class="price">{{ one_software_antivirus.price }} ₽</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <hr> <hr> <hr>
+                        <div class="smartphone-tablet col-sm-12">
+                            <h3 class="modtitle"> {{ software_category.1.name }} </h3>
+                            <hr> <hr> <hr>
+                            <div class="smartphone-tablet-owl">
+                                <div class=" owl-carousel related-owl " data-dots="yes" data-nav="yes" data-loop="yes" data-items_xs="1" data-items_sm="3" data-items_md="5" data-margin="10" >
+                                          {% for one_software_office in software_office %}
+                                    <div class="product-layout">
+                                        <div class="product-item-container">
+                                            <div class="left-block">
+                                                <div class="product-image-container  second_img ">
+                                                    <a href="#" class="product-img"><img src="{{ one_software_office.image.url }}" alt=""></a>
+                                                    <!--Sale Label-->
+                                                    <!-- <span class="sale">-95%</span> -->
+                                                    <!-- <span class="new">Old</span> -->
+                                                </div>
+                                            </div>
+                                            <div class="right-block">
+                                                <div class="caption">
+                                                    <h4><a href="#">{{ one_software_office.name }}</a></h4>
+                                                    <div class="ratings">
+                                                    </div>
+                                                    <div class="price">
+                                                        <span class="price">{{ one_software_office.price }} ₽</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <hr> <hr> <hr>
+                        <div class="smartphone-tablet col-sm-12">
+                            <h3 class="modtitle"> {{ software_category.2.name }} </h3>
+                            <hr> <hr> <hr>
+                            <div class="smartphone-tablet-owl">
+                                <div class=" owl-carousel related-owl " data-dots="yes" data-nav="yes" data-loop="yes" data-items_xs="1" data-items_sm="3" data-items_md="5" data-margin="10" >
+                                          {% for one_operating_systems in software_operating_systems %}
+                                    <div class="product-layout">
+                                        <div class="product-item-container">
+                                            <div class="left-block">
+                                                <div class="product-image-container  second_img ">
+                                                    <a href="#" class="product-img"><img src="{{ one_operating_systems.image.url }}" alt=""></a>
+                                                    <!--Sale Label-->
+                                                    <!-- <span class="sale">-95%</span> -->
+                                                    <!-- <span class="new">Old</span> -->
+                                                </div>
+                                            </div>
+                                            <div class="right-block">
+                                                <div class="caption">
+                                                    <h4><a href="#">{{ one_operating_systems.name }}</a></h4>
+                                                    <div class="ratings">
+                                                    </div>
+                                                    <div class="price">
+                                                        <span class="price">{{ one_operating_systems.price }} ₽</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <hr> <hr> <hr>
                     </div>
-                </div> </div>
+                </div>
 {% endblock %}
 <!-- //Main Container -->
 

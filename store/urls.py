@@ -12,7 +12,7 @@ urlpatterns = [
     path("", index, name='index'),
     path("sitemap", sitemap, name='sitemap'),
     path("about_us", about_us, name='about_us'),
-] #+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]  # +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG == True:
+if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

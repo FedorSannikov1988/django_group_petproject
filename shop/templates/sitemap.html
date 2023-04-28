@@ -56,22 +56,22 @@
                                 <ul class="simple-list arrow-list bold-list">
                                     <li><a href="#"><!--Операционные системы--> {{ software_category.0.name }}</a>
                                         <ul class="sitemap">
-                                          {% for one_subcategory_os in software_subcategories_operating_systems %}
-                                              <li><a href="#"> {{ one_subcategory_os.name }} </a></li>
+                                          {% for one_category in software_antivirus_protection %}
+                                              <li><a href="#"> {{ one_category.name }} </a></li>
                                           {% endfor %}
                                         </ul>
                                     </li>
                                     <li><a href="#"><!--Офисное ПО--> {{ software_category.1.name }}</a>
                                         <ul class="sitemap">
-                                          {% for one_subcategory_os in software_subcategories_operating_systems %}
-                                              <li><a href="#"> {{ one_subcategory_os.name }} </a></li>
+                                          {% for one_software_office in software_office %}
+                                              <li><a href="#"> {{ one_software_office.name }} </a></li>
                                           {% endfor %}
                                         </ul>
                                     </li>
                                     <li><a href="#"><!--Антивирусная защита--> {{ software_category.2.name }}</a>
                                         <ul class="sitemap">
-                                          {% for one_subcategory_os in software_subcategories_antivirus_protection %}
-                                              <li><a href="#"> {{ one_subcategory_os.name }} </a></li>
+                                          {% for one_operating_systems in software_operating_systems %}
+                                              <li><a href="#"> {{ one_operating_systems.name }} </a></li>
                                           {% endfor %}
                                         </ul>
                                     </li>
