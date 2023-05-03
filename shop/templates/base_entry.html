@@ -8,8 +8,7 @@
 
 <!-- Basic page needs
 ============================================ -->
-{#<title>Дипломный проект - Интернет магазин программного обеспечения</title>#}
-<title>{{ title_base }}</title>
+<title>Дипломный проект - Интернет магазин програмного обеспечения</title>
 <meta charset="utf-8">
 
 <!-- Mobile specific metas
@@ -36,18 +35,6 @@
 <header id="header" class=" variantleft type_1">
             <!-- Header Top -->
 			<div class="header-top">
-				<div class="container">
-					<div class="row">
-						<div class="header-top-right collapsed-block text-right  col-sm-6 col-xs-6 compact-hidden">
-							<div class="tabBlock1" id="TabBlock-1">
-								<ul class="top-link list-inline">
-									<li class="signin"><a href="{% url 'login' %}" class="top-link-checkout" title="Sign In"><span>Войти</span></a></li>
-									<li class="register"><a href="{% url 'register' %}" title="Register"><span>Регистрация</span></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
 			<!-- //Header Top -->
 			<!-- Header center -->
@@ -76,14 +63,12 @@
 							<!--cart-->
 							<div id="cart" class=" btn-group btn-shopping-cart">
 								<a data-loading-text="Loading..." class="top_cart dropdown-toggle" data-toggle="dropdown">
-                                    <a href='cart'>
-                                        <div class="shopcart">
-                                            <span class="handle pull-left"></span>
-                                            <span class="number-shopping-cart"> 0 </span>
-                                           <span class="title">Моя Корзина</span>
-                                            <p class="text-shopping-cart cart-total-full"> 0.00 ₽ </p>
-                                        </div>
-                                    </a>
+									<div class="shopcart">
+										<span class="handle pull-left"></span>
+										<span class="number-shopping-cart"> 0 </span>
+										<span class="title">Моя Корзина</span>
+										<p class="text-shopping-cart cart-total-full"> 0.00 ₽ </p>
+									</div>
 								</a>
 							</div>
 							<!--//cart-->
@@ -315,8 +300,7 @@
 						<h3 class="modtitle">Информация:</h3>
 						<div class="modcontent">
 							<ul class="menu">
-								<li><a href="{% url 'faq' %}">Полезная информация</a></li>
-                                <li><a href="{% url 'about_us' %}">О нас</a></li>
+								<li><a href="{% url 'about_us' %}">О нас</a></li>
 							</ul>
 						</div>
 					</div>

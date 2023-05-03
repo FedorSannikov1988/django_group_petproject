@@ -8,6 +8,7 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
+
 def sitemap(request):
     title_sitemap = 'Карта сайта - '
     context = {
@@ -15,7 +16,21 @@ def sitemap(request):
     }
     return render(request, 'sitemap.html', context)
 
+
 def about_us(request):
+    return render(request, 'about_us.html')
+
+
+def login(request):
+    return render(request, 'login.html')
+
+
+def register(request):
+    return render(request, 'register.html')
+
+
+def cart(request):
+    return render(request, 'cart.html')
     title_about_us = 'О нас - '
     context = {
         'title_base': title_about_us + title,
