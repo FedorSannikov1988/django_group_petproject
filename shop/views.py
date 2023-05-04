@@ -3,11 +3,13 @@ from django.shortcuts import render
 
 from shop.models import SoftwareCategory, Software, FeaturesSoftware, DevelopmentTeam
 
-
+# глобальные переменные
 title = 'Дипломный проект студентов GB'
 
 
 def index(request):
+
+    title_index = 'Главная страница -'
 
     context = {
         'page_title': title_index + title,
@@ -22,6 +24,8 @@ def index(request):
 
 def sitemap(request):
 
+    title_sitemap = 'Карта сайта -'
+
     context = {
         'page_title': title_sitemap + title,
         "software_category": SoftwareCategory.objects.all(),
@@ -33,16 +37,12 @@ def sitemap(request):
 
 
 def about_us(request):
-    context = {
-        "development_team": DevelopmentTeam.objects.all()
-    }
-    return render(request, 'about_us.html', context)
-
 
     title_about_us = 'О нас/Наши контакты - '
 
     context = {
         'page_title': title_about_us + title,
+        "development_team": DevelopmentTeam.objects.all()
     }
     return render(request, 'about_us.html', context)
 
