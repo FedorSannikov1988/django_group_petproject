@@ -60,7 +60,7 @@
                                 <p>Создав учетную запись, вы сможете совершать покупки быстрее, быть в курсе статуса заказа и отслеживать ранее сделанные заказы.</p>
                             </div>
                             <div class="bottom-form">
-                                <a href="#" class="btn btn-default pull-right">Продолжить</a> <!-- Need link-->
+                                <a href="{% url 'register' %}" class="btn btn-default pull-right">Регистрация</a>
                             </div>
                         </div>
 
@@ -68,7 +68,6 @@
                             <div class="col-sm-6 customer-login">
                                 <div class="well">
                                     <h2><i class="fa fa-file-text-o" aria-hidden="true"></i>Постоянный клиент</h2>
-                                    <p><strong>Я постоянный клиент</strong></p>
                                     <div class="form-group">
                                         <label class="control-label " for="input-email">E-Mail</label>
                                         <input type="text" name="email" value="" id="input-email" class="form-control" />
@@ -79,8 +78,8 @@
                                     </div>
                                 </div>
                                 <div class="bottom-form">
-                                    <a href="#" class="forgot">Забыли пароль?</a>
-                                    <input type="submit" value="Войти" class="btn btn-default pull-right" />
+                                    <a href="#" class="forgot">Забыли пароль ?</a>
+                                    <a href="#" class="btn btn-default pull-right">Войти</a>
                                 </div>
                             </div>
                         </form>

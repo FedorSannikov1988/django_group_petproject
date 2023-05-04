@@ -1,45 +1,76 @@
 from django.template.response import TemplateResponse
 from django.shortcuts import render
 
-title = 'Дипломный проект - Интернет магазин программного обеспечения'
+
+title = 'Дипломный проект студентов GB'
+
+
 def index(request):
+
+    title_index = 'Главная страница - '
+
     context = {
-        'title_base': title,
+        'page_title': title_index + title,
     }
     return render(request, 'index.html', context)
 
 
 def sitemap(request):
+
     title_sitemap = 'Карта сайта - '
+
     context = {
-        'title_base': title_sitemap + title,
+        'page_title': title_sitemap + title,
     }
     return render(request, 'sitemap.html', context)
 
 
 def about_us(request):
-    return render(request, 'about_us.html')
+
+    title_about_us = 'О нас/Наши контакты - '
+
+    context = {
+        'page_title': title_about_us + title,
+    }
+    return render(request, 'about_us.html', context)
 
 
-def login(request):
-    return render(request, 'login.html')
+def faq(request):
 
+    title_faq = 'Полезная информация - '
 
-def register(request):
-    return render(request, 'register.html')
+    context = {
+        'page_title': title_faq + title,
+    }
+    return render(request, 'faq.html', context)
 
 
 def cart(request):
-    return render(request, 'cart.html')
-    title_about_us = 'О нас - '
-    context = {
-        'title_base': title_about_us + title,
-    }
-    return render(request, 'about_us.html',context)
 
-def faq(request):
-    title_faq = 'Полезная информация - '
+    title_cart = 'Корзина покупателя - '
+
     context = {
-        'title_base': title_faq + title,
+        'page_title': title_cart + title,
     }
-    return render(request, 'faq.html', context)
+    return render(request, 'cart.html', context)
+
+
+def login(request):
+
+    title_login = 'Вход в учетную запись - '
+
+    context = {
+        'page_title': title_login + title,
+    }
+
+    return render(request, 'login.html', context)
+
+
+def register(request):
+
+    title_register = 'Регистрация - '
+
+    context = {
+        'page_title': title_register + title,
+    }
+    return render(request, 'register.html', context)
