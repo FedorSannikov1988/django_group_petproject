@@ -48,18 +48,18 @@
         <li class="home"><a href="{% url 'index' %}"> Главная <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
         <li>О нас</li>
     </ul>
+    <p><br><br><br></p>
                     <div class="row">
                         <div id="content" class="col-sm-12 col-xs-12">
                             <div class="about-us about-demo-1">
                                 <div class="row">
-                                    <div class="col-xs-12 col-lg-7 col-md-7 about-info">
-                                        <h3 class="about-title"><span>О нас</span></h3>
-                                        <div class="about-text">
-                                            <p> Наша команда является студентами GeekBrains ....  </p>
-                                            <p> Данный интернет магазин является нашим дипломным проектом ...  </p>
+                                    <div class="about-us">
+                                        <div class="text-center">
+                                            <p> Мы является студентами GeekBrains. Данный интернет магазин является нашим совместным дипломным проектом. </p>
                                         </div>
                                     </div>
                                 </div>
+                                <p><br><br><br></p>
                                 <div class="row">
                                     <div class="col-xs-12 col-lg-12 col-md-12 our-team">
                                         <div class="our-team-content">
@@ -68,7 +68,7 @@
                                                 <div class="owl-carousel carousel-member" data-loop="yes" data-nav="yes" data-dots="no" data-margin="15" data-items_xs="1" data-items_sm="3" data-items_md="4">
                                                     {% for one_developer in development_team %}
                                                     <div class="member">
-                                                        <div class="member-image"> <img src="{{ one_developer.image.url }}" alt="{{ one_developer.firstname }} {% if one_developer.lastname %} {{ one_developer.lastname }} {% endif %} "> </div>
+                                                        <div class="member-image"> <img src="{% if one_developer.image %} {{ one_developer.image.url }} {% else %} {% static 'img/about_us/there_is_no_photo.jpg' %} {% endif %}" alt="{{ one_developer.firstname }} {% if one_developer.lastname %} {{ one_developer.lastname }} {% endif %} "> </div>
                                                         <div class="member-info">
                                                             <h3 class="name-member">
                                                                 {{ one_developer.firstname }}
