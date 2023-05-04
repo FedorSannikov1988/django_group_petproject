@@ -1,3 +1,11 @@
 from django.contrib import admin
 
-# Register your models here.
+from shop.models import SoftwareCategory, Software, FeaturesSoftware
+
+from shop.models import DevelopmentTeam
+
+admin.site.register(Software)
+admin.site.register(SoftwareCategory)
+admin.site.register(FeaturesSoftware)
+
+admin.site.register(DevelopmentTeam)
