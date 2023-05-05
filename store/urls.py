@@ -14,15 +14,15 @@ from shop.views import faq
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+
     path("", index, name='index'),
     path("sitemap", sitemap, name='sitemap'),
-    path("about_us", about_us, name='about_us'),
+    path("about_us", about_us,  name='about_us'),
     path("login", login, name='login'),
     path("register", register, name='register'),
     path("cart", cart, name='cart'),
-    path('faq', include('shop.urls', namespace='faq')),
-] #+ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+    path("faq", include('shop.urls', namespace='faq')),
+]  # + urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
