@@ -51,25 +51,25 @@
     <div class="row">
         <!--Middle Part Start-->
         <div id="content" class="col-sm-12">
-            <h2 class="title">Корзина</h2>
+            <p>
+                <br>
+                <br>
+                <br>
+            </p>
             <div class="table-responsive form-group">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <td class="text-center">Фото</td>
-                            <td class="text-left">Название</td>
-                            <td class="text-left">Модель</td>
-                            <td class="text-left">Количество</td>
-                            <td class="text-right">Цена за единицу</td>
-                            <td class="text-right">Общая стоимость</td>
+                            <td class="text-center">Название ПО</td>
+                            <td class="text-center">Количество</td>
+                            <td class="text-center">Цена за одну лицензию</td>
+                            <td class="text-center">Всего</td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="text-center"><a href="product.html"><img width="70px" src="img/demo/shop/product/E3.jpg" alt="Aspire Ultrabook Laptop" title="Aspire Ultrabook Laptop" class="img-thumbnail" /></a></td>
                             <td class="text-left"><a href="product.html">Emasa rumas gacem</a><br />
                             </td>
-                            <td class="text-left">Pt 001</td>
                             <td class="text-left" width="200px"><div class="input-group btn-block quantity">
                                 <input type="text" name="quantity" value="1" size="1" class="form-control" />
                                 <span class="input-group-btn">
@@ -78,113 +78,9 @@
                                 </span></div></td>
                                 <td class="text-right">$120.00</td>
                                 <td class="text-right">$120.00</td>
-                            </tr>
-                            <tr>
-                                <td class="text-center"><a href="product.html"><img width="70px" src="img/demo/shop/product/E1.jpg" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-thumbnail" /></a></td>
-                                <td class="text-left"><a href="product.html">Comas samer rumas</a></td>
-                                <td class="text-left">Pt 002</td>
-                                <td class="text-left" width="200px"><div class="input-group btn-block quantity">
-                                    <input type="text" name="quantity" value="1" size="1" class="form-control" />
-                                    <span class="input-group-btn">
-                                        <button type="submit" data-toggle="tooltip" title="Update" class="btn btn-primary"><i class="fa fa-clone"></i></button>
-                                        <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger" onClick=""><i class="fa fa-times-circle"></i></button>
-                                    </span></div></td>
-                                    <td class="text-right">$150.00</td>
-                                    <td class="text-right">$150.00</td>
-                                </tr>
+                        </tr>
                             </tbody>
                         </table>
-                    </div>
-                    <h3 class="subtitle no-margin">Что вы хотели бы сделать дальше?</h3>
-                    <p>Выберите, есть ли у вас код скидки или бонусные баллы, которые вы хотите использовать, или хотите оценить стоимость доставки.</p>
-                    <div class="panel-group" id="accordion">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a href="#collapse-coupon" class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" aria-expanded="true">Используйте код купона
-
-                                        <i class="fa fa-caret-down"></i>
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse-coupon" class="panel-collapse collapse in" aria-expanded="true">
-                                <div class="panel-body">
-                                    <label class="col-sm-2 control-label" for="input-coupon">Введите ваш купон здесь</label>
-                                    <div class="input-group">
-                                        <input type="text" name="coupon" value="" placeholder="Введите ваш купон здесь" id="input-coupon" class="form-control">
-                                        <span class="input-group-btn"><input type="button" value="Применить купон" id="button-coupon" data-loading-text="Loading..." class="btn btn-primary"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a href="#collapse-shipping" class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" aria-expanded="false">Оценить доставку и налоги
-
-                                        <i class="fa fa-caret-down"></i>
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse-shipping" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
-                                <div class="panel-body">
-                                    <p>Введите пункт назначения, чтобы рассчитать стоимость доставки.</p>
-                                    <div class="form-horizontal">
-                                        <div class="form-group required">
-                                            <label class="col-sm-2 control-label" for="input-country">Страна</label>
-                                            <div class="col-sm-10">
-                                                <select name="country_id" id="input-country" class="form-control">
-                                                    <option value=""> --- Выберите из списка --- </option>
-                                                    <option value="244">Исландские Острова</option>
-                                                    <option value="1">Афганистан</option>
-                                                    <option value="2">Албания</option>
-                                                    <option value="3">Россия</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group required">
-                                            <label class="col-sm-2 control-label" for="input-zone">Регион / Штат</label>
-                                            <div class="col-sm-10">
-                                                <select name="zone_id" id="input-zone" class="form-control">
-                                                    <option value=""> --- Выберите из списка --- </option>
-                                                    <option value="3513">Aberdeen</option>
-                                                    <option value="3514">Aberdeenshire</option>
-                                                    <option value="3515">Anglesey</option>
-                                                    <option value="3516">Angus</option>
-                                                    <option value="3517">Argyll and Bute</option>
-                                                    <option value="3518">Bedfordshire</option>
-                                                    <option value="3519">Berkshire</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group required">
-                                            <label class="col-sm-2 control-label" for="input-postcode">Почтовый индекс</label>
-                                            <div class="col-sm-10"><input type="text" name="postcode" value="" placeholder="Почтовый индекс" id="input-postcode" class="form-control"></div>
-                                        </div>
-                                        <button type="button" id="button-quote" data-loading-text="Loading..." class="btn btn-primary">Получить скидку</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a href="#collapse-voucher" data-toggle="collapse" data-parent="#accordion" class="accordion-toggle collapsed" aria-expanded="false">Использовать подарочный сертификат
-
-                                        <i class="fa fa-caret-down"></i>
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapse-voucher" class="panel-collapse collapse" aria-expanded="false" style="height: 0px;">
-                                <div class="panel-body">
-                                    <label class="col-sm-2 control-label" for="input-voucher">Введите код подарочного сертификата здесь</label>
-                                    <div class="input-group">
-                                        <input type="text" name="voucher" value="" placeholder="Введите код подарочного сертификата здесь" id="input-voucher" class="form-control">
-                                        <span class="input-group-btn"><input type="submit" value="Применить подарочный сертификат" id="button-voucher" data-loading-text="Loading..." class="btn btn-primary"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="row">
@@ -193,7 +89,7 @@
                                 <tbody>
                                     <tr>
                                         <td class="text-right">
-                                            <strong>Промежуточный итог:</strong>
+                                            <strong>Без налога и доставки:</strong>
                                         </td>
                                         <td class="text-right">$168.71</td>
                                     </tr>
@@ -221,8 +117,8 @@
                     </div>
 
                     <div class="buttons">
-                        <div class="pull-left"><a href="index.html" class="btn btn-primary">Продолжить покупки</a></div>
-                        <div class="pull-right"><a href="checkout.html" class="btn btn-primary">Проверить</a></div>
+                        <div class="pull-left"><a href="{% url 'index' %}" class="btn btn-primary">Продолжить покупки</a></div>
+                        <div class="pull-right"><a href="#" class="btn btn-primary">Купить</a></div>
                     </div>
                 </div>
                 <!--Middle Part End -->

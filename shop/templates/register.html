@@ -33,24 +33,20 @@
 <link href="{% static 'css/header1.css' %}" rel="stylesheet">
 <link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
 {% endblock %}
-
 {% block stile_body_two_line %}
     <body class="res layout-subpage">
         <div id="wrapper" class="wrapper-full ">
 {% endblock %}
-
 <!-- Main Container  -->
 {% block main_container %}
 <div class="main-container container">
     <ul class="header-main ">
         <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-        <li>Регистрация</li>
+        <li>Регистрация аккаунта</li>
     </ul>
-
     <div class="row">
         <div id="content" class="col-sm-12">
-            <h2 class="title">Регистрация аккаунта</h2>
-            <p>Если вы уже зарегистрированы, пожалуйста, <b><a href="{% url 'login' %}">войдите в свою учетную запись</a>.</b></p>
+            <h3 class="title"><p>Если вы уже зарегистрированы, пожалуйста, <b><a href="{% url 'login' %}">войдите в свою учетную запись</a>.</b></p></h3>
             <form action="" method="post" enctype="multipart/form-data" class="form-horizontal account-register clearfix">
                 <fieldset id="account">
                     <legend>Ваши персональные данные</legend>
@@ -155,7 +151,6 @@
                                 <option value="3516">Московская</option>
                                 <option value="3516">Иркутская</option>
                                 <option value="3516">Томская</option>
-
                             </select>
                         </div>
                     </div>
@@ -190,9 +185,9 @@
                     </div>
                 </fieldset>
                 <div class="buttons">
-                    <div class="pull-right">Я прочитал и даю согласие на <a href="#" class="agree"><b>обработку персональных данных  </b></a>
+                    <div class="pull-right"> <b>Я даю согласие на обработку персональных данных</b>
                         <input class="box-checkbox" type="checkbox" name="agree" value="1"> &nbsp;
-                        <input type="submit" value="Continue" class="btn btn-primary">
+                        <input type="submit" value="Зарегестрироваться" class="btn btn-primary">
                     </div>
                 </div>
             </form>
@@ -216,7 +211,6 @@
 <script type="text/javascript" src="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
 {% endblock %}
-
 
 
 <!-- Theme files
