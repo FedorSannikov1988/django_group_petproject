@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import re_path, path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
@@ -19,8 +19,8 @@ urlpatterns = [
     path("login", login, name='login'),
     path("register", register, name='register'),
     path("cart", cart, name='cart'),
-    path("faq", faq, name='faq'),
-]  # +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('faq', include('shop.urls', namespace='faq')),
+] #+ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
