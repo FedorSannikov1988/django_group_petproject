@@ -15,6 +15,7 @@ from shop.views import cart
 from shop.views import faq
 
 urlpatterns = [
+    path("admin/", admin.site.urls),
     path("", index, name='index'),
     path("sitemap", sitemap, name='sitemap'),
     path("about_us", about_us, name='about_us'),
