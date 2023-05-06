@@ -36,12 +36,6 @@ def sitemap(request):
 
 
 def about_us(request):
-    return render(request, 'about_us.html')
-
-
-def product(request):
-    return render(request, 'product.html')
-
 
     title_about_us = 'О нас/Наши контакты - '
 
