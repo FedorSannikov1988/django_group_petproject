@@ -85,3 +85,7 @@ def register(request):
         'page_title': title_register + title_for_basic_template,
     }
     return render(request, 'register.html', context)
+
+
+def product(request):
+    return render(request, 'product.html')
