@@ -68,8 +68,11 @@
                                 <div class="well">
                                     <h2><i class="fa fa-file-text-o" aria-hidden="true"></i>Постоянный покупатель</h2>
                                     {% csrf_token %}
-                                    {{ form.as_p }}
-                                    {{ form. }}
+                                    <br>
+                                    <b> Логин:{{ form.username }} </b>
+                                    <br><br>
+                                    <b> Пароль:{{ form.password }} </b>
+                                    <br>
                                 </div>
                                 <div class="bottom-form">
                                     <a href="#" class="forgot">Забыли пароль ?</a>
