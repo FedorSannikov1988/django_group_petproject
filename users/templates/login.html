@@ -60,32 +60,25 @@
                                 <p>Создав учетную запись, вы сможете совершать покупки быстрее, быть в курсе статуса заказа и отслеживать ранее сделанные заказы.</p>
                             </div>
                             <div class="bottom-form">
-                                <a href="{% url 'register' %}" class="btn btn-default pull-right">Регистрация</a>
+                                <a href="{% url 'users:register' %}" class="btn btn-default pull-right">Регистрация</a>
                             </div>
                         </div>
-
-                        <form action="#" method="post" enctype="multipart/form-data">
+                        <form action="{% url 'users:login' %}" method="post" enctype="multipart/form-data">
                             <div class="col-sm-6 customer-login">
                                 <div class="well">
                                     <h2><i class="fa fa-file-text-o" aria-hidden="true"></i>Постоянный покупатель</h2>
-                                    <div class="form-group">
-                                        <label class="control-label " for="input-email">E-Mail</label>
-                                        <input type="text" name="email" value="" id="input-email" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label " for="input-password">Пароль</label>
-                                        <input type="password" name="password" value="" id="input-password" class="form-control" />
-                                    </div>
+                                    {% csrf_token %}
+                                    {{ form.as_p }}
+                                    {{ form. }}
                                 </div>
                                 <div class="bottom-form">
                                     <a href="#" class="forgot">Забыли пароль ?</a>
-                                    <a href="#" class="btn btn-default pull-right">Войти</a>
+                                    <input type="submit" value="Войти" class="btn btn-default pull-right">
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

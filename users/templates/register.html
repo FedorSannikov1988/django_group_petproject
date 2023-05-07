@@ -1,6 +1,7 @@
 {% extends 'base_entry.html' %}
 {% load static %}
 
+
 <!-- Favicon
 ============================================ -->
 {% block favicon %}
@@ -46,8 +47,9 @@
     </ul>
     <div class="row">
         <div id="content" class="col-sm-12">
-            <h3 class="title"><p>Если вы уже зарегистрированы, пожалуйста, <b><a href="{% url 'login' %}">войдите в свою учетную запись</a>.</b></p></h3>
-            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal account-register clearfix">
+            <h3 class="title"><p>Если вы уже зарегистрированы, пожалуйста, <b><a href="{% url 'users:login' %}">войдите в свою учетную запись</a>.</b></p></h3>
+            <form action="{% url 'users:register' %}" method="post" enctype="multipart/form-data" class="form-horizontal account-register clearfix">
+                          {% csrf_token %}
                 <fieldset id="account">
                     <legend>Ваши персональные данные</legend>
                     <div class="form-group required" style="display: none;">
@@ -63,7 +65,10 @@
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-firstname">Имя</label>
                         <div class="col-sm-10">
+                            <!--
                             <input type="text" name="firstname" value="" placeholder="Имя" id="input-firstname" class="form-control">
+                            -->
+                            {{ form.first_name }}
                         </div>
                     </div>
                     <div class="form-group required">
