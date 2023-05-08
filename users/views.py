@@ -17,31 +17,40 @@ def login(request):
     if request.method == 'POST':
         form = UserLoginForm(data=request.POST)
         if form.is_valid():
-            username = request.POST['username']
-            password = request.POST['password']
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password"]
+            #username = request.POST['username']
+            #password = request.POST['password']
             user = auth.authenticate(username=username, password=password)
             if user:
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse('index'))
-
-    elif request.method == 'GET':
-    #else:
+    else:
         form = UserLoginForm()
+
     context = {
         'form': form,
         'page_title': title_login + title_for_basic_template,
     }
+
     return render(request, 'login.html', context)
 
 
 def register(request):
 
-    form = UserRegisterForm()
-
     title_register = 'Регистрация - '
+
+    if request.method == 'POST':
+        form = UserRegisterForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('users:login'))
+    else:
+        form = UserRegisterForm()
 
     context = {
         'form': form,
         'page_title': title_register + title_for_basic_template,
     }
+
     return render(request, 'register.html', context)

@@ -41,6 +41,9 @@
 <!-- Main Container  -->
 {% block main_container %}
 <div class="main-container container">
+
+
+
     <ul class="header-main ">
         <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
         <li>Регистрация аккаунта</li>
@@ -48,150 +51,47 @@
     <div class="row">
         <div id="content" class="col-sm-12">
             <h3 class="title"><p>Если вы уже зарегистрированы, пожалуйста, <b><a href="{% url 'users:login' %}">войдите в свою учетную запись</a>.</b></p></h3>
-            <form action="{% url 'users:register' %}" method="post" enctype="multipart/form-data" class="form-horizontal account-register clearfix">
-                          {% csrf_token %}
-                <fieldset id="account">
-                    <legend>Ваши персональные данные</legend>
-                    <div class="form-group required" style="display: none;">
-                        <label class="col-sm-2 control-label">Customer Group</label>
-                        <div class="col-sm-10">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="customer_group_id" value="1" checked="checked"> Default
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="input-firstname">Имя</label>
-                        <div class="col-sm-10">
-                            <!--
-                            <input type="text" name="firstname" value="" placeholder="Имя" id="input-firstname" class="form-control">
-                            -->
-                            {{ form.first_name }}
-                        </div>
-                    </div>
-                    <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="input-lastname">Фамилия</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="lastname" value="" placeholder="Фамилия" id="input-lastname" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="input-email">E-Mail</label>
-                        <div class="col-sm-10">
-                            <input type="email" name="email" value="" placeholder="E-Mail" id="input-email" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="input-telephone">Телефон</label>
-                        <div class="col-sm-10">
-                            <input type="tel" name="telephone" value="" placeholder="Телефон" id="input-telephone" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="input-fax">Факс</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="fax" value="" placeholder="Факс" id="input-fax" class="form-control">
-                        </div>
-                    </div>
-                </fieldset>
-                <fieldset id="address">
-                    <legend>Ваш адрес</legend>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="input-company">Название компании</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="company" value="" placeholder="Название компании" id="input-company" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="input-address-1">Адрес 1</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="address_1" value="" placeholder="Адрес 1" id="input-address-1" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="input-address-2">Адрес 2</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="address_2" value="" placeholder="Адрес 2" id="input-address-2" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="input-city">Город</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="city" value="" placeholder="Город" id="input-city" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="input-postcode">Индекс</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="postcode" value="" placeholder="Индекс" id="input-postcode" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="input-country">Страна</label>
-                        <div class="col-sm-10">
-                            <select name="country_id" id="input-country" class="form-control">
-                                <option value=""> --- Выберете из списка --- </option>
-                                <option value="244">Исландские острова</option>
-                                <option value="1">Россия</option>
-                                <option value="2">Афганистан</option>
-                                <option value="3">Албания</option>
-                                <option value="4">Алжир</option>
-                                <option value="5">Франция</option>
-                                <option value="6">Андорра</option>
-                                <option value="7">Ангола</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="input-zone">Область / Штат</label>
-                        <div class="col-sm-10">
-                            <select name="zone_id" id="input-zone" class="form-control">
-                                <option value=""> --- Выберете из списка --- </option>
-                                <option value="3513">Астраханская</option>
-                                <option value="3514">Архангельская</option>
-                                <option value="3515">Адыгейская</option>
-                                <option value="3516">Владимирская</option>
-                                <option value="3516">Московская</option>
-                                <option value="3516">Иркутская</option>
-                                <option value="3516">Томская</option>
-                            </select>
-                        </div>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <legend>Ваш пароль</legend>
-                    <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="input-password">Пароль</label>
-                        <div class="col-sm-10">
-                            <input type="password" name="password" value="" placeholder="Пароль" id="input-password" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="input-confirm">Подтвердите пароль</label>
-                        <div class="col-sm-10">
-                            <input type="password" name="confirm" value="" placeholder="Подтвердите пароль" id="input-confirm" class="form-control">
-                        </div>
-                    </div>
-                </fieldset>
-                <fieldset>
-                    <legend>Новостная рассылка</legend>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Подписаться</label>
-                        <div class="col-sm-10">
-                            <label class="radio-inline">
-                                <input type="radio" name="newsletter" value="1"> Да
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="newsletter" value="0" checked="checked"> Нет
-                            </label>
-                        </div>
-                    </div>
-                </fieldset>
+            <form action="{% url 'users:register' %}" method="post">
+                {% csrf_token %}
+
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-lastname">Имя пользвателя</label>
+                    {{ form.username }}
+                </div>
+
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-lastname">Имя</label>
+                    {{ form.first_name }}
+                </div>
+
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-lastname">Фамилия</label>
+                    {{ form.last_name }}
+                </div>
+
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-lastname">Электронная почта</label>
+                    {{ form.email }}
+                </div>
+
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-lastname">Пароль</label>
+                    {{ form.password1 }}
+                </div>
+
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-lastname">Подтвержение пароля</label>
+                    {{ form.password2 }}
+                </div>
+
+                {% if field.errors %}
+                    {% for field in form %}
+                        <div class="alert"> {{ field.errors }} {{ field.label_tag }} </div>
+                    {% endfor %}
+                {% endif %}
+
                 <div class="buttons">
-                    <div class="pull-right"> <b>Я даю согласие на обработку персональных данных</b>
-                        <input class="box-checkbox" type="checkbox" name="agree" value="1"> &nbsp;
+                    <div class="pull-right">
                         <input type="submit" value="Зарегестрироваться" class="btn btn-primary">
                     </div>
                 </div>
