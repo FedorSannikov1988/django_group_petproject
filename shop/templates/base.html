@@ -120,7 +120,7 @@
 																			<div class="row">
                                                                                 {% for one_software_category in software_category %}
                                                                                 <div class="col-md-3 image">
-																					<a href="#"><img src="{{ one_software_category.image.url }}"></a>
+																					<a href="{% url 'product' %}"><img src="{{ one_software_category.image.url }}"></a>
 																				</div>
                                                                                 {% endfor %}
 																			</div>
@@ -134,7 +134,7 @@
 																					<div class="menu">
 																						<ul>
                                                                                             {% for one_software_antivirus in software_antivirus_protection %}
-																							<li><a href="#" class="main-menu">{{ one_software_antivirus.name }}</a></li>
+																							<li><a href="{% url 'product' %}" class="main-menu">{{ one_software_antivirus.name }}</a></li>
                                                                                             {% endfor %}
 																						</ul>
 																					</div>
@@ -148,7 +148,7 @@
 																					<div class="menu">
 																						<ul>
                                                                                             {% for one_software_office in software_office %}
-																							<li><a href="#" class="main-menu">{{ one_software_office.name }}</a></li>
+																							<li><a href="{% url 'product' %}" class="main-menu">{{ one_software_office.name }}</a></li>
                                                                                             {% endfor %}
 																						</ul>
 																					</div>
@@ -162,7 +162,7 @@
 																					<div class="menu">
 																						<ul>
                                                                                             {% for one_operating_systems in software_operating_systems %}
-																							<li><a href="#" class="main-menu">{{ one_operating_systems.name }}</a></li>
+																							<li><a href="{% url 'product' %}" class="main-menu">{{ one_operating_systems.name }}</a></li>
                                                                                             {% endfor %}
 																						</ul>
 																					</div>
