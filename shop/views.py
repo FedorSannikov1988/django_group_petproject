@@ -1,7 +1,6 @@
-from django.template.response import TemplateResponse
 from django.shortcuts import render
 
-from shop.models import SoftwareCategory, Software, FeaturesSoftware, DevelopmentTeam
+from shop.models import SoftwareCategory, Software, DevelopmentTeam
 
 # глобальные переменные/данные:
 
@@ -64,24 +63,3 @@ def cart(request):
         'page_title': title_cart + title_for_basic_template,
     }
     return render(request, 'cart.html', {**context, **data_for_basic_template})
-
-
-def login(request):
-
-    title_login = 'Вход в учетную запись - '
-
-    context = {
-        'page_title': title_login + title_for_basic_template,
-    }
-
-    return render(request, 'login.html', context)
-
-
-def register(request):
-
-    title_register = 'Регистрация - '
-
-    context = {
-        'page_title': title_register + title_for_basic_template,
-    }
-    return render(request, 'register.html', context)
