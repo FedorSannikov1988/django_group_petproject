@@ -63,15 +63,15 @@
                                 <a href="{% url 'users:register' %}" class="btn btn-default pull-right">Регистрация</a>
                             </div>
                         </div>
-                        <form action="{% url 'users:login' %}" method="post" enctype="multipart/form-data">
+                        <form action="{% url 'users:login' %}" method="post">
                             <div class="col-sm-6 customer-login">
                                 <div class="well">
                                     <h2><i class="fa fa-file-text-o" aria-hidden="true"></i>Постоянный покупатель</h2>
                                     {% csrf_token %}
                                     <br>
-                                    <b> Логин:{{ form.username }} </b>
+                                    <b> Логин: {{ form.username }} </b>
                                     <br><br>
-                                    <b> Пароль:{{ form.password }} </b>
+                                    <b> Пароль: {{ form.password }} </b>
                                     <br>
 
                                     {% if field.errors %}

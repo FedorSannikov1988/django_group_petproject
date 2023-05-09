@@ -3,17 +3,16 @@ from users.models import User
 from django import forms
 
 
+
 class UserLoginForm(AuthenticationForm):
     class Meta:
         model = User
         fields = ('username', 'password')
 
-
 '''
 # или другой вариант:
 
 class UserLoginForm(forms.Form):
-        model = User
         username = forms.CharField(label="Логин")
         password = forms.CharField(max_length=10, widget=forms.PasswordInput)
         field_order = ["username", "password"]
