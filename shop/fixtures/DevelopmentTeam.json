@@ -33,9 +33,9 @@
     "fields": {
       "firstname": "Артём",
       "lastname": "Федотов",
-      "patronymic": null,
-      "telephone": null,
-      "mail": null,
+      "patronymic": "Геннадьевч",
+      "telephone": "+79607253166",
+      "mail": "fedotoff144@gmail.com",
       "role": "роль в проекте",
       "description_work": "описание проделанной работы",
       "image": "images_development_team/artem_fedotov.jpg"
