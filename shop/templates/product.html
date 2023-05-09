@@ -3,7 +3,7 @@
 
     <!-- Basic page needs
     ============================================ -->
-    <title>Дипломный проект - Интернет магазин програмного обеспечения</title>
+    <title>{{ page_title }}</title>
     <meta charset="utf-8">
 
 	<!-- Mobile specific metas
@@ -130,7 +130,7 @@
 					<div class="row">
 						<!-- Logo -->
 						<div class="navbar-logo col-md-3 col-sm-12 col-xs-7">
-							<a href={% url 'index' %}><img src="{% static 'img/demo/logo/logo.png' %}" title="Ваш магазин" alt="Your Store"></a>
+							<a href={% url 'index' %}><img src="{% static 'img/logotip.jpg' %}" title="Ваш магазин" alt="Your Store"></a>
 						</div>
 						<!-- //end Logo -->
 
@@ -799,7 +799,7 @@
 									<div class="product-label form-group">
 										<div class="stock">
 											<span>Availability:</span> <span class="instock">In Stock</span>
-											<p>SKU: 3721 -Vlk</p>
+											<p></p>
 										</div>
 										<div class="product_page_price price" itemprop="offerDetails" itemscope="" itemtype="http://data-vocabulary.org/Offer">
 											<span class="price-new" itemprop="price">$114.00</span>
@@ -823,18 +823,18 @@
 												<div class="cart">
 													<input type="button" data-toggle="tooltip" title="" value="Add to Cart" data-loading-text="Loading..." id="button-cart" class="btn btn-mega btn-lg" onclick="cart.add('42', '1');" data-original-title="Add to Cart">
 												</div>
-												<div class="add-to-links wish_comp">
-													<ul class="blank list-inline">
-														<li class="wishlist">
-															<a class="icon" data-toggle="tooltip" title="" onclick="wishlist.add('50');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i>
-															</a>
-														</li>
-														<li class="compare">
-															<a class="icon" data-toggle="tooltip" title="" onclick="compare.add('50');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i>
-															</a>
-														</li>
-													</ul>
-												</div>
+{#												<div class="add-to-links wish_comp">#}
+{#													<ul class="blank list-inline">#}
+{#														<li class="wishlist">#}
+{#															<a class="icon" data-toggle="tooltip" title="" onclick="wishlist.add('50');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i>#}
+{#															</a>#}
+{#														</li>#}
+{#														<li class="compare">#}
+{#															<a class="icon" data-toggle="tooltip" title="" onclick="compare.add('50');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i>#}
+{#															</a>#}
+{#														</li>#}
+{#													</ul>#}
+{#												</div>#}
 											</div>
 
 
@@ -842,18 +842,6 @@
 
 									</div>
 									<!-- end box info product -->
-									<div class="share">
-										<p>Share This:</p>
-										<div class="share-icon">
-											<ul>
-												<li class="facebook"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-												<li class="twitter"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-												<li class="google"><a href=""><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-												<li class="skype"><a href=""><i class="fa fa-skype" aria-hidden="true"></i></a></li>
-											</ul>
-										</div>
-									</div>
-
 								</div>					</div>
 								<div class="row">
 									<div class="col-sx-12">
@@ -862,21 +850,19 @@
 												<ul class="nav nav-tabs">
 													<li class="active"><a data-toggle="tab" href="#tab-1">Description</a></li>
 													<li class="item_nonactive "><a data-toggle="tab" href="#tab-review">Reviews (1)</a></li>
-													<li class="item_nonactive"><a data-toggle="tab" href="#tab-4">Tags</a></li>
-													<li class="item_nonactive"><a data-toggle="tab" href="#tab-5">Custom Tab</a></li>
 												</ul>
 												<div class="tab-content col-xs-12">
 													<div id="tab-1" class="tab-pane fade active in">
 														<p>
-															The 30-inch Apple Cinema HD Display delivers an amazing 2560 x 1600 pixel resolution. Designed specifically for the creative professional, this display provides more space for easier access to all the tools and palettes needed to edit, format and composite your work. Combine this display with a Mac Pro, MacBook Pro, or PowerMac G5 and there's no limit to what you can achieve. <br>
+															Descr_1. <br>
 															<br>
-															The Cinema HD features an active-matrix liquid crystal display that produces flicker-free images that deliver twice the brightness, twice the sharpness and twice the contrast ratio of a typical CRT display. Unlike other flat panels, it's designed with a pure digital interface to deliver distortion-free images that never need adjusting. With over 4 million digital pixels, the display is uniquely suited for scientific and technical applications such as visualizing molecular structures or analyzing geological data. <br>
+															Descr_2. <br>
 															<br>
-															Offering accurate, brilliant color performance, the Cinema HD delivers up to 16.7 million colors across a wide gamut allowing you to see subtle nuances between colors from soft pastels to rich jewel tones. A wide viewing angle ensures uniform color from edge to edge. Apple's ColorSync technology allows you to create custom profiles to maintain consistent color onscreen and in print. The result: You can confidently use this display in all your color-critical applications. <br>
+															Descr_3. <br>
 															<br>
-															Housed in a new aluminum design, the display has a very thin bezel that enhances visual accuracy. Each display features two FireWire 400 ports and two USB 2.0 ports, making attachment of desktop peripherals, such as iSight, iPod, digital and still cameras, hard drives, printers and scanners, even more accessible and convenient. Taking advantage of the much thinner and lighter footprint of an LCD, the new displays support the VESA (Video Electronics Standards Association) mounting interface standard. Customers with the optional Cinema Display VESA Mount Adapter kit gain the flexibility to mount their display in locations most appropriate for their work environment. <br>
+															Descr_4. <br>
 															<br>
-															The Cinema HD features a single cable design with elegant breakout for the USB 2.0, FireWire 400 and a pure digital connection using the industry standard Digital Video Interface (DVI) interface. The DVI connection allows for a direct pure-digital connection.<br>
+															Descr_5.<br>
 														</p>
 
 
@@ -893,15 +879,15 @@
 																		<tr>
 																			<td colspan="2">
 																				<p>Best this product opencart</p>
-																				<div class="ratings">
-																					<div class="rating-box">
-																						<i class="fa fa-star"></i>
-																						<i class="fa fa-star"></i>
-																						<i class="fa fa-star"></i>
-																						<i class="fa fa-star"></i>
-																						<i class="fa fa-star gray"></i>
-																					</div>
-																				</div>
+{#																				<div class="ratings">#}
+{#																					<div class="rating-box">#}
+{#																						<i class="fa fa-star"></i>#}
+{#																						<i class="fa fa-star"></i>#}
+{#																						<i class="fa fa-star"></i>#}
+{#																						<i class="fa fa-star"></i>#}
+{#																						<i class="fa fa-star gray"></i>#}
+{#																					</div>#}
+{#																				</div>#}
 																			</td>
 																		</tr>
 																	</tbody>
@@ -916,17 +902,17 @@
 																<div class="form-group"> <span class="icon icon-bubbles-2"></span>
 																	<textarea class="form-control" name="text" onblur="if (this.value == '') {this.value = 'Your Review';}" onfocus="if(this.value == 'Your Review') {this.value = '';}">Your Review</textarea>
 																</div>
-																<span style="font-size: 11px;"><span class="text-danger">Note:</span>						HTML is not translated!</span>
-
-																<div class="form-group">
-																	<b>Rating</b> <span>Bad</span>&nbsp;
-																	<input type="radio" name="rating" value="1"> &nbsp;
-																	<input type="radio" name="rating" value="2"> &nbsp;
-																	<input type="radio" name="rating" value="3"> &nbsp;
-																	<input type="radio" name="rating" value="4"> &nbsp;
-																	<input type="radio" name="rating" value="5"> &nbsp;<span>Good</span>
-
-																</div>
+{#																<span style="font-size: 11px;"><span class="text-danger">Важно:</span>						HTML не переводится!</span>#}
+{##}
+{#																<div class="form-group">#}
+{#																	<b>Rating</b> <span>Bad</span>&nbsp;#}
+{#																	<input type="radio" name="rating" value="1"> &nbsp;#}
+{#																	<input type="radio" name="rating" value="2"> &nbsp;#}
+{#																	<input type="radio" name="rating" value="3"> &nbsp;#}
+{#																	<input type="radio" name="rating" value="4"> &nbsp;#}
+{#																	<input type="radio" name="rating" value="5"> &nbsp;<span>Good</span>#}
+{##}
+{#																</div>#}
 																<div class="buttons clearfix"><a id="button-review" class="btn buttonGray">Continue</a></div>
 															</div>
 														</form>
@@ -1084,11 +1070,6 @@
 											</div>
 											<div class="module">
 												<div class="modcontent clearfix">
-													<div class="banners">
-														<div>
-															<a href="#"><img src="{% static 'img/demo/cms/left-image-static.png' %}" alt="left-image"></a>
-														</div>
-													</div>
 
 												</div>
 											</div>
@@ -1112,8 +1093,8 @@
 																<span class="sale">-25%</span>
 																<div class="hover">
 																	<ul>
-																		<li class="icon-heart"><a class="wishlist" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-																		<li class="icon-exchange"><a class="compare" type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
+{#																		<li class="icon-heart"><a class="wishlist" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>#}
+{#																		<li class="icon-exchange"><a class="compare" type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>#}
 																		<li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
 																	</ul>
 																</div>
@@ -1159,8 +1140,8 @@
 																<span class="sale">-25%</span>
 																<div class="hover">
 																	<ul>
-																		<li class="icon-heart"><a class="wishlist" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-																		<li class="icon-exchange"><a class="compare" type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
+{#																		<li class="icon-heart"><a class="wishlist" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>#}
+{#																		<li class="icon-exchange"><a class="compare" type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>#}
 																		<li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
 																	</ul>
 																</div>
@@ -1206,8 +1187,8 @@
 																<span class="sale">-50%</span>
 																<div class="hover">
 																	<ul>
-																		<li class="icon-heart"><a class="wishlist" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-																		<li class="icon-exchange"><a class="compare" type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
+{#																		<li class="icon-heart"><a class="wishlist" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>#}
+{#																		<li class="icon-exchange"><a class="compare" type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>#}
 																		<li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
 																	</ul>
 																</div>
@@ -1252,8 +1233,8 @@
 
 																<div class="hover">
 																	<ul>
-																		<li class="icon-heart"><a class="wishlist" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-																		<li class="icon-exchange"><a class="compare" type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
+{#																		<li class="icon-heart"><a class="wishlist" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>#}
+{#																		<li class="icon-exchange"><a class="compare" type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>#}
 																		<li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
 																	</ul>
 																</div>
@@ -1297,8 +1278,8 @@
 
 																<div class="hover">
 																	<ul>
-																		<li class="icon-heart"><a class="wishlist" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-																		<li class="icon-exchange"><a class="compare" type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
+{#																		<li class="icon-heart"><a class="wishlist" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>#}
+{#																		<li class="icon-exchange"><a class="compare" type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>#}
 																		<li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
 																	</ul>
 																</div>
@@ -1343,8 +1324,8 @@
 
 																<div class="hover">
 																	<ul>
-																		<li class="icon-heart"><a class="wishlist" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-																		<li class="icon-exchange"><a class="compare" type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
+{#																		<li class="icon-heart"><a class="wishlist" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>#}
+{#																		<li class="icon-exchange"><a class="compare" type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>#}
 																		<li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
 																	</ul>
 																</div>
@@ -1390,8 +1371,8 @@
 
 																<div class="hover">
 																	<ul>
-																		<li class="icon-heart"><a class="wishlist" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-																		<li class="icon-exchange"><a class="compare" type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
+{#																		<li class="icon-heart"><a class="wishlist" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>#}
+{#																		<li class="icon-exchange"><a class="compare" type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>#}
 																		<li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
 																	</ul>
 																</div>
@@ -1436,8 +1417,8 @@
 
 																<div class="hover">
 																	<ul>
-																		<li class="icon-heart"><a class="wishlist" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>
-																		<li class="icon-exchange"><a class="compare" type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>
+{#																		<li class="icon-heart"><a class="wishlist" type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></a></li>#}
+{#																		<li class="icon-exchange"><a class="compare" type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></a></li>#}
 																		<li class="icon-search"><a class="quickview iframe-link " data-fancybox-type="iframe" href="quickview.html">  <i class="fa fa-search" aria-hidden="true"></i></a></li>
 																	</ul>
 																</div>

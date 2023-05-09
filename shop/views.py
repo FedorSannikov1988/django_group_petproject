@@ -37,7 +37,7 @@ def sitemap(request):
 
 def about_us(request):
 
-    title_about_us = 'О нас/Наши контакты - '
+    title_about_us = 'О нас / Наши контакты - '
 
     context = {
         "page_title": title_about_us + title_for_basic_template,
@@ -88,4 +88,11 @@ def register(request):
 
 
 def product(request):
-    return render(request, 'product.html')
+
+    title_product = 'Описание продукта - '
+
+    context = {
+        'page_title': title_product + title_for_basic_template,
+    }
+
+    return render(request, 'product.html', {**context, **data_for_basic_template})
