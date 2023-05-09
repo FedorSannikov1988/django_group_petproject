@@ -69,9 +69,10 @@
                                     <h2><i class="fa fa-file-text-o" aria-hidden="true"></i>Постоянный покупатель</h2>
                                     {% csrf_token %}
                                     <br>
-                                    <b> Логин: {{ form.username }} </b>
-                                    <br><br>
-                                    <b> Пароль: {{ form.password }} </b>
+                                    <b> Логин:</b>
+                                        <p>{{ form.username }}</p>
+                                    <b> Пароль:</b>
+                                        <p>{{ form.password }}</p>
                                     <br>
 
                                     {% if field.errors %}
