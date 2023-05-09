@@ -1,5 +1,6 @@
-{% extends 'base_entry.html' %}
+{% extends 'base.html' %}
 {% load static %}
+
 
 <!-- Favicon
 ============================================ -->
@@ -17,8 +18,7 @@
 <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
 <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
 <link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
-<link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
-<link href="{% static 'js/owl-carousel/assets/owl.theme.default.min.css' %}" rel="stylesheet">
+<link href="{% static 'js/owl-carousel/assets/owl.carousel.css' %}" rel="stylesheet">
 <link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
 <link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
 {% endblock %}
@@ -33,71 +33,93 @@
 <link href="{% static 'css/header1.css' %}" rel="stylesheet">
 <link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
 {% endblock %}
+
 {% block stile_body_two_line %}
     <body class="res layout-subpage">
         <div id="wrapper" class="wrapper-full ">
+
 {% endblock %}
+
+<!-- Block Spotlight1  -->
+{% block spotlight1 %}
+{% endblock %}
+<!-- //Block Spotlight1  -->
+
 <!-- Main Container  -->
 {% block main_container %}
-<div class="main-container container">
 
-    <ul class="header-main ">
-        <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-        <li>Регистрация аккаунта</li>
-    </ul>
-    <div class="row">
-        <div id="content" class="col-sm-12">
-            <h3 class="title"><p>Если вы уже зарегистрированы, пожалуйста, <b><a href="{% url 'users:login' %}">войдите в свою учетную запись</a>.</b></p></h3>
-            <form action="{% url 'users:register' %}" method="post">
-                {% csrf_token %}
-
-                <div class="form-group required">
-                    <label class="col-sm-2 control-label" for="input-lastname">Имя пользвателя</label>
-                    {{ form.username }}
+		<div class="main-container container">
+			<ul class="header-main ">
+				<li class="home"><a href="{% url 'index' %}"> Главная </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+				<li> Профиль </li>
+			</ul>
+            {% if user.is_authenticated %}
+            <p><br><br></p>
+			<div class="row">
+                <div class="center">
+                    <div class="text-center"> <img src="{% if user.image %} {{ user.image.url }} {% else%} {% static 'img/about_us/there_is_no_photo.jpg' %} {% endif %}"> </div>
                 </div>
+            <br><hr><br>
+            <p><br><br></p>
+				<!--Middle Part Start-->
+				<div class="col-sm-9" id="content">
+                    <form action="{% url 'users:my_account' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+						<div class="row">
+							<div class="col-sm-6">
+								<fieldset id="personal-details">
+									<legend>Данные пользователя</legend>
+                                    <div class="form-group required">
+										<label for="input-firstname" class="control-label">Имя пользователя</label>
+                                        <b> <br> {{ form.username }} </b>
+									</div>
+									<div class="form-group required">
+										<label for="input-firstname" class="control-label">Имя</label>
+                                        <b> <br> {{ form.first_name }} </b>
+									</div>
+									<div class="form-group required">
+										<label for="input-lastname" class="control-label">Фамилия</label>
+                                        <b> <br> {{ form.last_name }} </b>
+									</div>
+                                    <div class="form-group required">
+										<label  class="clearable-file-input" for="">Фотография пользователя</label>
+                                        <b> <br> {{ form.image }} </b>
+									</div>
 
-                <div class="form-group required">
-                    <label class="col-sm-2 control-label" for="input-lastname">Имя</label>
-                    {{ form.first_name }}
-                </div>
-
-                <div class="form-group required">
-                    <label class="col-sm-2 control-label" for="input-lastname">Фамилия</label>
-                    {{ form.last_name }}
-                </div>
-
-                <div class="form-group required">
-                    <label class="col-sm-2 control-label" for="input-lastname">Электронная почта</label>
-                    {{ form.email }}
-                </div>
-
-                <div class="form-group required">
-                    <label class="col-sm-2 control-label" for="input-lastname">Пароль</label>
-                    {{ form.password1 }}
-                </div>
-
-                <div class="form-group required">
-                    <label class="col-sm-2 control-label" for="input-lastname">Подтвержение пароля</label>
-                    {{ form.password2 }}
-                </div>
-
-                {% if field.errors %}
-                    {% for field in form %}
-                        <div class="alert"> {{ field.errors }} {{ field.label_tag }} </div>
-                    {% endfor %}
-                {% endif %}
-
-                <div class="buttons">
-                    <div class="pull-right">
-                        <input type="submit" value="Зарегестрироваться" class="btn btn-primary">
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+								</fieldset>
+								<br>
+							</div>
+							<div class="col-sm-6">
+								<fieldset>
+									<legend>Контактная информация</legend>
+									<div class="form-group required">
+										<label for="input-email" class="control-label">E-Mail</label>
+                                        <b> <br> {{ form.email }} </b>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<div class="row">
+						    <div class="buttons clearfix">
+							    <div class="pull-right">
+								    <input type="submit" class="btn btn-md btn-primary" value="Сохранить изминения">
+							    </div>
+						    </div>
+                        </div>
+					</form>
+				</div>
+            {% endif %}
+				<!--Middle Part End-->
+			</div>
+		</div>
 {% endblock %}
 <!-- //Main Container -->
+
+<!-- Block Spotlight3  -->
+{% block spotlight3 %}
+<!-- может сюда еще что то и добавим -->
+{% endblock %}
+<!-- //Block Spotlight3  -->
 
 <!-- Include Libs & Plugins
 ============================================ -->
@@ -113,7 +135,6 @@
 <script type="text/javascript" src="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
 {% endblock %}
-
 
 <!-- Theme files
 ============================================ -->
