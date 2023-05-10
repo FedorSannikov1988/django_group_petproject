@@ -3,7 +3,7 @@ from users.models import User
 from django import forms
 
 
-
+'''
 class UserLoginForm(AuthenticationForm):
     class Meta:
         model = User
@@ -14,9 +14,9 @@ class UserLoginForm(AuthenticationForm):
 
 class UserLoginForm(forms.Form):
         username = forms.CharField(label="Логин")
-        password = forms.CharField(max_length=10, widget=forms.PasswordInput)
+        password = forms.CharField(max_length=20, widget=forms.PasswordInput)
         field_order = ["username", "password"]
-'''
+
 
 
 class UserRegisterForm(UserCreationForm):
