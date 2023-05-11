@@ -14,6 +14,7 @@ data_for_basic_template = {
     "software_antivirus_protection": Software.objects.filter(category__name='Антивирусная защита')
 }
 
+
 def index(request):
 
     title_index = 'Главная страница - '

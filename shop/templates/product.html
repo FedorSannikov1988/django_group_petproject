@@ -113,9 +113,9 @@
 						<div class="header-top-right collapsed-block text-right  col-sm-6 col-xs-6 compact-hidden">
 							<div class="tabBlock1" id="TabBlock-1">
 								<ul class="top-link list-inline">
-									<li class="wishlist hidden-xs"><a href="#" id="wishlist-total" class="top-link-wishlist" title="Добро пожаловать!"><span>Welcome Customer!</span></a></li>
-									<li class="signin"><a href="login.html" class="top-link-checkout" title="Войти"><span>Sign In</span></a></li>
-									<li class="register"><a href="register.html" title="Регистрация"><span>Register</span></a></li>
+									<li class="wishlist hidden-xs"><a href="#" id="wishlist-total" class="top-link-wishlist" title="Добро пожаловать!"><span>Добро пожаловать!</span></a></li>
+									<li class="signin"><a href={% url 'login' %} class="top-link-checkout" title="Войти"><span>Sign In</span></a></li>
+									<li class="register"><a href={% url 'register' %} title="Регистрация"><span>Регистрация</span></a></li>
 								</ul>
 							</div>
 						</div>
@@ -173,11 +173,11 @@
 											<tbody>
 												<tr>
 													<td class="text-center" style="width:70px">
-														<a href="product.html"> <img src="{% static 'img/demo/shop/product/35.jpg' %}" style="width:70px" alt="Filet Mign" title="Filet Mign" class="preview"> </a>
+														<a href="product.html"> <img src="" style="width:70px" alt="Filet Mign" title="Filet Mign" class="preview"> </a>
 													</td>
 													<td class="text-left"> <a class="cart_product_name" href="product.html">Filet Mign</a> </td>
 													<td class="text-center"> x1 </td>
-													<td class="text-center"> $1,202.00 </td>
+													<td class="text-center"> # </td>
 													<td class="text-right">
 														<a href="product.html" class="fa fa-edit"></a>
 													</td>
@@ -187,11 +187,11 @@
 												</tr>
 												<tr>
 													<td class="text-center" style="width:70px">
-														<a href="product.html"> <img src="{% static 'img/demo/shop/product/141.jpg' %}" style="width:70px" alt="Canon EOS 5D" title="Canon EOS 5D" class="preview"> </a>
+														<a href="product.html"> <img src="" style="width:70px" alt="product name" title="Product name" class="preview"> </a>
 													</td>
-													<td class="text-left"> <a class="cart_product_name" href="product.html">Canon EOS 5D</a> </td>
+													<td class="text-left"> <a class="cart_product_name" href="product.html">###</a> </td>
 													<td class="text-center"> x1 </td>
-													<td class="text-center"> $60.00 </td>
+													<td class="text-center"> # </td>
 													<td class="text-right">
 														<a href="product.html" class="fa fa-edit"></a>
 													</td>
@@ -209,22 +209,22 @@
 													<tr>
 														<td class="text-left"><strong>Sub-Total</strong>
 														</td>
-														<td class="text-right">$1,060.00</td>
+														<td class="text-right">#</td>
 													</tr>
 													<tr>
-														<td class="text-left"><strong>Eco Tax (-2.00)</strong>
+														<td class="text-left"><strong>#</strong>
 														</td>
-														<td class="text-right">$2.00</td>
+														<td class="text-right">#</td>
 													</tr>
 													<tr>
-														<td class="text-left"><strong>VAT (20%)</strong>
+														<td class="text-left"><strong>#</strong>
 														</td>
-														<td class="text-right">$200.00</td>
+														<td class="text-right">#</td>
 													</tr>
 													<tr>
 														<td class="text-left"><strong>Total</strong>
 														</td>
-														<td class="text-right">$1,262.00</td>
+														<td class="text-right">some price</td>
 													</tr>
 												</tbody>
 											</table>
@@ -465,7 +465,7 @@
 																				<li><a class="subcategory_item" href="faq.html">FAQ</a></li>
 
 																				<li><a class="subcategory_item" href="sitemap.html">Site Map</a></li>
-																				<li><a class="subcategory_item" href="contact.html">Contact us</a></li>
+																				<li><a class="subcategory_item" href="{% url 'about_us' %}">Contact us</a></li>
 																				<li><a class="subcategory_item" href="banner-effect.html">Banner Effect</a></li>
 																			</ul>
 																		</div>
