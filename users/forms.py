@@ -1,4 +1,5 @@
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+
 from users.models import User
 from django import forms
 
@@ -14,8 +15,8 @@ class UserLoginForm(AuthenticationForm):
 # или другой вариант:
 
 class UserLoginForm(forms.Form):
-    username = forms.CharField(label="Логин")
-    password = forms.CharField(max_length=20, widget=forms.PasswordInput)
+    username = forms.CharField(label="Логин", widget=forms.TextInput(attrs={'class' : 'form-control'}))
+    password = forms.CharField(max_length=20, widget=forms.PasswordInput(attrs={'class' : 'form-control'}))
     field_order = ["username", "password"]
 
 
