@@ -1,0 +1,154 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<!-- Basic page needs
+============================================ -->
+<title>{{ page_title }}</title>
+<meta charset="utf-8">
+
+<!-- Mobile specific metas
+============================================ -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<!-- Favicon
+============================================ -->
+{% block favicon %} {% endblock %}
+
+<!-- Libs CSS
+============================================ -->
+{% block libs_css %} {% endblock %}
+
+<!-- Theme CSS
+============================================ -->
+{% block theme_css %} {% endblock %}
+
+</head>
+
+{% block stile_body_two_line %} {% endblock %}
+
+<!-- Header Container  -->
+<header id="header" class=" variantleft type_1">
+			<!-- Header center -->
+			<div class="header-center left">
+				<div class="container">
+					<div class="row">
+						<!-- Logo -->
+						<div class="navbar-logo col-md-3 col-sm-12 col-xs-7">
+							<a href="{% url 'index' %}"><img src="{% static 'img/logotip.jpg' %}" title="Логотип магазина" alt="Логотип магазина"></a>
+						</div>
+						<!-- //Logo -->
+						<!-- Secondary menu -->
+						<div class="col-md-4 col-sm-4 col-xs-5 shopping_cart pull-right">
+						</div>
+					</div>
+				</div>
+			</div>
+            <!-- //Header center -->
+			<!-- Header Bottom -->
+			<div class="header-bottom">
+				<div class="container">
+					<div class="row">
+						<!-- Main menu -->
+						<div class="megamenu-hori header-bottom-right  col-md-12 col-sm-12 col-xs-12 ">
+							<div class="responsive so-megamenu ">
+								<nav class="navbar-default">
+									<div class=" container-megamenu  horizontal">
+										<div class="megamenu-wrapper">
+											<div class="megamenu-pattern">
+												<div class="container">
+													<ul class="megamenu " data-transition="slide" data-animationtime="250">
+														<li class="home hover">
+															<p class="close-menu"></p>
+															<a href="{% url 'index' %}" class="menu1"> Главная </a>
+														</li>
+														<li class="with-sub-menu hover">
+															<p class="close-menu"></p>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</nav>
+							</div>
+						</div>
+                        <!-- //Main menu -->
+                    </div>
+				</div>
+			</div>
+		</header>
+<!-- //Header Container  -->
+
+<!-- Block Spotlight1  -->
+{% block spotlight1 %} {% endblock %}
+<!-- //Block Spotlight1  -->
+
+<!-- Main Container  -->
+{% block main_container %} {% endblock %}
+<!-- //Main Container -->
+
+<!-- Block Spotlight3  -->
+{% block spotlight3 %} {% endblock %}
+<!-- //Block Spotlight3  -->
+
+<!-- Footer Container -->
+<footer class="footer-container type_footer1">
+    <!-- Footer Top Container -->
+	<section class="footer-top">
+		<div class="container content">
+			<div class="">
+				<div class=" collapsed-block ">
+					<div class="module clearfix">
+						<h3 class="modtitle"> Наши контакты: </h3>
+						<div class="modcontent">
+							<ul class="contact-address">
+								<li><p><span class="fa fa-map-marker"> </span><span>Наш адрес : </span> --- </p></li>
+								<li><p><span class="fa fa-envelope-o"> </span><span>Email : </span> --- </p></li>
+								<li><p><span class="fa fa-phone"> </span><span>Телефон : </span> --- </p></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class=" box-information">
+					<div class="module clearfix">
+						<h3 class="modtitle">Информация:</h3>
+						<div class="modcontent">
+							<ul class="menu">
+                                <li><a href="{% url 'faq:index' %}">Полезная информация</a></li>
+                                <li><a href="{% url 'about_us' %}">О нас/Наши контакты</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class=" box-extras">
+					<div class="module clearfix">
+						<h3 class="modtitle">Дополнительно</h3>
+						<div class="modcontent">
+							<ul class="menu">
+								<li><a href="{% url 'sitemap' %}">Карта сайта</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</footer>
+<!-- //Footer Container -->
+
+</div>
+<!-- Include Libs & Plugins
+============================================ -->
+<!-- End of the document so the pages load faster -->
+{% block libs_and_plugins %} {% endblock %}
+
+<!-- Theme files
+============================================ -->
+{% block theme_files %} {% endblock %}
+</body>
+</html>

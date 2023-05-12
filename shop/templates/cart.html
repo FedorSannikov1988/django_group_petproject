@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+<!-- Favicon
+============================================ -->
+{% block favicon %}
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/apple-touch-icon-144-precomposed.png' %}">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/apple-touch-icon-114-precomposed.png' %}">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/apple-touch-icon-72-precomposed.png' %}">
+<link rel="apple-touch-icon-precomposed" href="{% static 'ico/apple-touch-icon-57-precomposed.png' %}">
+<link rel="shortcut icon" href="{% static 'ico/favicon.png' %}">
+{% endblock %}
+
+<!-- Libs CSS
+============================================ -->
+{% block libs_css %}
+<link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+<link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+<link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+<link href="{% static 'js/owl-carousel/assets/owl.carousel.css' %}" rel="stylesheet">
+<link href="{% static 'js/owl-carousel/assets/owl.theme.default.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
+<link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
+{% endblock %}
+
+<!-- Theme CSS
+============================================ -->
+{% block theme_css %}
+<link href="{% static 'css/themecss/cpanel.css' %}" rel='stylesheet'  type='text/css' media='all' />
+<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
+<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
+<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
+<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
+<link href="{% static 'css/header1.css' %}" rel="stylesheet">
+<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block stile_body_two_line %}
+    <body class="res layout-subpage">
+        <div id="wrapper" class="wrapper-full ">
+{% endblock %}
+
+<!-- Main Container  -->
+{% block main_container %}
+<div class="main-container container">
+    <ul class="header-main ">
+        <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+        <li>Корзина</li>
+    </ul>
+    <div class="row">
+        <!--Middle Part Start-->
+        <div id="content" class="col-sm-12">
+            <p>
+                <br>
+                <br>
+                <br>
+            </p>
+            <div class="table-responsive form-group">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td class="text-center">Название ПО</td>
+                            <td class="text-center">Количество</td>
+                            <td class="text-center">Цена за одну лицензию</td>
+                            <td class="text-center">Всего</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-left"><a href="product.html">Emasa rumas gacem</a><br />
+                            </td>
+                            <td class="text-left" width="200px"><div class="input-group btn-block quantity">
+                                <input type="text" name="quantity" value="1" size="1" class="form-control" />
+                                <span class="input-group-btn">
+                                    <button type="submit" data-toggle="tooltip" title="Update" class="btn btn-primary"><i class="fa fa-clone"></i></button>
+                                    <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger" onClick=""><i class="fa fa-times-circle"></i></button>
+                                </span></div></td>
+                                <td class="text-right">$120.00</td>
+                                <td class="text-right">$120.00</td>
+                        </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4 col-sm-offset-8">
+                            <table class="table table-bordered">
+                                <tbody>
+                                    <tr>
+                                        <td class="text-right">
+                                            <strong>Без налога и доставки:</strong>
+                                        </td>
+                                        <td class="text-right">$168.71</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right">
+                                            <strong>Стоимость доставки:</strong>
+                                        </td>
+                                        <td class="text-right">$4.69</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right">
+                                            <strong>НДС (20%):</strong>
+                                        </td>
+                                        <td class="text-right">$34.68</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right">
+                                            <strong>Итого:</strong>
+                                        </td>
+                                        <td class="text-right">$213.70</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <div class="pull-left"><a href="{% url 'index' %}" class="btn btn-primary">Продолжить покупки</a></div>
+                        <div class="pull-right"><a href="#" class="btn btn-primary">Купить</a></div>
+                    </div>
+                </div>
+                <!--Middle Part End -->
+
+            </div>
+        </div>
+{% endblock %}
+        <!-- //Main Container -->
+				
+<!-- Include Libs & Plugins
+============================================ -->
+{% block libs_and_plugins %}
+<script type="text/javascript" src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/owl-carousel/owl.carousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/themejs/libs.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/unveil/jquery.unveil.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/countdown/jquery.countdown.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/datetimepicker/moment.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
+{% endblock %}
+
+<!-- Theme files
+============================================ -->
+{% block theme_files %}
+<script type="text/javascript" src="{% static 'js/themejs/so_megamenu.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/themejs/addtocart.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/themejs/application.js' %}"></script>
+{% endblock %}

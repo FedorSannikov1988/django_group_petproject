@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_entry.html' %}
 {% load static %}
 
 
@@ -27,7 +27,6 @@
 <!-- Theme CSS
 ============================================ -->
 {% block theme_css %}
-<link href="{% static 'css/themecss/cpanel.css' %}" rel='stylesheet'  type='text/css' media='all' />
 <link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
 <link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
 <link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
@@ -43,60 +42,54 @@
 
 <!-- Main Container  -->
 {% block main_container %}
-<b> </b> <div class="main-container container">
-                <ul class="header-main ">
-                    <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                    <li>Карта сайта</li>
-                </ul>
-                <div class="row">
-                    <div id="content" class="col-sm-12">
-                        <h2 class="title">Карта сайта</h2>
-                        <div class="row">
-                            <div class="col-md-5 col-sm-6">
-                                <ul class="simple-list arrow-list bold-list">
-                                    <li><a href="#"><!--Операционные системы--> {{ software_category.0.name }}</a>
-                                        <ul class="sitemap">
-                                          {% for one_category in software_antivirus_protection %}
-                                              <li><a href="#"> {{ one_category.name }} </a></li>
-                                          {% endfor %}
-                                        </ul>
-                                    </li>
-                                    <li><a href="#"><!--Офисное ПО--> {{ software_category.1.name }}</a>
-                                        <ul class="sitemap">
-                                          {% for one_software_office in software_office %}
-                                              <li><a href="#"> {{ one_software_office.name }} </a></li>
-                                          {% endfor %}
-                                        </ul>
-                                    </li>
-                                    <li><a href="#"><!--Антивирусная защита--> {{ software_category.2.name }}</a>
-                                        <ul class="sitemap">
-                                          {% for one_operating_systems in software_operating_systems %}
-                                              <li><a href="#"> {{ one_operating_systems.name }} </a></li>
-                                          {% endfor %}
-                                        </ul>
-                                    </li>
-                                </ul>
+<div class="main-container container">
+    <ul class="header-main ">
+        <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+        <li>Войти</li>
+    </ul>
+
+    <div class="row">
+        <div id="content" class="col-sm-12">
+            <div class="page-login">
+
+                <div class="account-border">
+                    <div class="row">
+                        <div class="col-sm-6 new-customer">
+                            <div class="well">
+                                <h2><i class="fa fa-file-o" aria-hidden="true"></i>Новый клиент</h2>
+                                <p>Создав учетную запись, вы сможете совершать покупки быстрее, быть в курсе статуса заказа и отслеживать ранее сделанные заказы.</p>
                             </div>
-                            <div class="col-md-4 col-sm-6">
-                                <ul class="simple-list arrow-list bold-list">
-                                    <li><a href="#">Заголовок</a>
-                                        <ul class="sitemap">
-                                            <li><a href="#">Текст</a> </li>
-                                            <li><a href="#">Текст</a> </li>
-                                            <li><a href="#">Текст</a> </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Информация</a>
-                                        <ul class="sitemap">
-                                            <li><a href="{% url 'about_us' %}">О нас/Наши контакты</a> </li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                            <div class="bottom-form">
+                                <a href="{% url 'register' %}" class="btn btn-default pull-right">Регистрация</a>
                             </div>
                         </div>
+
+                        <form action="#" method="post" enctype="multipart/form-data">
+                            <div class="col-sm-6 customer-login">
+                                <div class="well">
+                                    <h2><i class="fa fa-file-text-o" aria-hidden="true"></i>Постоянный покупатель</h2>
+                                    <div class="form-group">
+                                        <label class="control-label " for="input-email">E-Mail</label>
+                                        <input type="text" name="email" value="" id="input-email" class="form-control" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label " for="input-password">Пароль</label>
+                                        <input type="password" name="password" value="" id="input-password" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="bottom-form">
+                                    <a href="#" class="forgot">Забыли пароль ?</a>
+                                    <a href="#" class="btn btn-default pull-right">Войти</a>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
+
             </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 <!-- //Main Container -->
 
@@ -114,6 +107,8 @@
 <script type="text/javascript" src="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
 {% endblock %}
+
+	
 
 <!-- Theme files
 ============================================ -->
