@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from shop.models import SoftwareCategory, Software, DevelopmentTeam
+from shop.models import SoftwareCategory, Software, DevelopmentTeam, FAQ
 
 # глобальные переменные/данные:
 
@@ -51,6 +51,7 @@ def faq(request):
 
     context = {
         'page_title': title_faq + title_for_basic_template,
+        'faq': FAQ.objects.all(),
     }
     return render(request, 'faq.html', {**context, **data_for_basic_template})
 
