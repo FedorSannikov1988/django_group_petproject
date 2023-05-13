@@ -54,3 +54,12 @@ class DevelopmentTeam(models.Model):
         return f'Firstname: {self.firstname} '\
                f'| Lastname: {self.lastname} '\
                f'| Patronymic: {self.patronymic} '
+
+
+class FAQ(models.Model):
+    question = models.TextField(null=True, blank=True)
+    answer = models.TextField(null=True, blank=True)
+
+    def __str__(self):
+        return f'Question: {self.question} '\
+               f'| Answer: {self.answer}  '

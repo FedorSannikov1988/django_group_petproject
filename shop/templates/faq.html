@@ -51,24 +51,14 @@
 					<p><br><br></p>
                     <div class="col-sm-12">
                         <ul class="yt-accordion">
-                            <li class="accordion-group">
-                                <h3 class="accordion-heading"><i class="fa fa-plus-square"></i> <span>Оформление заказ</span></h3>
-                                <div class="accordion-inner">
-                                    <p>Краткое описание процесса оформления заказа на сайте</p>
-                                </div>
-                            </li>
-                            <li class="accordion-group">
-                                <h3 class="accordion-heading"><i class="fa fa-plus-square"></i><span>Способы оплаты</span></h3>
-                                <div class="accordion-inner">
-                                    <p>Краткое описание способа оплаты заказа на сайте</p>
-                                </div>
-                            </li>
-                            <li class="accordion-group">
-                                <h3 class="accordion-heading"><i class="fa fa-plus-square"></i><span>Доставка товаров</span></h3>
-                                <div class="accordion-inner" >
-                                    <p>Краткое описание доставки коробочной версии продукта и/или лицензионного ключа на флэшке</p>
-                                </div>
-                            </li>
+                            {% for one_question in faq %}
+                                <li class="accordion-group">
+                                    <h3 class="accordion-heading"><i class="fa fa-plus-square"></i> <span>{% if one_question.question %} {{ one_question.question }} {% endif %}</span></h3>
+                                    <div class="accordion-inner">
+                                        <p>{% if one_question.answer %} {{ one_question.answer }} {% endif %}</p>
+                                    </div>
+                                </li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
