@@ -1,3 +1,4 @@
+from django.template.response import TemplateResponse
 from django.shortcuts import render
 
 from shop.models import SoftwareCategory, Software, DevelopmentTeam, FAQ
@@ -12,6 +13,7 @@ data_for_basic_template = {
     "software_office": Software.objects.filter(category__name='Офисное ПО'),
     "software_antivirus_protection": Software.objects.filter(category__name='Антивирусная защита')
 }
+
 
 def index(request):
 
@@ -36,7 +38,7 @@ def sitemap(request):
 
 def about_us(request):
 
-    title_about_us = 'О нас/Наши контакты - '
+    title_about_us = 'О нас / Наши контакты - '
 
     context = {
         "page_title": title_about_us + title_for_basic_template,
@@ -64,3 +66,13 @@ def cart(request):
         'page_title': title_cart + title_for_basic_template,
     }
     return render(request, 'cart.html', {**context, **data_for_basic_template})
+
+def product(request):
+
+    title_product = 'Описание продукта - '
+
+    context = {
+        'page_title': title_product + title_for_basic_template,
+    }
+
+    return render(request, 'product.html', {**context, **data_for_basic_template})

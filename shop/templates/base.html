@@ -114,65 +114,19 @@
 														<li class="with-sub-menu hover">
 															<p class="close-menu"></p>
 															<a href="#" class="clearfix menu1">
-																<strong>Категории</strong>
+																<strong>Каталог</strong>
 																<span class="label"></span>
 															</a>
-															<div class="sub-menu">
+															<div class="sub-menu" style="left: 0px;">
 																<div class="content">
 																	<div class="row">
-																		<div class="col-sm-12">
-																			<div class="row">
-                                                                                {% for one_software_category in software_category %}
-                                                                                <div class="col-md-3 image">
-																					<a href="#"><img src="{{ one_software_category.image.url }}"></a>
-																				</div>
-                                                                                {% endfor %}
-																			</div>
-																		</div>
-																	</div>
-																	<div class="row">
-																		<div class="col-md-3">
-																			<a href="#" class="title-submenu"> {{ software_category.0.name }}</a>
-																			<div class="row">
-																				<div class="col-md-12 hover-menu">
-																					<div class="menu">
-																						<ul>
-                                                                                            {% for one_software_antivirus in software_antivirus_protection %}
-																							<li><a href="#" class="main-menu">{{ one_software_antivirus.name }}</a></li>
-                                                                                            {% endfor %}
-																						</ul>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<a href="#" class="title-submenu">{{ software_category.1.name }}</a>
-																			<div class="row">
-																				<div class="col-md-12 hover-menu">
-																					<div class="menu">
-																						<ul>
-                                                                                            {% for one_software_office in software_office %}
-																							<li><a href="#" class="main-menu">{{ one_software_office.name }}</a></li>
-                                                                                            {% endfor %}
-																						</ul>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<a href="#" class="title-submenu">{{ software_category.2.name }}</a>
-																			<div class="row">
-																				<div class="col-md-12 hover-menu">
-																					<div class="menu">
-																						<ul>
-                                                                                            {% for one_operating_systems in software_operating_systems %}
-																							<li><a href="#" class="main-menu">{{ one_operating_systems.name }}</a></li>
-                                                                                            {% endfor %}
-																						</ul>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
+                                                                        {% for one_software_category in software_category %}
+                                                                            <div class="col-md-4 image">
+                                                                                <a href="{% url 'product' %}"><img src="{{ one_software_category.image.url }}"></a>
+                                                                                <div class="center title-submenu"></div>
+                                                                                <a href="{% url 'product' %}"> <div class="text-center"> <h3> <strong> {{ one_software_category.name }} </strong> </h3> </div> </a>
+                                                                            </div>
+                                                                        {% endfor %}
 																	</div>
 																</div>
 															</div>
@@ -209,31 +163,27 @@
     <!-- Footer Top Container -->
 	<section class="footer-top">
 		<div class="container content">
-			<div class="">
-				<div class=" collapsed-block ">
+                <div class="box-information">
 					<div class="module clearfix">
-						<h3 class="modtitle"> Наши контакты: </h3>
+						<h3 class="modtitle">Наши контакты</h3>
 						<div class="modcontent">
-							<ul class="contact-address">
-								<li><p><span class="fa fa-map-marker"> </span><span>Наш адрес : </span> --- </p></li>
-								<li><p><span class="fa fa-envelope-o"> </span><span>Email : </span> --- </p></li>
-								<li><p><span class="fa fa-phone"> </span><span>Телефон : </span> --- </p></li>
+							<ul class="menu">
+                                <li><a href="{% url 'about_us' %}">О нас / Наши контакты</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 				<div class=" box-information">
 					<div class="module clearfix">
-						<h3 class="modtitle">Информация:</h3>
+						<h3 class="modtitle">Информация</h3>
 						<div class="modcontent">
 							<ul class="menu">
 								<li><a href="{% url 'faq:index' %}">Полезная информация</a></li>
-                                <li><a href="{% url 'about_us' %}">О нас/Наши контакты</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
-				<div class=" box-extras">
+				<div class="box-information">
 					<div class="module clearfix">
 						<h3 class="modtitle">Дополнительно</h3>
 						<div class="modcontent">
@@ -243,12 +193,14 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
-</footer>
+                <div>
+                <br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br>
+                </div>
+                </div>
+        </section>
+    </footer>
 <!-- //Footer Container -->
-
 </div>
 <!-- Include Libs & Plugins
 ============================================ -->
