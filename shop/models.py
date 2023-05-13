@@ -67,4 +67,4 @@ class Cart(models.Model):
 
     def __str__(self):
         return f'User email: {self.user.email} ' \
-               f'| Soft: {self.software.name} '
+               f'| Software: {self.software.name} '
