@@ -2,6 +2,8 @@ from django.db import models
 
 from phonenumber_field.modelfields import PhoneNumberField
 
+from users.models import User
+
 
 class SoftwareCategory(models.Model):
     name = models.CharField(max_length=50, null=False, unique=True)
@@ -20,9 +22,10 @@ class Software(models.Model):
     category = models.ForeignKey(to=SoftwareCategory, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'Software: {self.name} '\
-               f'| Price: {self.price} '\
-               f'| Quantity : {self.quantity} '
+        return f'Software: {self.name} ' \
+               f'| Price: {self.price} ' \
+               f'| Quantity : {self.quantity} ' \
+               f'| Category : {self.category.name} '
 
 
 class FeaturesSoftware(models.Model):
@@ -34,9 +37,9 @@ class FeaturesSoftware(models.Model):
     software = models.ForeignKey(to=Software, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f'Operating System: {self.operating_system} '\
-               f'| Video Card: {self.video_card} '\
-               f'| Hard disk MB: {self.hard_disk_mb} '\
+        return f'Operating System: {self.operating_system} ' \
+               f'| Video Card: {self.video_card} ' \
+               f'| Hard disk MB: {self.hard_disk_mb} ' \
                f'| Min RAM MB: {self.min_ram_mb} '
 
 
@@ -51,6 +54,17 @@ class DevelopmentTeam(models.Model):
     image = models.ImageField(null=True, blank=True, upload_to='images_development_team')
 
     def __str__(self):
-        return f'Firstname: {self.firstname} '\
-               f'| Lastname: {self.lastname} '\
+        return f'Firstname: {self.firstname} ' \
+               f'| Lastname: {self.lastname} ' \
                f'| Patronymic: {self.patronymic} '
+
+
+class Cart(models.Model):
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    software = models.ForeignKey(to=Software, on_delete=models.CASCADE)
+    quantity = models.PositiveSmallIntegerField(default=0)
+    created_timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'User email: {self.user.email} ' \
+               f'| Soft: {self.software.name} '
