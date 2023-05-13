@@ -13,6 +13,7 @@ from shop.views import login
 from shop.views import register
 from shop.views import cart
 from shop.views import faq
+from shop.views import catalog
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -24,7 +25,8 @@ urlpatterns = [
     path("register", register, name='register'),
     path("cart", cart, name='cart'),
     path("faq", include('shop.urls', namespace='faq')),
-]  # + urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path("catalog", catalog, name='catalog'),
+]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

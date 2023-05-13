@@ -97,3 +97,13 @@ def product(request):
     }
 
     return render(request, 'product.html', {**context, **data_for_basic_template})
+
+
+def catalog(request):
+    title_catalog = 'Каталог программного обеспечения - '
+
+    context = {
+        'page_title': title_catalog + title_for_basic_template,
+    }
+
+    return render(request, 'catalog.html', {**context, **data_for_basic_template})
