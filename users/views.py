@@ -72,7 +72,7 @@ def my_account(request):
         'page_title': title_my_account + title_for_basic_template(),
     }
 
-    return render(request, 'my_account.html', {**context, **data_for_basic_template()})
+    return render(request, 'my_account.html', {**context, **data_for_basic_template(request)})
 
 
 def exit_my_account(request):

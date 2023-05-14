@@ -40,60 +40,7 @@
 
 <!-- Block Spotlight1  -->
 {% block spotlight1 %}
-            <section class="so-spotlight1 ">
-                <div class="container">
-                    <div class="row">
-                        <div class="sidebar-menu col-md-3 col-sm-12 hidden-xs ">
-                            <div class="responsive so-megamenu ">
-                                <div class="so-vertical-menu no-gutter compact-hidden">
-                                    <nav class="navbar-default">
-                                        <div class="container-megamenu vertical open">
-                                            <div id="menuHeading-1">
-                                                <div class="megamenuToogle-wrapper">
-                                                    <div class="megamenuToogle-pattern">
-                                                        <div class="container">
-                                                            <div>
-                                                                <span></span>
-                                                                <span></span>
-                                                                <span></span>
-                                                            </div> КАТЕГОРИИ
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="vertical-wrapper" style="display: block;">
-                                                <span id="remove-verticalmenu" class="fa fa-times"></span>
-                                                <div class="megamenu-pattern">
-                                                    <div class="container">
-                                                        <ul class="megamenu">
-                                                            {% for one_category in software_category %}
-                                                            <li> <a href="#" class="clearfix"> <span>  {{ one_category.name }} </span> </a> </li>
-                                                            {% endfor %}
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                        <!--//Слайдер с 2-мя картинками main_index_picture1.jpg-->
-                        <div id="yt_header_right" class="col-sm-12 col-md-9 col-lg-9 ">
-                            <div class="slider-container ">
-                                <div class="owl-carousel owl-slider-1 owl" data-dots="yes" data-nav="yes" data-loop="yes" data-items_xs="1" data-items_sm="1" data-items_md="1" data-margin="0" >
-                                    <div class="img-slider">
-                                        <a href="#"><img src="{% static 'img/index/main_index_picture1.jpg' %}" alt="картинка №1"></a>
-                                    </div>
-                                    <div class="img-slider">
-                                        <a href="#"><img src="{% static 'img/index/main_index_picture2.jpg' %}" alt="картинка №2"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 {% endblock %}
 <!-- //Block Spotlight1  -->
 
@@ -101,7 +48,7 @@
 {% block main_container %}
                 <div class="main-container container">
                     <div class="row">
-                    <hr> <hr> <hr>
+                    <br> <br> <br>
                         <div class="smartphone-tablet col-sm-12">
                             <h3 class="modtitle"> Все програмное обеспечение продающееся в магазине </h3>
                             <hr> <hr> <hr>
@@ -112,10 +59,7 @@
                                         <div class="product-item-container">
                                             <div class="left-block">
                                                 <div class="product-image-container  second_img ">
-                                                    <a href="#" class="product-img"><img src="{{ one_soft.image.url }}" alt=""></a>
-                                                    <!--Sale Label-->
-                                                    <!-- <span class="sale">-95%</span> -->
-                                                    <!-- <span class="new">Old</span> -->
+                                                    <a href="{% url 'product' %}" class="product-img"><img src="{{ one_soft.image.url }}" alt=""></a>
                                                 </div>
                                             </div>
                                             <div class="right-block">
@@ -126,6 +70,9 @@
                                                     <div class="price">
                                                         <span class="price">{{ one_soft.price }} ₽</span>
                                                     </div>
+                                                    <div class="button-group">
+                                                        <a class="addToCart btn btn-default " href="{% url 'product_catalog:cart_add' one_soft.id %}"> Купить </a>
+											        </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -134,7 +81,8 @@
                                 </div>
                             </div>
                         </div>
-                        <hr> <hr> <hr>
+                        <br> <br> <br>
+                    <hr> <hr> <hr>
                         <div class="smartphone-tablet col-sm-12">
                             <h3 class="modtitle"> {{ software_category.0.name }} </h3>
                             <hr> <hr> <hr>
@@ -145,7 +93,7 @@
                                         <div class="product-item-container">
                                             <div class="left-block">
                                                 <div class="product-image-container  second_img ">
-                                                    <a href="#" class="product-img"><img src="{{ one_software_antivirus.image.url }}" alt=""></a>
+                                                    <a href="{% url 'product' %}" class="product-img"><img src="{{ one_software_antivirus.image.url }}" alt=""></a>
                                                     <!--Sale Label-->
                                                     <!-- <span class="sale">-95%</span> -->
                                                     <!-- <span class="new">Old</span> -->
@@ -159,6 +107,9 @@
                                                     <div class="price">
                                                         <span class="price">{{ one_software_antivirus.price }} ₽</span>
                                                     </div>
+                                                    <div class="button-group">
+												        <button class="addToCart btn btn-default " data-toggle="tooltip" title="" onclick="cart.add('42', '1');" data-original-title="Купить"> <span class="">Купить</span></button>
+											        </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -178,7 +129,7 @@
                                         <div class="product-item-container">
                                             <div class="left-block">
                                                 <div class="product-image-container  second_img ">
-                                                    <a href="#" class="product-img"><img src="{{ one_software_office.image.url }}" alt=""></a>
+                                                    <a href="{% url 'product' %}" class="product-img"><img src="{{ one_software_office.image.url }}" alt=""></a>
                                                     <!--Sale Label-->
                                                     <!-- <span class="sale">-95%</span> -->
                                                     <!-- <span class="new">Old</span> -->
@@ -186,12 +137,15 @@
                                             </div>
                                             <div class="right-block">
                                                 <div class="caption">
-                                                    <h4><a href="#">{{ one_software_office.name }}</a></h4>
+                                                    <h4><a href="{% url 'product' %}">{{ one_software_office.name }}</a></h4>
                                                     <div class="ratings">
                                                     </div>
                                                     <div class="price">
                                                         <span class="price">{{ one_software_office.price }} ₽</span>
                                                     </div>
+                                                    <div class="button-group">
+												        <button class="addToCart btn btn-default " data-toggle="tooltip" title="" onclick="cart.add('42', '1');" data-original-title="Купить"> <span class="">Купить</span></button>
+											        </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -211,7 +165,7 @@
                                         <div class="product-item-container">
                                             <div class="left-block">
                                                 <div class="product-image-container  second_img ">
-                                                    <a href="#" class="product-img"><img src="{{ one_operating_systems.image.url }}" alt=""></a>
+                                                    <a href="{% url 'product' %}" class="product-img"><img src="{{ one_operating_systems.image.url }}" alt=""></a>
                                                     <!--Sale Label-->
                                                     <!-- <span class="sale">-95%</span> -->
                                                     <!-- <span class="new">Old</span> -->
@@ -219,12 +173,15 @@
                                             </div>
                                             <div class="right-block">
                                                 <div class="caption">
-                                                    <h4><a href="#">{{ one_operating_systems.name }}</a></h4>
+                                                    <h4><a href="{% url 'product' %}">{{ one_operating_systems.name }}</a></h4>
                                                     <div class="ratings">
                                                     </div>
                                                     <div class="price">
                                                         <span class="price">{{ one_operating_systems.price }} ₽</span>
                                                     </div>
+                                                    <div class="button-group">
+												        <button class="addToCart btn btn-default " data-toggle="tooltip" title="" onclick="cart.add('42', '1');" data-original-title="Купить"> <span class="">Купить</span></button>
+											        </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -267,6 +224,5 @@
 <script type="text/javascript" src="{% static 'js/themejs/application.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/themejs/homepage.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/themejs/so_megamenu.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/themejs/addtocart.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/themejs/pathLoader.js' %}"></script>
 {% endblock %}

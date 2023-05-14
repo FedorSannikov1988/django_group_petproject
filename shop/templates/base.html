@@ -104,7 +104,7 @@
 														</li>
 														<li class="with-sub-menu hover">
 															<p class="close-menu"></p>
-															<a href="#" class="clearfix menu1">
+															<a href="{% url 'product_catalog:index' %}" class="clearfix menu1">
 																<strong>Каталог</strong>
 																<span class="label"></span>
 															</a>
@@ -113,9 +113,9 @@
 																	<div class="row">
                                                                         {% for one_software_category in software_category %}
                                                                             <div class="col-md-4 image">
-                                                                                <a href="{% url 'product' %}"><img src="{{ one_software_category.image.url }}"></a>
+                                                                                <a href="{% url 'product_catalog:index' %}"><img src="{{ one_software_category.image.url }}"></a>
                                                                                 <div class="center title-submenu"></div>
-                                                                                <a href="{% url 'product' %}"> <div class="text-center"> <h3> <strong> {{ one_software_category.name }} </strong> </h3> </div> </a>
+                                                                                <a href="{% url 'product_catalog:index' %}"> <div class="text-center"> <h3> <strong> {{ one_software_category.name }} </strong> </h3> </div> </a>
                                                                             </div>
                                                                         {% endfor %}
 																	</div>

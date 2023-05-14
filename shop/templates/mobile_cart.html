@@ -1,12 +1,13 @@
 {% if cart %}
 
+
     <div id="cart" class=" btn-group btn-shopping-cart">
     <a data-loading-text="Loading..." class="top_cart dropdown-toggle" data-toggle="dropdown">
         <div class="shopcart">
             <span class="handle pull-left"></span>
-            <span class="number-shopping-cart">2</span>
+            <span class="number-shopping-cart"> 0 </span>
             <span class="title">Корзина</span>
-            <p class="text-shopping-cart cart-total-full"> $0.00 </p>
+            <p class="text-shopping-cart cart-total-full"> 0.00 ₽</p>
         </div>
     </a>
 
@@ -15,34 +16,22 @@
         <li>
             <table class="table table-striped">
                 <tbody>
+                    {% for one_purchase in cart %}
                     <tr>
                         <td class="text-center" style=" width:70px">
-                            <a href="product.html"> <img src="img/demo/shop/product/35.jpg" style="width:70px" alt="Filet Mign" title="Filet Mign" class="preview"> </a>
+                            <a href="#"> <img src="{{ one_purchase.software.image.url }}" style="width:70px" class="preview"> </a>
                         </td>
-                        <td class="text-left"> <a class="cart_product_name" href="product.html">Filet Mign</a> </td>
-                        <td class="text-center"> x1 </td>
-                        <td class="text-center"> $1,202.00 </td>
+                        <td class="text-left"> <a class="cart_product_name" href="product.html"> {{ one_purchase.software.name }} </a> </td>
+                        <td class="text-center"> {{ one_purchase.quantity }}</td>
+                        <td class="text-center"> {{ one_purchase.software.price }} ₽</td>
                         <td class="text-right">
-                            <a href="product.html" class="fa fa-edit"></a>
+                            <a href="#" class="fa fa-edit"></a>
                         </td>
                         <td class="text-right">
-                            <a onclick="cart.remove('2');" class="fa fa-times fa-delete"></a>
+                            <a onclick="cart.remove('2');" class="fa fa-times fa-delete" href="{% url 'product_catalog:cart_remove' one_purchase.id %}" ></a>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="text-center" style="width:70px">
-                            <a href="product.html"> <img src="img/demo/shop/product/141.jpg" style="width:70px" alt="Canon EOS 5D" title="Canon EOS 5D" class="preview"> </a>
-                        </td>
-                        <td class="text-left"> <a class="cart_product_name" href="product.html">Canon EOS 5D</a> </td>
-                        <td class="text-center"> x1 </td>
-                        <td class="text-center"> $60.00 </td>
-                        <td class="text-right">
-                            <a href="product.html" class="fa fa-edit"></a>
-                        </td>
-                        <td class="text-right">
-                            <a onclick="cart.remove('1');" class="fa fa-times fa-delete"></a>
-                        </td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </li>
@@ -51,24 +40,9 @@
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
-                            <td class="text-left"><strong>Sub-Total</strong>
+                            <td class="text-left"><strong> Всего: </strong>
                             </td>
-                            <td class="text-right">$1,060.00</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left"><strong>Eco Tax (-2.00)</strong>
-                            </td>
-                            <td class="text-right">$2.00</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left"><strong>VAT (20%)</strong>
-                            </td>
-                            <td class="text-right">$200.00</td>
-                        </tr>
-                        <tr>
-                            <td class="text-left"><strong>Total</strong>
-                            </td>
-                            <td class="text-right">$1,262.00</td>
+                            <td class="text-right"> 1,262.00 ₽</td>
                         </tr>
                     </tbody>
                 </table>

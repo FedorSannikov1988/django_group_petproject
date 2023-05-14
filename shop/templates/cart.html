@@ -60,28 +60,32 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <td class="text-center">Название ПО</td>
-                            <td class="text-center">Количество</td>
+                            <td class="text-center">Програмное обеспечение</td>
+                            <td class="text-center">Програмное обеспечение</td>
+                            <td class="text-center">Количество лицензий</td>
                             <td class="text-center">Цена за одну лицензию</td>
-                            <td class="text-center">Всего</td>
+                            <td class="text-center">Цена за все лицензии</td>
                         </tr>
                     </thead>
                     <tbody>
+                    {% for one_purchase in cart %}
                         <tr>
-                            <td class="text-left"><a href="product.html">Emasa rumas gacem</a><br />
-                            </td>
+                            <td class="text-center" style=" width:70px"> <a href="#"> <img src="{{ one_purchase.software.image.url }}" style="width:70px" class="preview"> </a></td>
+                            <td class="title-head"> <a href="{% url 'product' %}"> {{ one_purchase.software.name }} </a> </td>
                             <td class="text-left" width="200px"><div class="input-group btn-block quantity">
-                                <input type="text" name="quantity" value="1" size="1" class="form-control" />
+                                <input type="text" name="quantity" value=" {{ one_purchase.quantity }} " size="1" class="form-control" />
                                 <span class="input-group-btn">
                                     <button type="submit" data-toggle="tooltip" title="Update" class="btn btn-primary"><i class="fa fa-clone"></i></button>
-                                    <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger" onClick=""><i class="fa fa-times-circle"></i></button>
+                                    <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger" onClick="" ><i class="fa fa-times-circle"></i></button>
+                                    <a type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger" onClick=""  href="{% url 'product_catalog:cart_remove' one_purchase.id %}" ></a>
                                 </span></div></td>
-                                <td class="text-right">$120.00</td>
-                                <td class="text-right">$120.00</td>
+                                <td class="text-right">{{ one_purchase.software.price }} ₽ </td>
+                                <td class="text-right"> ₽ </td>
                         </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
 
                     <div class="row">
                         <div class="col-sm-4 col-sm-offset-8">
@@ -89,27 +93,9 @@
                                 <tbody>
                                     <tr>
                                         <td class="text-right">
-                                            <strong>Без налога и доставки:</strong>
+                                            <strong> Итого: </strong>
                                         </td>
-                                        <td class="text-right">$168.71</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-right">
-                                            <strong>Стоимость доставки:</strong>
-                                        </td>
-                                        <td class="text-right">$4.69</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-right">
-                                            <strong>НДС (20%):</strong>
-                                        </td>
-                                        <td class="text-right">$34.68</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-right">
-                                            <strong>Итого:</strong>
-                                        </td>
-                                        <td class="text-right">$213.70</td>
+                                        <td class="text-right"> 213.70 ₽</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -117,12 +103,11 @@
                     </div>
 
                     <div class="buttons">
-                        <div class="pull-left"><a href="{% url 'index' %}" class="btn btn-primary">Продолжить покупки</a></div>
+                        <div class="pull-left"><a href="{% url 'product_catalog:index' %}" class="btn btn-primary">Продолжить покупки</a></div>
                         <div class="pull-right"><a href="#" class="btn btn-primary">Купить</a></div>
                     </div>
                 </div>
                 <!--Middle Part End -->
-
             </div>
         </div>
 {% endblock %}

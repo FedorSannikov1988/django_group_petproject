@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from urllib import request
+
+from django.shortcuts import render, HttpResponseRedirect
+from django.urls import reverse
 from shop.models import SoftwareCategory, Software, DevelopmentTeam, Cart
 
 
@@ -7,16 +10,17 @@ def title_for_basic_template():
     return text
 
 
-def data_for_basic_template():
+def data_for_basic_template(request):
     data = {
         "software_category": SoftwareCategory.objects.all(),
-        "cart": Cart.objects.all()
+        "cart": Cart.objects.filter(user=request.user)
     }
     return data
 
 
 def all_soft():
     data = {
+        "all_soft": Software.objects.all(),
         "software_operating_systems": Software.objects.filter(category__name='Операционные системы'),
         "software_office": Software.objects.filter(category__name='Офисное ПО'),
         "software_antivirus_protection": Software.objects.filter(category__name='Антивирусная защита')
@@ -29,10 +33,8 @@ def index(request):
 
     context = {
         "page_title": title_index + title_for_basic_template(),
-        "all_soft": Software.objects.all(),
-        "cart": Cart.objects.all()
     }
-    return render(request, 'index.html', {**context, **data_for_basic_template(), **all_soft()})
+    return render(request, 'index.html', {**context, **data_for_basic_template(request), **all_soft()})
 
 
 def sitemap(request):
@@ -41,7 +43,7 @@ def sitemap(request):
     context = {
         'page_title': title_sitemap + title_for_basic_template()
     }
-    return render(request, 'sitemap.html', {**context, **data_for_basic_template()})
+    return render(request, 'sitemap.html', {**context, **data_for_basic_template(request)})
 
 
 def about_us(request):
@@ -51,7 +53,7 @@ def about_us(request):
         "page_title": title_about_us + title_for_basic_template(),
         "development_team": DevelopmentTeam.objects.all(),
     }
-    return render(request, 'about_us.html', {**context, **data_for_basic_template()})
+    return render(request, 'about_us.html', {**context, **data_for_basic_template(request)})
 
 
 def faq(request):
@@ -60,7 +62,7 @@ def faq(request):
     context = {
         'page_title': title_faq + title_for_basic_template(),
     }
-    return render(request, 'faq.html', {**context, **data_for_basic_template()})
+    return render(request, 'faq.html', {**context, **data_for_basic_template(request)})
 
 
 def cart(request):
@@ -69,7 +71,7 @@ def cart(request):
     context = {
         'page_title': title_cart + title_for_basic_template(),
     }
-    return render(request, 'cart.html', {**context, **data_for_basic_template()})
+    return render(request, 'cart.html', {**context, **data_for_basic_template(request)})
 
 
 def product(request):
@@ -78,4 +80,38 @@ def product(request):
     context = {
         'page_title': title_product + title_for_basic_template(),
     }
-    return render(request, 'product.html', {**context, **data_for_basic_template()})
+    return render(request, 'product.html', {**context, **data_for_basic_template(request)})
+
+
+def product_catalog(request):
+    title_product_catalog = 'Главная страница - '
+
+    context = {
+        "page_title": title_product_catalog + title_for_basic_template(),
+    }
+    return render(request, 'product_catalog.html', {**context, **data_for_basic_template(request), **all_soft()})
+
+
+def cart_add(request, software_id):
+    user = request.user
+
+    if user.is_anonymous:
+        return HttpResponseRedirect(reverse('users:login'))
+
+    software = Software.objects.get(id=software_id)
+    carts = Cart.objects.filter(user=user, software=software)
+
+    if not carts.exists():
+        Cart.objects.create(user=user, software=software, quantity=1)
+    else:
+        cart = carts.first()
+        cart.quantity += 1
+        cart.save()
+
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+
+def cart_remove(request, cart_id):
+    cart = Cart.objects.get(id=cart_id)
+    cart.delete()
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
