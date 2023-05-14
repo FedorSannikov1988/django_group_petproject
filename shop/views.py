@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from shop.models import SoftwareCategory, Software, DevelopmentTeam
+from shop.models import SoftwareCategory, Software, DevelopmentTeam, Cart
 
 
 def title_for_basic_template():
@@ -10,6 +10,13 @@ def title_for_basic_template():
 def data_for_basic_template():
     data = {
         "software_category": SoftwareCategory.objects.all(),
+        "cart": Cart.objects.all()
+    }
+    return data
+
+
+def all_soft():
+    data = {
         "software_operating_systems": Software.objects.filter(category__name='Операционные системы'),
         "software_office": Software.objects.filter(category__name='Офисное ПО'),
         "software_antivirus_protection": Software.objects.filter(category__name='Антивирусная защита')
@@ -21,17 +28,18 @@ def index(request):
     title_index = 'Главная страница - '
 
     context = {
-        'page_title': title_index + title_for_basic_template(),
+        "page_title": title_index + title_for_basic_template(),
         "all_soft": Software.objects.all(),
+        "cart": Cart.objects.all()
     }
-    return render(request, 'index.html', {**context, **data_for_basic_template()})
+    return render(request, 'index.html', {**context, **data_for_basic_template(), **all_soft()})
 
 
 def sitemap(request):
     title_sitemap = 'Карта сайта - '
 
     context = {
-        'page_title': title_sitemap + title_for_basic_template(),
+        'page_title': title_sitemap + title_for_basic_template()
     }
     return render(request, 'sitemap.html', {**context, **data_for_basic_template()})
 

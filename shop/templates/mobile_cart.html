@@ -1,4 +1,6 @@
-<div id="cart" class=" btn-group btn-shopping-cart">
+{% if cart %}
+
+    <div id="cart" class=" btn-group btn-shopping-cart">
     <a data-loading-text="Loading..." class="top_cart dropdown-toggle" data-toggle="dropdown">
         <div class="shopcart">
             <span class="handle pull-left"></span>
@@ -14,7 +16,7 @@
             <table class="table table-striped">
                 <tbody>
                     <tr>
-                        <td class="text-center" style="width:70px">
+                        <td class="text-center" style=" width:70px">
                             <a href="product.html"> <img src="img/demo/shop/product/35.jpg" style="width:70px" alt="Filet Mign" title="Filet Mign" class="preview"> </a>
                         </td>
                         <td class="text-left"> <a class="cart_product_name" href="product.html">Filet Mign</a> </td>
@@ -75,3 +77,18 @@
         </li>
     </ul>
 </div>
+
+{% else %}
+<!-- Пустая корзина -->
+
+    <div id="cart" class="btn-group btn-shopping-cart">
+        <div class="row">
+            <div class="shopcart center-block">
+                <span class="handle pull-left"> </span>
+            </div>
+            <p class="text-shopping-cart" style="margin-left: -17px;"> Корзина пуста </p>
+        </div>
+    </div>
+
+{% endif %}
+
