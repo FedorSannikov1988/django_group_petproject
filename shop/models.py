@@ -55,7 +55,6 @@ class DevelopmentTeam(models.Model):
                f'| Lastname: {self.lastname} '\
                f'| Patronymic: {self.patronymic} '
 
-
 class FAQ(models.Model):
     question = models.TextField(null=True, blank=True)
     answer = models.TextField(null=True, blank=True)
