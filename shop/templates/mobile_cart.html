@@ -5,9 +5,9 @@
     <a data-loading-text="Loading..." class="top_cart dropdown-toggle" data-toggle="dropdown">
         <div class="shopcart">
             <span class="handle pull-left"></span>
-            <span class="number-shopping-cart"> 0 </span>
+            <span class="number-shopping-cart"> {{ cart.total_quantity }} </span>
             <span class="title">Корзина</span>
-            <p class="text-shopping-cart cart-total-full"> 0.00 ₽</p>
+            <p class="text-shopping-cart cart-total-full"> {{ cart.total_sum }} ₽</p>
         </div>
     </a>
 
@@ -23,7 +23,7 @@
                         </td>
                         <td class="text-left"> <a class="cart_product_name" href="product.html"> {{ one_purchase.software.name }} </a> </td>
                         <td class="text-center"> {{ one_purchase.quantity }}</td>
-                        <td class="text-center"> {{ one_purchase.software.price }} ₽</td>
+                        <td class="text-center"> {{ one_purchase.sum }} ₽</td>
                         <td class="text-right">
                             <a href="#" class="fa fa-edit"></a>
                         </td>

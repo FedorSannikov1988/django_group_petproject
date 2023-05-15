@@ -59,11 +59,24 @@ class DevelopmentTeam(models.Model):
                f'| Patronymic: {self.patronymic} '
 
 
+class CartQuerySet(models.QuerySet):
+    def total_sum(self):
+        return sum(cart.sum() for cart in self)
+
+    def total_quantity(self):
+        return sum(cart.quantity for cart in self)
+
+
 class Cart(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE)
     software = models.ForeignKey(to=Software, on_delete=models.CASCADE)
     quantity = models.PositiveSmallIntegerField(default=0)
     created_timestamp = models.DateTimeField(auto_now_add=True)
+
+    objects = CartQuerySet.as_manager()
+
+    def sum(self):
+        return self.software.price * self.quantity
 
     def __str__(self):
         return f'User email: {self.user.email} ' \

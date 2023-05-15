@@ -64,7 +64,7 @@
                             <td class="text-center">Програмное обеспечение</td>
                             <td class="text-center">Количество лицензий</td>
                             <td class="text-center">Цена за одну лицензию</td>
-                            <td class="text-center">Цена за все лицензии</td>
+                            <td class="text-center">Цена за все лицензии данного продукта</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -79,8 +79,8 @@
                                     <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger" onClick="" ><i class="fa fa-times-circle"></i></button>
                                     <a type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger" onClick=""  href="{% url 'product_catalog:cart_remove' one_purchase.id %}" ></a>
                                 </span></div></td>
-                                <td class="text-right">{{ one_purchase.software.price }} ₽ </td>
-                                <td class="text-right"> ₽ </td>
+                                <td class="text-right"> {{ one_purchase.software.price }} ₽ </td>
+                                <td class="text-right"> {{ one_purchase.sum }} ₽ </td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -95,7 +95,7 @@
                                         <td class="text-right">
                                             <strong> Итого: </strong>
                                         </td>
-                                        <td class="text-right"> 213.70 ₽</td>
+                                        <td class="text-right"> {{ cart.total_sum }} ₽</td>
                                     </tr>
                                 </tbody>
                             </table>

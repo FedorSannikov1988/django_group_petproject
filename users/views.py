@@ -25,6 +25,7 @@ def login(request):
     else:
         form = UserLoginForm()
 
+
     context = {
         'form': form,
         'page_title': title_login + title_for_basic_template(),

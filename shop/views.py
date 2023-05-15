@@ -1,7 +1,5 @@
-from urllib import request
-
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponseRedirect
-from django.urls import reverse
 from shop.models import SoftwareCategory, Software, DevelopmentTeam, Cart
 
 
@@ -11,9 +9,15 @@ def title_for_basic_template():
 
 
 def data_for_basic_template(request):
+
+    cart_user = None
+
+    if not request.user.is_anonymous:
+        cart_user = Cart.objects.filter(user=request.user)
+
     data = {
         "software_category": SoftwareCategory.objects.all(),
-        "cart": Cart.objects.filter(user=request.user)
+        "cart": cart_user
     }
     return data
 
@@ -29,15 +33,18 @@ def all_soft():
 
 
 def index(request):
+
     title_index = 'Главная страница - '
 
     context = {
-        "page_title": title_index + title_for_basic_template(),
+        "page_title": title_index + title_for_basic_template()
     }
     return render(request, 'index.html', {**context, **data_for_basic_template(request), **all_soft()})
 
 
 def sitemap(request):
+    user = request.user
+
     title_sitemap = 'Карта сайта - '
 
     context = {
@@ -47,6 +54,8 @@ def sitemap(request):
 
 
 def about_us(request):
+    user = request.user
+
     title_about_us = 'О нас / Наши контакты - '
 
     context = {
@@ -57,6 +66,8 @@ def about_us(request):
 
 
 def faq(request):
+    user = request.user
+
     title_faq = 'Полезная информация - '
 
     context = {
@@ -66,6 +77,8 @@ def faq(request):
 
 
 def cart(request):
+    user = request.user
+
     title_cart = 'Корзина покупателя - '
 
     context = {
@@ -75,6 +88,8 @@ def cart(request):
 
 
 def product(request):
+    user = request.user
+
     title_product = 'Описание продукта - '
 
     context = {
@@ -84,6 +99,8 @@ def product(request):
 
 
 def product_catalog(request):
+    user = request.user
+
     title_product_catalog = 'Главная страница - '
 
     context = {
@@ -92,11 +109,12 @@ def product_catalog(request):
     return render(request, 'product_catalog.html', {**context, **data_for_basic_template(request), **all_soft()})
 
 
+@login_required
 def cart_add(request, software_id):
     user = request.user
 
-    if user.is_anonymous:
-        return HttpResponseRedirect(reverse('users:login'))
+    #    if user.is_anonymous:
+    #        return HttpResponseRedirect(reverse('users:login'))
 
     software = Software.objects.get(id=software_id)
     carts = Cart.objects.filter(user=user, software=software)
