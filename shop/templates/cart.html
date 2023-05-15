@@ -60,47 +60,44 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <td class="text-center">Програмное обеспечение</td>
+                            <td class="text-center">Логотип/Эмблема</td>
                             <td class="text-center">Програмное обеспечение</td>
                             <td class="text-center">Количество лицензий</td>
                             <td class="text-center">Цена за одну лицензию</td>
-                            <td class="text-center">Цена за все лицензии данного продукта</td>
+                            <td class="text-center">Цена за все лицензии</td>
                         </tr>
                     </thead>
                     <tbody>
                     {% for one_purchase in cart %}
                         <tr>
-                            <td class="text-center" style=" width:70px"> <a href="#"> <img src="{{ one_purchase.software.image.url }}" style="width:70px" class="preview"> </a></td>
-                            <td class="title-head"> <a href="{% url 'product' %}"> {{ one_purchase.software.name }} </a> </td>
+                            <td class="text-center" style=" width:150px"> <a href="#"> <img src="{{ one_purchase.software.image.url }}" style="width:70px" class="preview"> </a></td>
+
+                            <td class="text-center"> {{ one_purchase.software.name }} </td>
                             <td class="text-left" width="200px"><div class="input-group btn-block quantity">
+
                                 <input type="text" name="quantity" value=" {{ one_purchase.quantity }} " size="1" class="form-control" />
+
                                 <span class="input-group-btn">
-                                    <button type="submit" data-toggle="tooltip" title="Update" class="btn btn-primary"><i class="fa fa-clone"></i></button>
-                                    <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger" onClick="" ><i class="fa fa-times-circle"></i></button>
-                                    <a type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger" onClick=""  href="{% url 'product_catalog:cart_remove' one_purchase.id %}" ></a>
+
+                                    <a href="{% url 'product_catalog:cart_remove' one_purchase.id %}">
+                                        <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger" onClick="" ><i class="fa fa-times-circle"></i></button>
+                                    </a>
                                 </span></div></td>
-                                <td class="text-right"> {{ one_purchase.software.price }} ₽ </td>
-                                <td class="text-right"> {{ one_purchase.sum }} ₽ </td>
+
+                                <td class="text-center" style=" vertical-align: top;"> {{ one_purchase.software.price }} ₽ </td>
+                                <td class="text-center"> {{ one_purchase.sum }} ₽ </td>
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
             </div>
 
-                    <div class="row">
-                        <div class="col-sm-4 col-sm-offset-8">
-                            <table class="table table-bordered">
-                                <tbody>
-                                    <tr>
-                                        <td class="text-right">
-                                            <strong> Итого: </strong>
-                                        </td>
-                                        <td class="text-right"> {{ cart.total_sum }} ₽</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+
+                        <div class="text-right" style="margin-bottom: 50px;">
+                        <strong style="padding-right: 70px;"> Итого: {{ cart.total_sum }} ₽  </strong>
                         </div>
-                    </div>
+
+
 
                     <div class="buttons">
                         <div class="pull-left"><a href="{% url 'product_catalog:index' %}" class="btn btn-primary">Продолжить покупки</a></div>

@@ -43,7 +43,6 @@ def index(request):
 
 
 def sitemap(request):
-    user = request.user
 
     title_sitemap = 'Карта сайта - '
 
@@ -54,7 +53,6 @@ def sitemap(request):
 
 
 def about_us(request):
-    user = request.user
 
     title_about_us = 'О нас / Наши контакты - '
 
@@ -66,7 +64,6 @@ def about_us(request):
 
 
 def faq(request):
-    user = request.user
 
     title_faq = 'Полезная информация - '
 
@@ -75,9 +72,8 @@ def faq(request):
     }
     return render(request, 'faq.html', {**context, **data_for_basic_template(request)})
 
-
+@login_required
 def cart(request):
-    user = request.user
 
     title_cart = 'Корзина покупателя - '
 

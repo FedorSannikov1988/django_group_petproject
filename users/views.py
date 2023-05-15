@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import auth
 from django.urls import reverse
@@ -24,7 +25,6 @@ def login(request):
             print(form.errors)
     else:
         form = UserLoginForm()
-
 
     context = {
         'form': form,
@@ -55,6 +55,7 @@ def register(request):
     return render(request, 'register.html', context)
 
 
+@login_required
 def my_account(request):
     title_my_account = 'Личный кабинет - '
 
