@@ -11,8 +11,7 @@
         </div>
     </a>
 
-    <ul class="tab-content content dropdown-menu pull-right shoppingcart-box" role="menu">
-
+    <ul class="tab-content content dropdown-menu pull-right shoppingcart-box" role="menu" style="width:450px">
         <li>
             <table class="table table-striped">
                 <tbody>
@@ -21,12 +20,10 @@
                         <td class="text-center" style=" width:70px">
                             <a href="#"> <img src="{{ one_purchase.software.image.url }}" style="width:70px" class="preview"> </a>
                         </td>
-                        <td class="text-left"> <a class="cart_product_name" href="product.html"> {{ one_purchase.software.name }} </a> </td>
-                        <td class="text-center"> {{ one_purchase.quantity }}</td>
-                        <td class="text-center"> {{ one_purchase.sum }} ₽</td>
-                        <td class="text-right">
-                            <a href="#" class="fa fa-edit"></a>
-                        </td>
+                        <td class="text-left"> <a class="cart_product_name" href="#"> {{ one_purchase.software.name }} </a> </td>
+                        <td class="text-center">{{ one_purchase.quantity }}</td>
+                        <td class="text-center">{{ one_purchase.sum }} ₽</td>
+                        <td class="text-right"> <a href="#" class="fa fa-edit"></a> </td>
                         <td class="text-right">
                             <a onclick="cart.remove('2');" class="fa fa-times fa-delete" href="{% url 'product_catalog:cart_remove' one_purchase.id %}" ></a>
                         </td>
@@ -40,9 +37,8 @@
                 <table class="table table-bordered">
                     <tbody>
                         <tr>
-                            <td class="text-left"><strong> Всего: </strong>
-                            </td>
-                            <td class="text-right"> {{ cart.total_sum }} ₽</td>
+                            <td class="text-left"><strong> Итого: </strong></td>
+                            <td class="text-right"><strong> {{ cart.total_sum }} ₽</strong></td>
                         </tr>
                     </tbody>
                 </table>

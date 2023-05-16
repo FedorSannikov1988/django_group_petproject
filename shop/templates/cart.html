@@ -51,11 +51,7 @@
     <div class="row">
         <!--Middle Part Start-->
         <div id="content" class="col-sm-12">
-            <p>
-                <br>
-                <br>
-                <br>
-            </p>
+            <p><br><br><br></p>
             <div class="table-responsive form-group">
                 <table class="table table-bordered">
                     <thead>
@@ -70,22 +66,15 @@
                     <tbody>
                     {% for one_purchase in cart %}
                         <tr>
-                            <td class="text-center" style=" width:150px"> <a href="#"> <img src="{{ one_purchase.software.image.url }}" style="width:70px" class="preview"> </a></td>
-
-                            <td class="text-center"> {{ one_purchase.software.name }} </td>
-                            <td class="text-left" width="200px"><div class="input-group btn-block quantity">
-
-                                <input type="text" name="quantity" value=" {{ one_purchase.quantity }} " size="1" class="form-control" />
-
-                                <span class="input-group-btn">
-
-                                    <a href="{% url 'product_catalog:cart_remove' one_purchase.id %}">
-                                        <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger" onClick="" ><i class="fa fa-times-circle"></i></button>
-                                    </a>
-                                </span></div></td>
-
-                                <td class="text-center" style=" vertical-align: top;"> {{ one_purchase.software.price }} ₽ </td>
-                                <td class="text-center"> {{ one_purchase.sum }} ₽ </td>
+                            <td class="text-center" style="width:150px">
+                                <a href="#">
+                                    <img src="{{ one_purchase.software.image.url }}" style="width:70px" class="preview">
+                                </a>
+                            </td>
+                            <td class="text-center" style="padding-top: 50px;"> {{ one_purchase.software.name }} </td>
+                            <td class="text-center" style="padding-top: 50px;"> {{ one_purchase.quantity }} </td>
+                            <td class="text-center" style="padding-top: 50px;"> {{ one_purchase.software.price }} ₽ </td>
+                            <td class="text-center" style="padding-top: 50px;"> {{ one_purchase.sum }} ₽ </td>
                         </tr>
                     {% endfor %}
                     </tbody>
