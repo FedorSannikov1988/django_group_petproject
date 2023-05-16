@@ -1,18 +1,34 @@
-from django.template.response import TemplateResponse
-from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, HttpResponseRedirect
+from shop.models import SoftwareCategory, Software, DevelopmentTeam, FAQ, Cart
 
-from shop.models import SoftwareCategory, Software, DevelopmentTeam, FAQ
 
-# глобальные переменные/данные:
+def title_for_basic_template():
+    text = 'Дипломный проект студентов GB'
+    return text
 
-title_for_basic_template = 'Дипломный проект студентов GB'
+def data_for_basic_template(request):
 
-data_for_basic_template = {
-    "software_category": SoftwareCategory.objects.all(),
-    "software_operating_systems": Software.objects.filter(category__name='Операционные системы'),
-    "software_office": Software.objects.filter(category__name='Офисное ПО'),
-    "software_antivirus_protection": Software.objects.filter(category__name='Антивирусная защита')
-}
+    cart_user = None
+
+    if not request.user.is_anonymous:
+        cart_user = Cart.objects.filter(user=request.user)
+
+    data = {
+        "software_category": SoftwareCategory.objects.all(),
+        "cart": cart_user
+    }
+    return data
+
+
+def all_soft():
+    data = {
+        "all_soft": Software.objects.all(),
+        "software_operating_systems": Software.objects.filter(category__name='Операционные системы'),
+        "software_office": Software.objects.filter(category__name='Офисное ПО'),
+        "software_antivirus_protection": Software.objects.filter(category__name='Антивирусная защита')
+    }
+    return data
 
 
 def index(request):
@@ -20,10 +36,9 @@ def index(request):
     title_index = 'Главная страница - '
 
     context = {
-        'page_title': title_index + title_for_basic_template,
-        "all_soft": Software.objects.all(),
+        "page_title": title_index + title_for_basic_template()
     }
-    return render(request, 'index.html', {**context, **data_for_basic_template})
+    return render(request, 'index.html', {**context, **data_for_basic_template(request), **all_soft()})
 
 
 def sitemap(request):
@@ -31,9 +46,9 @@ def sitemap(request):
     title_sitemap = 'Карта сайта - '
 
     context = {
-        'page_title': title_sitemap + title_for_basic_template,
+        'page_title': title_sitemap + title_for_basic_template()
     }
-    return render(request, 'sitemap.html', {**context, **data_for_basic_template})
+    return render(request, 'sitemap.html', {**context, **data_for_basic_template(request)})
 
 
 def about_us(request):
@@ -41,10 +56,10 @@ def about_us(request):
     title_about_us = 'О нас / Наши контакты - '
 
     context = {
-        "page_title": title_about_us + title_for_basic_template,
+        "page_title": title_about_us + title_for_basic_template(),
         "development_team": DevelopmentTeam.objects.all(),
     }
-    return render(request, 'about_us.html', {**context, **data_for_basic_template})
+    return render(request, 'about_us.html', {**context, **data_for_basic_template(request)})
 
 
 def faq(request):
@@ -52,27 +67,64 @@ def faq(request):
     title_faq = 'Полезная информация - '
 
     context = {
-        'page_title': title_faq + title_for_basic_template,
+        'page_title': title_faq + title_for_basic_template(),
         'faq': FAQ.objects.all(),
     }
-    return render(request, 'faq.html', {**context, **data_for_basic_template})
+    return render(request, 'faq.html', {**context, **data_for_basic_template(request)})
 
-
+@login_required
 def cart(request):
 
     title_cart = 'Корзина покупателя - '
 
     context = {
-        'page_title': title_cart + title_for_basic_template,
+        'page_title': title_cart + title_for_basic_template(),
     }
-    return render(request, 'cart.html', {**context, **data_for_basic_template})
+    return render(request, 'cart.html', {**context, **data_for_basic_template(request)})
+
 
 def product(request):
 
     title_product = 'Описание продукта - '
 
     context = {
-        'page_title': title_product + title_for_basic_template,
+        'page_title': title_product + title_for_basic_template(),
     }
+    return render(request, 'product.html', {**context, **data_for_basic_template(request)})
 
-    return render(request, 'product.html', {**context, **data_for_basic_template})
+
+def product_catalog(request):
+    user = request.user
+
+    title_product_catalog = 'Главная страница - '
+
+    context = {
+        "page_title": title_product_catalog + title_for_basic_template(),
+    }
+    return render(request, 'product_catalog.html', {**context, **data_for_basic_template(request), **all_soft()})
+
+
+@login_required
+def cart_add(request, software_id):
+    user = request.user
+
+    #    if user.is_anonymous:
+    #        return HttpResponseRedirect(reverse('users:login'))
+
+    software = Software.objects.get(id=software_id)
+    carts = Cart.objects.filter(user=user, software=software)
+
+    if not carts.exists():
+        Cart.objects.create(user=user, software=software, quantity=1)
+    else:
+        cart = carts.first()
+        cart.quantity += 1
+        cart.save()
+
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+
+def cart_remove(request, cart_id):
+    cart = Cart.objects.get(id=cart_id)
+    cart.delete()
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])

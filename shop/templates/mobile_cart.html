@@ -1,0 +1,68 @@
+{% if cart %}
+
+
+    <div id="cart" class=" btn-group btn-shopping-cart">
+    <a data-loading-text="Loading..." class="top_cart dropdown-toggle" data-toggle="dropdown">
+        <div class="shopcart">
+            <span class="handle pull-left"></span>
+            <span class="number-shopping-cart"> {{ cart.total_quantity }} </span>
+            <span class="title">Корзина</span>
+            <p class="text-shopping-cart cart-total-full"> {{ cart.total_sum }} ₽</p>
+        </div>
+    </a>
+
+    <ul class="tab-content content dropdown-menu pull-right shoppingcart-box" role="menu">
+
+        <li>
+            <table class="table table-striped">
+                <tbody>
+                    {% for one_purchase in cart %}
+                    <tr>
+                        <td class="text-center" style=" width:70px">
+                            <a href="#"> <img src="{{ one_purchase.software.image.url }}" style="width:70px" class="preview"> </a>
+                        </td>
+                        <td class="text-left"> <a class="cart_product_name" href="product.html"> {{ one_purchase.software.name }} </a> </td>
+                        <td class="text-center"> {{ one_purchase.quantity }}</td>
+                        <td class="text-center"> {{ one_purchase.sum }} ₽</td>
+                        <td class="text-right">
+                            <a href="#" class="fa fa-edit"></a>
+                        </td>
+                        <td class="text-right">
+                            <a onclick="cart.remove('2');" class="fa fa-times fa-delete" href="{% url 'product_catalog:cart_remove' one_purchase.id %}" ></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </li>
+        <li>
+            <div>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <td class="text-left"><strong> Всего: </strong>
+                            </td>
+                            <td class="text-right"> {{ cart.total_sum }} ₽</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-right"> <a class="btn view-cart" href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i>Посмотреть покупки</a> </p>
+            </div>
+        </li>
+    </ul>
+</div>
+
+{% else %}
+<!-- Пустая корзина -->
+
+    <div id="cart" class="btn-group btn-shopping-cart">
+        <div class="row">
+            <div class="shopcart center-block">
+                <span class="handle pull-left"> </span>
+            </div>
+            <p class="text-shopping-cart" style="margin-left: -17px;"> Корзина пуста </p>
+        </div>
+    </div>
+
+{% endif %}
+

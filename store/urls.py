@@ -1,10 +1,9 @@
 from django.contrib import admin
-
-from django.urls import path, re_path, include
-from django.conf.urls.static import static
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from shop.views import index, sitemap, about_us, cart, product
+from shop.views import index, sitemap, about_us, cart, product, faq
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -13,10 +12,10 @@ urlpatterns = [
     path("about_us", about_us, name='about_us'),
     path("product", product, name='product'),
     path("cart", cart, name='cart'),
-    path("faq", include('shop.urls', namespace='faq')),
+    path("faq", faq, name='faq'),
     path("input_user/", include('users.urls', namespace='users')),
-] # + urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+    path("product_catalog/", include('shop.urls', namespace='product_catalog')),
+]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
