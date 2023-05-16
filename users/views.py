@@ -15,14 +15,10 @@ def login(request):
         if form.is_valid():
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password"]
-            # username = request.POST['username']
-            # password = request.POST['password']
             user = auth.authenticate(username=username, password=password)
             if user:
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse('users:my_account'))
-        else:
-            print(form.errors)
     else:
         form = UserLoginForm()
 
@@ -30,7 +26,6 @@ def login(request):
         'form': form,
         'page_title': title_login + title_for_basic_template(),
     }
-
     return render(request, 'login.html', context)
 
 
@@ -42,8 +37,6 @@ def register(request):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('users:login'))
-        else:
-            print(form.errors)
     else:
         form = UserRegisterForm()
 
@@ -51,7 +44,6 @@ def register(request):
         'form': form,
         'page_title': title_register + title_for_basic_template(),
     }
-
     return render(request, 'register.html', context)
 
 
@@ -64,8 +56,6 @@ def my_account(request):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('users:my_account'))
-        else:
-            print(form.errors)
     else:
         form = UserProfileForm(instance=request.user)
 

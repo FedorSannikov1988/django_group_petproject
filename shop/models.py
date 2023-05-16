@@ -1,7 +1,5 @@
 from django.db import models
-
 from phonenumber_field.modelfields import PhoneNumberField
-
 from users.models import User
 
 
@@ -65,10 +63,11 @@ class FAQ(models.Model):
 
     def __str__(self):
         return f'Question: {self.question} ' \
-               f'| Answer: {self.answer}  '
+               f'| Answer: {self.answer} '
 
 
 class CartQuerySet(models.QuerySet):
+
     def total_sum(self):
         return sum(cart.sum() for cart in self)
 

@@ -7,8 +7,8 @@ def title_for_basic_template():
     text = 'Дипломный проект студентов GB'
     return text
 
-def data_for_basic_template(request):
 
+def data_for_basic_template(request):
     cart_user = None
 
     if not request.user.is_anonymous:
@@ -32,7 +32,6 @@ def all_soft():
 
 
 def index(request):
-
     title_index = 'Главная страница - '
 
     context = {
@@ -42,7 +41,6 @@ def index(request):
 
 
 def sitemap(request):
-
     title_sitemap = 'Карта сайта - '
 
     context = {
@@ -52,7 +50,6 @@ def sitemap(request):
 
 
 def about_us(request):
-
     title_about_us = 'О нас / Наши контакты - '
 
     context = {
@@ -63,7 +60,6 @@ def about_us(request):
 
 
 def faq(request):
-
     title_faq = 'Полезная информация - '
 
     context = {
@@ -72,9 +68,9 @@ def faq(request):
     }
     return render(request, 'faq.html', {**context, **data_for_basic_template(request)})
 
+
 @login_required
 def cart(request):
-
     title_cart = 'Корзина покупателя - '
 
     context = {
@@ -84,8 +80,7 @@ def cart(request):
 
 
 def product(request):
-
-    title_product = 'Описание продукта - '
+    title_product = 'Описание програмного обеспечения - '
 
     context = {
         'page_title': title_product + title_for_basic_template(),
@@ -94,8 +89,6 @@ def product(request):
 
 
 def product_catalog(request):
-    user = request.user
-
     title_product_catalog = 'Главная страница - '
 
     context = {
@@ -107,10 +100,6 @@ def product_catalog(request):
 @login_required
 def cart_add(request, software_id):
     user = request.user
-
-    #    if user.is_anonymous:
-    #        return HttpResponseRedirect(reverse('users:login'))
-
     software = Software.objects.get(id=software_id)
     carts = Cart.objects.filter(user=user, software=software)
 
