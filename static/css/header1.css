@@ -121,14 +121,13 @@ BLOCK HEADER
         margin: 0; }
 
 .header-center {
-  font-size: 14px;
-  padding: 31px 0 33px 0; }
+  font-size: 14px;}
   .header-center .navbar-logo {
-    padding-top: 13px;
     float: left; }
   .header-center #sosearchpro {
     padding: 7px 15px;
-    float: left; }
+    float: left;
+    top: 10px; }
     .header-center #sosearchpro input {
       border-radius: 150px;
       box-shadow: none;
@@ -148,7 +147,8 @@ BLOCK HEADER
       border: none; }
   .header-center .shopping_cart {
     padding-left: 18px;
-    float: right !important; }
+    float: right !important;
+    top: 12px;}
     .header-center .shopping_cart .header-text {
       float: left;
       line-height: 58px;
