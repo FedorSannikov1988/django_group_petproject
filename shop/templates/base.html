@@ -40,7 +40,8 @@
 						<div class="header-top-right collapsed-block text-right  col-sm-6 col-xs-6 compact-hidden">
 							<div class="tabBlock1" id="TabBlock-1">
 								<ul class="top-link list-inline">
-                                   {% if user.is_authenticated %}
+                                    {% if user.is_authenticated %}
+                                        <li class="account"><a href="{% url 'users:my_account' %}" class="top-link-checkout" title="Личный кабиинет"><span>Личный кабинет</span></a></li>
                                         <li class="signin"><a href="{% url 'users:exit_my_account' %}" class="top-link-checkout" title="Выйти"><span>Выйти</span></a></li>
                                     {% else %}
                                         <li class="signin"><a href="{% url 'users:login' %}" class="top-link-checkout" title="Войти"><span>Войти</span></a></li>

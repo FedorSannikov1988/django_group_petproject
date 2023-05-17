@@ -66,12 +66,14 @@ class UserProfileForm(UserChangeForm):
         label="Логин",
         widget=forms.TextInput(
             attrs={'class': 'form-control',
-                   'placeholder': 'Логин'}))
+                   'placeholder': 'Логин',
+                   'readonly': True}))
     email = forms.EmailField(
         label="Эл.почта",
         widget=forms.EmailInput(
             attrs={'class': 'form-control',
-                   'placeholder': 'Эл.почта'}))
+                   'placeholder': 'Эл.почта',
+                   'readonly': True}))
     image = forms.ImageField(
         label="Фото",
         widget=forms.FileInput(
