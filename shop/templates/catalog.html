@@ -1,15 +1,10 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends 'base.html' %}
+{% load static %}
 
     <!-- Basic page needs
     ============================================ -->
-    <title>Destino - Advanced & High Customizable eCommerce HTML5/CSS3 Theme</title>
+    <title>{{ page_title }}</title>
     <meta charset="utf-8">
-    <meta name="keywords" content="boostrap, responsive, html5, css3, jquery, theme, multicolor, parallax, retina, business" />
-    <meta name="author" content="Magentech">
-    <meta name="robots" content="index, follow" />
 
 	<!-- Mobile specific metas
 	============================================ -->
@@ -17,35 +12,39 @@
 
 	<!-- Favicon
 	============================================ -->
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
-	<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
-	<link rel="shortcut icon" href="ico/favicon.png">
-
+    {% block favicon %}
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/apple-touch-icon-144-precomposed.png' %}">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/apple-touch-icon-114-precomposed.png' %}">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/apple-touch-icon-72-precomposed.png' %}">
+	<link rel="apple-touch-icon-precomposed" href="{% static 'ico/apple-touch-icon-57-precomposed.png' %}">
+	<link rel="shortcut icon" href="{% static 'ico/favicon.png' %}">
+    {% endblock %}
 	<!-- Google web fonts
 	============================================ -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 
     <!-- Libs CSS
     ============================================ -->
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
-    <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="js/datetimepicker/bootstrap-datetimepicker.min.css" rel="stylesheet">
-    <link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="css/themecss/lib.css" rel="stylesheet">
-    <link href="js/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+    {% block libs_css %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+    <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+    <link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
+    <link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
+    {% endblock %}
 
 	<!-- Theme CSS
 	============================================ -->
-	<link href="css/themecss/so_megamenu.css" rel="stylesheet">
-	<link href="css/themecss/so-categories.css" rel="stylesheet">
-	<link href="css/themecss/so-listing-tabs.css" rel="stylesheet">
-	<link href="css/footer1.css" rel="stylesheet">
-	<link href="css/header1.css" rel="stylesheet">
-	<link id="color_scheme" href="css/theme.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="css/category.css">
-
+    {% block theme_css %}
+	<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
+	<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
+	<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
+	<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
+	<link href="{% static 'css/header1.css' %}" rel="stylesheet">
+	<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}">
+    {% endblock %}
 
 
 
@@ -65,33 +64,33 @@
 									<a class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
 										<span class="icon icon-credit "></span> USD <span class="fa fa-angle-down"></span>
 									</a>
-									<ul class="dropdown-menu btn-xs">
-										<li> <a href="#">(€)&nbsp;Euro</a></li>
-										<li> <a href="#">(£)&nbsp;Pounds</a></li>
-										<li> <a href="#">($)&nbsp;USD</a></li>
-									</ul>
+{#									<ul class="dropdown-menu btn-xs">#}
+{#										<li> <a href="#">(€)&nbsp;Euro</a></li>#}
+{#										<li> <a href="#">(£)&nbsp;Pounds</a></li>#}
+{#										<li> <a href="#">($)&nbsp;USD</a></li>#}
+{#									</ul>#}
 								</form>
 							</div>
 							<div class="form-group languages-block ">
 								<form action="index.html" method="post" enctype="multipart/form-data" id="bt-language">
 									<a class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
-										<img src="img/demo/flags/gb.png" alt="English" title="English">
+										<img src="{% static 'img/demo/flags/gb.png' %}" alt="English" title="English">
 										<span class="hidden-xs">English</span>
 										<span class="fa fa-angle-down"></span>
 									</a>
-									<ul class="dropdown-menu" >
-										<li><a href="index.php"><img class="image_flag" src="img/demo/flags/gb.png" alt="English" title="English"> English </a></li>
-										<li> <a href="html_width_RTL/index.php"> <img class="image_flag" src="img/demo/flags/lb.png" alt="Arabic" title="Arabic"> Arabic </a> </li>
-									</ul>
+{#									<ul class="dropdown-menu" >#}
+{#										<li><a href="{% url 'index' %}"><img class="image_flag" src="{% static 'img/demo/flags/gb.png' %}" alt="English" title="English"> English </a></li>#}
+{#										<li> <a href="html_width_RTL/index.php"> <img class="image_flag" src="{% static 'img/demo/flags/lb.png' %}" alt="Arabic" title="Arabic"> Arabic </a> </li>#}
+{#									</ul>#}
 								</form>
 							</div>
 						</div>
 						<div class="header-top-right collapsed-block text-right  col-sm-6 col-xs-6 compact-hidden">
 							<div class="tabBlock1" id="TabBlock-1">
 								<ul class="top-link list-inline">
-									<li class="wishlist hidden-xs"><a href="#" id="wishlist-total" class="top-link-wishlist" title="Welcome Customer!"><span>Welcome Customer!</span></a></li>
-									<li class="signin"><a href="login.html" class="top-link-checkout" title="Sign In"><span>Sign In</span></a></li>
-									<li class="register"><a href="register.html" title="Register"><span>Register</span></a></li>
+									<li class="wishlist hidden-xs"><a href="#" id="wishlist-total" class="top-link-wishlist" title="Добро пожаловать!"><span>Добро пожаловать!</span></a></li>
+									<li class="signin"><a href="{% url 'login' %}" class="top-link-checkout" title="Войти"><span>Войти</span></a></li>
+									<li class="register"><a href="{% url 'register' %}" title="Регистрация"><span>Регистрация</span></a></li>
 								</ul>
 							</div>
 						</div>
@@ -106,7 +105,7 @@
 					<div class="row">
 						<!-- Logo -->
 						<div class="navbar-logo col-md-3 col-sm-12 col-xs-7">
-							<a href="index.php"><img src="img/demo/logo/logo.png" title="Your Store" alt="Your Store"></a>
+							<a href="{% url 'index' %}"><img src="{% static 'img/logotip.jpg' %}" title="Ваш магазин" alt="Ваш магазин"></a>
 						</div>
 						<!-- //end Logo -->
 
@@ -129,7 +128,7 @@
 						<!-- Secondary menu -->
 						<div class="col-md-4 col-sm-4 col-xs-5 shopping_cart pull-right">
 							<div class="header-text hidden-xs">
-								<p><i class="fa fa-phone" aria-hidden="true"></i>	   Call Us: (888) 123456789</p>
+								<p><i class="fa fa-phone" aria-hidden="true"></i>	   Позвоните: 8(800) 123456789</p>
 							</div>
 							<!--cart-->
 							<div id="cart" class=" btn-group btn-shopping-cart">
@@ -137,7 +136,7 @@
 									<div class="shopcart">
 										<span class="handle pull-left"></span>
 										<span class="number-shopping-cart">2</span>
-										<span class="title">My Cart</span>
+										<span class="title">Моя корзина</span>
 										<p class="text-shopping-cart cart-total-full"> $0.00 </p>
 									</div>
 								</a>
@@ -149,9 +148,9 @@
 											<tbody>
 												<tr>
 													<td class="text-center" style="width:70px">
-														<a href="product.html"> <img src="img/demo/shop/product/35.jpg" style="width:70px" alt="Filet Mign" title="Filet Mign" class="preview"> </a>
+														<a href="{% url 'product' %}"> <img src="{% static 'img/demo/shop/product/35.jpg' %}" style="width:70px" alt="Filet Mign" title="Filet Mign" class="preview"> </a>
 													</td>
-													<td class="text-left"> <a class="cart_product_name" href="product.html">Filet Mign</a> </td>
+													<td class="text-left"> <a class="cart_product_name" href="{% url 'product' %}">Filet Mign</a> </td>
 													<td class="text-center"> x1 </td>
 													<td class="text-center"> $1,202.00 </td>
 													<td class="text-right">
@@ -163,13 +162,13 @@
 												</tr>
 												<tr>
 													<td class="text-center" style="width:70px">
-														<a href="product.html"> <img src="img/demo/shop/product/141.jpg" style="width:70px" alt="Canon EOS 5D" title="Canon EOS 5D" class="preview"> </a>
+														<a href="{% url 'product' %}"> <img src="{% static 'img/demo/shop/product/141.jpg' %}" style="width:70px" alt="Canon EOS 5D" title="Canon EOS 5D" class="preview"> </a>
 													</td>
-													<td class="text-left"> <a class="cart_product_name" href="product.html">Canon EOS 5D</a> </td>
+													<td class="text-left"> <a class="cart_product_name" href={% url 'product' %}>Canon EOS 5D</a> </td>
 													<td class="text-center"> x1 </td>
 													<td class="text-center"> $60.00 </td>
 													<td class="text-right">
-														<a href="product.html" class="fa fa-edit"></a>
+														<a href={% url 'product' %} class="fa-edit"></a>
 													</td>
 													<td class="text-right">
 														<a onclick="cart.remove('1');" class="fa fa-times fa-delete"></a>
@@ -251,7 +250,7 @@
 																		<div class="col-md-3">
 																			<a href="index.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="img/demo/feature/home-1.jpg" alt="">
+																					<img class="img-responsive img-border" src="{% static 'img/demo/feature/home-1.jpg' %}" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
 																				<h3 class="figcaption">Home page - (Default)</h3>
@@ -261,7 +260,7 @@
 																		<div class="col-md-3">
 																			<a href="home2.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="img/demo/feature/home-2.jpg" alt="">
+																					<img class="img-responsive img-border" src="{% static 'img/demo/feature/home-2.jpg' %}" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
 																				<h3 class="figcaption">Home page - Layout 2</h3>
@@ -271,7 +270,7 @@
 																		<div class="col-md-3">
 																			<a href="home3.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="img/demo/feature/home-3.jpg" alt="">
+																					<img class="img-responsive img-border" src="{% static 'img/demo/feature/home-3.jpg' %}" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
 																				<h3 class="figcaption">Home page - Layout 3</h3>
@@ -281,7 +280,7 @@
 																		<div class="col-md-3">
 																			<a href="home4.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="img/demo/feature/home-4.jpg" alt="">
+																					<img class="img-responsive img-border" src="{% static 'img/demo/feature/home-4.jpg' %}" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
 																				<h3 class="figcaption">Home page - Layout 4</h3>
@@ -292,7 +291,7 @@
 																		<div class="col-md-3">
 																			<a href="home5.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="img/demo/feature/home-5.jpg" alt="">
+																					<img class="img-responsive img-border" src="{% static 'img/demo/feature/home-5.jpg' %}" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
 																				<h3 class="figcaption">Home page - Layout 5</h3>
@@ -301,7 +300,7 @@
 																		<div class="col-md-3">
 																			<a href="home6.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="img/demo/feature/home-6.jpg" alt="">
+																					<img class="img-responsive img-border" src="{% static 'img/demo/feature/home-6.jpg' %}" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
 																				<h3 class="figcaption">Home page - Layout 6</h3>
@@ -310,7 +309,7 @@
 																		<div class="col-md-3">
 																			<a href="home7.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="img/demo/feature/home-7.jpg" alt="">
+																					<img class="img-responsive img-border" src="{% static 'img/demo/feature/home-7.jpg' %}" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
 																				<h3 class="figcaption">Home page - Layout 7</h3>
@@ -319,7 +318,7 @@
 																		<div class="col-md-3">
 																			<a href="home8.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="img/demo/feature/home-8.jpg" alt="">
+																					<img class="img-responsive img-border" src="{% static 'img/demo/feature/home-8.jpg' %}" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
 																				<h3 class="figcaption">Home page - Layout 8</h3>
@@ -330,7 +329,7 @@
 																		<div class="col-md-3">
 																			<a href="home9.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="img/demo/feature/home-9.jpg" alt="">
+																					<img class="img-responsive img-border" src="{% static 'img/demo/feature/home-9.jpg' %}" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
 																				<h3 class="figcaption">Home page - Layout 9</h3>
@@ -339,7 +338,7 @@
 																		<div class="col-md-3">
 																			<a href="home10.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="img/demo/feature/home-10.jpg" alt="">
+																					<img class="img-responsive img-border" src="{% static 'img/demo/feature/home-10.jpg' %}" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
 																				<h3 class="figcaption">Home page - Layout 10</h3>
@@ -348,7 +347,7 @@
 																		<div class="col-md-3">
 																			<a href="home11.php" class="image-link">
 																				<span class="thumbnail">
-																					<img class="img-responsive img-border" src="img/demo/feature/home-11.jpg" alt="">
+																					<img class="img-responsive img-border" src="{% static 'img/demo/feature/home-11.jpg' %}" alt="">
 																					<span class="btn btn-default">Read More</span>
 																				</span>
 																				<h3 class="figcaption">Home page - Layout 11</h3>
@@ -386,7 +385,7 @@
 																				<a href="#" class="title-submenu">Product pages</a>
 																				<div>
 																					<ul class="row-list">
-																						<li><a href="product.html">Image size - big</a></li>
+																						<li><a href="{% url 'product' %}">Image size - big</a></li>
 																						<li><a href="product-v2.html">Image size - medium</a></li>
 																						<li><a href="product-v3.html">Image size - small</a></li>
 																					</ul>
@@ -412,8 +411,8 @@
 																				<a href="#" class="title-submenu">My Account pages</a>
 																				<div>
 																					<ul class="row-list">
-																						<li><a href="login.html">Login Page</a></li>
-																						<li><a href="register.html">Register Page</a></li>
+																						<li><a href="{% url 'login' %}">Login Page</a></li>
+																						<li><a href="{% url 'register' %}">Register Page</a></li>
 																						<li><a href="my-account.html">My Account</a></li>
 																						<li><a href="order-history.html">Order History</a></li>
 																						<li><a href="order-information.html">Order Information</a></li>
@@ -438,10 +437,10 @@
 																	<div class="row">
 																		<div class="col-md-6">
 																			<ul class="row-list">
-																				<li><a class="subcategory_item" href="faq.html">FAQ</a></li>
+																				<li><a class="subcategory_item" href="{% url 'faq:index' %}">FAQ</a></li>
 
-																				<li><a class="subcategory_item" href="sitemap.html">Site Map</a></li>
-																				<li><a class="subcategory_item" href="contact.html">Contact us</a></li>
+																				<li><a class="subcategory_item" href="{% url 'sitemap' %}">Site Map</a></li>
+																				<li><a class="subcategory_item" href="{% url 'about_us' %}">Contact us</a></li>
 																				<li><a class="subcategory_item" href="banner-effect.html">Banner Effect</a></li>
 																			</ul>
 																		</div>
@@ -470,16 +469,16 @@
 																		<div class="col-sm-12">
 																			<div class="row">
 																				<div class="col-md-3 img img1">
-																					<a href="#"><img src="img/demo/cms/img1.jpg" alt="banner1"></a>
+																					<a href="#"><img src="{% static 'img/demo/cms/img1.jpg' %}" alt="banner1"></a>
 																				</div>
 																				<div class="col-md-3 img img2">
-																					<a href="#"><img src="img/demo/cms/img2.jpg" alt="banner2"></a>
+																					<a href="#"><img src="{% static 'img/demo/cms/img2.jpg' %}" alt="banner2"></a>
 																				</div>
 																				<div class="col-md-3 img img3">
-																					<a href="#"><img src="img/demo/cms/img3.jpg" alt="banner3"></a>
+																					<a href="#"><img src="{% static 'img/demo/cms/img3.jpg' %}" alt="banner3"></a>
 																				</div>
 																				<div class="col-md-3 img img4">
-																					<a href="#"><img src="img/demo/cms/img4.jpg" alt="banner4"></a>
+																					<a href="#"><img src="{% static 'img/demo/cms/img4.jpg' %}" alt="banner4"></a>
 																				</div>
 																			</div>
 																		</div>
@@ -613,7 +612,7 @@
 																				<div class="col-sm-12 list-product">
 																					<div class="product-thumb">
 																						<div class="image pull-left">
-																							<a href="#"><img src="img/demo/shop/product/35.jpg" width="80" alt="Filet Mign" title="Filet Mign" class="img-responsive"></a>
+																							<a href="#"><img src="{% static 'img/demo/shop/product/35.jpg' %}" width="80" alt="Filet Mign" title="Filet Mign" class="img-responsive"></a>
 																						</div>
 																						<div class="caption">
 																							<h4><a href="#">Filet Mign</a></h4>
@@ -631,7 +630,7 @@
 																				<div class="col-sm-12 list-product">
 																					<div class="product-thumb">
 																						<div class="image pull-left">
-																							<a href="#"><img src="img/demo/shop/product/W1.jpg" width="80" alt="Dail Lulpa" title="Dail Lulpa" class="img-responsive"></a>
+																							<a href="#"><img src="{% static 'img/demo/shop/product/W1.jpg' %}" width="80" alt="Dail Lulpa" title="Dail Lulpa" class="img-responsive"></a>
 																						</div>
 																						<div class="caption">
 																							<h4><a href="#">Dail Lulpa</a></h4>
@@ -649,7 +648,7 @@
 																				<div class="col-sm-12 list-product">
 																					<div class="product-thumb">
 																						<div class="image pull-left">
-																							<a href="#"><img src="img/demo/shop/product/141.jpg" width="80" alt="Canon EOS 5D" title="Canon EOS 5D" class="img-responsive"></a>
+																							<a href="#"><img src="{% static 'img/demo/shop/product/141.jpg' %}" width="80" alt="Canon EOS 5D" title="Canon EOS 5D" class="img-responsive"></a>
 																						</div>
 																						<div class="caption">
 																							<h4><a href="#">Canon EOS 5D</a></h4>
@@ -708,197 +707,209 @@
 		</header>
 		<!-- //Header Container  -->
 		<!-- Main Container  -->
+        {% block main_container %}
 		<div class="main-container container">
 			<ul class="header-main">
-				<li class="home"><a href="index.html" >Home   </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+				<li class="home"><a href="{% url 'index' %}" >Home   </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
 				<li> Smartphone &amp; Laptop</li>
 			</ul>
 
 			<div class="row">
+                <div class="megamenu-pattern">
+                    <div class="container">
+                        <ul class="megamenu">
+                            {% for one_category in software_category %}
+                            <li> <a href="#" class="clearfix"> <span>  {{ one_category.name }} </span> </a> </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
 				<!--Left Part Start -->
-				<aside class="col-sm-4 col-md-3 type-1" id="column-left">
-					<div class="module menu-category titleLine">
-						<h3 class="modtitle">Categories</h3>
-						<div class="modcontent">
-							<div class="box-category">
-								<ul id="cat_accordion" class="list-group">
-									<li class="hadchild"><a href="category.html" class="cutom-parent">Smartphone & Tablets</a>   <span class="button-view  fa fa-plus-square-o"></span>
-										<ul style="display: block;">
-											<li><a href="category.html">Men's Watches</a></li>
-											<li><a href="category.html">Women's Watches</a></li>
-											<li><a href="category.html">Kids' Watches</a></li>
-											<li><a href="category.html">Accessories</a></li>
-										</ul>
-									</li>
-									<li class="hadchild"><a class="cutom-parent" href="category.html">Electronics</a>   <span class="button-view  fa fa-plus-square-o"></span>
-										<ul style="display: none;">
-											<li><a href="category.html">Cycling</a></li>
-											<li><a href="category.html">Running</a></li>
-											<li><a href="category.html">Swimming</a></li>
-											<li><a href="category.html">Football</a></li>
-											<li><a href="category.html">Golf</a></li>
-											<li><a href="category.html">Windsurfing</a></li>
-										</ul>
-									</li>
-									<li class="hadchild"><a href="category.html" class="cutom-parent">Shoes</a>   <span class="button-view  fa fa-plus-square-o"></span>
-										<ul style="display: none;">
-											<li><a href="category.html">Sub Categories</a></li>
-											<li><a href="category.html">Sub Categories</a></li>
-											<li><a href="category.html">Sub Categories</a></li>
-											<li><a href="category.html">Sub Categories</a></li>
-											<li><a href="category.html">Sub Categories</a></li>
-										</ul>
-									</li>
-									<li class="hadchild"><a href="category.html" class="cutom-parent">Watches</a>  <span class="button-view  fa fa-plus-square-o"></span>
-										<ul style="display: none;">
-											<li><a href="category.html">Men's Watches</a></li>
-											<li><a href="category.html">Women's Watches</a></li>
-											<li><a href="category.html">Kids' Watches</a></li>
-											<li><a href="category.html">Accessories</a></li>
-										</ul>
-									</li>
-									<li class="hadchild"><a href="category.html" class="cutom-parent">Jewellery</a>    <span class="button-view  fa fa-plus-square-o"></span>
-										<ul style="display: none;">
-											<li><a href="category.html">Sub Categories</a></li>
-											<li><a href="category.html">Sub Categories</a></li>
-											<li><a href="category.html">Sub Categories</a></li>
-											<li><a href="category.html">Sub Categories</a></li>
-											<li><a href="category.html">Sub Categories</a></li>
-										</ul>
-									</li>
-									<li class=""><a href="category.html" class="cutom-parent">Health &amp; Beauty</a>  <span class="dcjq-icon"></span></li>
-									<li class=""><a href="category.html" class="cutom-parent">Kids &amp; Babies</a>    <span class="dcjq-icon"></span></li>
-									<li class=""><a href="category.html" class="cutom-parent">Sports</a>  <span class="dcjq-icon"></span></li>
-									<li class=""><a href="category.html" class="cutom-parent">Home &amp; Garden</a><span class="dcjq-icon"></span></li>
-									<li class=""><a href="category.html" class="cutom-parent">Wines &amp; Spirits</a>  <span class="dcjq-icon"></span></li>
-								</ul>
-							</div>
+{#				<aside class="col-sm-4 col-md-3 type-1" id="column-left">#}
+{#					<div class="module menu-category titleLine">#}
+{#						<h3 class="modtitle">Categories</h3>#}
+{#						<div class="modcontent">#}
+{#							<div class="box-category">#}
+{#								<ul id="cat_accordion" class="list-group">#}
+{#									<li class="hadchild"><a href="category.html" class="cutom-parent">Smartphone & Tablets</a>   <span class="button-view  fa fa-plus-square-o"></span>#}
+{#										<ul style="display: block;">#}
+{#											<li><a href="category.html">Men's Watches</a></li>#}
+{#											<li><a href="category.html">Women's Watches</a></li>#}
+{#											<li><a href="category.html">Kids' Watches</a></li>#}
+{#											<li><a href="category.html">Accessories</a></li>#}
+{#										</ul>#}
+{#									</li>#}
+{#									<li class="hadchild"><a class="cutom-parent" href="category.html">Electronics</a>   <span class="button-view  fa fa-plus-square-o"></span>#}
+{#										<ul style="display: none;">#}
+{#											<li><a href="category.html">Cycling</a></li>#}
+{#											<li><a href="category.html">Running</a></li>#}
+{#											<li><a href="category.html">Swimming</a></li>#}
+{#											<li><a href="category.html">Football</a></li>#}
+{#											<li><a href="category.html">Golf</a></li>#}
+{#											<li><a href="category.html">Windsurfing</a></li>#}
+{#										</ul>#}
+{#									</li>#}
+{#									<li class="hadchild"><a href="category.html" class="cutom-parent">Shoes</a>   <span class="button-view  fa fa-plus-square-o"></span>#}
+{#										<ul style="display: none;">#}
+{#											<li><a href="category.html">Sub Categories</a></li>#}
+{#											<li><a href="category.html">Sub Categories</a></li>#}
+{#											<li><a href="category.html">Sub Categories</a></li>#}
+{#											<li><a href="category.html">Sub Categories</a></li>#}
+{#											<li><a href="category.html">Sub Categories</a></li>#}
+{#										</ul>#}
+{#									</li>#}
+{#									<li class="hadchild"><a href="category.html" class="cutom-parent">Watches</a>  <span class="button-view  fa fa-plus-square-o"></span>#}
+{#										<ul style="display: none;">#}
+{#											<li><a href="category.html">Men's Watches</a></li>#}
+{#											<li><a href="category.html">Women's Watches</a></li>#}
+{#											<li><a href="category.html">Kids' Watches</a></li>#}
+{#											<li><a href="category.html">Accessories</a></li>#}
+{#										</ul>#}
+{#									</li>#}
+{#									<li class="hadchild"><a href="category.html" class="cutom-parent">Jewellery</a>    <span class="button-view  fa fa-plus-square-o"></span>#}
+{#										<ul style="display: none;">#}
+{#											<li><a href="category.html">Sub Categories</a></li>#}
+{#											<li><a href="category.html">Sub Categories</a></li>#}
+{#											<li><a href="category.html">Sub Categories</a></li>#}
+{#											<li><a href="category.html">Sub Categories</a></li>#}
+{#											<li><a href="category.html">Sub Categories</a></li>#}
+{#										</ul>#}
+{#									</li>#}
+{#									<li class=""><a href="category.html" class="cutom-parent">Health &amp; Beauty</a>  <span class="dcjq-icon"></span></li>#}
+{#									<li class=""><a href="category.html" class="cutom-parent">Kids &amp; Babies</a>    <span class="dcjq-icon"></span></li>#}
+{#									<li class=""><a href="category.html" class="cutom-parent">Sports</a>  <span class="dcjq-icon"></span></li>#}
+{#									<li class=""><a href="category.html" class="cutom-parent">Home &amp; Garden</a><span class="dcjq-icon"></span></li>#}
+{#									<li class=""><a href="category.html" class="cutom-parent">Wines &amp; Spirits</a>  <span class="dcjq-icon"></span></li>#}
+{#								</ul>#}
+{#							</div>#}
+{##}
+{##}
+{#						</div>#}
+{#					</div>#}
+{#					<div class="module latest-product titleLine">#}
+{#						<h3 class="modtitle">Latest Product</h3>#}
+{#						<div class="modcontent ">#}
+{#							<div class="product-latest-item">#}
+{#								<div class="media">#}
+{#									<div class="media-left">#}
+{#										<a href="{% url 'product' %}" class="product-img"><img src="{% static 'img/demo/shop/product/m1.jpg' %}" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 100px; height: 82px;"></a>#}
+{#									</div>#}
+{#									<div class="media-body">#}
+{#										<div class="caption">#}
+{#											<h4><a href="{% url 'product' %}" class="product-img">Sunt Molup</a></h4>#}
+{##}
+{#											<div class="price">#}
+{#												<span class="price-new">$100.00</span>#}
+{#											</div>#}
+{#											<div class="ratings">#}
+{#												<div class="rating-box">#}
+{#													<span class=""><i class="fa fa-star "></i></span>#}
+{#													<span class=""><i class="fa fa-star "></i></span>#}
+{#													<span class=""><i class="fa fa-star "></i></span>#}
+{#													<span class=""><i class="fa fa-star "></i></span>#}
+{#													<span class=""><i class="fa fa-star "></i></span>#}
+{#												</div>#}
+{#											</div>#}
+{#										</div>#}
+{##}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{#							<div class="product-latest-item">#}
+{#								<div class="media">#}
+{#									<div class="media-left">#}
+{#										<a href="{% url 'product' %}" class="product-img"><img src="{% static 'img/demo/shop/product/m2.jpg' %}" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 100px; height: 82px;"></a>#}
+{#									</div>#}
+{#									<div class="media-body">#}
+{#										<div class="caption">#}
+{#											<h4><a href="{% url 'product' %}" class="product-img">Et Spare</a></h4>#}
+{##}
+{#											<div class="price">#}
+{#												<span class="price-new">$99.00</span>#}
+{#											</div>#}
+{#											<div class="ratings">#}
+{#												<div class="rating-box">#}
+{#													<span class=""><i class="fa fa-star "></i></span>#}
+{#													<span class=""><i class="fa fa-star "></i></span>#}
+{#													<span class=""><i class="fa fa-star "></i></span>#}
+{#													<span class=""><i class="fa fa-star "></i></span>#}
+{#													<span class="gray"><i class="fa fa-star "></i></span>#}
+{#												</div>#}
+{#											</div>#}
+{#										</div>#}
+{##}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{#							<div class="product-latest-item">#}
+{#								<div class="media">#}
+{#									<div class="media-left">#}
+{#										<a href="{% url 'product' %}" class="product-img"><img src="{% static 'img/demo/shop/product/18.jpg' %}" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 100px; height: 82px;"></a>#}
+{#									</div>#}
+{#									<div class="media-body">#}
+{#										<div class="caption">#}
+{#											<h4><a href="{% url 'product' %}" class="product-img">Cisi Chicken</a></h4>#}
+{##}
+{#											<div class="price">#}
+{#												<span class="price-new">$59.00</span>#}
+{#											</div>#}
+{#											<div class="ratings">#}
+{#												<div class="rating-box">#}
+{#													<span class=""><i class="fa fa-star "></i></span>#}
+{#													<span class=""><i class="fa fa-star "></i></span>#}
+{#													<span class=""><i class="fa fa-star "></i></span>#}
+{#													<span class=""><i class="fa fa-star "></i></span>#}
+{#													<span class="gray"><i class="fa fa-star"></i></span>#}
+{#												</div>#}
+{#											</div>#}
+{#										</div>#}
+{##}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{#							<div class="product-latest-item transition">#}
+{#								<div class="media">#}
+{#									<div class="media-left">#}
+{#										<a href="{% url 'product' %}" class="product-img"><img src="{% static 'img/demo/shop/product/9.jpg' %}" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 100px; height:82px;"></a>#}
+{#									</div>#}
+{#									<div class="media-body">#}
+{#										<div class="caption">#}
+{#											<h4><a href="{% url 'product' %}" class="product-img">Kevin Labor</a></h4>#}
+{#											<div class="price">#}
+{#												<span class="price-new">$245.00</span>#}
+{#											</div>#}
+{#											<div class="ratings">#}
+{#												<div class="rating-box">#}
+{#													<span class=""><i class="fa fa-star "></i></span>#}
+{#													<span class=""><i class="fa fa-star "></i></span>#}
+{#													<span class=""><i class="fa fa-star "></i></span>#}
+{#													<span class=""><i class="fa fa-star "></i></span>#}
+{#													<span class="gray"><i class="fa fa-star"></i></span>#}
+{#												</div>#}
+{#											</div>#}
+{#										</div>#}
+{##}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{##}
+{##}
+{#						</div>#}
+{##}
+{#					</div>#}
+{#					<div class="module banner-left">#}
+{#						<div class="modcontent clearfix">#}
+{#							<div class="banners">#}
+{#								<div>#}
+{#									<a href="{% url 'product' %}" class="product-img"><img src="{% static 'img/demo/cms/left-image-static.png' %}" alt="left-image"></a>#}
+{#								</div>#}
+{#							</div>#}
+{##}
+{#						</div>#}
+{#					</div>#}
+{#				</aside>#}
 
-
-						</div>
-					</div>
-					<div class="module latest-product titleLine">
-						<h3 class="modtitle">Latest Product</h3>
-						<div class="modcontent ">
-							<div class="product-latest-item">
-								<div class="media">
-									<div class="media-left">
-										<a href="product.html" class="product-img"><img src="img/demo/shop/product/m1.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 100px; height: 82px;"></a>
-									</div>
-									<div class="media-body">
-										<div class="caption">
-											<h4><a href="product.html" class="product-img">Sunt Molup</a></h4>
-
-											<div class="price">
-												<span class="price-new">$100.00</span>
-											</div>
-											<div class="ratings">
-												<div class="rating-box">
-													<span class=""><i class="fa fa-star "></i></span>
-													<span class=""><i class="fa fa-star "></i></span>
-													<span class=""><i class="fa fa-star "></i></span>
-													<span class=""><i class="fa fa-star "></i></span>
-													<span class=""><i class="fa fa-star "></i></span>
-												</div>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-							<div class="product-latest-item">
-								<div class="media">
-									<div class="media-left">
-										<a href="product.html" class="product-img"><img src="img/demo/shop/product/m2.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 100px; height: 82px;"></a>
-									</div>
-									<div class="media-body">
-										<div class="caption">
-											<h4><a href="product.html" class="product-img">Et Spare</a></h4>
-
-											<div class="price">
-												<span class="price-new">$99.00</span>
-											</div>
-											<div class="ratings">
-												<div class="rating-box">
-													<span class=""><i class="fa fa-star "></i></span>
-													<span class=""><i class="fa fa-star "></i></span>
-													<span class=""><i class="fa fa-star "></i></span>
-													<span class=""><i class="fa fa-star "></i></span>
-													<span class="gray"><i class="fa fa-star "></i></span>
-												</div>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-							<div class="product-latest-item">
-								<div class="media">
-									<div class="media-left">
-										<a href="product.html" class="product-img"><img src="img/demo/shop/product/18.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 100px; height: 82px;"></a>
-									</div>
-									<div class="media-body">
-										<div class="caption">
-											<h4><a href="product.html" class="product-img">Cisi Chicken</a></h4>
-
-											<div class="price">
-												<span class="price-new">$59.00</span>
-											</div>
-											<div class="ratings">
-												<div class="rating-box">
-													<span class=""><i class="fa fa-star "></i></span>
-													<span class=""><i class="fa fa-star "></i></span>
-													<span class=""><i class="fa fa-star "></i></span>
-													<span class=""><i class="fa fa-star "></i></span>
-													<span class="gray"><i class="fa fa-star"></i></span>
-												</div>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-							<div class="product-latest-item transition">
-								<div class="media">
-									<div class="media-left">
-										<a href="product.html" class="product-img"><img src="img/demo/shop/product/9.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="img-responsive" style="width: 100px; height:82px;"></a>
-									</div>
-									<div class="media-body">
-										<div class="caption">
-											<h4><a href="product.html" class="product-img">Kevin Labor</a></h4>
-											<div class="price">
-												<span class="price-new">$245.00</span>
-											</div>
-											<div class="ratings">
-												<div class="rating-box">
-													<span class=""><i class="fa fa-star "></i></span>
-													<span class=""><i class="fa fa-star "></i></span>
-													<span class=""><i class="fa fa-star "></i></span>
-													<span class=""><i class="fa fa-star "></i></span>
-													<span class="gray"><i class="fa fa-star"></i></span>
-												</div>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-
-
-						</div>
-
-					</div>
-					<div class="module banner-left">
-						<div class="modcontent clearfix">
-							<div class="banners">
-								<div>
-									<a href="product.html" class="product-img"><img src="img/demo/cms/left-image-static.png" alt="left-image"></a>
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</aside>
 				<!--Left Part End -->
 
 				<!--Middle Part Start-->
@@ -910,7 +921,7 @@
 						</div>
 						<div class="category-derc form-group">
 							<div class="row">
-								<div class="col-sm-4"><img src="img/demo/shop/category/smartphone-tablets.jpg" alt="Apple Cinema 30&quot;"></div>
+								<div class="col-sm-4"><img src="{% static 'img/demo/shop/category/smartphone-tablets.jpg' %}" alt="Apple Cinema 30&quot;"></div>
 								<div class="col-sm-8">
 									<p>Mauris accumsan nulla vel diam. Sed in lacus ut enim adipiscing aliquet. Nulla venenatis. In pede mi, aliquet sit amet, euismod in, auctor ut, ligula. Aliquam dapibus tincidunt metus. Praesent justo dolor, lobortis quis, lobortis dignissim, pulvinar ac, lorem. Vestibulum sed ante. Donec sagittis euismod purus. Sed ut perspiciatis sit voluptatem accusantium doloremque laudantium. Vestibulum iaculis lacinia est. Proin dictum elementum velit. Fusce euismod consequat ante. </p>
 
@@ -968,7 +979,7 @@
 								<div class="product-item-container">
 									<div class="left-block">
 										<div class="product-image-container  second_img ">
-											<a   class="product-img" href="product.html"><img src="img/demo/shop/product/product-1.jpg" alt=""></a>
+											<a   class="product-img" href="{% url 'product' %}"><img src="{% static 'img/demo/shop/product/product-1.jpg' %}" alt=""></a>
 											<!--Sale Label-->
 											<span class="new">New</span>
 
@@ -983,7 +994,7 @@
 									</div>
 									<div class="right-block">
 										<div class="caption">
-											<h4><a href="product.html">Dummy product #01</a></h4>
+											<h4><a href="{% url 'product' %}">Dummy product #01</a></h4>
 											<div class="ratings">
 												<div class="rating-box">
 													<span class=""><i class="fa fa-star "></i></span>
@@ -1421,6 +1432,7 @@
 			</div>
 			<!--Middle Part End-->
 		</div>
+        {% endblock %}
 		<!-- //Main Container -->
 
 
