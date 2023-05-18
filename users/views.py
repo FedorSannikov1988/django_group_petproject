@@ -26,8 +26,6 @@ def login(request):
         if form.is_valid():
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password"]
-            # username = request.POST['username']
-            # password = request.POST['password']
             user = auth.authenticate(username=username, password=password)
             if user:
                 auth.login(request, user)
@@ -95,3 +93,11 @@ def exit_my_account(request):
 def delete_my_account(request, user=None):
     user.delete()
     return HttpResponseRedirect(reverse('index'))
+
+
+# def delete_profile(request):
+#     if request.method == 'POST':
+#         User.objects.get(user=request.user).delete()
+#         return HttpResponseRedirect(reverse('index'))
+#     else:
+#         return HttpResponseRedirect(reverse('users:login'))
