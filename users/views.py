@@ -90,3 +90,8 @@ def my_account(request):
 def exit_my_account(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('index'))
+
+
+def delete_my_account(request, user=None):
+    user.delete()
+    return HttpResponseRedirect(reverse('index'))

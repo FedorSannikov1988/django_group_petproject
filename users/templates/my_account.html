@@ -57,7 +57,7 @@
             <p><br><br></p>
 			<div class="row">
                 <div class="center">
-                    <div class="text-center"> <img src="{% if user.image %} {{ user.image.url }} {% else%} {% static 'img/about_us/there_is_no_photo.jpg' %} {% endif %}"> </div>
+                    <div class="text-center"> <img class="image-size" src="{% if user.image %} {{ user.image.url }} {% else%} {% static 'img/about_us/there_is_no_photo.jpg' %} {% endif %}"> </div>
                 </div>
             <br><hr><br>
             <p><br><br></p>
@@ -102,6 +102,7 @@
 						<div class="row">
 						    <div class="buttons clearfix">
 							    <div class="pull-right">
+                                    <input type="submit" class="btn btn-md btn-primary" value="Удалить аккаунт">
 								    <input type="submit" class="btn btn-md btn-primary" value="Сохранить изминения">
 							    </div>
 						    </div>
