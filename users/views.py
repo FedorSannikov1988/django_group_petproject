@@ -20,6 +20,7 @@ data_for_basic_template = {
 
 def login(request):
     title_login = 'Вход в учетную запись - '
+    error = ''
 
     if request.method == 'POST':
         form = UserLoginForm(data=request.POST)
@@ -30,12 +31,13 @@ def login(request):
             if user:
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse('users:my_account'))
-        else:
-            print(form.errors)
+            else:
+                error = 'Неверное имя пользоваеля или пароль !'
     else:
         form = UserLoginForm()
 
     context = {
+        'error': error,
         'form': form,
         'page_title': title_login + title_for_basic_template,
     }
@@ -90,14 +92,9 @@ def exit_my_account(request):
     return HttpResponseRedirect(reverse('index'))
 
 
-def delete_my_account(request, user=None):
-    user.delete()
+def delete_profile(request):
+    user = request.user
+    User.objects.filter(username=user).delete()
     return HttpResponseRedirect(reverse('index'))
 
-
-# def delete_profile(request):
-#     if request.method == 'POST':
-#         User.objects.get(user=request.user).delete()
-#         return HttpResponseRedirect(reverse('index'))
-#     else:
-#         return HttpResponseRedirect(reverse('users:login'))
+    # HttpResponseRedirect(request.META['HTTP_REFERER'])
