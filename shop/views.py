@@ -1,7 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponseRedirect
 from shop.models import SoftwareCategory, Software, DevelopmentTeam, FAQ, Cart
-from shop.forms import NumberBuySoftwareLicense
 
 
 def title_for_basic_template():
@@ -91,21 +90,10 @@ def product_catalog(request):
 @login_required
 def cart(request):
     title_cart = 'Корзина покупателя - '
-
-    if request.method == 'POST':
-        form = NumberBuySoftwareLicense(data=request.POST)
-        if form.is_valid():
-            number_license = form.cleaned_data["quantity_license"]
-            print(number_license)
-            print(request.POST.get("software_id"))
-    else:
-        form1 = NumberBuySoftwareLicense(initial={'quantity_license': 1})
-
     context = {
-        'form': form,
         'page_title': title_cart + title_for_basic_template(),
     }
-    return render(request, 'cart_v2.html', {**context, **data_for_basic_template(request)})
+    return render(request, 'cart.html', {**context, **data_for_basic_template(request)})
 
 
 @login_required
