@@ -2,9 +2,8 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import auth
 from django.urls import reverse
-
-from shop.views import title_for_basic_template, data_for_basic_template
 from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm
+from shop.views import title_for_basic_template, data_for_basic_template
 
 
 def login(request):

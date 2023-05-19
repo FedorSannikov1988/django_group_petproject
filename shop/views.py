@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponseRedirect
 from shop.models import SoftwareCategory, Software, DevelopmentTeam, FAQ, Cart
+from shop.forms import NumberBuySoftwareLicense
 
 
 def title_for_basic_template():
@@ -69,16 +70,6 @@ def faq(request):
     return render(request, 'faq.html', {**context, **data_for_basic_template(request)})
 
 
-@login_required
-def cart(request):
-    title_cart = 'Корзина покупателя - '
-
-    context = {
-        'page_title': title_cart + title_for_basic_template(),
-    }
-    return render(request, 'cart.html', {**context, **data_for_basic_template(request)})
-
-
 def product(request):
     title_product = 'Описание програмного обеспечения - '
 
@@ -98,7 +89,27 @@ def product_catalog(request):
 
 
 @login_required
-def cart_add(request, software_id):
+def cart(request):
+    title_cart = 'Корзина покупателя - '
+
+    if request.method == 'POST':
+        form = NumberBuySoftwareLicense(data=request.POST)
+        if form.is_valid():
+            number_license = form.cleaned_data["quantity_license"]
+            print(number_license)
+            print(request.POST.get("software_id"))
+    else:
+        form1 = NumberBuySoftwareLicense(initial={'quantity_license': 1})
+
+    context = {
+        'form': form,
+        'page_title': title_cart + title_for_basic_template(),
+    }
+    return render(request, 'cart_v2.html', {**context, **data_for_basic_template(request)})
+
+
+@login_required
+def cart_add_one(request, software_id):
     user = request.user
     software = Software.objects.get(id=software_id)
     carts = Cart.objects.filter(user=user, software=software)
@@ -106,14 +117,32 @@ def cart_add(request, software_id):
     if not carts.exists():
         Cart.objects.create(user=user, software=software, quantity=1)
     else:
-        cart = carts.first()
-        cart.quantity += 1
-        cart.save()
+        cart = carts.last()
+        if software.quantity > cart.quantity:
+            cart.quantity += 1
+            cart.save()
 
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
+@login_required
+def cart_delete_one(request, software_id):
+    user = request.user
+    software = Software.objects.get(id=software_id)
+    carts = Cart.objects.filter(user=user, software=software)
+
+    if carts.exists():
+        cart = carts.last()
+
+        if cart.quantity > 1:
+            cart.quantity -= 1
+            cart.save()
+        # else:
+        #    cart.delete()
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+
+@login_required
 def cart_remove(request, cart_id):
-    cart = Cart.objects.get(id=cart_id)
-    cart.delete()
+    Cart.objects.get(id=cart_id).delete()
     return HttpResponseRedirect(request.META['HTTP_REFERER'])

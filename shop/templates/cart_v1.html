@@ -46,7 +46,7 @@
 <div class="main-container container">
     <ul class="header-main ">
         <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-        <li>Корзина</li>
+        <li>Корзина покупок</li>
     </ul>
     <div class="row">
         <!--Middle Part Start-->
@@ -66,33 +66,59 @@
                     <tbody>
                     {% for one_purchase in cart %}
                         <tr>
-                            <td class="text-center" style="width:150px">
+                            <td class="text-center" style="width:75px;">
                                 <a href="#">
                                     <img src="{{ one_purchase.software.image.url }}" style="width:70px" class="preview">
                                 </a>
                             </td>
-                            <td class="text-center" style="padding-top: 50px;"> {{ one_purchase.software.name }} </td>
-                            <td class="text-center" style="padding-top: 50px;"> {{ one_purchase.quantity }} </td>
-                            <td class="text-center" style="padding-top: 50px;"> {{ one_purchase.software.price }} ₽ </td>
-                            <td class="text-center" style="padding-top: 50px;"> {{ one_purchase.sum }} ₽ </td>
+                            <td class="text-center" style="padding-top: 50px; width:300px;">
+                                <a href="#">
+                                     <strong>
+                                         {{ one_purchase.software.name }}
+                                     </strong>
+                                </a>
+                            </td>
+                            <td class="text-center" style="padding-top: 50px; width:60px;">
+                                <div class="input-group btn-block quantity">
+                                    <form>
+                                        <span class="input-group-btn" style="bottom: 10px;">
+                                            <input class="form-control" value="{{ one_purchase.quantity }}" style="width:50px; right: -10px;">
+                                            <input formaction="{% url 'product_catalog:cart_delete_one'  one_purchase.software.id %}" type="submit" value="-1" class="btn" />
+	                                        <input formaction="{% url 'product_catalog:cart_add_one' one_purchase.software.id %}" type="submit" value="+1" class="btn" />
+	                                        <input formaction="{% url 'product_catalog:cart_remove' one_purchase.id %}" formmethod="get" type="submit" value="x" class="btn btn-danger" />
+                                        </span>
+                                    </form>
+                                </div>
+                            </td>
+                            <td class="text-center" style="padding-top: 50px; width:110px;"> {{ one_purchase.software.price }} ₽ </td>
+                            <td class="text-center" style="padding-top: 50px; width:110px;"> {{ one_purchase.sum }} ₽ </td>
                         </tr>
                     {% endfor %}
                     </tbody>
+                    <tbody>
+                        <tr>
+                            <td class="text-center" colspan="4" >
+                                <strong>
+                                    Итого:
+                                </strong>
+                            </td>
+                            <td class="text-center">
+                                <div style="color: red">
+                                    <strong>
+                                        {{ cart.total_sum }} ₽
+                                    </strong>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
+            <p><br><br><br></p>
             </div>
-
-
-                        <div class="text-right" style="margin-bottom: 50px;">
-                        <strong style="padding-right: 70px;"> Итого: {{ cart.total_sum }} ₽  </strong>
-                        </div>
-
-
-
-                    <div class="buttons">
-                        <div class="pull-left"><a href="{% url 'product_catalog:index' %}" class="btn btn-primary">Продолжить покупки</a></div>
-                        <div class="pull-right"><a href="#" class="btn btn-primary">Купить</a></div>
-                    </div>
+                <div class="buttons">
+                    <div class="pull-left"><a href="{% url 'product_catalog:index' %}" class="btn btn-primary">Продолжить покупки</a></div>
+                    <div class="pull-right"><a href="#" class="btn btn-primary">Купить</a></div>
                 </div>
+            </div>
                 <!--Middle Part End -->
             </div>
         </div>
