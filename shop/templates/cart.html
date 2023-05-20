@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
 <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
 <link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
-<link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
+<link href="{% static 'js/owl-carousel/assets/owl.carousel.css' %}" rel="stylesheet">
 <link href="{% static 'js/owl-carousel/assets/owl.theme.default.min.css' %}" rel="stylesheet">
 <link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
 <link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
@@ -43,63 +43,62 @@
 
 <!-- Main Container  -->
 {% block main_container %}
-<b> </b> <div class="main-container container">
-                <ul class="header-main ">
-                    <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                    <li>Карта сайта</li>
-                </ul>
-                <div class="row">
-                    <div id="content" class="col-sm-12">
-                        <h2 class="title">Карта сайта</h2>
-                        <div class="row">
-                            <div class="col-md-5 col-sm-6">
-                                <ul class="simple-list arrow-list bold-list">
-                                    <li><a href="#"><!--Операционные системы--> {{ software_category.0.name }}</a>
-                                        <ul class="sitemap">
-                                          {% for one_category in software_antivirus_protection %}
-                                              <li><a href="#"> {{ one_category.name }} </a></li>
-                                          {% endfor %}
-                                        </ul>
-                                    </li>
-                                    <li><a href="#"><!--Офисное ПО--> {{ software_category.1.name }}</a>
-                                        <ul class="sitemap">
-                                          {% for one_software_office in software_office %}
-                                              <li><a href="#"> {{ one_software_office.name }} </a></li>
-                                          {% endfor %}
-                                        </ul>
-                                    </li>
-                                    <li><a href="#"><!--Антивирусная защита--> {{ software_category.2.name }}</a>
-                                        <ul class="sitemap">
-                                          {% for one_operating_systems in software_operating_systems %}
-                                              <li><a href="#"> {{ one_operating_systems.name }} </a></li>
-                                          {% endfor %}
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-4 col-sm-6">
-                                <ul class="simple-list arrow-list bold-list">
-                                    <li><a href="#">Заголовок</a>
-                                        <ul class="sitemap">
-                                            <li><a href="#">Текст</a> </li>
-                                            <li><a href="#">Текст</a> </li>
-                                            <li><a href="#">Текст</a> </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Информация</a>
-                                        <ul class="sitemap">
-                                            <li><a href="{% url 'about_us' %}">О нас/Наши контакты</a> </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
+<div class="main-container container">
+    <ul class="header-main ">
+        <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+        <li>Корзина</li>
+    </ul>
+    <div class="row">
+        <!--Middle Part Start-->
+        <div id="content" class="col-sm-12">
+            <p><br><br><br></p>
+            <div class="table-responsive form-group">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td class="text-center">Логотип/Эмблема</td>
+                            <td class="text-center">Програмное обеспечение</td>
+                            <td class="text-center">Количество лицензий</td>
+                            <td class="text-center">Цена за одну лицензию</td>
+                            <td class="text-center">Цена за все лицензии</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for one_purchase in cart %}
+                        <tr>
+                            <td class="text-center" style="width:150px">
+                                <a href="#">
+                                    <img src="{{ one_purchase.software.image.url }}" style="width:70px" class="preview">
+                                </a>
+                            </td>
+                            <td class="text-center" style="padding-top: 50px;"> {{ one_purchase.software.name }} </td>
+                            <td class="text-center" style="padding-top: 50px;"> {{ one_purchase.quantity }} </td>
+                            <td class="text-center" style="padding-top: 50px;"> {{ one_purchase.software.price }} ₽ </td>
+                            <td class="text-center" style="padding-top: 50px;"> {{ one_purchase.sum }} ₽ </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+                        <div class="text-right" style="margin-bottom: 50px;">
+                        <strong style="padding-right: 70px;"> Итого: {{ cart.total_sum }} ₽  </strong>
                         </div>
+
+
+
+                    <div class="buttons">
+                        <div class="pull-left"><a href="{% url 'product_catalog:index' %}" class="btn btn-primary">Продолжить покупки</a></div>
+                        <div class="pull-right"><a href="#" class="btn btn-primary">Купить</a></div>
                     </div>
                 </div>
+                <!--Middle Part End -->
             </div>
+        </div>
 {% endblock %}
-<!-- //Main Container -->
-
+        <!-- //Main Container -->
+				
 <!-- Include Libs & Plugins
 ============================================ -->
 {% block libs_and_plugins %}

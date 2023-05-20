@@ -33,26 +33,6 @@
 
 <!-- Header Container  -->
 <header id="header" class=" variantleft type_1">
-            <!-- Header Top -->
-			<div class="header-top">
-				<div class="container">
-					<div class="row">
-						<div class="header-top-right collapsed-block text-right  col-sm-6 col-xs-6 compact-hidden">
-							<div class="tabBlock1" id="TabBlock-1">
-								<ul class="top-link list-inline">
-                                    {% if user.is_authenticated %}
-                                        <li class="signin"><a href="{% url 'users:exit_my_account' %}" class="top-link-checkout" title="Выйти"><span>Выйти</span></a></li>
-                                    {% else %}
-                                        <li class="signin"><a href="{% url 'users:login' %}" class="top-link-checkout" title="Войти"><span>Войти</span></a></li>
-									    <li class="register"><a href="{% url 'users:register' %}" title="Регистрация"><span> Регистрация </span></a></li>
-                                    {% endif %}
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- //Header Top -->
 			<!-- Header center -->
 			<div class="header-center left">
 				<div class="container">
@@ -62,29 +42,13 @@
 							<a href="{% url 'index' %}"><img src="{% static 'img/logotip.jpg' %}" title="Логотип магазина" alt="Логотип магазина"></a>
 						</div>
 						<!-- //Logo -->
-						<!-- Search -->
-						<div id="sosearchpro" class="col-xs-12 col-sm-8 col-md-5 search-pro">
-							<form method="GET" action="{% url 'index' %}">
-								<div id="search0" class="search input-group">
-									<input class="autosearch-input form-control" type="text" value="" size="60" autocomplete="off" placeholder="Поиск програмного обеспечения ... " name="search">
-									<span class="input-group-btn">
-										<button type="submit" class="button-search btn btn-primary" name="submit_search"><i class="fa fa-search"></i></button>
-									</span>
-								</div>
-							</form>
-						</div>
-						<!-- //Search -->
 						<!-- Secondary menu -->
 						<div class="col-md-4 col-sm-4 col-xs-5 shopping_cart pull-right">
-                            <!--cart-->
-                            {% include 'mobile_cart.html' %}
-						    <!--//cart-->
 						</div>
 					</div>
 				</div>
 			</div>
             <!-- //Header center -->
-
 			<!-- Header Bottom -->
 			<div class="header-bottom">
 				<div class="container">
@@ -97,30 +61,13 @@
 										<div class="megamenu-wrapper">
 											<div class="megamenu-pattern">
 												<div class="container">
-													<ul class="megamenu">
-                                                        <li class="home hover">
+													<ul class="megamenu " data-transition="slide" data-animationtime="250">
+														<li class="home hover">
 															<p class="close-menu"></p>
-															<a href="{% url 'index' %}" class="menu1">Главная</a>
+															<a href="{% url 'index' %}" class="menu1"> Главная </a>
 														</li>
 														<li class="with-sub-menu hover">
 															<p class="close-menu"></p>
-															<a href="{% url 'product_catalog:index' %}" class="clearfix menu1">
-																<strong>Каталог</strong>
-																<span class="label"></span>
-															</a>
-															<div class="sub-menu" style="left: 0px;">
-																<div class="content">
-																	<div class="row">
-                                                                        {% for one_software_category in software_category %}
-                                                                            <div class="col-md-4 image">
-                                                                                <a href="{% url 'product_catalog:index' %}"><img src="{{ one_software_category.image.url }}"></a>
-                                                                                <div class="center title-submenu"></div>
-                                                                                <a href="{% url 'product_catalog:index' %}"> <div class="text-center"> <h3> <strong> {{ one_software_category.name }} </strong> </h3> </div> </a>
-                                                                            </div>
-                                                                        {% endfor %}
-																	</div>
-																</div>
-															</div>
 														</li>
 													</ul>
 												</div>
@@ -152,7 +99,7 @@
 <!-- Footer Container -->
 <footer class="footer-container type_footer1">
     <!-- Footer Top Container -->
-	<section class="footer-top">
+    <section class="footer-top">
 		<div class="container content">
                 <div class="box-information">
 					<div class="module clearfix">
@@ -188,9 +135,9 @@
                 <br><br><br><br><br><br><br>
                 <br><br><br><br><br><br><br>
                 </div>
-                </div>
+            </div>
         </section>
-    </footer>
+</footer>
 <!-- //Footer Container -->
 </div>
 <!-- Include Libs & Plugins
@@ -198,7 +145,7 @@
 <!-- End of the document so the pages load faster -->
 {% block libs_and_plugins %} {% endblock %}
 
-<!-- Theme file
+<!-- Theme files
 ============================================ -->
 {% block theme_files %} {% endblock %}
 </body>

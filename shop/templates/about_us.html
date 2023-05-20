@@ -40,51 +40,48 @@
         <div id="wrapper" class="wrapper-full ">
 {% endblock %}
 
+
 <!-- Main Container  -->
 {% block main_container %}
 <div class="main-container container">
-    <ul class="header-main ">
-                        <li class="home"><a href="{% url 'index' %}"> Главная <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                        <li>О нас</li>
+    <ul class="header-main">
+        <li class="home"><a href="{% url 'index' %}"> Главная <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+        <li>О нас</li>
     </ul>
-    <div class="row">
+    <p><br><br><br></p>
+                    <div class="row">
                         <div id="content" class="col-sm-12 col-xs-12">
-
                             <div class="about-us about-demo-1">
                                 <div class="row">
-                                    <div class="col-xs-12 col-lg-7 col-md-7 about-info">
-                                        <h3 class="about-title"><span>О нас</span></h3>
-                                        <div class="about-text">
-                                            <p> Наша команда является студентами GeekBrains ....  </p>
-                                            <p> Данный интернет магазин является нашим дипломным проектом ...  </p>
+                                    <div class="about-us">
+                                        <div class="text-center">
+                                            <p> Мы является студентами GeekBrains. Данный интернет магазин является нашим совместным дипломным проектом. </p>
                                         </div>
                                     </div>
                                 </div>
+                                <p><br><br><br></p>
                                 <div class="row">
                                     <div class="col-xs-12 col-lg-12 col-md-12 our-team">
                                         <div class="our-team-content">
-                                            <h2 class="about-title line-hori"><span>Наша команда</span></h2>
+                                            <h2 class="about-title line-hori"><span>Студенты участвующие в проекте</span></h2>
                                             <div class="our-team-slider">
                                                 <div class="owl-carousel carousel-member" data-loop="yes" data-nav="yes" data-dots="no" data-margin="15" data-items_xs="1" data-items_sm="3" data-items_md="4">
-
+                                                    {% for one_developer in development_team %}
                                                     <div class="member">
-                                                        <div class="member-image"> <img src="{% static 'img/team_photos/fedor_sannikov.jpg' %}" alt="Фёдор Санников"> </div>
+                                                        <div class="member-image"> <img src="{% if one_developer.image %} {{ one_developer.image.url }} {% else %} {% static 'img/no_avatar/man.png' %} {% endif %}" alt="{{ one_developer.firstname }} {% if one_developer.lastname %} {{ one_developer.lastname }} {% endif %} "> </div>
                                                         <div class="member-info">
-                                                            <h3 class="name-member">Федор Санников</h3>
-                                                            <p class="job-member">Роль в проекте</p>
-                                                            <p class="des-member">Какие задачи выполнил в проекте ... </p>
+                                                            <h3 class="name-member">
+                                                                {{ one_developer.firstname }}
+                                                                {% if one_developer.lastname %} {{ one_developer.lastname }} {% endif %}
+                                                                {% if one_developer.patronymic %} {{ one_developer.patronymic }} {% endif %}
+                                                            </h3>
+                                                            <p class="des-member"> Телефон: {% if one_developer.telephone %} {{ one_developer.telephone }} {% endif %} </p>
+                                                            <p class="des-member"> Элекронная почта: {% if one_developer.mail %} {{ one_developer.mail }} {% endif %} </p>
+                                                            <p class="job-member"> {{ one_developer.role }} </p>
+                                                            <p class="des-member"> {{ one_developer.description_work }} </p>
                                                         </div>
                                                     </div>
-
-                                                    <div class="member">
-                                                        <div class="member-image"> <img src="{% static 'img/team_photos/mikhail zinoviev.jpg' %}" alt="Михаил Зиновьев"> </div>
-                                                        <div class="member-info">
-                                                            <h3 class="name-member">Михаил Зиновьев</h3>
-                                                            <p class="job-member">Роль в проекте</p>
-                                                            <p class="des-member">Какие задачи выполнил в проекте ... </p>
-                                                        </div>
-                                                    </div>
-
+                                                    {% endfor %}
                                                 </div>
                                             </div>
                                         </div>
