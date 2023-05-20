@@ -68,7 +68,7 @@
                                                 <div class="owl-carousel carousel-member" data-loop="yes" data-nav="yes" data-dots="no" data-margin="15" data-items_xs="1" data-items_sm="3" data-items_md="4">
                                                     {% for one_developer in development_team %}
                                                     <div class="member">
-                                                        <div class="member-image"> <img src="{% if one_developer.image %} {{ one_developer.image.url }} {% else %} {% static 'img/about_us/there_is_no_photo.jpg' %} {% endif %}" alt="{{ one_developer.firstname }} {% if one_developer.lastname %} {{ one_developer.lastname }} {% endif %} "> </div>
+                                                        <div class="member-image"> <img src="{% if one_developer.image %} {{ one_developer.image.url }} {% else %} {% static 'img/no_avatar/man.png' %} {% endif %}" alt="{{ one_developer.firstname }} {% if one_developer.lastname %} {{ one_developer.lastname }} {% endif %} "> </div>
                                                         <div class="member-info">
                                                             <h3 class="name-member">
                                                                 {{ one_developer.firstname }}

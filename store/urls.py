@@ -1,19 +1,9 @@
 from django.contrib import admin
-
-from django.urls import path, re_path, include
-from django.conf.urls.static import static
+from django.urls import path, include
 from django.conf import settings
+from django.conf.urls.static import static
+from shop.views import index, sitemap, about_us, cart, product, faq
 
-
-from shop.views import index
-from shop.views import sitemap
-from shop.views import about_us
-from shop.views import product
-from shop.views import login
-from shop.views import register
-from shop.views import cart
-from shop.views import faq
-from shop.views import catalog
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -21,11 +11,11 @@ urlpatterns = [
     path("sitemap", sitemap, name='sitemap'),
     path("about_us", about_us, name='about_us'),
     path("product", product, name='product'),
-    path("login", login, name='login'),
-    path("register", register, name='register'),
     path("cart", cart, name='cart'),
-    path("faq", include('shop.urls', namespace='faq')),
     path("catalog", catalog, name='catalog'),
+    path("faq", faq, name='faq'),
+    path("input_user/", include('users.urls', namespace='users')),
+    path("product_catalog/", include('shop.urls', namespace='product_catalog')),
 ]
 
 if settings.DEBUG:
