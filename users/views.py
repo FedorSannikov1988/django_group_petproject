@@ -4,6 +4,7 @@ from django.contrib import auth
 from django.urls import reverse
 from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm
 from shop.views import title_for_basic_template, data_for_basic_template
+from users.models import User
 
 
 def login(request):
@@ -18,13 +19,17 @@ def login(request):
             if user:
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse('users:my_account'))
+            else:
+                error = 'Неверное имя пользоваеля или пароль !'
     else:
         form = UserLoginForm()
 
     context = {
+        'error': error,
         'form': form,
         'page_title': title_login + title_for_basic_template(),
     }
+
     return render(request, 'login.html', context)
 
 
@@ -43,6 +48,7 @@ def register(request):
         'form': form,
         'page_title': title_register + title_for_basic_template(),
     }
+
     return render(request, 'register.html', context)
 
 
@@ -69,3 +75,11 @@ def my_account(request):
 def exit_my_account(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('index'))
+
+
+def delete_profile(request):
+    user = request.user
+    User.objects.filter(username=user).delete()
+    return HttpResponseRedirect(reverse('index'))
+
+    # HttpResponseRedirect(request.META['HTTP_REFERER'])

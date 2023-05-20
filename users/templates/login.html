@@ -68,17 +68,22 @@
                                 <div class="well">
                                     <h2><i class="fa fa-file-text-o" aria-hidden="true"></i>Постоянный покупатель</h2>
                                     {% csrf_token %}
-                                    <br>
-                                    <b> Логин: {{ form.username }} </b>
-                                    <br><br>
-                                    <b> Пароль: {{ form.password }} </b>
-                                    <br>
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-email">Логин:</label>
+                                        <p>{{ form.username }}</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label" for="input-email">Пароль:</label>
+                                        <p>{{ form.password }}</p>
+                                         <div class="alert-danger"> {{ error }} </div>
+                                    </div>
 
-                                    {% if field.errors %}
-                                        {% for field in form %}
-                                            <div class="alert"> {{ field.errors }} {{ field.label_tag }} </div>
-                                        {% endfor %}
-                                    {% endif %}
+
+{#                                    {% if field.errors %}#}
+{#                                        {% for field in form %}#}
+{#                                            <div class="alert"> {{ field.errors }} {{ field.label_tag }} </div>#}
+{#                                        {% endfor %}#}
+{#                                    {% endif %}#}
                                 </div>
                                 <div class="bottom-form">
                                     <a href="#" class="forgot">Забыли пароль ?</a>
