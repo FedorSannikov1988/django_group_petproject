@@ -79,7 +79,7 @@ def product(request):
 
 
 def product_catalog(request):
-    title_product_catalog = 'Главная страница - '
+    title_product_catalog = 'Каталог программного обеспечения - '
 
     context = {
         "page_title": title_product_catalog + title_for_basic_template(),
@@ -91,10 +91,10 @@ def catalog(request):
     title_catalog = 'Каталог программного обеспечения - '
 
     context = {
-        'page_title': title_catalog + title_for_basic_template,
+        'page_title': title_catalog + title_for_basic_template(),
     }
 
-    return render(request, 'catalog.html', {**context, **data_for_basic_template})
+    return render(request, 'catalog.html', {**context, **data_for_basic_template(request), **all_soft()})
 
 
 @login_required
@@ -138,7 +138,8 @@ def cart_delete_one(request, software_id):
         # else:
         #    cart.delete()
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
- 
+
+
 @login_required
 def cart_remove(request, cart_id):
     Cart.objects.get(id=cart_id).delete()
