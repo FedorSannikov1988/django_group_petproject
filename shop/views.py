@@ -93,7 +93,6 @@ def catalog(request):
     context = {
         'page_title': title_catalog + title_for_basic_template(),
     }
-
     return render(request, 'catalog.html', {**context, **data_for_basic_template(request), **all_soft()})
 
 

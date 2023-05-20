@@ -1,6 +1,6 @@
 from phonenumber_field.modelfields import PhoneNumberField
-from django.db import models
 from users.models import User
+from django.db import models
 
 
 class SoftwareCategory(models.Model):

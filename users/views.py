@@ -69,15 +69,16 @@ def my_account(request):
         'form': form,
         'page_title': title_my_account + title_for_basic_template(),
     }
-
     return render(request, 'my_account.html', {**context, **data_for_basic_template(request)})
 
 
+@login_required
 def exit_my_account(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('index'))
 
 
+@login_required
 def delete_profile(request):
     user = request.user
     User.objects.filter(username=user).delete()
