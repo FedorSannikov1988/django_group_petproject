@@ -1,7 +1,6 @@
 {% extends 'base_entry.html' %}
 {% load static %}
 
-
 <!-- Favicon
 ============================================ -->
 {% block favicon %}
@@ -34,60 +33,66 @@
 <link href="{% static 'css/header1.css' %}" rel="stylesheet">
 <link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
 {% endblock %}
-
 {% block stile_body_two_line %}
     <body class="res layout-subpage">
         <div id="wrapper" class="wrapper-full ">
 {% endblock %}
-
 <!-- Main Container  -->
 {% block main_container %}
 <div class="main-container container">
+
     <ul class="header-main ">
         <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-        <li>Войти</li>
+        <li>Регистрация аккаунта</li>
     </ul>
-
     <div class="row">
         <div id="content" class="col-sm-12">
-            <div class="page-login">
+            <h3 class="title"><p>Если вы уже зарегистрированы, пожалуйста, <b><a href="{% url 'users:login' %}">войдите в свою учетную запись</a>.</b></p></h3>
+            <form action="{% url 'users:register' %}" method="post">
+                {% csrf_token %}
 
-                <div class="account-border">
-                    <div class="row">
-                        <div class="col-sm-6 new-customer">
-                            <div class="well">
-                                <h2><i class="fa fa-file-o" aria-hidden="true"></i>Новый клиент</h2>
-                                <p>Создав учетную запись, вы сможете совершать покупки быстрее, быть в курсе статуса заказа и отслеживать ранее сделанные заказы.</p>
-                            </div>
-                            <div class="bottom-form">
-                                <a href="#" class="btn btn-default pull-right">Продолжить</a> <!-- Need link-->
-                            </div>
-                        </div>
-
-                        <form action="#" method="post" enctype="multipart/form-data">
-                            <div class="col-sm-6 customer-login">
-                                <div class="well">
-                                    <h2><i class="fa fa-file-text-o" aria-hidden="true"></i>Постоянный клиент</h2>
-                                    <p><strong>Я постоянный клиент</strong></p>
-                                    <div class="form-group">
-                                        <label class="control-label " for="input-email">E-Mail</label>
-                                        <input type="text" name="email" value="" id="input-email" class="form-control" />
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label " for="input-password">Пароль</label>
-                                        <input type="password" name="password" value="" id="input-password" class="form-control" />
-                                    </div>
-                                </div>
-                                <div class="bottom-form">
-                                    <a href="#" class="forgot">Забыли пароль?</a>
-                                    <input type="submit" value="Войти" class="btn btn-default pull-right" />
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-firstname">Имя пользователя</label>
+                        {{ form.username }}
                 </div>
 
-            </div>
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-lastname">Имя</label>
+                        {{ form.first_name }}
+                </div>
+
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-lastname">Фамилия</label>
+                    {{ form.last_name }}
+                </div>
+
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-lastname">Электронная почта</label>
+                    {{ form.email }}
+                </div>
+
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-lastname">Пароль</label>
+                    {{ form.password1 }}
+                </div>
+
+                <div class="form-group required">
+                    <label class="col-sm-2 control-label" for="input-lastname">Подтвержение пароля</label>
+                    {{ form.password2 }}
+                </div>
+
+                {% if field.errors %}
+                    {% for field in form %}
+                        <div class="alert"> {{ field.errors }} {{ field.label_tag }} </div>
+                    {% endfor %}
+                {% endif %}
+
+                <div class="buttons">
+                    <div class="pull-right">
+                        <input type="submit" value="Зарегестрироваться" class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -109,7 +114,6 @@
 <script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
 {% endblock %}
 
-	
 
 <!-- Theme files
 ============================================ -->

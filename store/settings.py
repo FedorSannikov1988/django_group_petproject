@@ -13,7 +13,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -24,7 +23,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'shop'
+    'phonenumber_field',
+
+    'shop',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -79,7 +81,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 
@@ -93,4 +95,12 @@ STATICFILES_DIRS = (
     BASE_DIR / 'static',
 )
 
+MEDIA_URL = 'media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Users
+
+AUTH_USER_MODEL = 'users.User'

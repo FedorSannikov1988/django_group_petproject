@@ -1,20 +1,18 @@
 from django.contrib import admin
-
-from django.urls import path, re_path
-
-
-from shop.views import index
-from shop.views import sitemap
-from shop.views import about_us
-from shop.views import login
-from shop.views import register
-from shop.views import cart
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from shop.views import index, sitemap, about_us, cart
 
 urlpatterns = [
+    path("admin/", admin.site.urls),
     path("", index, name='index'),
     path("sitemap", sitemap, name='sitemap'),
-    path("about_us", about_us, name='about_us'),
-    path("login", login, name='login'),
-    path("register", register, name='register'),
+    path("about_us", about_us,  name='about_us'),
     path("cart", cart, name='cart'),
+    path("faq", include('shop.urls', namespace='faq')),
+    path("input_user/", include('users.urls', namespace='users')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

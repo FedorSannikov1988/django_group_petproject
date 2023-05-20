@@ -1,0 +1,156 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$0eZYSAlu59F7VhsIZyl9jF$CsV5dN75HJrQUxDnK6wxFS4oLf0yezgynKoI4ZpE+cg=",
+      "last_login": "2023-05-09T12:49:29.210Z",
+      "is_superuser": true,
+      "username": "admin_1",
+      "first_name": "",
+      "last_name": "",
+      "email": "fdsf8@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-05-07T07:39:08Z",
+      "image": "images_users/artem_fedotov_Z0hG18O.jpg",
+      "groups": [],
+      "user_permissions": [
+        11
+      ]
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$oCfTl3xNr94tLsM45ebh9N$dy5r/D0VkyfMZEbO0W0VdjpMac63QYLMfLQsTwy824w=",
+      "last_login": "2023-05-08T18:37:42.749Z",
+      "is_superuser": true,
+      "username": "test",
+      "first_name": "Тест",
+      "last_name": "Тэстов",
+      "email": "test@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-05-08T18:16:01Z",
+      "image": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$d7nyuobsOIzLehMFmiwTa2$Jp/+pk3o7LHAi3Bpt8fLaEl4VG3+BOzwte3smUTJwYU=",
+      "last_login": "2023-05-08T18:28:29.772Z",
+      "is_superuser": false,
+      "username": "test2",
+      "first_name": "Тест2",
+      "last_name": "Тестов2",
+      "email": "test2@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-05-08T18:27:53.320Z",
+      "image": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$IO3qM1vmkJ2RNinwWSW1Fu$ic3v/tkFFxz91c+4nmnj2M1QemPsmKAMSLT+uiYGjxM=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "test3",
+      "first_name": "Тест3",
+      "last_name": "Тэстов3",
+      "email": "test38@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-05-08T18:39:20.677Z",
+      "image": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$epeit5OfnNYYjdEo3pNknL$yHPcRuauE9Tyxt6igXtLvusxa1HgCQm25oXM7qgKGeo=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "test4",
+      "first_name": "Тест4",
+      "last_name": "Тэстов4",
+      "email": "test4@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-05-08T18:54:07.807Z",
+      "image": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$46xTs9e4WcXsn8L0UrhGm4$+TbWqCxet4Lyn7SEFQgtW0siiCWXsixcdGSmp8bk3T4=",
+      "last_login": "2023-05-09T10:44:25.390Z",
+      "is_superuser": false,
+      "username": "test7",
+      "first_name": "Тест7_Проба",
+      "last_name": "Тэстов7",
+      "email": "test7@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-05-09T07:56:02.972Z",
+      "image": "images_users/mikhail_zinoviev.jpg",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 11,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$5Z81TEeTrZPU4vgMOxQ2Ka$S7T94IeoyeG21fqPCFZmVyZH9ZPCjlI0TFCCZhDO6AE=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "test8",
+      "first_name": "Тест8",
+      "last_name": "Тест8",
+      "email": "test8@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-05-09T10:51:18.656Z",
+      "image": "",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 12,
+    "fields": {
+      "password": "pbkdf2_sha256$260000$sFyxGgHP67HcLaEH05JsOE$fdXeFw68BePRj/htFuQtWA2X6WenQWR22RQ0SqT1Ea4=",
+      "last_login": "2023-05-09T12:42:44.920Z",
+      "is_superuser": false,
+      "username": "artem",
+      "first_name": "Артем",
+      "last_name": "Федотов",
+      "email": "test@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-05-09T11:58:42.695Z",
+      "image": "images_users/artem_fedotov_1DBfLS7.jpg",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "model": "shop.softwarecategory",
+    "pk": 1,
+    "fields": {
+      "name": "Антивирусная защита",
+      "description": "",
+      "image": "images_software_category/antivirus.jpg"
+    }
+  },
+  {
+    "model": "shop.softwarecategory",
+    "pk": 2,
+    "fields": {
+      "name": "Офисное ПО",
+      "description": "",
+      "image": "images_software_category/office_software.jpg"
+    }
+  },
+  {
+    "model": "shop.softwarecategory",
+    "pk": 3,
+    "fields": {
+      "name": "Операционные системы",
+      "description": "",
+      "image": "images_software_category/operating_systems.jpg"
+    }
+  }
+]

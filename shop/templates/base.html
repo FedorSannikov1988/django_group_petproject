@@ -8,7 +8,7 @@
 
 <!-- Basic page needs
 ============================================ -->
-<title>Дипломный проект - Интернет магазин програмного обеспечения</title>
+<title>{{ page_title }}</title>
 <meta charset="utf-8">
 
 <!-- Mobile specific metas
@@ -40,8 +40,17 @@
 						<div class="header-top-right collapsed-block text-right  col-sm-6 col-xs-6 compact-hidden">
 							<div class="tabBlock1" id="TabBlock-1">
 								<ul class="top-link list-inline">
-									<li class="signin"><a href="{% url 'login' %}" class="top-link-checkout" title="Sign In"><span>Войти</span></a></li>
-									<li class="register"><a href="{% url 'register' %}" title="Register"><span>Регистрация</span></a></li>
+                                    {% if user.is_authenticated %}
+                                        <li class="account"><a href="{% url 'users:my_account' %}" class="top-link-checkout" title="Личный кабиинет"><span>Личный кабинет</span></a></li>
+                                        <li class="signin"><a href="{% url 'users:exit_my_account' %}" class="top-link-checkout" title="Выйти"><span>Выйти</span></a></li>
+                                    {% else %}
+                                        <li class="signin"><a href="{% url 'users:login' %}" class="top-link-checkout" title="Войти"><span>Войти</span></a></li>
+                                        <li class="register"><a href="{% url 'users:register' %}" title="Регистрация"><span> Регистрация </span></a></li>
+                                    {% endif %}
+
+                                    {% if user.is_superuser %}
+                                        <li class="signin"><a href="{% url 'admin:index' %}" class="top-link-checkout" title="Панель-администратора"><span>Войти в панель-администратора</span></a></li>
+                                    {% endif %}
 								</ul>
 							</div>
 						</div>
@@ -72,25 +81,24 @@
 						<!-- //Search -->
 						<!-- Secondary menu -->
 						<div class="col-md-4 col-sm-4 col-xs-5 shopping_cart pull-right">
-							<!--cart-->
-							<div id="cart" class=" btn-group btn-shopping-cart">
-								<a data-loading-text="Loading..." class="top_cart dropdown-toggle" data-toggle="dropdown">
-                                    <a href='cart'>
-                                        <div class="shopcart">
-                                            <span class="handle pull-left"></span>
-                                            <span class="number-shopping-cart"> 0 </span>
-                                           <span class="title">Моя Корзина</span>
-                                            <p class="text-shopping-cart cart-total-full"> 0.00 ₽ </p>
-                                        </div>
-                                    </a>
+                            <!--cart-->
+                            <div id="cart" class=" btn-group btn-shopping-cart">
+								<a class="top_cart" href="{% url 'cart' %}">
+									<div class="shopcart">
+										<span class="handle pull-left">  </span>
+										<span class="number-shopping-cart"> 0 </span>
+										<span class="title">Корзина</span>
+										<p class="text-shopping-cart cart-total-full"> 0.00 ₽ </p>
+									</div>
 								</a>
 							</div>
-							<!--//cart-->
+						    <!--//cart-->
 						</div>
 					</div>
 				</div>
 			</div>
             <!-- //Header center -->
+
 			<!-- Header Bottom -->
 			<div class="header-bottom">
 				<div class="container">
@@ -100,83 +108,13 @@
 							<div class="responsive so-megamenu ">
 								<nav class="navbar-default">
 									<div class=" container-megamenu  horizontal">
-										<div class="navbar-header">
-											<button   id="show-megamenu" data-toggle="collapse" class="navbar-toggle">
-												<span class="icon-bar"></span>
-												<span class="icon-bar"></span>
-												<span class="icon-bar"></span>
-											</button>
-										</div>
 										<div class="megamenu-wrapper">
-											<span id="remove-megamenu" class="fa fa-times"></span>
 											<div class="megamenu-pattern">
 												<div class="container">
-													<ul class="megamenu " data-transition="slide" data-animationtime="250">
-														<li class="home hover">
+													<ul class="megamenu">
+                                                        <li class="home hover">
 															<p class="close-menu"></p>
-															<a href="{% url 'index' %}" class="menu1"> Главная </a>
-														</li>
-															<div class="sub-menu" style="width: 100%; right: 0px; display: none;">
-																<div class="content" style="height: 288px; display: none;">
-																	<div class="row">
-																		<div class="col-md-3">
-																			<div class="column">
-																				<a href="#" class="title-submenu">Listing pages</a>
-																				<div>
-																					<ul class="row-list">
-																						<li><a href="category.html">Category Page 1 </a></li>
-																						<li><a href="category-v2.html">Category Page 2</a></li>
-																						<li><a href="category-v3.html">Category Page 3</a></li>
-																					</ul>
-
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<div class="column">
-																				<a href="#" class="title-submenu">Product pages</a>
-																				<div>
-																					<ul class="row-list">
-																						<li><a href="product.html">Image size - big</a></li>
-																						<li><a href="product-v2.html">Image size - medium</a></li>
-																						<li><a href="product-v3.html">Image size - small</a></li>
-																					</ul>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<div class="column">
-																				<a href="#" class="title-submenu">Shopping pages</a>
-																				<div>
-																					<ul class="row-list">
-																						<li><a href="cart.html">Shopping Cart Page</a></li>
-																						<li><a href="checkout.html">Checkout Page</a></li>
-																						<li><a href="compare.html">Compare Page</a></li>
-																						<li><a href="wishlist.html">Wishlist Page</a></li>
-
-																					</ul>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<div class="column">
-																				<a href="#" class="title-submenu">My Account pages</a>
-																				<div>
-																					<ul class="row-list">
-																						<li><a href="login.html">Login Page</a></li>
-																						<li><a href="register.html">Register Page</a></li>
-																						<li><a href="my-account.html">My Account</a></li>
-																						<li><a href="order-history.html">Order History</a></li>
-																						<li><a href="order-information.html">Order Information</a></li>
-																						<li><a href="return.html">Product Returns</a></li>
-																						<li><a href="gift-voucher.html">Gift Voucher</a></li>
-																					</ul>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-																</div>
-															</div>
+															<a href="{% url 'index' %}" class="menu1">Главная</a>
 														</li>
 														<li class="with-sub-menu hover">
 															<p class="close-menu"></p>
@@ -184,77 +122,57 @@
 																<strong>Категории</strong>
 																<span class="label"></span>
 															</a>
-															<div class="sub-menu" style="width: 100%; right: 0px; display: none;">
-																<div class="content" style="height: 398px; display: none;">
+															<div class="sub-menu">
+																<div class="content">
 																	<div class="row">
 																		<div class="col-sm-12">
 																			<div class="row">
-																				<div class="col-md-3 img img1">
-																					<a href="#"><img src="{% static 'img/product_categories/product_categories1.jpg' %}" alt="категория №1"></a>
+                                                                                {% for one_software_category in software_category %}
+                                                                                <div class="col-md-3 image">
+																					<a href="#"><img src="{{ one_software_category.image.url }}"></a>
 																				</div>
-																				<div class="col-md-3 img img2">
-																					<a href="#"><img src="{% static 'img/product_categories/product_categories2.jpg' %}" alt="категория №2"></a>
-																				</div>
-																				<div class="col-md-3 img img3">
-																					<a href="#"><img src="{% static 'img/product_categories/product_categories3.jpg' %}" alt="категория №3"></a>
-																				</div>
-																				<div class="col-md-3 img img4">
-																					<a href="#"><img src="{% static 'img/product_categories/product_categories4.jpg' %}" alt="категория №4"></a>
-																				</div>
+                                                                                {% endfor %}
 																			</div>
 																		</div>
 																	</div>
 																	<div class="row">
 																		<div class="col-md-3">
-																			<a href="#" class="title-submenu">Операционные системы</a>
+																			<a href="#" class="title-submenu"> {{ software_category.0.name }}</a>
 																			<div class="row">
 																				<div class="col-md-12 hover-menu">
 																					<div class="menu">
 																						<ul>
-																							<li><a href="#" class="main-menu">Windows</a></li>
-																							<li><a href="#" class="main-menu">Linux</a></li>
-																							<li><a href="#" class="main-menu">Mac OS</a></li>
+                                                                                            {% for one_software_antivirus in software_antivirus_protection %}
+																							<li><a href="#" class="main-menu">{{ one_software_antivirus.name }}</a></li>
+                                                                                            {% endfor %}
 																						</ul>
 																					</div>
 																				</div>
 																			</div>
 																		</div>
 																		<div class="col-md-3">
-																			<a href="#" class="title-submenu">Офисное ПО</a>
+																			<a href="#" class="title-submenu">{{ software_category.1.name }}</a>
 																			<div class="row">
 																				<div class="col-md-12 hover-menu">
 																					<div class="menu">
 																						<ul>
-																							<li><a href="#" class="main-menu">Microsoft Office</a></li>
-																							<li><a href="#" class="main-menu">OpenOffice</a></li>
-																							<li><a href="#" class="main-menu">LibreOffice</a></li>
+                                                                                            {% for one_software_office in software_office %}
+																							<li><a href="#" class="main-menu">{{ one_software_office.name }}</a></li>
+                                                                                            {% endfor %}
 																						</ul>
 																					</div>
 																				</div>
 																			</div>
 																		</div>
 																		<div class="col-md-3">
-																			<a href="#" class="title-submenu">Игры</a>
+																			<a href="#" class="title-submenu">{{ software_category.2.name }}</a>
 																			<div class="row">
 																				<div class="col-md-12 hover-menu">
 																					<div class="menu">
 																						<ul>
-																							<li><a href="#" class="main-menu">Шутеры</a></li>
-																							<li><a href="#" class="main-menu">Стратегии</a></li>
-																							<li><a href="#" class="main-menu">RPG</a></li>
-																						</ul>
-																					</div>
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-md-3">
-																			<a href="#" class="title-submenu">Анитивирусная защита</a>
-																			<div class="row">
-																				<div class="col-md-12 hover-menu">
-																					<div class="menu">
-																						<ul>
-																							<li><a href="#" class="main-menu">Антивирус Касперского</a></li>
-																							<li><a href="#" class="main-menu">Доктор Веб</a></li>
+                                                                                            {% for one_operating_systems in software_operating_systems %}
+																							<li><a href="#" class="main-menu">{{ one_operating_systems.name }}</a></li>
+                                                                                            {% endfor %}
 																						</ul>
 																					</div>
 																				</div>
@@ -314,7 +232,8 @@
 						<h3 class="modtitle">Информация:</h3>
 						<div class="modcontent">
 							<ul class="menu">
-								<li><a href="{% url 'about_us' %}">О нас</a></li>
+								<li><a href="{% url 'faq:index' %}">Полезная информация</a></li>
+                                <li><a href="{% url 'about_us' %}">О нас/Наши контакты</a></li>
 							</ul>
 						</div>
 					</div>
@@ -324,7 +243,6 @@
 						<h3 class="modtitle">Дополнительно</h3>
 						<div class="modcontent">
 							<ul class="menu">
-								<li><a href="{% url 'about_us' %}">Наши контакты</a></li>
 								<li><a href="{% url 'sitemap' %}">Карта сайта</a></li>
 							</ul>
 						</div>
