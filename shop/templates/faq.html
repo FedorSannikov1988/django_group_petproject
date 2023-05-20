@@ -47,19 +47,33 @@
         </ul>
 			<div class="row">
 				<div id="content" class="col-sm-12">
-					<h3>Инсрукция по покупке програмного обеспечения: </h3>
+					<h3>Инструкция по покупке программного обеспечения: </h3>
 					<p><br><br></p>
                     <div class="col-sm-12">
                         <ul class="yt-accordion">
                             {% for one_question in faq %}
                                 <li class="accordion-group">
-                                    <h3 class="accordion-heading"><i class="fa fa-plus-square"></i> <span>{% if one_question.question %} {{ one_question.question }} {% endif %}</span></h3>
+                                    <h3 class="accordion-heading"><i class="fa fa-plus-square"></i> <span>{{ one_question.question }}</span></h3>
                                     <div class="accordion-inner">
-                                        <p>{% if one_question.answer %} {{ one_question.answer }} {% endif %}</p>
+                                        <p>{{ one_question.answer }}</p>
                                     </div>
                                 </li>
                             {% endfor %}
                         </ul>
+                    <p><br><br></p>
+                    <p>
+                        <div > Не нашли ответа на свой вопрос?</div>
+                        <div >Расскажите о своей проблеме</div>
+                    </p>
+                    <div class="well">
+
+                    <div class="clearfix">
+                        <a class="btn btn-default pull-left" href="#/feedback/">Связаться с нами</a>
+
+                    </div>
+
+                        <button class="button-ui button-ui_brand button-ui_big form__submit-button" type="button" data-role="btn-submit" disabled="">Отправить обращение</button>
+                    </div>
                     </div>
                 </div>
             </div>

@@ -58,8 +58,8 @@ class DevelopmentTeam(models.Model):
 
 
 class FAQ(models.Model):
-    question = models.TextField(null=True, blank=True)
-    answer = models.TextField(null=True, blank=True)
+    question = models.TextField(min_length= 10, max_length=500, null=True, blank=True)
+    answer = models.TextField(min_length= 20, max_length=2500, null=True, blank=True)
 
     def __str__(self):
         return f'Question: {self.question} ' \
