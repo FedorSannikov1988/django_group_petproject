@@ -75,15 +75,8 @@
                                     <div class="form-group">
                                         <label class="control-label" for="input-email">Пароль:</label>
                                         <p>{{ form.password }}</p>
-                                         <div class="alert-danger"> {{ error }} </div>
+                                         <div class="alert-danger"> {{ message_error }} </div>
                                     </div>
-
-
-{#                                    {% if field.errors %}#}
-{#                                        {% for field in form %}#}
-{#                                            <div class="alert"> {{ field.errors }} {{ field.label_tag }} </div>#}
-{#                                        {% endfor %}#}
-{#                                    {% endif %}#}
                                 </div>
                                 <div class="bottom-form">
                                     <a href="#" class="forgot">Забыли пароль ?</a>

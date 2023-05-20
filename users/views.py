@@ -3,12 +3,13 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import auth
 from django.urls import reverse
 from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm
-from shop.views import title_for_basic_template, data_for_basic_template
 from users.models import User
+from shop.views import title_for_basic_template, data_for_basic_template
 
 
 def login(request):
     title_login = 'Вход в учетную запись - '
+    message_error = ''
 
     if request.method == 'POST':
         form = UserLoginForm(data=request.POST)
@@ -20,12 +21,12 @@ def login(request):
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse('users:my_account'))
             else:
-                error = 'Неверное имя пользоваеля или пароль !'
+                message_error = 'Неверное имя пользоваеля или пароль !'
     else:
         form = UserLoginForm()
 
     context = {
-        'error': error,
+        'message_error': message_error,
         'form': form,
         'page_title': title_login + title_for_basic_template(),
     }
@@ -81,5 +82,3 @@ def delete_profile(request):
     user = request.user
     User.objects.filter(username=user).delete()
     return HttpResponseRedirect(reverse('index'))
-
-    # HttpResponseRedirect(request.META['HTTP_REFERER'])
