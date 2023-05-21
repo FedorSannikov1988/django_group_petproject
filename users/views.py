@@ -26,7 +26,7 @@ def login(request):
                 else:
                     message_error = 'Учетной записи с таким именем пользователя нет в базе данных'
     else:
-        form = UserLoginForm()
+        form = UserLoginForm(data=request.POST)
 
     context = {
         'message_error': message_error,
