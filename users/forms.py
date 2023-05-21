@@ -4,11 +4,16 @@ from django import forms
 
 
 class UserLoginForm(forms.Form):
-    username = forms.CharField(label="Логин", widget=forms.TextInput(
+    username = forms.CharField(
+        label="Логин",
+        widget=forms.TextInput(
         attrs={'class': 'form-control',
                'placeholder': 'Имя пользователя'}))
-    password = forms.CharField(max_length=20, widget=forms.PasswordInput(attrs={'class': 'form-control',
-                                                                                'placeholder': 'Пароль'}))
+    password = forms.CharField(
+        max_length=20,
+        widget=forms.PasswordInput(
+        attrs={'class': 'form-control',
+               'placeholder': 'Пароль'}))
     field_order = ["username", "password"]
 
 
@@ -46,7 +51,8 @@ class UserRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
+        fields = ('first_name', 'last_name',
+                  'username', 'email', 'password1', 'password2')
 
 
 class UserProfileForm(UserChangeForm):
@@ -73,6 +79,7 @@ class UserProfileForm(UserChangeForm):
                    'placeholder': 'Эл.почта',
                    'readonly': True}))
     image = forms.ImageField(
+        required=False,
         label="Фото",
         widget=forms.FileInput(
             attrs={'class': 'form-control',
@@ -80,4 +87,5 @@ class UserProfileForm(UserChangeForm):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'image', 'username', 'email')
+        fields = ('first_name', 'last_name',
+                  'image', 'username', 'email')

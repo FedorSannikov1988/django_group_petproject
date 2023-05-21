@@ -86,9 +86,9 @@
                                 <div class="input-group btn-block quantity">
                                     <form>
                                         <span class="input-group-btn " style="bottom: 14.5px;">
-                                            <input type="text" class="form-control"  value="{{ one_purchase.quantity }}" style="width:50px; right: -17px;"/>
-                                            <input formaction="{% url 'products_catalog:cart_delete_one'  one_purchase.software.id %}" type="submit" value="-1" class="btn btn-default" style="width:50px;" />
-                                            <input formaction="{% url 'products_catalog:cart_add_one' one_purchase.software.id %}" type="submit" value="+1" class="btn btn-default" style="width:50px;" />
+                                            <input type="text" class="form-control"  value="{{ one_purchase.quantity }}" style="width:50px; left:65px; padding-left: 15px;"/>
+                                            <input formaction="{% url 'products_catalog:cart_delete_one'  one_purchase.software.id %}" type="submit" value="-" class="btn btn-default" style="width:50px; right:50px;" />
+                                            <input formaction="{% url 'products_catalog:cart_add_one' one_purchase.software.id %}" type="submit" value="+" class="btn btn-default" style="width:50px;" />
                                             <input formaction="{% url 'products_catalog:cart_remove' one_purchase.id %}" type="submit" value="x" class="btn btn-danger" style="width:50px;" />
                                         </span>
                                     </form>

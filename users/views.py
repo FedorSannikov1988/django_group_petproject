@@ -33,7 +33,6 @@ def login(request):
         'form': form,
         'page_title': title_login + title_for_basic_template(),
     }
-
     return render(request, 'login.html', context)
 
 
@@ -52,7 +51,6 @@ def register(request):
         'form': form,
         'page_title': title_register + title_for_basic_template(),
     }
-
     return render(request, 'register.html', context)
 
 

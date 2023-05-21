@@ -67,11 +67,11 @@
                                     <h2><i class="fa fa-file-text-o" aria-hidden="true"></i>Постоянный покупатель</h2>
                                     {% csrf_token %}
                                     <div class="form-group">
-                                        <label class="control-label" for="input-email">Логин:</label>
+                                        <label class="control-label" for="{{ form.username.id_for_label }}">Логин:</label>
                                         <p>{{ form.username }}</p>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label" for="input-email">Пароль:</label>
+                                        <label class="control-label" for="{{ form.password.id_for_label }}">Пароль:</label>
                                         <p>{{ form.password }}</p>
                                          <div class="alert-danger"> {{ message_error }} </div>
                                     </div>
