@@ -1,152 +1,59 @@
 {% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Basic page needs
-    ============================================ -->
-    <title>{{ page_title }}</title>
-    <meta charset="utf-8">
 
-	<!-- Mobile specific metas
-	============================================ -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!-- Favicon
+============================================ -->
+{% block favicon %}
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/apple-touch-icon-144-precomposed.png' %}">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/apple-touch-icon-114-precomposed.png' %}">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/apple-touch-icon-72-precomposed.png' %}">
+<link rel="apple-touch-icon-precomposed" href="{% static 'ico/apple-touch-icon-57-precomposed.png' %}">
+<link rel="shortcut icon" href="{% static 'ico/favicon.png' %}">
+{% endblock %}
 
-	<!-- Favicon
-	============================================ -->
-    {% block favicon %}
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/apple-touch-icon-144-precomposed.png' %}">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/apple-touch-icon-114-precomposed.png' %}">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/apple-touch-icon-72-precomposed.png' %}">
-	<link rel="apple-touch-icon-precomposed" href="{% static 'ico/apple-touch-icon-57-precomposed.png' %}">
-	<link rel="shortcut icon" href="{% static 'ico/favicon.png' %}">
-    {% endblock %}
-	<!-- Google web fonts
-	============================================ -->
-	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+<!-- Libs CSS
+============================================ -->
+{% block libs_css %}
+<link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+<link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+<link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+<link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
+<link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
+<link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
+{% endblock %}
 
-    <!-- Libs CSS
-    ============================================ -->
-    {% block libs_css %}
-    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
-    <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
-    <link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
-    <link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
-    <link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
-    <link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
-    {% endblock %}
+<!-- Theme CSS
+============================================ -->
+{% block theme_css %}
+<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
+<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
+<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
+<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
+<link href="{% static 'css/header1.css' %}" rel="stylesheet">
+<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}">
+{% endblock %}
 
-	<!-- Theme CSS
-	============================================ -->
-    {% block theme_css %}
-	<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
-	<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
-	<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
-	<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
-	<link href="{% static 'css/header1.css' %}" rel="stylesheet">
-	<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="{% static 'css/category.css' %}">
-    {% endblock %}
+{% block stile_body_two_line %}
+    <body class="res layout-subpage banners-effect-7">
+	    <div id="wrapper" class="wrapper-full ">
+{% endblock %}
 
+<!-- Block Spotlight1  -->
+{% block spotlight1 %}
+{% endblock %}
+<!-- //Block Spotlight1  -->
 
-
-</head>
-
-<body class="res layout-subpage banners-effect-7">
-	<div id="wrapper" class="wrapper-full ">
-		<!-- Header Container  -->
-		<header id="header" class=" variantleft type_1">
-			<!-- Header Top -->
-			<div class="header-top">
-				<div class="container">
-					<div class="row">
-						<div class="header-top-left form-inline col-sm-6 col-xs-6 compact-hidden">
-							<div class="form-group currencies-block">
-								<form action="index.html" method="post" enctype="multipart/form-data" id="currency">
-									<a class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
-										<span class="icon icon-credit "></span> USD <span class="fa fa-angle-down"></span>
-									</a>
-								</form>
-							</div>
-							<div class="form-group languages-block ">
-								<form action="index.html" method="post" enctype="multipart/form-data" id="bt-language">
-									<a class="btn btn-xs dropdown-toggle" data-toggle="dropdown">
-										<img src="{% static 'img/demo/flags/gb.png' %}" alt="English" title="English">
-										<span class="hidden-xs">English</span>
-										<span class="fa fa-angle-down"></span>
-									</a>
-								</form>
-							</div>
-						</div>
-						<div class="header-top-right collapsed-block text-right  col-sm-6 col-xs-6 compact-hidden">
-							<div class="tabBlock1" id="TabBlock-1">
-								<ul class="top-link list-inline">
-									<li class="wishlist hidden-xs"><a href="#" id="wishlist-total" class="top-link-wishlist" title="Добро пожаловать!"><span>Добро пожаловать!</span></a></li>
-									<li class="signin"><a href="{% url 'login' %}" class="top-link-checkout" title="Войти"><span>Войти</span></a></li>
-									<li class="register"><a href="{% url 'register' %}" title="Регистрация"><span>Регистрация</span></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- //Header Top -->
-
-			<!-- Header center -->
-			<div class="header-center left">
-				<div class="container">
-					<div class="row">
-						<!-- Logo -->
-						<div class="navbar-logo col-md-3 col-sm-12 col-xs-7">
-							<a href="{% url 'index' %}"><img src="{% static 'img/logotip.jpg' %}" title="Ваш магазин" alt="Ваш магазин"></a>
-						</div>
-						<!-- //end Logo -->
-
-
-						<!-- Secondary menu -->
-						<div class="col-md-4 col-sm-4 col-xs-5 shopping_cart pull-right">
-							<div class="header-text hidden-xs">
-								<p><i class="fa fa-phone" aria-hidden="true"></i>	   Позвоните: 8(800) 123456789</p>
-							</div>
-							<!--cart-->
-							<div id="cart" class=" btn-group btn-shopping-cart">
-								<a data-loading-text="Loading..." class="top_cart dropdown-toggle" data-toggle="dropdown">
-									<div class="shopcart">
-										<span class="handle pull-left"></span>
-										<span class="number-shopping-cart">2</span>
-										<span class="title">Моя корзина</span>
-										<p class="text-shopping-cart cart-total-full"> $0.00 </p>
-									</div>
-								</a>
-
-							</div>
-							<!--//cart-->
-						</div>
-					</div>
-
-				</div>
-			</div>
-			<!-- //Header center -->
-
-			<!-- Header Bottom -->
-
-			<!-- Navbar switcher -->
-			<!-- //end Navbar switcher -->
-
-		</header>
-		<!-- //Header Container  -->
-		<!-- Main Container  -->
-        {% block main_container %}
+<!-- Main Container  -->
+{% block main_container %}
 		<div class="main-container container">
 			<ul class="header-main">
-				<li class="home"><a href="{% url 'index' %}" >Главная   </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                <li class="catalog"><a href="{% url 'catalog' %}"> Каталог</a></li>
+				<li class="home"><a href="{% url 'index' %}" > Главная </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                <li class="catalog"><a href="{% url 'products_catalog:index' %}"> Каталог </a></li>
 			</ul>
-
 				<!--Left Part Start -->
-{# Тут было боковое меню!!! Как-то надо прихерачить как на главной! #}
+                {# Тут было боковое меню!!! Как-то надо прихерачить как на главной! #}
 				<!--Left Part End -->
-
 				<!--Middle Part Start-->
 				<div id="content" class="col-md-9 col-sm-8 type-1">
 					<div class="products-category">
@@ -165,7 +72,6 @@
 									<div class="form-group short-by">
 										<label class="control-label" for="input-sort">Sort By:</label>
 										<select id="input-sort" class="form-control" onchange="location = this.value;">
-
 											<option value="" selected="selected">Default </option>
 											<option value="">Name (A - Z)</option>
 											<option value="">Name (Z - A)</option>
@@ -182,7 +88,6 @@
 						</div>
 						<!-- //end Filters -->
 						<!--changed listings-->
-
                         <div class="products-list grid">
                             <h3 class="modtitle"> {{ software_category.0.name }} </h3>
                             <hr> <hr> <hr>
@@ -191,8 +96,7 @@
                                     <div class="product-item-container">
                                         <div class="left-block">
                                             <div class="product-image-container  second_img ">
-                                                <a href="#" class="product-img"><img
-                                                        src="{{ one_software_antivirus.image.url }}" alt=""></a>
+                                                <a href="#" class="product-img"><img src="{{ one_software_antivirus.image.url }}" alt=""></a>
                                                 <!--Sale Label-->
                                                 <!-- <span class="sale">-95%</span> -->
                                                 <!-- <span class="new">Old</span> -->
@@ -207,13 +111,18 @@
                                                 <div class="price">
                                                     <span class="price">{{ one_software_antivirus.price }} ₽</span>
                                                 </div>
+                                                <div class="button-group">
+                                                    <a class="addToCart btn btn-default"
+                                                       href="{% url 'products_catalog:cart_add_one' one_software_antivirus.id %}">
+                                                        Купить </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             {% endfor %}
-
-                        </div>                <!--// End Changed listings-->
+                        </div>
+                        <!--// End Changed listings-->
                         <div class="products-list grid">
                             <h3 class="modtitle"> {{ software_category.1.name }} </h3>
                             <hr><hr><hr>
@@ -252,8 +161,7 @@
                                     <div class="product-item-container">
                                         <div class="left-block">
                                             <div class="product-image-container  second_img ">
-                                                <a href="#" class="product-img"><img
-                                                        src="{{ one_operating_systems.image.url }}" alt=""></a>
+                                                <a href="#" class="product-img"><img src="{{ one_operating_systems.image.url }}" alt=""></a>
                                                 <!--Sale Label-->
                                                 <!-- <span class="sale">-95%</span> -->
                                                 <!-- <span class="new">Old</span> -->
@@ -274,8 +182,6 @@
                                 </div>
                             {% endfor %}
                         </div>
-
-
                         <!-- Filters -->
 						<div class="product-filter filters-panel">
 							<div class="row">
@@ -298,58 +204,37 @@
 							</div>
 						</div>
 						<!-- //end Filters -->
-
 					</div>
-
 				</div>
-
-
 			<!--Middle Part End-->
 		</div>
-        {% endblock %}
-		<!-- //Main Container -->
+{% endblock %}
+<!-- //Main Container -->
 
-
-		<footer class="footer-container type_footer1">
-			<!-- Footer Top Container -->
-			</footer>
-			<!-- //end Footer Container -->
-
-		</div>
+<!-- Block Spotlight3  -->
+{% block spotlight3 %}
+{% endblock %}
+<!-- //Block Spotlight3  -->
 
 <!-- Include Libs & Plugins
-	============================================ -->
-	<!-- Placed at the end of the document so the pages load faster -->
-    {% block libs_and_plugins %}
-	<script type="text/javascript" src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/owl-carousel/owl.carousel.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/themejs/libs.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/unveil/jquery.unveil.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/countdown/jquery.countdown.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/datetimepicker/moment.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
-    {% endblock %}
+============================================ -->
+{% block libs_and_plugins %}
+<script type="text/javascript" src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/owl-carousel/owl.carousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/themejs/libs.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/unveil/jquery.unveil.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/countdown/jquery.countdown.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/datetimepicker/moment.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
+{% endblock %}
 
-
-	<!-- Theme files
-	============================================ -->
-
-    {% block theme_files %}
-	<script type="text/javascript" src="{% static 'js/themejs/so_megamenu.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/themejs/addtocart.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/themejs/application.js' %}"></script>
-	<script type="text/javascript">
-    {% endblock %}
-	// Check if Cookie exists
-	if($.cookie('display')){
-		view = $.cookie('display');
-	}else{
-		view = 'grid';
-	}
-	if(view) display(view);
-	//--></script>
-</body>
-</html>
+<!-- Theme files
+============================================ -->
+{% block theme_files %}
+<script type="text/javascript" src="{% static 'js/themejs/so_megamenu.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/themejs/addtocart.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/themejs/application.js' %}"></script>
+{% endblock %}

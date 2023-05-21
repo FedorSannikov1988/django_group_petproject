@@ -1,5 +1,5 @@
 {% if cart %}
-    <div class=" btn-group btn-shopping-cart">
+<div class=" btn-group btn-shopping-cart">
     <a data-loading-text="Loading..." class="top_cart dropdown-toggle" data-toggle="dropdown">
         <div class="shopcart">
             <span class="handle pull-left"></span>
@@ -25,13 +25,13 @@
                         </td>
                         <td class="text-center">{{ one_purchase.sum }} ₽</td>
                         <td class="text-center">
-                            <a class="fa fa-times fa-minus" href="{% url 'product_catalog:cart_delete_one'  one_purchase.software.id %}"></a>
+                            <a class="fa fa-times fa-minus" href="{% url 'products_catalog:cart_delete_one'  one_purchase.software.id %}"></a>
                         </td>
                         <td class="text-center">
-                            <a class="fa fa-times fa-plus" href="{% url 'product_catalog:cart_add_one' one_purchase.software.id %}"></a>
+                            <a class="fa fa-times fa-plus" href="{% url 'products_catalog:cart_add_one' one_purchase.software.id %}"></a>
                         </td>
                         <td class="text-center">
-                            <a class="fa fa-times fa-" href="{% url 'product_catalog:cart_remove' one_purchase.id %}"></a>
+                            <a class="fa fa-times fa-" href="{% url 'products_catalog:cart_remove' one_purchase.id %}"></a>
                         </td>
                     </tr>
                     {% endfor %}

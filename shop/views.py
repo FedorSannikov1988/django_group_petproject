@@ -78,20 +78,11 @@ def product(request):
     return render(request, 'product.html', {**context, **data_for_basic_template(request)})
 
 
-def product_catalog(request):
+def products_catalog(request):
     title_product_catalog = 'Каталог программного обеспечения - '
 
     context = {
         "page_title": title_product_catalog + title_for_basic_template(),
-    }
-    return render(request, 'product_catalog.html', {**context, **data_for_basic_template(request), **all_soft()})
-
-
-def catalog(request):
-    title_catalog = 'Каталог программного обеспечения - '
-
-    context = {
-        'page_title': title_catalog + title_for_basic_template(),
     }
     return render(request, 'catalog.html', {**context, **data_for_basic_template(request), **all_soft()})
 
@@ -99,6 +90,7 @@ def catalog(request):
 @login_required
 def cart(request):
     title_cart = 'Корзина покупателя - '
+
     context = {
         'page_title': title_cart + title_for_basic_template(),
     }
@@ -107,6 +99,7 @@ def cart(request):
 
 @login_required
 def cart_add_one(request, software_id):
+
     user = request.user
     software = Software.objects.get(id=software_id)
     carts = Cart.objects.filter(user=user, software=software)
@@ -118,12 +111,12 @@ def cart_add_one(request, software_id):
         if software.quantity > cart.quantity:
             cart.quantity += 1
             cart.save()
-
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
 @login_required
 def cart_delete_one(request, software_id):
+
     user = request.user
     software = Software.objects.get(id=software_id)
     carts = Cart.objects.filter(user=user, software=software)
@@ -141,5 +134,6 @@ def cart_delete_one(request, software_id):
 
 @login_required
 def cart_remove(request, cart_id):
-    Cart.objects.get(id=cart_id).delete()
+    if Cart.objects.filter(id=cart_id).exists():
+        Cart.objects.get(id=cart_id).delete()
     return HttpResponseRedirect(request.META['HTTP_REFERER'])

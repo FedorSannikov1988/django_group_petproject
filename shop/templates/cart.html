@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 <!-- Favicon
 ============================================ -->
 {% block favicon %}
@@ -40,17 +39,22 @@
     <body class="res layout-subpage">
         <div id="wrapper" class="wrapper-full ">
 {% endblock %}
+2
+<!-- Block Spotlight1  -->
+{% block spotlight1 %}
+{% endblock %}
+<!-- //Block Spotlight1  -->
 
 <!-- Main Container  -->
 {% block main_container %}
-<div class="main-container container">
-    <ul class="header-main ">
-        <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-        <li>Корзина покупок</li>
-    </ul>
-    <div class="row">
-        <!--Middle Part Start-->
-        <div id="content" class="col-sm-12">
+        <div class="main-container container">
+            <ul class="header-main ">
+                <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                <li>Корзина покупок</li>
+            </ul>
+            <div class="row">
+            <!--Middle Part Start-->
+            <div id="content" class="col-sm-12">
             <p><br><br><br></p>
             <div class="table-responsive form-group">
                 <table class="table table-bordered">
@@ -83,9 +87,9 @@
                                     <form>
                                         <span class="input-group-btn " style="bottom: 14.5px;">
                                             <input type="text" class="form-control"  value="{{ one_purchase.quantity }}" style="width:50px; right: -17px;"/>
-                                            <input formaction="{% url 'product_catalog:cart_delete_one'  one_purchase.software.id %}" type="submit" value="-1" class="btn btn-default" style="width:50px;" />
-                                            <input formaction="{% url 'product_catalog:cart_add_one' one_purchase.software.id %}" type="submit" value="+1" class="btn btn-default" style="width:50px;" />
-                                            <input formaction="{% url 'product_catalog:cart_remove' one_purchase.id %}" type="submit" value="x" class="btn btn-danger" style="width:50px;" />
+                                            <input formaction="{% url 'products_catalog:cart_delete_one'  one_purchase.software.id %}" type="submit" value="-1" class="btn btn-default" style="width:50px;" />
+                                            <input formaction="{% url 'products_catalog:cart_add_one' one_purchase.software.id %}" type="submit" value="+1" class="btn btn-default" style="width:50px;" />
+                                            <input formaction="{% url 'products_catalog:cart_remove' one_purchase.id %}" type="submit" value="x" class="btn btn-danger" style="width:50px;" />
                                         </span>
                                     </form>
                                 </div>
@@ -115,7 +119,7 @@
             <p><br><br><br></p>
             </div>
                 <div class="buttons">
-                    <div class="pull-left"><a href="{% url 'product_catalog:index' %}" class="btn btn-primary">Продолжить покупки</a></div>
+                    <div class="pull-left"><a href="{% url 'products_catalog:index' %}" class="btn btn-primary">Продолжить покупки</a></div>
                     <div class="pull-right"><a href="#" class="btn btn-primary">Купить</a></div>
                 </div>
             </div>
@@ -123,8 +127,13 @@
             </div>
         </div>
 {% endblock %}
-        <!-- //Main Container -->
-				
+<!-- //Main Container -->
+
+<!-- Block Spotlight3  -->
+{% block spotlight3 %}
+{% endblock %}
+<!-- //Block Spotlight3  -->
+
 <!-- Include Libs & Plugins
 ============================================ -->
 {% block libs_and_plugins %}
