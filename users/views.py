@@ -21,7 +21,10 @@ def login(request):
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse('users:my_account'))
             else:
-                message_error = 'Неверное имя пользоваеля или пароль !'
+                if User.objects.filter(username=username).exists():
+                    message_error = 'Неверный пароль'
+                else:
+                    message_error = 'Учетной записи с таким именем пользователя нет в базе данных'
     else:
         form = UserLoginForm()
 
@@ -81,5 +84,8 @@ def exit_my_account(request):
 @login_required
 def delete_profile(request):
     user = request.user
-    User.objects.filter(username=user).delete()
-    return HttpResponseRedirect(reverse('index'))
+    if User.objects.filter(username=user).exists():
+        User.objects.filter(username=user).delete()
+        return HttpResponseRedirect(reverse('index'))
+    else:
+        return HttpResponseRedirect(request.META['HTTP_REFERER'])
