@@ -40,9 +40,11 @@ def register(request):
     title_register = 'Регистрация - '
 
     if request.method == 'POST':
-        form = UserRegisterForm(data=request.POST)
-        if form.is_valid():
-            form.save()
+        form_without_username = UserRegisterForm(data=request.POST)
+        form_for_username = form_without_username.save(commit=False)
+        form_for_username.username = form_without_username.cleaned_data['email']
+        if form_without_username.is_valid():
+            form_for_username.save()
             return HttpResponseRedirect(reverse('users:login'))
     else:
         form = UserRegisterForm()

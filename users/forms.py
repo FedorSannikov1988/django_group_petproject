@@ -29,6 +29,7 @@ class UserRegisterForm(UserCreationForm):
             attrs={'class': 'form-control',
                    'placeholder': 'Фамилия'}))
     username = forms.CharField(
+        required=False,
         label="Логин",
         widget=forms.TextInput(
             attrs={'class': 'form-control',
