@@ -73,7 +73,17 @@
                                     <div class="form-group">
                                         <label class="control-label" for="{{ form.password.id_for_label }}">Пароль:</label>
                                         <p>{{ form.password }}</p>
-                                         <div class="alert-danger"> {{ message_error }} </div>
+                                        <div class="alert">
+                                            {% if messages or message_error %}
+                                                {% if messages %}
+                                                    {% for message in messages %}
+                                                        <div class="alert-danger" style="background-color: #b5f9bc; color: #000000;">{{ message }}</div>
+                                                    {% endfor %}
+                                                {% else %}
+                                                    <div class="alert-danger">{{ message_error }}</div>
+                                                {% endif %}
+                                            {% endif %}
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="bottom-form">

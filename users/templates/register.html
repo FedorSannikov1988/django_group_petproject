@@ -50,11 +50,14 @@
         <div id="content" class="col-sm-12">
             <h3 class="title"><p>Если вы уже зарегистрированы, пожалуйста, <b><a href="{% url 'users:login' %}">войдите в свою учетную запись</a>.</b></p></h3>
             <br><br>
+            {% if form.errors %}
+                <div>{{ form.errors }}</div>
+            {% endif %}
             <form action="{% url 'users:register' %}" method="post" style="margin-left: 20px; width:630px;">
                 {% csrf_token %}
-                <div class="form-group required"  >
+                <div class="form-group required" style="display: none">
                     <label class="control-label" for="{{ form.username.id_for_label }}" > Имя пользователя </label>
-                    {{ form.username }}
+                    {{ form.username.as_hidden }}
                 </div>
                 <div class="form-group required" >
                     <label class="control-label" for="{{ form.first_name.id_for_label }}" > Имя </label>

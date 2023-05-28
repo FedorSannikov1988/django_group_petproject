@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponseRedirect
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.urls import reverse
 from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm
 from users.models import User
@@ -41,8 +41,12 @@ def register(request):
 
     if request.method == 'POST':
         form = UserRegisterForm(data=request.POST)
-        if form.is_valid():
-            form.save()
+        username_form = form.save(commit=False)
+        username_form.username = form.cleaned_data['email']
+        flag = form.is_valid()
+        if flag:
+            username_form.save()
+            messages.success(request,'Вы успешно зарегистрированы!')
             return HttpResponseRedirect(reverse('users:login'))
     else:
         form = UserRegisterForm()
