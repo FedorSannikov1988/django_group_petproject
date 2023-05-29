@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponseRedirect
-from shop.models import SoftwareCategory, Software, DevelopmentTeam, FAQ, Cart
+from shop.models import SoftwareCategory, Software, FeaturesSoftware, DevelopmentTeam, FAQ, Cart
 
 
 def title_for_basic_template():
@@ -91,15 +91,39 @@ def products_catalog(request):
 def cart(request):
     title_cart = 'Корзина покупателя - '
 
+    cart_user_small = Cart.objects.filter(user=request.user)
+
+    cart_user_big = []
+
+    for one_purchase in cart_user_small:
+        featuresSoftware = FeaturesSoftware.objects.filter(id=one_purchase.software.id).first()
+
+        new_line = {'image': one_purchase.software.image,
+                    'name': one_purchase.software.name,
+                    'software_id': one_purchase.software.id,
+                    'one_purchase_id': one_purchase.id,
+                    'description': featuresSoftware.description,
+                    'operating_system': featuresSoftware.operating_system,
+                    'video_card': featuresSoftware.video_card,
+                    'hard_disk_mb': featuresSoftware.hard_disk_mb,
+                    'min_ram_mb': featuresSoftware.min_ram_mb,
+                    'quantity_in_card': one_purchase.quantity,
+                    'software_price': one_purchase.software.price,
+                    'one_purchase_sum': one_purchase.sum}
+
+        cart_user_big.append(new_line)
+
     context = {
+        'cart': cart_user_small,
+        'big_cart': cart_user_big,
+        'big_cart_total_sum': cart_user_small.total_sum,
         'page_title': title_cart + title_for_basic_template(),
     }
-    return render(request, 'cart.html', {**context, **data_for_basic_template(request)})
+    return render(request, 'cart.html', context)
 
 
 @login_required
 def cart_add_one(request, software_id):
-
     user = request.user
     software = Software.objects.get(id=software_id)
     carts = Cart.objects.filter(user=user, software=software)
@@ -116,7 +140,6 @@ def cart_add_one(request, software_id):
 
 @login_required
 def cart_delete_one(request, software_id):
-
     user = request.user
     software = Software.objects.get(id=software_id)
     carts = Cart.objects.filter(user=user, software=software)
