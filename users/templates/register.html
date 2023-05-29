@@ -50,11 +50,24 @@
         <div id="content" class="col-sm-12">
             <h3 class="title"><p>Если вы уже зарегистрированы, пожалуйста, <b><a href="{% url 'users:login' %}">войдите в свою учетную запись</a>.</b></p></h3>
             <br><br>
-            {% if form.errors %}
-                <div>{{ form.errors }}</div>
+
+{#            {% if form.errors %}#}
+{#                <div>{{ form.errors }}</div>#}
+{#            {% endif %}#}
+
+        <!-- Message about successful registration -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert-danger" style="background-color: #b5f9bc; color: #000000;">{{ message }}</div>
+                {% endfor %}
             {% endif %}
-            <form action="{% url 'users:register' %}" method="post" style="margin-left: 20px; width:630px;">
+
+            <form action="{% url 'users:register' %}" method="post" novalidate style="margin-left: 20px; width:630px;"> {# method="post" novalidate not work too  #}
                 {% csrf_token %}
+
+{#                {{ form.non_field_errors }}#}
+{#                {% for field in form %}#}
+
                 <div class="form-group required" style="display: none">
                     <label class="control-label" for="{{ form.username.id_for_label }}" > Имя пользователя </label>
                     {{ form.username.as_hidden }}
@@ -67,18 +80,30 @@
                     <label class="control-label" for="{{ form.last_name.id_for_label }}" > Фамилия </label>
                     {{ form.last_name }}
                 </div>
+
+{#                {% for error in email.errors %}#}
                 <div class="form-group required" >
                     <label class="control-label" for="{{ form.email.id_for_label }}" > Электронная почта </label>
                     {{ form.email }}
                 </div>
+{#                {% endfor %}#}
+
+{#                {% for field in form %}    #}
                 <div class="form-group required">
                     <label class="control-label" for="{{ form.password1.id_for_label }}" > Пароль </label>
-                    {{ form.password1 }}
+                {{ form.password1 }}
+{#                    {{ password1.errors }}#}
                 </div>
+{#                {% endfor %}#}
+
+
                 <div class="form-group required">
                     <label class="control-label" for="{{ form.password2.id_for_label }}" > Подтвержение пароля </label>
                     {{ form.password2 }}
                 </div>
+
+{#                {% endfor %}#}
+
                 <br><br>
                 <div class="buttons">
                     <div class="pull-right">
