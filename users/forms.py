@@ -40,6 +40,7 @@ class UserRegisterForm(UserCreationForm):
             attrs={'class': 'form-control',
                    'placeholder': 'Эл.почта'}))
     password1 = forms.CharField(
+        # verbose_name='Пароль 1',     it breaks project
         label="Пароль",
         widget=forms.PasswordInput(
             attrs={'class': 'form-control',
@@ -54,6 +55,14 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ('first_name', 'last_name',
                   'username', 'email', 'password1', 'password2')
+
+        # labels = {                  trying rename variables in errors messages
+        #     'first_name': 'Имя',
+        #     'last_name': 'Фамилия',
+        #     'username': 'Имя пользователя',
+        #     'password1': 'Пароль 1',
+        #     'password2': 'Пароль 2',
+        # }
 
 
 class UserProfileForm(UserChangeForm):

@@ -43,16 +43,13 @@ def register(request):
 
     if request.method == 'POST':
         form = UserRegisterForm(data=request.POST)
-        username_form = form.save(commit=False)
-        username_form.username = form.cleaned_data['email']
+        # username_form = form.save(commit=False)
+        # username_form.username = form.cleaned_data['email']
         flag = form.is_valid()
         if flag:
-            username_form.save()
+            # username_form.save()
+            form.save()
             messages.success(request,'Вы успешно зарегистрированы!')
-            return HttpResponseRedirect(reverse('users:login'))
-        else:
-            messages.error(request, 'ERROR')
-            messages.warning(request, 'Warning')
             return HttpResponseRedirect(reverse('users:login'))
     else:
         form = UserRegisterForm()
