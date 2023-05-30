@@ -40,7 +40,7 @@ class UserRegisterForm(UserCreationForm):
             attrs={'class': 'form-control',
                    'placeholder': 'Эл.почта'}))
     password1 = forms.CharField(
-        # verbose_name='Пароль 1',     it breaks project
+        # verbose_name='Пароль 1',
         label="Пароль",
         widget=forms.PasswordInput(
             attrs={'class': 'form-control',
