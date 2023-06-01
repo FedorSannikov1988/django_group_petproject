@@ -41,31 +41,31 @@ def login(request):
 def register(request):
     title_register = 'Регистрация - '
 
-    if request.method=='POST':
-        form = UserRegisterForm(data=request.POST)
-        if form.is_valid():
-            username_form = form.save(commit=False)
-            print(type(form))
-            print(type(username_form))
-            username_form.username = form.cleaned_data['email']
-            form.save()
-            messages.success(request, 'Вы успешно зарегистрированы!')
-            return HttpResponseRedirect(reverse('users:login'))
-        else:
-            messages.error(request, 'Error field filling')
-            return HttpResponseRedirect(reverse('users:register'))
-
-
-    # if request.method == 'POST':
+    # if request.method=='POST':
     #     form = UserRegisterForm(data=request.POST)
-    #     # username_form = form.save(commit=False)
-    #     # username_form.username = form.cleaned_data['email']
-    #     flag = form.is_valid()
-    #     if flag:
-    #         # username_form.save()
+    #     if form.is_valid():
+    #         username_form = form.save(commit=False)
+    #         print(type(form))
+    #         print(type(username_form))
+    #         username_form.username = form.cleaned_data['email']
     #         form.save()
-    #         messages.success(request,'Вы успешно зарегистрированы!')
+    #         messages.success(request, 'Вы успешно зарегистрированы!')
     #         return HttpResponseRedirect(reverse('users:login'))
+    #     else:
+    #         messages.error(request, 'Error field filling')
+    #         return HttpResponseRedirect(reverse('users:register'))
+
+
+    if request.method == 'POST':
+        form = UserRegisterForm(data=request.POST)
+        # username_form = form.save(commit=False)
+        # username_form.username = form.cleaned_data['email']
+        flag = form.is_valid()
+        if flag:
+            # username_form.save()
+            form.save()
+            messages.success(request,'Вы успешно зарегистрированы!')
+            return HttpResponseRedirect(reverse('users:login'))
 
     else:
         form = UserRegisterForm()

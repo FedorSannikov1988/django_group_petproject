@@ -7,13 +7,13 @@ class UserLoginForm(forms.Form):
     username = forms.CharField(
         label="Логин",
         widget=forms.TextInput(
-        attrs={'class': 'form-control',
-               'placeholder': 'Имя пользователя'}))
+            attrs={'class': 'form-control',
+                   'placeholder': 'Имя пользователя'}))
     password = forms.CharField(
         max_length=20,
         widget=forms.PasswordInput(
-        attrs={'class': 'form-control',
-               'placeholder': 'Пароль'}))
+            attrs={'class': 'form-control',
+                   'placeholder': 'Пароль'}))
     field_order = ["username", "password"]
 
 
@@ -40,21 +40,21 @@ class UserRegisterForm(UserCreationForm):
             attrs={'class': 'form-control',
                    'placeholder': 'Эл.почта'}))
     password1 = forms.CharField(
-        # verbose_name='Пароль 1',
         label="Пароль",
         widget=forms.PasswordInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Пароль'}))
     password2 = forms.CharField(
-        label="Пароль",
+        label='Пароль',
         widget=forms.PasswordInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Подтвердите пароль'}))
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name',
-                  'username', 'email', 'password1', 'password2')
+        fields = ['first_name', 'last_name',
+                  'username', 'email', 'password1', 'password2']
+
 
         # labels = {                  trying rename variables in errors messages
         #     'first_name': 'Имя',
