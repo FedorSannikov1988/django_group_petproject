@@ -79,24 +79,30 @@
                                 <p>Расскажите о своей проблеме</p>
                            </div>
 
-                           <div class="form-group">
-                                <!--<label for="input-comment" class="control-label" >Текст сообщения </label>-->
+                           <!-- <div class="form-group">
+                                <label for="input-comment" class="control-label" >Текст сообщения </label>
                                 <textarea class="form-control" id="input-comment" placeholder="Текст сообщения" rows="10" name="comment"></textarea>
-                           </div>
-
-                           <!--<div class="form-group">
-                           <label class="control-label" for="{{ form.question.id_for_label }}">Текс сообщения:</label>
-                           <p>{{ form.question }}</p>
                            </div>-->
 
+                            <form action="{% url "faq" %}" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+{#                                {{ form.as_p }}#}
+                                           <div class="form-group">
+                                               <label class="control-label" for="{{ form.userquestion.id_for_label }}"></label>
+                                                       <p>{{ form.userquestion }}</p>
+                                           </div>
+                                           <div class="row-form-errors"> {{ form.question.errors }} </div>
+                                           <div class="form-group">
+                                               <label class="control-label" for="{{ form.upload.id_for_label }}">Загрузите файл:</label>
+                                                       <p>{{ form.upload }}</p>
+                                           </div>
+                                           <div class="row-form-errors"> {{ form.upload.errors }} </div>
 
-                           <div class="form-group dropZone">
-                                Для загрузки, перетащите файл сюда.
-                           </div>
 
-                           <div class="bottom-form">
-                               <input type="submit" value="Отправить" class="btn btn-default pull-left">
-                           </div>
+                               <p class="bottom-form">
+                                   <input type="submit" value="Отправить" class="btn btn-default pull-left">
+                               </p>
+                            </form>
 
                         {% endif %}
                     </div>
@@ -106,9 +112,11 @@
                     <a> Раздел находится в разработке! </a>
                 </div>
             {% endif %}
+
         </div>
     </div>
     <p><br><br><br></p>
+
 {% endblock %}
 <!-- //Main Container -->
 

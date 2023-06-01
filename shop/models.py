@@ -60,6 +60,7 @@ class DevelopmentTeam(models.Model):
 class FAQ(models.Model):
     question = models.TextField(max_length=500, null=True, blank=False)
     answer = models.TextField(max_length=2500, null=True, blank=False)
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return f'Question: {self.question} ' \
@@ -92,20 +93,20 @@ class Cart(models.Model):
 
 
 def user_directory_path(instance, filename):
-    return 'upload_users/user_{0}/{1}'.format(instance.user_id, filename)
+    return 'Question/user_{0}/{1}'.format(instance.user_id, filename)
 
 
-class Feedback(models.Model):
-    user = models.ForeignKey(to=User, on_delete=models.CASCADE)
-    question = models.TextField(max_length=500, null=False, blank=False)
-    answer = models.TextField(max_length=2500, null=True, blank=True)
-    question_timestamp = models.DateTimeField(auto_now_add=True)
-    answer_timestamp = models.DateTimeField(auto_now_add=False, blank=True)
-    upload = models.FileField(upload_to=user_directory_path, blank=True)
+class UsersQuestions(models.Model):
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE, null=False)
+    userquestion = models.TextField(max_length=500, null=False, blank=False)
+    # answer = models.TextField(max_length=2500, null=True, blank=True)
 
+    question_timestamp = models.DateTimeField(auto_now_add=True,null=True)
+    # answer_timestamp = models.DateTimeField(auto_now_add=False, blank=True)
+    upload = models.FileField(upload_to=user_directory_path,null=True, blank=True)
+
+    #
     def __str__(self):
-        return f'Question: {self.question} ' \
-               f'| Answer: {self.answer} ' \
+        return f'Question: {self.userquestion} ' \
                f'| Date Question: {self.question_timestamp} ' \
-               f'| Date Answer: {self.answer_timestamp} '
-
+               f'| Upload: {self.upload}'

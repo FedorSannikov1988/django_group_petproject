@@ -1,5 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponseRedirect
+from django.urls import reverse
+from shop.forms import ShopFaqForm
 from shop.models import SoftwareCategory, Software, DevelopmentTeam, FAQ, Cart
 
 
@@ -61,16 +63,30 @@ def about_us(request):
 
 def faq(request):
     title_faq = 'Полезная информация - '
+    if request.method == 'POST':
 
+        form = ShopFaqForm(data=request.POST, files=request.FILES)
+        # files = request.FILES.getlist('upload') для мультизагрузки
+        if form.is_valid():
+            try:
+
+                UsersQuestions = form.save(commit=False)
+                UsersQuestions.user = request.user
+                UsersQuestions.save()
+                return HttpResponseRedirect(reverse('faq'))
+            except:
+                form.add_error(None, 'Ошибка добавления')
+    else:
+        form = ShopFaqForm()
     context = {
         'page_title': title_faq + title_for_basic_template(),
         'faq': FAQ.objects.all(),
     }
-    return render(request, 'faq.html', {**context, **data_for_basic_template(request)})
+    return render(request, 'faq.html', {**context, **data_for_basic_template(request), 'form': form})
 
 
 def product(request):
-    title_product = 'Описание програмного обеспечения - '
+    title_product = 'Описание программного обеспечения - '
 
     context = {
         'page_title': title_product + title_for_basic_template(),
@@ -99,7 +115,6 @@ def cart(request):
 
 @login_required
 def cart_add_one(request, software_id):
-
     user = request.user
     software = Software.objects.get(id=software_id)
     carts = Cart.objects.filter(user=user, software=software)
@@ -116,7 +131,6 @@ def cart_add_one(request, software_id):
 
 @login_required
 def cart_delete_one(request, software_id):
-
     user = request.user
     software = Software.objects.get(id=software_id)
     carts = Cart.objects.filter(user=user, software=software)
