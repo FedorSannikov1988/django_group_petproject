@@ -66,7 +66,7 @@
                                                     <div class="container">
                                                         <ul class="megamenu">
                                                             {% for one_category in software_category %}
-                                                            <li> <a href="{% url 'products_catalog:index' %}" class="clearfix"> <span>  {{ one_category.name }} </span> </a> </li>
+                                                            <li> <a href="{% url 'products_catalog:category' one_category.id %}" class="clearfix"> <span>  {{ one_category.name }} </span> </a> </li>
                                                             {% endfor %}
                                                         </ul>
                                                     </div>

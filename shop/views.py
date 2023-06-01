@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponseRedirect
 from shop.models import SoftwareCategory, Software, DevelopmentTeam, FAQ, Cart
+from django.core.paginator import Paginator
 
 
 def title_for_basic_template():
@@ -21,12 +22,13 @@ def data_for_basic_template(request):
     return data
 
 
-def all_soft():
+def all_soft(category_id=None):
     data = {
-        "all_soft": Software.objects.all(),
-        "software_operating_systems": Software.objects.filter(category__name='Операционные системы'),
-        "software_office": Software.objects.filter(category__name='Офисное ПО'),
-        "software_antivirus_protection": Software.objects.filter(category__name='Антивирусная защита')
+        # "all_soft": Software.objects.all(),
+        # "filtered_software": Software.objects.filter(category__id=category_id)
+        # "software_operating_systems": Software.objects.filter(category__name='Операционные системы'),
+        # "software_office": Software.objects.filter(category__name='Офисное ПО'),
+        # "software_antivirus_protection": Software.objects.filter(category__name='Антивирусная защита')
     }
     return data
 
@@ -78,13 +80,22 @@ def product(request):
     return render(request, 'product.html', {**context, **data_for_basic_template(request)})
 
 
-def products_catalog(request):
+def products_catalog(request, category_id=None, page_number=1):
     title_product_catalog = 'Каталог программного обеспечения - '
+    if category_id:
+        software = Software.objects.filter(category_id=category_id)
+    else:
+        software = Software.objects.all()
 
-    context = {
-        "page_title": title_product_catalog + title_for_basic_template(),
+    paginator = Paginator(software, per_page=3)
+    software_paginator = paginator.page(page_number)
+
+    context = {"page_title": title_product_catalog + title_for_basic_template(),
+               "categories": SoftwareCategory.objects.all(),
+               "software": software_paginator,
     }
-    return render(request, 'catalog.html', {**context, **data_for_basic_template(request), **all_soft()})
+
+    return render(request, 'catalog.html', context)
 
 
 @login_required
