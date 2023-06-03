@@ -64,12 +64,9 @@ def about_us(request):
 def faq(request):
     title_faq = 'Полезная информация - '
     if request.method == 'POST':
-
         form = ShopFaqForm(data=request.POST, files=request.FILES)
-        # files = request.FILES.getlist('upload') для мультизагрузки
         if form.is_valid():
             try:
-
                 UsersQuestions = form.save(commit=False)
                 UsersQuestions.user = request.user
                 UsersQuestions.save()
