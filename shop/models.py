@@ -92,7 +92,8 @@ class Cart(models.Model):
 
 
 def user_directory_path(instance, filename):
-    return 'Question/user_{0}/{1}'.format(instance.user_id, filename)
+    return 'question_user/{0}_{1}/{2}_{3}'.format(instance.user_id, instance.user.username,
+                                                  instance.question_timestamp, filename)
 
 
 class UsersQuestions(models.Model):

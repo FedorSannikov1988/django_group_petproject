@@ -72,13 +72,11 @@
                             {% endfor %}
                         </ul>
                         <p><br><br></p>
-
                         {% if user.is_authenticated and not user.is_staff and not user.is_superuser %}
                            <div>
                                 <h4>Не нашли ответа на свой вопрос?</h4>
                                 <p>Расскажите о своей проблеме</p>
                            </div>
-
                             <form action="{% url "faq" %}" method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
                                            <div class="form-group">
@@ -91,13 +89,10 @@
                                                        <p>{{ form.upload }}</p>
                                            </div>
                                            <div class="row-form-errors"> {{ form.upload.errors }} </div>
-
-
                                <p class="bottom-form">
                                    <input type="submit" value="Отправить" class="btn btn-default pull-left">
                                </p>
                             </form>
-
                         {% endif %}
                     </div>
                 </div>
@@ -106,7 +101,6 @@
                     <a> Раздел находится в разработке! </a>
                 </div>
             {% endif %}
-
         </div>
     </div>
     <p><br><br><br></p>
