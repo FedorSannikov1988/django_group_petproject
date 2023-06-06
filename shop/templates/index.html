@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 <!-- Favicon
 ============================================ -->
 {% block favicon %}
@@ -67,7 +66,7 @@
                                                     <div class="container">
                                                         <ul class="megamenu">
                                                             {% for one_category in software_category %}
-                                                            <li> <a href="{% url 'product_catalog:index' %}" class="clearfix"> <span>  {{ one_category.name }} </span> </a> </li>
+                                                            <li> <a href="{% url 'products_catalog:index' %}" class="clearfix"> <span>  {{ one_category.name }} </span> </a> </li>
                                                             {% endfor %}
                                                         </ul>
                                                     </div>
@@ -99,18 +98,20 @@
 
 <!-- Main Container  -->
 {% block main_container %}
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
-    <br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
 {% endblock %}
 <!-- //Main Container -->
 
 <!-- Block Spotlight3  -->
 {% block spotlight3 %}
-<!-- может сюда еще что то и добавим -->
 {% endblock %}
 <!-- //Block Spotlight3  -->
 

@@ -1,0 +1,1 @@
+[{"model": "shop.usersquestions", "pk": 1, "fields": {"user": 2, "userquestion": "Как получить заказ другому человеку?", "question_timestamp": "2023-05-31T14:19:15.349Z", "upload": ""}}, {"model": "shop.usersquestions", "pk": 2, "fields": {"user": 2, "userquestion": "Ключ не подходит к купленному продукту", "question_timestamp": "2023-05-31T14:20:30.480Z", "upload": ""}}]

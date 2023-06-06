@@ -2,13 +2,14 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import auth
 from django.urls import reverse
-
-from shop.views import title_for_basic_template, data_for_basic_template
 from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm
+from users.models import User
+from shop.views import title_for_basic_template, data_for_basic_template
 
 
 def login(request):
     title_login = 'Вход в учетную запись - '
+    message_error = ''
 
     if request.method == 'POST':
         form = UserLoginForm(data=request.POST)
@@ -19,10 +20,16 @@ def login(request):
             if user:
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse('users:my_account'))
+            else:
+                if User.objects.filter(username=username).exists():
+                    message_error = 'Неверный пароль'
+                else:
+                    message_error = 'Учетной записи с таким именем пользователя нет в базе данных'
     else:
-        form = UserLoginForm()
+        form = UserLoginForm(data=request.POST)
 
     context = {
+        'message_error': message_error,
         'form': form,
         'page_title': title_login + title_for_basic_template(),
     }
@@ -63,10 +70,20 @@ def my_account(request):
         'form': form,
         'page_title': title_my_account + title_for_basic_template(),
     }
-
     return render(request, 'my_account.html', {**context, **data_for_basic_template(request)})
 
 
+@login_required
 def exit_my_account(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('index'))
+
+
+@login_required
+def delete_profile(request):
+    user = request.user
+    if User.objects.filter(username=user).exists():
+        User.objects.filter(username=user).delete()
+        return HttpResponseRedirect(reverse('index'))
+    else:
+        return HttpResponseRedirect(request.META['HTTP_REFERER'])

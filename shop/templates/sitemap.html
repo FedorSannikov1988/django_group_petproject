@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 <!-- Favicon
 ============================================ -->
 {% block favicon %}
@@ -41,16 +40,20 @@
         <div id="wrapper" class="wrapper-full ">
 {% endblock %}
 
+<!-- Block Spotlight1  -->
+{% block spotlight1 %}
+{% endblock %}
+<!-- //Block Spotlight1  -->
+
 <!-- Main Container  -->
 {% block main_container %}
-<b> </b> <div class="main-container container">
+            <div class="main-container container">
                 <ul class="header-main ">
                     <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                    <li>Карта сайта</li>
                 </ul>
                 <div class="row">
                     <div id="content" class="col-sm-12">
-                        <h2 class="title">Карта сайта</h2>
+                        <br><br><br>
                         <div class="row">
                             <div class="col-md-5 col-sm-6">
                                 <ul class="simple-list arrow-list bold-list">
@@ -97,8 +100,16 @@
                     </div>
                 </div>
             </div>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
 {% endblock %}
 <!-- //Main Container -->
+
+<!-- Block Spotlight3  -->
+{% block spotlight3 %}
+{% endblock %}
+<!-- //Block Spotlight3  -->
 
 <!-- Include Libs & Plugins
 ============================================ -->

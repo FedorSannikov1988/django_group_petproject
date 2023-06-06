@@ -1,6 +1,6 @@
-from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from users.models import User
+from django.db import models
 
 
 class SoftwareCategory(models.Model):
@@ -58,8 +58,8 @@ class DevelopmentTeam(models.Model):
 
 
 class FAQ(models.Model):
-    question = models.TextField(min_length= 10, max_length=500, null=True, blank=True)
-    answer = models.TextField(min_length= 20, max_length=2500, null=True, blank=True)
+    question = models.TextField(max_length=500, null=True, blank=False)
+    answer = models.TextField(max_length=2500, null=True, blank=False)
 
     def __str__(self):
         return f'Question: {self.question} ' \
@@ -89,3 +89,20 @@ class Cart(models.Model):
     def __str__(self):
         return f'User email: {self.user.email} ' \
                f'| Software: {self.software.name} '
+
+
+def user_directory_path(instance, filename):
+    return 'Question/user_{0}/{1}'.format(instance.user_id, filename)
+
+
+class UsersQuestions(models.Model):
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE, null=False)
+    userquestion = models.TextField(max_length=500, null=False, blank=False)
+    question_timestamp = models.DateTimeField(auto_now_add=True,null=True)
+    upload = models.FileField(upload_to=user_directory_path,null=True, blank=True)
+
+    #
+    def __str__(self):
+        return f'Question: {self.userquestion} ' \
+               f'| Date Question: {self.question_timestamp} ' \
+               f'| Upload: {self.upload}'

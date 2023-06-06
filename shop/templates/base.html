@@ -1,8 +1,7 @@
 {% load static %}
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
 
@@ -32,7 +31,7 @@
 {% block stile_body_two_line %} {% endblock %}
 
 <!-- Header Container  -->
-<header id="header" class=" variantleft type_1">
+        <header id="header" class=" variantleft type_1">
             <!-- Header Top -->
 			<div class="header-top">
 				<div class="container">
@@ -41,10 +40,15 @@
 							<div class="tabBlock1" id="TabBlock-1">
 								<ul class="top-link list-inline">
                                     {% if user.is_authenticated %}
+                                        <li class="account"><a href="{% url 'users:my_account' %}" class="top-link-checkout" title="Личный кабиинет"><span>Личный кабинет</span></a></li>
                                         <li class="signin"><a href="{% url 'users:exit_my_account' %}" class="top-link-checkout" title="Выйти"><span>Выйти</span></a></li>
                                     {% else %}
                                         <li class="signin"><a href="{% url 'users:login' %}" class="top-link-checkout" title="Войти"><span>Войти</span></a></li>
-									    <li class="register"><a href="{% url 'users:register' %}" title="Регистрация"><span> Регистрация </span></a></li>
+                                        <li class="register"><a href="{% url 'users:register' %}" title="Регистрация"><span> Регистрация </span></a></li>
+                                    {% endif %}
+
+                                    {% if user.is_superuser %}
+                                        <li class="signin"><a href="{% url 'admin:index' %}" class="top-link-checkout" title="Панель-администратора"><span>Войти в панель-администратора</span></a></li>
                                     {% endif %}
 								</ul>
 							</div>
@@ -84,7 +88,6 @@
 				</div>
 			</div>
             <!-- //Header center -->
-
 			<!-- Header Bottom -->
 			<div class="header-bottom">
 				<div class="container">
@@ -104,7 +107,7 @@
 														</li>
 														<li class="with-sub-menu hover">
 															<p class="close-menu"></p>
-															<a href="{% url 'product_catalog:index' %}" class="clearfix menu1">
+															<a href="{% url 'products_catalog:index' %}" class="clearfix menu1">
 																<strong>Каталог</strong>
 																<span class="label"></span>
 															</a>
@@ -113,9 +116,9 @@
 																	<div class="row">
                                                                         {% for one_software_category in software_category %}
                                                                             <div class="col-md-4 image">
-                                                                                <a href="{% url 'product_catalog:index' %}"><img src="{{ one_software_category.image.url }}"></a>
+                                                                                <a href="{% url 'products_catalog:index' %}"><img src="{{ one_software_category.image.url }}"></a>
                                                                                 <div class="center title-submenu"></div>
-                                                                                <a href="{% url 'product_catalog:index' %}"> <div class="text-center"> <h3> <strong> {{ one_software_category.name }} </strong> </h3> </div> </a>
+                                                                                <a href="{% url 'products_catalog:index' %}"> <div class="text-center"> <h3> <strong> {{ one_software_category.name }} </strong> </h3> </div> </a>
                                                                             </div>
                                                                         {% endfor %}
 																	</div>
@@ -193,9 +196,9 @@
     </footer>
 <!-- //Footer Container -->
 </div>
+
 <!-- Include Libs & Plugins
 ============================================ -->
-<!-- End of the document so the pages load faster -->
 {% block libs_and_plugins %} {% endblock %}
 
 <!-- Theme file
