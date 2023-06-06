@@ -1,9 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponseRedirect
-from shop.models import SoftwareCategory, Software, FeaturesSoftware, DevelopmentTeam, FAQ, Cart
 from django.urls import reverse
 from shop.forms import ShopFaqForm
-from shop.models import SoftwareCategory, Software, DevelopmentTeam, FAQ, Cart
+from shop.models import SoftwareCategory, Software, FeaturesSoftware, DevelopmentTeam, FAQ, Cart
 
 
 def title_for_basic_template():
