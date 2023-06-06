@@ -109,7 +109,7 @@ def cart(request):
                     'min_ram_mb': featuresSoftware.min_ram_mb,
                     'quantity_in_card': one_purchase.quantity,
                     'software_price': one_purchase.software.price,
-                    'one_purchase_sum': one_purchase.sum}
+                    'one_purchase_sum': one_purchase.sum }
 
         cart_user_big.append(new_line)
 

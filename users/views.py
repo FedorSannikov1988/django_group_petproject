@@ -41,7 +41,8 @@ def register(request):
 
     if request.method == 'POST':
         form_without_username = UserRegisterForm(data=request.POST)
-        form_for_username = form_without_username.save(commit=False)
+        if form_without_username.is_valid():
+            form_for_username = form_without_username.save(commit=False)
         form_for_username.username = form_without_username.cleaned_data['email']
         if form_without_username.is_valid():
             form_for_username.save()
