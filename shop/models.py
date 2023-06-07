@@ -105,4 +105,4 @@ class UsersQuestions(models.Model):
     def __str__(self):
         return f'Question: {self.userquestion} ' \
                f'| Date Question: {self.question_timestamp} ' \
-               f'| Upload: {self.upload}'
+               f'| Upload: {self.upload} '

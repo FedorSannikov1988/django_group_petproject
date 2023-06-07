@@ -67,19 +67,20 @@ def faq(request):
         form = ShopFaqForm(data=request.POST, files=request.FILES)
         if form.is_valid():
             try:
-                UsersQuestions = form.save(commit=False)
-                UsersQuestions.user = request.user
-                UsersQuestions.save()
+                form_for_user = form.save(commit=False)
+                form_for_user.user = request.user
+                form_for_user.save()
                 return HttpResponseRedirect(reverse('faq'))
             except:
-                form.add_error(None, 'Ошибка добавления')
+                form.add_error(None, 'Ошибка отправки данных!')
     else:
         form = ShopFaqForm()
     context = {
         'page_title': title_faq + title_for_basic_template(),
         'faq': FAQ.objects.all(),
+        'form': form
     }
-    return render(request, 'faq.html', {**context, **data_for_basic_template(request), 'form': form})
+    return render(request, 'faq.html', {**context, **data_for_basic_template(request)})
 
 
 def product(request):
@@ -102,7 +103,7 @@ def products_catalog(request):
 
 @login_required
 def cart(request):
-    title_cart = 'Корзина покупателя - '
+    title_cart = 'Большая корзина покупателя - '
 
     cart_user_small = Cart.objects.filter(user=request.user)
 
@@ -122,7 +123,7 @@ def cart(request):
                     'min_ram_mb': featuresSoftware.min_ram_mb,
                     'quantity_in_card': one_purchase.quantity,
                     'software_price': one_purchase.software.price,
-                    'one_purchase_sum': one_purchase.sum }
+                    'one_purchase_sum': one_purchase.sum}
 
         cart_user_big.append(new_line)
 
@@ -163,8 +164,6 @@ def cart_delete_one(request, software_id):
         if cart.quantity > 1:
             cart.quantity -= 1
             cart.save()
-        # else:
-        #    cart.delete()
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
