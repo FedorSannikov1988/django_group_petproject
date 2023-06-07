@@ -87,7 +87,7 @@ def products_catalog(request, category_id=None, page_number=1):
     else:
         software = Software.objects.all()
 
-    paginator = Paginator(software, per_page=3)
+    paginator = Paginator(software, per_page=6)
     software_paginator = paginator.page(page_number)
 
     context = {"page_title": title_product_catalog + title_for_basic_template(),

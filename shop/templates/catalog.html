@@ -69,20 +69,20 @@
 									<div class="text">
 										<p>Товаров 1 - 16 из 47</p>
 									</div>
-									<div class="form-group short-by">
-										<label class="control-label" for="input-sort">Sort By:</label>
-										<select id="input-sort" class="form-control" onchange="location = this.value;">
-											<option value="" selected="selected">Default </option>
-											<option value="">Name (A - Z)</option>
-											<option value="">Name (Z - A)</option>
-											<option value="">Price (Low &gt; High)</option>
-											<option value="">Price (High &gt; Low)</option>
-											<option value="">Rating (Highest)</option>
-											<option value="">Rating (Lowest)</option>
-											<option value="">Model (A - Z)</option>
-											<option value="">Model (Z - A)</option>
-										</select>
-									</div>
+{#									<div class="form-group short-by">#}
+{#										<label class="control-label" for="input-sort">Sort By:</label>#}
+{#										<select id="input-sort" class="form-control" onchange="location = this.value;">#}
+{#											<option value="" selected="selected">Default </option>#}
+{#											<option value="">Name (A - Z)</option>#}
+{#											<option value="">Name (Z - A)</option>#}
+{#											<option value="">Price (Low &gt; High)</option>#}
+{#											<option value="">Price (High &gt; Low)</option>#}
+{#											<option value="">Rating (Highest)</option>#}
+{#											<option value="">Rating (Lowest)</option>#}
+{#											<option value="">Model (A - Z)</option>#}
+{#											<option value="">Model (Z - A)</option>#}
+{#										</select>#}
+{#									</div>#}
 								</div>
 							</div>
 						</div>
@@ -135,11 +135,10 @@
                                         {% for page in software.paginator.page_range %}
                                             <li><a href="{% url 'products_catalog:paginator' page %}" >{{ page }}</a></li>
                                         {% endfor %}
-{#											<li class="active"><span>1</span></li>#}
-{#											<li><a href="#" >2</a></li>#}
-{#											<li><a href="#" >3</a></li>#}
-{#											<li><a href="#" >4</a></li>#}
-											<li><a href="{% if not software.has_next %} disabled {% else %} {% url 'products_catalog:paginator' software.next_page_number %} {% endif %}"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+											<li><a href="{% if software.has_next %} {% url 'products_catalog:paginator' software.next_page_number %} {% else %} # {% endif %}">
+                                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                            </a>
+                                            </li>
 										</ul>
 									</div>
 								</div>
