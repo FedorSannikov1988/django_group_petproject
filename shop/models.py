@@ -8,6 +8,10 @@ class SoftwareCategory(models.Model):
     description = models.TextField(max_length=2000, null=True, blank=True)
     image = models.ImageField(null=True, blank=True, upload_to='images_software_category')
 
+    class Meta:
+        verbose_name_plural = "Категории программного обеспечения"
+        verbose_name = "категории программного обеспечения"
+
     def __str__(self):
         return f'Category: {self.name} '
 
@@ -18,6 +22,11 @@ class Software(models.Model):
     quantity = models.PositiveIntegerField(default=0)
     image = models.ImageField(null=True, blank=True, upload_to='images_software')
     category = models.ForeignKey(to=SoftwareCategory, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = "Програмное обеспечение"
+        verbose_name = "программное обеспечение"
+
 
     def __str__(self):
         return f'Software: {self.name} ' \
@@ -33,6 +42,10 @@ class FeaturesSoftware(models.Model):
     hard_disk_mb = models.PositiveIntegerField(null=True, blank=True)
     min_ram_mb = models.PositiveIntegerField(null=True, blank=True)
     software = models.ForeignKey(to=Software, on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name_plural = "Параметры програмного обеспечения"
+        verbose_name = "параметры програмного обеспечения"
 
     def __str__(self):
         return f'Operating System: {self.operating_system} ' \
@@ -51,6 +64,10 @@ class DevelopmentTeam(models.Model):
     description_work = models.TextField(null=True, blank=True)
     image = models.ImageField(null=True, blank=True, upload_to='images_development_team')
 
+    class Meta:
+        verbose_name_plural = "Команда разработчиков"
+        verbose_name = "команда разработчиков"
+
     def __str__(self):
         return f'Firstname: {self.firstname} ' \
                f'| Lastname: {self.lastname} ' \
@@ -60,6 +77,10 @@ class DevelopmentTeam(models.Model):
 class FAQ(models.Model):
     question = models.TextField(max_length=500, null=True, blank=False)
     answer = models.TextField(max_length=2500, null=True, blank=False)
+
+    class Meta:
+        verbose_name_plural = "Полезная/справочная информация"
+        verbose_name = "полезная/справочная информация"
 
     def __str__(self):
         return f'Question: {self.question} ' \
@@ -101,6 +122,10 @@ class UsersQuestions(models.Model):
     userquestion = models.TextField(max_length=500, null=False, blank=False)
     question_timestamp = models.DateTimeField(auto_now_add=True, null=True)
     upload = models.FileField(upload_to=user_directory_path, null=True, blank=True)
+
+    class Meta:
+        verbose_name_plural = "Вопросы от пользователей"
+        verbose_name = "вопросы от пользователей"
 
     def __str__(self):
         return f'Question: {self.userquestion} ' \
