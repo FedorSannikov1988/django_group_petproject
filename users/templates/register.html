@@ -57,6 +57,8 @@
                     <div class="alert-success" >{{ message }}</div>
                 {% endfor %}
             {% endif %}
+        <!-- //Message about successful registration -->
+
             <form action="{% url 'users:register' %}" method="post" novalidate style="margin-left: 20px; width:630px;">
                 {% csrf_token %}
                 <div class="form-group required" style="display: none">
@@ -90,6 +92,8 @@
                     {{ form.errors }}
                 </div>
             {% endif %}
+            <!-- //Message about registration errors -->
+
                 <br><br>
                 <div class="buttons">
                     <div class="pull-right">

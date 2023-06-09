@@ -1,12 +1,10 @@
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import auth, messages
 from django.urls import reverse
 from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm
 from users.models import User
 from shop.views import title_for_basic_template, data_for_basic_template
-from django.core.exceptions import NON_FIELD_ERRORS
 
 
 def login(request):

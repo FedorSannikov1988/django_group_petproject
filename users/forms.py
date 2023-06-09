@@ -50,7 +50,6 @@ class UserRegisterForm(UserCreationForm):
             attrs={'class': 'form-control',
                    'placeholder': 'Подтвердите пароль'}))
 
-
     class Meta:
         model = User
         fields = ['first_name', 'last_name',
