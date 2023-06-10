@@ -1,6 +1,7 @@
 from phonenumber_field.modelfields import PhoneNumberField
 from users.models import User
 from django.db import models
+from django_ckeditor_5.fields import CKEditor5Field
 
 
 class SoftwareCategory(models.Model):
@@ -59,7 +60,8 @@ class DevelopmentTeam(models.Model):
 
 class FAQ(models.Model):
     question = models.TextField(max_length=500, null=True, blank=False)
-    answer = models.TextField(max_length=2500, null=True, blank=False)
+    # answer = models.TextField(max_length=2500, null=True, blank=False)
+    answer = CKEditor5Field(max_length=2500, null=True, blank=False)
 
     def __str__(self):
         return f'Question: {self.question} ' \
