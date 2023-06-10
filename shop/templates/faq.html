@@ -66,24 +66,22 @@
                                     <h3 class="accordion-heading"><i class="fa fa-plus-square"></i>
                                         <span>{{ one_question.question }}</span></h3>
                                     <div class="accordion-inner">
-                                        <p>{{ one_question.answer }}</p>
+                                        <p>{{ one_question.answer | safe }}</p>
                                     </div>
                                 </li>
                             {% endfor %}
                         </ul>
                         <p><br><br></p>
-
                         {% if user.is_authenticated and not user.is_staff and not user.is_superuser %}
                            <div>
                                 <h4>Не нашли ответа на свой вопрос?</h4>
                                 <p>Расскажите о своей проблеме</p>
                            </div>
-
                             <form action="{% url "faq" %}" method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
                                            <div class="form-group">
                                                <label class="control-label" for="{{ form.userquestion.id_for_label }}"></label>
-                                                       <p>{{ form.userquestion }}</p>
+                                                       {{ form.userquestion }}
                                            </div>
                                            <div class="row-form-errors"> {{ form.question.errors }} </div>
                                            <div class="form-group">
@@ -91,26 +89,25 @@
                                                        <p>{{ form.upload }}</p>
                                            </div>
                                            <div class="row-form-errors"> {{ form.upload.errors }} </div>
-
-
                                <p class="bottom-form">
                                    <input type="submit" value="Отправить" class="btn btn-default pull-left">
                                </p>
                             </form>
-
                         {% endif %}
                     </div>
                 </div>
             {% else %}
-                <div id="content" class="col-sm-12" style="bottom: 14.5px;">
-                    <a> Раздел находится в разработке! </a>
-                </div>
+                 <div class="text-center">
+                 <br><br><br><br><br><br>
+                 <br><br><br><br><br><br>
+                 <h1> <strong> Раздел находится в разработке !</strong></h1>
+                 <br><br><br><br><br><br>
+                 <br><br><br><br><br><br>
+                 </div>
             {% endif %}
-
         </div>
     </div>
     <p><br><br><br></p>
-
 {% endblock %}
 <!-- //Main Container -->
 

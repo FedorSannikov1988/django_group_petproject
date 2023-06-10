@@ -29,9 +29,9 @@ def login(request):
         form = UserLoginForm(data=request.POST)
 
     context = {
-        'message_error': message_error,
-        'form': form,
         'page_title': title_login + title_for_basic_template(),
+        'message_error': message_error,
+        'form': form
     }
     return render(request, 'login.html', context)
 
@@ -42,14 +42,16 @@ def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            form_for_username = form.save(commit=False)
+            form_for_username.username = form.cleaned_data['email']
+            form_for_username.save()
             return HttpResponseRedirect(reverse('users:login'))
     else:
         form = UserRegisterForm()
 
     context = {
-        'form': form,
         'page_title': title_register + title_for_basic_template(),
+        'form': form
     }
     return render(request, 'register.html', context)
 

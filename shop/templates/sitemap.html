@@ -57,41 +57,46 @@
                         <div class="row">
                             <div class="col-md-5 col-sm-6">
                                 <ul class="simple-list arrow-list bold-list">
-                                    <li><a href="#"><!--Операционные системы--> {{ software_category.0.name }}</a>
+                                    <li> <a href="{% url 'index' %}"> Главная </a>
                                         <ul class="sitemap">
-                                          {% for one_category in software_antivirus_protection %}
-                                              <li><a href="#"> {{ one_category.name }} </a></li>
-                                          {% endfor %}
+                                            <li><a href="{% url 'index' %}"> Главная </a> </li>
                                         </ul>
                                     </li>
-                                    <li><a href="#"><!--Офисное ПО--> {{ software_category.1.name }}</a>
+                                    <li> <a href="{% url 'products_catalog:index' %}"> Каталог </a>
                                         <ul class="sitemap">
-                                          {% for one_software_office in software_office %}
-                                              <li><a href="#"> {{ one_software_office.name }} </a></li>
-                                          {% endfor %}
+                                            <li><a href="{% url 'products_catalog:index' %}"> Антивирусная защита </a> </li>
+                                            <li><a href="{% url 'products_catalog:index' %}"> Офисное ПО </a> </li>
+                                            <li><a href="{% url 'products_catalog:index' %}"> Операционные системы </a> </li>
                                         </ul>
                                     </li>
-                                    <li><a href="#"><!--Антивирусная защита--> {{ software_category.2.name }}</a>
+                                    <li> <a href="{% url 'users:my_account' %}"> Личный кабинет </a>
                                         <ul class="sitemap">
-                                          {% for one_operating_systems in software_operating_systems %}
-                                              <li><a href="#"> {{ one_operating_systems.name }} </a></li>
-                                          {% endfor %}
+                                            <li><a href="{% url 'users:login' %}"> Вход </a> </li>
+                                            <li><a href="{% url 'users:register' %}"> Регистрация </a> </li>
+                                        </ul>
+                                    </li>
+                                    <li> <a href="{% url 'cart' %}"> Корзина </a>
+                                        <ul class="sitemap">
+                                            <li><a href="{% url 'cart' %}"> Корзина </a> </li>
                                         </ul>
                                     </li>
                                 </ul>
                             </div>
                             <div class="col-md-4 col-sm-6">
                                 <ul class="simple-list arrow-list bold-list">
-                                    <li><a href="#">Заголовок</a>
+                                    <li> <strong>НАШИ КОНТАКТЫ</strong>
                                         <ul class="sitemap">
-                                            <li><a href="#">Текст</a> </li>
-                                            <li><a href="#">Текст</a> </li>
-                                            <li><a href="#">Текст</a> </li>
+                                            <li><a href="{% url 'about_us' %}">О нас / Наши контакты</a> </li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Информация</a>
+                                    <li> <strong>ИНФОРМАЦИЯ</strong>
                                         <ul class="sitemap">
-                                            <li><a href="{% url 'about_us' %}">О нас/Наши контакты</a> </li>
+                                            <li><a href="{% url 'faq' %}">Полезная информация</a> </li>
+                                        </ul>
+                                    </li>
+                                    <li> <strong>ДОПОЛНИТЕЛЬНО</strong>
+                                        <ul class="sitemap">
+                                            <li><a href="{% url 'sitemap' %}">Карта сайта</a> </li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -100,9 +105,6 @@
                     </div>
                 </div>
             </div>
-<br><br><br><br><br><br>
-<br><br><br><br><br><br>
-<br><br><br><br><br><br>
 {% endblock %}
 <!-- //Main Container -->
 
