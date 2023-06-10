@@ -33,14 +33,15 @@
 <link href="{% static 'css/header1.css' %}" rel="stylesheet">
 <link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
 {% endblock %}
+
 {% block stile_body_two_line %}
     <body class="res layout-subpage">
         <div id="wrapper" class="wrapper-full ">
 {% endblock %}
+
 <!-- Main Container  -->
 {% block main_container %}
 <div class="main-container container">
-
     <ul class="header-main ">
         <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
         <li>Регистрация аккаунта</li>
@@ -48,45 +49,52 @@
     <div class="row">
         <div id="content" class="col-sm-12">
             <h3 class="title"><p>Если вы уже зарегистрированы, пожалуйста, <b><a href="{% url 'users:login' %}">войдите в свою учетную запись</a>.</b></p></h3>
-            <form action="{% url 'users:register' %}" method="post">
+            <br><br>
+
+        <!-- Message about successful registration -->
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert-success" >{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        <!-- //Message about successful registration -->
+
+            <form action="{% url 'users:register' %}" method="post" novalidate style="margin-left: 20px; width:630px;">
                 {% csrf_token %}
-
-                <div class="form-group required">
-                    <label class="col-sm-2 control-label" for="input-firstname">Имя пользователя</label>
-                        {{ form.username }}
+                <div class="form-group required" style="display: none">
+                    <label class="control-label" for="{{ form.username.id_for_label }}" > Имя пользователя </label>
+                    {{ form.username.as_hidden }}
                 </div>
-
-                <div class="form-group required">
-                    <label class="col-sm-2 control-label" for="input-lastname">Имя</label>
-                        {{ form.first_name }}
+                <div class="form-group required" >
+                    <label class="control-label" for="{{ form.first_name.id_for_label }}" > Имя </label>
+                    {{ form.first_name }}
                 </div>
-
-                <div class="form-group required">
-                    <label class="col-sm-2 control-label" for="input-lastname">Фамилия</label>
+                <div class="form-group required" >
+                    <label class="control-label" for="{{ form.last_name.id_for_label }}" > Фамилия </label>
                     {{ form.last_name }}
                 </div>
-
-                <div class="form-group required">
-                    <label class="col-sm-2 control-label" for="input-lastname">Электронная почта</label>
+                <div class="form-group required" >
+                    <label class="control-label" for="{{ form.email.id_for_label }}" > Электронная почта </label>
                     {{ form.email }}
                 </div>
-
                 <div class="form-group required">
-                    <label class="col-sm-2 control-label" for="input-lastname">Пароль</label>
-                    {{ form.password1 }}
+                    <label class="control-label" for="{{ form.password1.id_for_label }}" > Пароль </label>
+                {{ form.password1 }}
                 </div>
-
                 <div class="form-group required">
-                    <label class="col-sm-2 control-label" for="input-lastname">Подтвержение пароля</label>
+                    <label class="control-label" for="{{ form.password2.id_for_label }}" > Подтвержение пароля </label>
                     {{ form.password2 }}
                 </div>
 
-                {% if field.errors %}
-                    {% for field in form %}
-                        <div class="alert"> {{ field.errors }} {{ field.label_tag }} </div>
-                    {% endfor %}
-                {% endif %}
+            <!-- Message about registration errors -->
+            {% if form.errors %}
+                <div class="alert-danger">
+                    {{ form.errors }}
+                </div>
+            {% endif %}
+            <!-- //Message about registration errors -->
 
+                <br><br>
                 <div class="buttons">
                     <div class="pull-right">
                         <input type="submit" value="Зарегестрироваться" class="btn btn-primary">
@@ -113,7 +121,6 @@
 <script type="text/javascript" src="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
 {% endblock %}
-
 
 <!-- Theme files
 ============================================ -->

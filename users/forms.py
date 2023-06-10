@@ -1,16 +1,19 @@
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, UserChangeForm
-from django.db.models import CharField
-
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from users.models import User
 from django import forms
 
 
 class UserLoginForm(forms.Form):
-    username = forms.CharField(label="Логин", widget=forms.TextInput(
-        attrs={'class': 'form-control',
-               'placeholder': 'Имя пользователя'}))
-    password = forms.CharField(max_length=20, widget=forms.PasswordInput(attrs={'class': 'form-control',
-                                                                                'placeholder': 'Пароль'}))
+    username = forms.CharField(
+        label="Логин",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Имя пользователя'}))
+    password = forms.CharField(
+        max_length=20,
+        widget=forms.PasswordInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Пароль'}))
     field_order = ["username", "password"]
 
 
@@ -26,12 +29,13 @@ class UserRegisterForm(UserCreationForm):
             attrs={'class': 'form-control',
                    'placeholder': 'Фамилия'}))
     username = forms.CharField(
-        label="Логин",
+        required=False,
+        label="Имя пользователя",
         widget=forms.TextInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Логин'}))
     email = forms.EmailField(
-        label="Эл.почта",
+        label="email",
         widget=forms.EmailInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Эл.почта'}))
@@ -41,14 +45,15 @@ class UserRegisterForm(UserCreationForm):
             attrs={'class': 'form-control',
                    'placeholder': 'Пароль'}))
     password2 = forms.CharField(
-        label="Пароль",
+        label="Подтвердить пароль",
         widget=forms.PasswordInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Подтвердите пароль'}))
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2')
+        fields = ['first_name', 'last_name',
+                  'username', 'email', 'password1', 'password2']
 
 
 class UserProfileForm(UserChangeForm):
@@ -75,6 +80,7 @@ class UserProfileForm(UserChangeForm):
                    'placeholder': 'Эл.почта',
                    'readonly': True}))
     image = forms.ImageField(
+        required=False,
         label="Фото",
         widget=forms.FileInput(
             attrs={'class': 'form-control',
@@ -82,4 +88,5 @@ class UserProfileForm(UserChangeForm):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'image', 'username', 'email')
+        fields = ('first_name', 'last_name',
+                  'image', 'username', 'email')

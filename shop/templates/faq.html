@@ -4,39 +4,44 @@
 <!-- Favicon
 ============================================ -->
 {% block favicon %}
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/apple-touch-icon-144-precomposed.png' %}">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/apple-touch-icon-114-precomposed.png' %}">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/apple-touch-icon-72-precomposed.png' %}">
-	<link rel="apple-touch-icon-precomposed" href="{% static 'ico/apple-touch-icon-57-precomposed.png' %}">
-	<link rel="shortcut icon" href="{% static 'ico/favicon.png' %}">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/apple-touch-icon-144-precomposed.png' %}">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/apple-touch-icon-114-precomposed.png' %}">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/apple-touch-icon-72-precomposed.png' %}">
+<link rel="apple-touch-icon-precomposed" href="{% static 'ico/apple-touch-icon-57-precomposed.png' %}">
+<link rel="shortcut icon" href="{% static 'ico/favicon.png' %}">
 {% endblock %}
 
 <!-- Libs CSS
 ============================================ -->
 {% block libs_css %}
-    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
-    <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
-    <link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
-    <link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
-    <link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
-    <link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+<link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+<link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+<link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
+<link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
+<link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
 {% endblock %}
 
 <!-- Theme CSS
 ============================================ -->
 {% block theme_css %}
-	<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
-	<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
-	<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
-	<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
-	<link href="{% static 'css/header1.css' %}" rel="stylesheet">
-	<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
+<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
+<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
+<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
+<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
+<link href="{% static 'css/header1.css' %}" rel="stylesheet">
+<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block stile_body_two_line %}
 	<body class="res layout-subpage">
     	<div id="wrapper" class="wrapper-full ">
 {% endblock %}
+
+<!-- Block Spotlight1  -->
+{% block spotlight1 %}
+{% endblock %}
+<!-- //Block Spotlight1  -->
 
 <!-- Main Container  -->
 {% block main_container %}
@@ -47,29 +52,30 @@
         </ul>
 			<div class="row">
 				<div id="content" class="col-sm-12">
-					<h3>Инсрукция по покупке програмного обеспечения: </h3>
+					<h3>Ответы на часто задаваемые вопросы: </h3>
 					<p><br><br></p>
                     <div class="col-sm-12">
                         <ul class="yt-accordion">
-                            <li class="accordion-group">
-                                <h3 class="accordion-heading"><i class="fa fa-plus-square"></i> <span>Оформление заказ</span></h3>
-                                <div class="accordion-inner">
-                                    <p>Краткое описание процесса оформления заказа на сайте</p>
-                                </div>
-                            </li>
-                            <li class="accordion-group">
-                                <h3 class="accordion-heading"><i class="fa fa-plus-square"></i><span>Способы оплаты</span></h3>
-                                <div class="accordion-inner">
-                                    <p>Краткое описание способа оплаты заказа на сайте</p>
-                                </div>
-                            </li>
-                            <li class="accordion-group">
-                                <h3 class="accordion-heading"><i class="fa fa-plus-square"></i><span>Доставка товаров</span></h3>
-                                <div class="accordion-inner" >
-                                    <p>Краткое описание доставки коробочной версии продукта и/или лицензионного ключа на флэшке</p>
-                                </div>
-                            </li>
+                            {% for one_question in faq %}
+                                <li class="accordion-group">
+                                    <h3 class="accordion-heading"><i class="fa fa-plus-square"></i> <span>{{ one_question.question }}</span></h3>
+                                    <div class="accordion-inner">
+                                        <p>{{ one_question.answer }}</p>
+                                    </div>
+                                </li>
+                            {% endfor %}
                         </ul>
+                    <p><br><br></p>
+                    <p>
+                        <div >Не нашли ответа на свой вопрос?</div>
+                        <div >Расскажите о своей проблеме</div>
+                    </p>
+                    <div class="well">
+                    <div class="clearfix">
+                        <a class="btn btn-default pull-left" href="#/feedback/">Связаться с нами</a>
+                    </div>
+                        <button class="button-ui button-ui_brand button-ui_big form__submit-button" type="button" data-role="btn-submit" disabled="">Отправить обращение</button>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -78,25 +84,30 @@
 {% endblock %}
 <!-- //Main Container -->
 
+<!-- Block Spotlight3  -->
+{% block spotlight3 %}
+{% endblock %}
+<!-- //Block Spotlight3  -->
+
 <!-- Include Libs & Plugins
 ============================================ -->
 {% block libs_and_plugins %}
-	<script type="text/javascript" src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/owl-carousel/owl.carousel.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/themejs/libs.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/unveil/jquery.unveil.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/countdown/jquery.countdown.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/datetimepicker/moment.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/owl-carousel/owl.carousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/themejs/libs.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/unveil/jquery.unveil.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/countdown/jquery.countdown.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/datetimepicker/moment.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
 {% endblock %}
 
 <!-- Theme files
 ============================================ -->
 {% block theme_files %}
-	<script type="text/javascript" src="{% static 'js/themejs/so_megamenu.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/themejs/addtocart.js' %}"></script>
-	<script type="text/javascript" src="{% static 'js/themejs/application.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/themejs/so_megamenu.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/themejs/addtocart.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/themejs/application.js' %}"></script>
 {% endblock %}

@@ -1,26 +1,15 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponseRedirect
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.urls import reverse
-
-from users.models import User
 from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm
-from shop.models import SoftwareCategory, Software, DevelopmentTeam
-
-# глобальные переменные/данные:
-
-title_for_basic_template = 'Дипломный проект студентов GB'
-
-data_for_basic_template = {
-    "software_category": SoftwareCategory.objects.all(),
-    "software_operating_systems": Software.objects.filter(category__name='Операционные системы'),
-    "software_office": Software.objects.filter(category__name='Офисное ПО'),
-    "software_antivirus_protection": Software.objects.filter(category__name='Антивирусная защита')
-}
+from users.models import User
+from shop.views import title_for_basic_template, data_for_basic_template
 
 
 def login(request):
     title_login = 'Вход в учетную запись - '
-    error = ''
+    message_error = ''
 
     if request.method == 'POST':
         form = UserLoginForm(data=request.POST)
@@ -32,16 +21,18 @@ def login(request):
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse('users:my_account'))
             else:
-                error = 'Неверное имя пользоваеля или пароль !'
+                if User.objects.filter(username=username).exists():
+                    message_error = 'Неверный пароль'
+                else:
+                    message_error = 'Учетной записи с таким именем пользователя нет в базе данных'
     else:
-        form = UserLoginForm()
+        form = UserLoginForm(data=request.POST)
 
     context = {
-        'error': error,
+        'message_error': message_error,
         'form': form,
-        'page_title': title_login + title_for_basic_template,
+        'page_title': title_login + title_for_basic_template(),
     }
-
     return render(request, 'login.html', context)
 
 
@@ -51,21 +42,23 @@ def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(data=request.POST)
         if form.is_valid():
-            form.save()
+            username_form = form.save(commit=False)
+            username_form.username = form.cleaned_data['email']
+            username_form.save()
+            messages.success(request,'Вы успешно зарегистрированы!')
             return HttpResponseRedirect(reverse('users:login'))
-        else:
-            print(form.errors)
+
     else:
         form = UserRegisterForm()
 
     context = {
         'form': form,
-        'page_title': title_register + title_for_basic_template,
+        'page_title': title_register + title_for_basic_template(),
     }
-
     return render(request, 'register.html', context)
 
 
+@login_required
 def my_account(request):
     title_my_account = 'Личный кабинет - '
 
@@ -74,27 +67,27 @@ def my_account(request):
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('users:my_account'))
-        else:
-            print(form.errors)
     else:
         form = UserProfileForm(instance=request.user)
 
     context = {
         'form': form,
-        'page_title': title_my_account + title_for_basic_template,
+        'page_title': title_my_account + title_for_basic_template(),
     }
+    return render(request, 'my_account.html', {**context, **data_for_basic_template(request)})
 
-    return render(request, 'my_account.html', {**context, **data_for_basic_template})
 
-
+@login_required
 def exit_my_account(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('index'))
 
 
+@login_required
 def delete_profile(request):
     user = request.user
-    User.objects.filter(username=user).delete()
-    return HttpResponseRedirect(reverse('index'))
-
-    # HttpResponseRedirect(request.META['HTTP_REFERER'])
+    if User.objects.filter(username=user).exists():
+        User.objects.filter(username=user).delete()
+        return HttpResponseRedirect(reverse('index'))
+    else:
+        return HttpResponseRedirect(request.META['HTTP_REFERER'])

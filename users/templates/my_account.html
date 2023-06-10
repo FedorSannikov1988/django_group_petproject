@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 <!-- Favicon
 ============================================ -->
 {% block favicon %}
@@ -37,7 +36,6 @@
 {% block stile_body_two_line %}
     <body class="res layout-subpage">
         <div id="wrapper" class="wrapper-full ">
-
 {% endblock %}
 
 <!-- Block Spotlight1  -->
@@ -47,45 +45,44 @@
 
 <!-- Main Container  -->
 {% block main_container %}
-
 		<div class="main-container container">
 			<ul class="header-main ">
 				<li class="home"><a href="{% url 'index' %}"> Главная </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
 				<li> Профиль </li>
 			</ul>
-            {% if user.is_authenticated %}
             <p><br><br></p>
 			<div class="row">
                 <div class="center">
-                    <div class="text-center"> <img class="image-size" src="{% if user.image %} {{ user.image.url }} {% else%} {% static 'img/about_us/there_is_no_photo.jpg' %} {% endif %}"> </div>
+                    <div class="text-center"> <img class="image-size" src="{% if user.image %} {{ user.image.url }} {% else %} {% static 'img/no_avatar/man.png' %} {% endif %}"> </div>
                 </div>
-            <br><hr><br>
-            <p><br><br></p>
+                <br><hr><br>
+                <p><br><br></p>
 				<!--Middle Part Start-->
 				<div class="col-sm-9" id="content">
-                    <form action="{% url 'users:my_account' %}" method="POST" enctype="multipart/form-data">
+                    <form method="post"  enctype="multipart/form-data" action="{% url 'users:my_account' %}">
                         {% csrf_token %}
 						<div class="row">
 							<div class="col-sm-6">
 								<fieldset id="personal-details">
 									<legend>Данные пользователя</legend>
+                                        {% if user.is_superuser or user.is_staff %}
                                     <div class="form-group required">
-										<label for="{{ form.username.id_for_label }}" class="control-label">Имя пользователя</label>
-                                        <b> <br> {{ form.username }} </b>
+										<label for="{{ form.username.id_for_label }}" class="control-label"> Имя пользователя </label>
+                                            <b> <br> {{ form.username }} </b>
 									</div>
+                                        {% endif %}
 									<div class="form-group required">
-										<label for="input-firstname" class="control-label">Имя</label>
+										<label for="{{ form.first_name.id_for_label }}" class="control-label"> Имя </label>
                                         <b> <br> {{ form.first_name }} </b>
 									</div>
 									<div class="form-group required">
-                                        <label class="control-label" for="{{ form.last_name.id_for_label }}">Фамилия пользователя</label>
+                                        <label for="{{ form.last_name.id_for_label }}" class="control-label"> Фамилия пользователя </label>
                                         <b> <br> {{ form.last_name }} </b>
 									</div>
                                     <div class="form-group required">
-										<label  class="clearable-file-input" for="">Фотография пользователя</label>
+										<label  class="clearable-file-input" for="{{ form.image.id_for_label }}"> Фотография пользователя </label>
                                         <b> <br> {{ form.image }} </b>
 									</div>
-
 								</fieldset>
 								<br>
 							</div>
@@ -93,28 +90,27 @@
 								<fieldset>
 									<legend>Контактная информация</legend>
 									<div class="form-group required">
-										<label for="input-email" class="control-label">E-Mail</label>
+                                        {% if not user.is_superuser or not user.is_staff %}
+										<label for="input-email" class="control-label">E-Mail - Имя пользователя</label>
+                                            {% else %}
+                                            <label for="input-email" class="control-label">E-Mail</label>
+                                        {% endif %}
                                         <b> <br> {{ form.email }} </b>
 									</div>
 								</fieldset>
 							</div>
 						</div>
+                        <br><br><br><br><br><br>
 						<div class="row">
 						    <div class="buttons clearfix">
 							    <div class="pull-right">
-                                    <form>
-                                        {% csrf_token %}
-                                        <div class="pull-right">
-                                            <input formaction="{% url 'users:delete_profile' %}" type="submit" value="Удалить аккаунт" class="btn btn-md btn-primary"/>
-                                            <input type="submit" class="btn btn-md btn-primary" value="Сохранить изминения">
-                                        </div>
-                                    </form>
+                                    <input type="submit" value="Сохранить изминения" class="btn btn-md btn-primary"  style="margin-right: 450px;" />
+                                    <input formaction="{% url 'users:delete_profile' %}" type="submit" value="Удалить аккаунт" class="btn btn-md btn-danger" style="margin-right: 35px;" />
 							    </div>
 						    </div>
                         </div>
 					</form>
 				</div>
-            {% endif %}
 				<!--Middle Part End-->
 			</div>
 		</div>
@@ -123,7 +119,6 @@
 
 <!-- Block Spotlight3  -->
 {% block spotlight3 %}
-<!-- может сюда еще что то и добавим -->
 {% endblock %}
 <!-- //Block Spotlight3  -->
 
