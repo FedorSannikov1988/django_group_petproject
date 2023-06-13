@@ -59,7 +59,7 @@
                 <p><br><br></p>
 				<!--Middle Part Start-->
 				<div class="col-sm-9" id="content">
-                    <form method="post"  enctype="multipart/form-data" action="{% url 'users:my_account' %}">
+                    <form method="post"  enctype="multipart/form-data" action="{% url 'users:my_account'  %}">
                         {% csrf_token %}
 						<div class="row">
 							<div class="col-sm-6">
