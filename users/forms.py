@@ -14,7 +14,7 @@ class UserLoginForm(forms.Form):
         widget=forms.PasswordInput(
         attrs={'class': 'form-control',
                'placeholder': 'Пароль'}))
-    field_order = ["username", "password"]
+    field_order = ("username", "password",)
 
 
 class UserRegisterForm(UserCreationForm):
@@ -52,9 +52,8 @@ class UserRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name',
-                  'username', 'email', 'password1', 'password2']
-
+        fields = ('first_name', 'last_name',
+                  'username', 'email', 'password1', 'password2',)
 
 class UserProfileForm(UserChangeForm):
     first_name = forms.CharField(
@@ -89,4 +88,4 @@ class UserProfileForm(UserChangeForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name',
-                  'image', 'username', 'email')
+                  'image', 'username', 'email',)
