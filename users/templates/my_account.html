@@ -65,10 +65,12 @@
 							<div class="col-sm-6">
 								<fieldset id="personal-details">
 									<legend>Данные пользователя</legend>
+                                        {% if user.is_superuser or user.is_staff %}
                                     <div class="form-group required">
 										<label for="{{ form.username.id_for_label }}" class="control-label"> Имя пользователя </label>
-                                        <b> <br> {{ form.username }} </b>
+                                            <b> <br> {{ form.username }} </b>
 									</div>
+                                        {% endif %}
 									<div class="form-group required">
 										<label for="{{ form.first_name.id_for_label }}" class="control-label"> Имя </label>
                                         <b> <br> {{ form.first_name }} </b>
@@ -88,7 +90,11 @@
 								<fieldset>
 									<legend>Контактная информация</legend>
 									<div class="form-group required">
-										<label for="input-email" class="control-label">E-Mail</label>
+                                        {% if not user.is_superuser or not user.is_staff %}
+										<label for="input-email" class="control-label">E-Mail - Имя пользователя</label>
+                                            {% else %}
+                                            <label for="input-email" class="control-label">E-Mail</label>
+                                        {% endif %}
                                         <b> <br> {{ form.email }} </b>
 									</div>
 								</fieldset>
