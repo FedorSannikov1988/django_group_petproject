@@ -77,7 +77,6 @@ class DevelopmentTeam(models.Model):
 
 class FAQ(models.Model):
     question = models.TextField(max_length=500, null=True, blank=False)
-    # answer = models.TextField(max_length=2500, null=True, blank=False)
     answer = CKEditor5Field(max_length=2500, null=True, blank=False)
 
     class Meta:

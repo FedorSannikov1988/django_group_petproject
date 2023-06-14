@@ -40,12 +40,12 @@ class UserRegisterForm(UserCreationForm):
             attrs={'class': 'form-control',
                    'placeholder': 'Эл.почта'}))
     password1 = forms.CharField(
-        label="Пароль",
+        label=("Пароль"),
         widget=forms.PasswordInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Пароль'}))
     password2 = forms.CharField(
-        label="Подтвердить пароль",
+        label=("Подтвердить пароль"),
         widget=forms.PasswordInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Подтвердите пароль'}))
@@ -54,6 +54,7 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ('first_name', 'last_name',
                   'username', 'email', 'password1', 'password2',)
+
 
 class UserProfileForm(UserChangeForm):
     first_name = forms.CharField(

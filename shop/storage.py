@@ -8,7 +8,6 @@ from django.core.files.storage import FileSystemStorage
 
 
 class CustomStorage(FileSystemStorage):
-    """Custom storage for django_ckeditor_5 images."""
     def get_folder_name(self):
         return datetime.now().strftime('%Y/%m/%d')
 
@@ -22,5 +21,3 @@ class CustomStorage(FileSystemStorage):
 
     location = os.path.join(settings.MEDIA_ROOT, 'uploads/')
     base_url = urljoin(settings.MEDIA_URL, 'uploads/')
-    # location = os.path.join(settings.MEDIA_ROOT, "uploads/images/")
-    # base_url = urljoin(settings.MEDIA_URL, "uploads/images/")
