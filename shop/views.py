@@ -71,13 +71,20 @@ def faq(request):
     return render(request, 'faq.html', {**context, **data_for_basic_template(request)})
 
 
-def product(request):
+def product(request, software_id):
     title_product = 'Описание програмного обеспечения - '
-
+    software = Software.objects.get(id=software_id)
+    category = SoftwareCategory.objects.get(id=software.category_id)
     context = {
         'page_title': title_product + title_for_basic_template(),
+        'software_name': software.name,
+        'software_image': software.image.url,
+        'software_price': software.price,
+        'software_quantity': software.quantity,
+        'software_category_id': software.category_id,
+        'software_category_name': category.name,
     }
-    return render(request, 'product.html', {**context, **data_for_basic_template(request)})
+    return render(request, 'product.html', context)
 
 
 def products_catalog(request, category_id=None, page_number=1):

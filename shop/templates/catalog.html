@@ -49,7 +49,7 @@
 		<div class="main-container container">
 			<ul class="header-main">
 				<li class="home"><a href="{% url 'index' %}" > Главная </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                <li class="catalog"><a href="{% url 'products_catalog:index' %}"> Каталог </a></li>
+                <li class="home"><a href="{% url 'products_catalog:index' %}"> Каталог </a></li>
 			</ul>
 				<!--Left Part Start -->
                 {# Тут было боковое меню!!! Как-то надо прихерачить как на главной! #}
@@ -96,7 +96,7 @@
                                     <div class="product-item-container">
                                         <div class="left-block">
                                             <div class="product-image-container  second_img ">
-                                                <a href="#" class="product-img"><img src="{{ software.image.url }}" alt=""></a>
+                                                <a class="product-img"><img src="{{ software.image.url }}" alt=""></a>
                                                 <!--Sale Label-->
                                                 <!-- <span class="sale">-95%</span> -->
                                                 <!-- <span class="new">Old</span> -->
@@ -104,7 +104,7 @@
                                         </div>
                                         <div class="right-block">
                                             <div class="caption">
-                                                <h4><a href="{% url 'product' %}">{{ software.name }}</a>
+                                                <h4><a href="{% url 'product:index' software.id%}">{{ software.name }}</a>
                                                 </h4>
                                                 <div class="ratings">
                                                 </div>

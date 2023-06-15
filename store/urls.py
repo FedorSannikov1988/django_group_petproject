@@ -14,6 +14,7 @@ urlpatterns = [
     path("faq", faq, name='faq'),
     path("input_user/", include('users.urls', namespace='users')),
     path("products_catalog/", include('shop.urls', namespace='products_catalog')),
+    path("product/", include('shop.urls', namespace='product')),
 ]
 
 if settings.DEBUG:

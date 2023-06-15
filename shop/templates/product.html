@@ -48,9 +48,10 @@
 {% block main_container %}
 	<div class="main-container container">
 			<ul class="header-main type-1">
-				<li class="home"><a href="#">Главная<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-				<li class="home"><a href="#">Название категории<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-				<li><a href="#">Это название продукта</a></li>
+				<li class="home"><a href="{% url 'index' %}">Главная<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                <li class="home"><a href="{% url 'products_catalog:index' %}">Каталог <i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+				<li class="home"><a href="{% url 'products_catalog:category' software_category_id%}">{{ software_category_name }}<i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+				<li class="home"><a href="#">{{ software_name }}</a></li>
 			</ul>
 			<div class="row">
 				<!--Middle Part Start-->
@@ -60,12 +61,12 @@
 							<div class="row">
 								<div class="content-product-left class-honizol col-md-6 col-sm-12 col-xs-12 ">
 									<div class="large-image  ">
-										<img itemprop="image" class="product-image-zoom" src="{% static 'img/demo/shop/product/resize/product-1.jpg' %}" data-zoom-image="/static/img/demo/shop/product/resize/product-1.jpg" title="Bint Beef" alt="Bint Beef">
+										<img itemprop="image" class="product-image-zoom" src="{{ software_image }}" data-zoom-image={{ software_image }} title={{ software_name }} alt={{ software_name }}>
 									</div>
 								</div>
 								<div class="content-product-right col-md-6 col-sm-12 col-xs-12">
 									<div class="title-product">
-										<h1>Название продукта</h1>
+										<h1>{{ software_name }}</h1>
 									</div>
 									<!-- Review -->
 									<div class="box-review form-group">
@@ -89,11 +90,11 @@
 									</div>
 									<div class="product-label form-group">
 										<div class="stock">
-											<span>Availability:</span> <span class="instock">Сколько в наличии</span>
+											<span>Availability:</span> <span class="instock">{{ software_quantity }}</span>
 											<p></p>
 										</div>
 										<div class="product_page_price price" itemprop="offerDetails" itemscope="" itemtype="http://data-vocabulary.org/Offer">
-											<span class="price-new" itemprop="price">Цена</span>
+											<span class="price-new" itemprop="price">{{ software_price }}</span>
 											<span class="price-old">Старая цена</span>
 										</div>
 									</div>
