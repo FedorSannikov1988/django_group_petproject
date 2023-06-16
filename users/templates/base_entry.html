@@ -1,8 +1,7 @@
 {% load static %}
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
 
@@ -32,7 +31,14 @@
 {% block stile_body_two_line %} {% endblock %}
 
 <!-- Header Container  -->
-<header id="header" class=" variantleft type_1">
+        <header id="header" class=" variantleft type_1">
+            <!-- Header Top -->
+			<div class="header-top">
+				<div class="container">
+                    <!-- Gray line in header -->
+				</div>
+			</div>
+			<!-- //Header Top -->
 			<!-- Header center -->
 			<div class="header-center left">
 				<div class="container">
@@ -84,48 +90,36 @@
 		</header>
 <!-- //Header Container  -->
 
-<!-- Block Spotlight1  -->
-{% block spotlight1 %} {% endblock %}
-<!-- //Block Spotlight1  -->
-
 <!-- Main Container  -->
 {% block main_container %} {% endblock %}
 <!-- //Main Container -->
 
-<!-- Block Spotlight3  -->
-{% block spotlight3 %} {% endblock %}
-<!-- //Block Spotlight3  -->
-
 <!-- Footer Container -->
-<footer class="footer-container type_footer1">
-    <!-- Footer Top Container -->
-	<section class="footer-top">
-		<div class="container content">
-			<div class="">
-				<div class=" collapsed-block ">
+    <footer class="footer-container type_footer1">
+        <!-- Footer Top Container -->
+        <section class="footer-top">
+		    <div class="container content">
+                <div class="box-information">
 					<div class="module clearfix">
-						<h3 class="modtitle"> Наши контакты: </h3>
+						<h3 class="modtitle">Наши контакты</h3>
 						<div class="modcontent">
-							<ul class="contact-address">
-								<li><p><span class="fa fa-map-marker"> </span><span>Наш адрес : </span> --- </p></li>
-								<li><p><span class="fa fa-envelope-o"> </span><span>Email : </span> --- </p></li>
-								<li><p><span class="fa fa-phone"> </span><span>Телефон : </span> --- </p></li>
+							<ul class="menu">
+                                <li><a href="{% url 'about_us' %}">О нас / Наши контакты</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 				<div class=" box-information">
 					<div class="module clearfix">
-						<h3 class="modtitle">Информация:</h3>
+						<h3 class="modtitle">Информация</h3>
 						<div class="modcontent">
 							<ul class="menu">
-                                <li><a href="{% url 'faq:index' %}">Полезная информация</a></li>
-                                <li><a href="{% url 'about_us' %}">О нас/Наши контакты</a></li>
+								<li><a href="{% url 'faq' %}">Полезная информация</a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
-				<div class=" box-extras">
+				<div class="box-information">
 					<div class="module clearfix">
 						<h3 class="modtitle">Дополнительно</h3>
 						<div class="modcontent">
@@ -135,16 +129,18 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
-</footer>
+                <div>
+                <br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br>
+                </div>
+            </div>
+        </section>
+    </footer>
 <!-- //Footer Container -->
-
 </div>
+
 <!-- Include Libs & Plugins
 ============================================ -->
-<!-- End of the document so the pages load faster -->
 {% block libs_and_plugins %} {% endblock %}
 
 <!-- Theme files

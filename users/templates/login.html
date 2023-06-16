@@ -1,7 +1,6 @@
 {% extends 'base_entry.html' %}
 {% load static %}
 
-
 <!-- Favicon
 ============================================ -->
 {% block favicon %}
@@ -47,7 +46,6 @@
         <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
         <li>Войти</li>
     </ul>
-
     <div class="row">
         <div id="content" class="col-sm-12">
             <div class="page-login">
@@ -60,32 +58,32 @@
                                 <p>Создав учетную запись, вы сможете совершать покупки быстрее, быть в курсе статуса заказа и отслеживать ранее сделанные заказы.</p>
                             </div>
                             <div class="bottom-form">
-                                <a href="{% url 'register' %}" class="btn btn-default pull-right">Регистрация</a>
+                                <a href="{% url 'users:register' %}" class="btn btn-default pull-right">Регистрация</a>
                             </div>
                         </div>
-
-                        <form action="#" method="post" enctype="multipart/form-data">
+                        <form action="{% url 'users:login' %}" method="post">
                             <div class="col-sm-6 customer-login">
                                 <div class="well">
                                     <h2><i class="fa fa-file-text-o" aria-hidden="true"></i>Постоянный покупатель</h2>
+                                    {% csrf_token %}
                                     <div class="form-group">
-                                        <label class="control-label " for="input-email">E-Mail</label>
-                                        <input type="text" name="email" value="" id="input-email" class="form-control" />
+                                        <label class="control-label" for="{{ form.username.id_for_label }}">Логин:</label>
+                                        <p>{{ form.username }}</p>
                                     </div>
                                     <div class="form-group">
-                                        <label class="control-label " for="input-password">Пароль</label>
-                                        <input type="password" name="password" value="" id="input-password" class="form-control" />
+                                        <label class="control-label" for="{{ form.password.id_for_label }}">Пароль:</label>
+                                        <p>{{ form.password }}</p>
+                                         <div class="alert-danger"> {{ message_error }} </div>
                                     </div>
                                 </div>
                                 <div class="bottom-form">
                                     <a href="#" class="forgot">Забыли пароль ?</a>
-                                    <a href="#" class="btn btn-default pull-right">Войти</a>
+                                    <input type="submit" value="Войти" class="btn btn-default pull-right">
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -107,8 +105,6 @@
 <script type="text/javascript" src="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
 {% endblock %}
-
-	
 
 <!-- Theme files
 ============================================ -->

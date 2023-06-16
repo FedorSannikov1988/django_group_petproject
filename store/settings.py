@@ -4,8 +4,6 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# Потом нужно сделать так что бы ключ не было видно !
-# Запихнуть в отдельный файл и включить данный файл в gitinit !
 SECRET_KEY = 'django-insecure-0^o=sxfb5_6#jpo&*)jsffrat^*yo#f-+)p(aiijo7!kp@_&ym'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -13,9 +11,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -23,10 +19,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'phonenumber_field',
-
     'shop',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +76,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 
@@ -100,3 +95,9 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Users
+
+AUTH_USER_MODEL = 'users.User'
+
+LOGIN_URL = '/input_user/login/'

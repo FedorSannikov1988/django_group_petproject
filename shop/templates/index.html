@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
 
-
 <!-- Favicon
 ============================================ -->
 {% block favicon %}
@@ -67,7 +66,7 @@
                                                     <div class="container">
                                                         <ul class="megamenu">
                                                             {% for one_category in software_category %}
-                                                            <li> <a href="#" class="clearfix"> <span>  {{ one_category.name }} </span> </a> </li>
+                                                            <li> <a href="{% url 'products_catalog:category' one_category.id %}" class="clearfix"> <span>  {{ one_category.name }} </span> </a> </li>
                                                             {% endfor %}
                                                         </ul>
                                                     </div>
@@ -99,149 +98,20 @@
 
 <!-- Main Container  -->
 {% block main_container %}
-                <div class="main-container container">
-                    <div class="row">
-                    <hr> <hr> <hr>
-                        <div class="smartphone-tablet col-sm-12">
-                            <h3 class="modtitle"> Все програмное обеспечение продающееся в магазине </h3>
-                            <hr> <hr> <hr>
-                            <div class="smartphone-tablet-owl">
-                                <div class=" owl-carousel related-owl " data-dots="yes" data-nav="yes" data-loop="yes" data-items_xs="1" data-items_sm="3" data-items_md="5" data-margin="10" >
-                                    {% for one_soft in all_soft %}
-                                    <div class="product-layout">
-                                        <div class="product-item-container">
-                                            <div class="left-block">
-                                                <div class="product-image-container  second_img ">
-                                                    <a href="#" class="product-img"><img src="{{ one_soft.image.url }}" alt=""></a>
-                                                    <!--Sale Label-->
-                                                    <!-- <span class="sale">-95%</span> -->
-                                                    <!-- <span class="new">Old</span> -->
-                                                </div>
-                                            </div>
-                                            <div class="right-block">
-                                                <div class="caption">
-                                                    <h4><a href="{% url 'product' %}">{{ one_soft.name }}</a></h4>
-                                                    <div class="ratings">
-                                                    </div>
-                                                    <div class="price">
-                                                        <span class="price">{{ one_soft.price }} ₽</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                        <hr> <hr> <hr>
-                        <div class="smartphone-tablet col-sm-12">
-                            <h3 class="modtitle"> {{ software_category.0.name }} </h3>
-                            <hr> <hr> <hr>
-                            <div class="smartphone-tablet-owl">
-                                <div class=" owl-carousel related-owl " data-dots="yes" data-nav="yes" data-loop="yes" data-items_xs="1" data-items_sm="3" data-items_md="5" data-margin="10" >
-                                    {% for one_software_antivirus in software_antivirus_protection %}
-                                    <div class="product-layout">
-                                        <div class="product-item-container">
-                                            <div class="left-block">
-                                                <div class="product-image-container  second_img ">
-                                                    <a href="#" class="product-img"><img src="{{ one_software_antivirus.image.url }}" alt=""></a>
-                                                    <!--Sale Label-->
-                                                    <!-- <span class="sale">-95%</span> -->
-                                                    <!-- <span class="new">Old</span> -->
-                                                </div>
-                                            </div>
-                                            <div class="right-block">
-                                                <div class="caption">
-                                                    <h4><a href="{% url 'product' %}">{{ one_software_antivirus.name }}</a></h4>
-                                                    <div class="ratings">
-                                                    </div>
-                                                    <div class="price">
-                                                        <span class="price">{{ one_software_antivirus.price }} ₽</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                        <hr> <hr> <hr>
-                        <div class="smartphone-tablet col-sm-12">
-                            <h3 class="modtitle"> {{ software_category.1.name }} </h3>
-                            <hr> <hr> <hr>
-                            <div class="smartphone-tablet-owl">
-                                <div class=" owl-carousel related-owl " data-dots="yes" data-nav="yes" data-loop="yes" data-items_xs="1" data-items_sm="3" data-items_md="5" data-margin="10" >
-                                          {% for one_software_office in software_office %}
-                                    <div class="product-layout">
-                                        <div class="product-item-container">
-                                            <div class="left-block">
-                                                <div class="product-image-container  second_img ">
-                                                    <a href="#" class="product-img"><img src="{{ one_software_office.image.url }}" alt=""></a>
-                                                    <!--Sale Label-->
-                                                    <!-- <span class="sale">-95%</span> -->
-                                                    <!-- <span class="new">Old</span> -->
-                                                </div>
-                                            </div>
-                                            <div class="right-block">
-                                                <div class="caption">
-                                                    <h4><a href="#">{{ one_software_office.name }}</a></h4>
-                                                    <div class="ratings">
-                                                    </div>
-                                                    <div class="price">
-                                                        <span class="price">{{ one_software_office.price }} ₽</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                        <hr> <hr> <hr>
-                        <div class="smartphone-tablet col-sm-12">
-                            <h3 class="modtitle"> {{ software_category.2.name }} </h3>
-                            <hr> <hr> <hr>
-                            <div class="smartphone-tablet-owl">
-                                <div class=" owl-carousel related-owl " data-dots="yes" data-nav="yes" data-loop="yes" data-items_xs="1" data-items_sm="3" data-items_md="5" data-margin="10" >
-                                          {% for one_operating_systems in software_operating_systems %}
-                                    <div class="product-layout">
-                                        <div class="product-item-container">
-                                            <div class="left-block">
-                                                <div class="product-image-container  second_img ">
-                                                    <a href="#" class="product-img"><img src="{{ one_operating_systems.image.url }}" alt=""></a>
-                                                    <!--Sale Label-->
-                                                    <!-- <span class="sale">-95%</span> -->
-                                                    <!-- <span class="new">Old</span> -->
-                                                </div>
-                                            </div>
-                                            <div class="right-block">
-                                                <div class="caption">
-                                                    <h4><a href="#">{{ one_operating_systems.name }}</a></h4>
-                                                    <div class="ratings">
-                                                    </div>
-                                                    <div class="price">
-                                                        <span class="price">{{ one_operating_systems.price }} ₽</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                </div>
-                            </div>
-                        </div>
-                        <hr> <hr> <hr>
-                    </div>
-                </div>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
+<br><br><br><br><br><br>
 {% endblock %}
 <!-- //Main Container -->
 
 <!-- Block Spotlight3  -->
 {% block spotlight3 %}
-<!-- может сюда еще что то и добавим -->
 {% endblock %}
 <!-- //Block Spotlight3  -->
 
