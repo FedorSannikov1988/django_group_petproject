@@ -110,9 +110,15 @@
 												</div>
 											</div>
 											<div class="info-product-right">
-												<div class="cart">
-													<input type="button" data-toggle="tooltip" title="" value="В корзину" data-loading-text="Loading..." id="button-cart" class="btn btn-mega btn-lg" onclick="cart.add('42', '1');" data-original-title="В корзину">
-												</div>
+{#												<div class="cart">           #}
+{#													<input type="button" data-toggle="tooltip" title="" value="В корзину" data-loading-text="Loading..." id="button-cart" class="btn btn-mega btn-lg" onclick="cart.add('42', '1');" data-original-title="В корзину"> #}
+{#												</div> #}
+                                                <div class="button-group">
+                                                    <a class="addToCart btn btn-default"
+                                                       href="{% url "products_catalog:cart_add_one" software_id %}">
+                                                        В корзину
+                                                    </a>
+                                                </div>
 {#												<div class="add-to-links wish_comp">#}
 {#													<ul class="blank list-inline">#}
 {#														<li class="wishlist">#}

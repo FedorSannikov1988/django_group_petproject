@@ -46,7 +46,6 @@
                                         <li class="signin"><a href="{% url 'users:login' %}" class="top-link-checkout" title="Войти"><span>Войти</span></a></li>
                                         <li class="register"><a href="{% url 'users:register' %}" title="Регистрация"><span> Регистрация </span></a></li>
                                     {% endif %}
-
                                     {% if user.is_superuser %}
                                         <li class="signin"><a href="{% url 'admin:index' %}" class="top-link-checkout" title="Панель-администратора"><span>Войти в панель-администратора</span></a></li>
                                     {% endif %}

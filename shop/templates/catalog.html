@@ -96,7 +96,8 @@
                                     <div class="product-item-container">
                                         <div class="left-block">
                                             <div class="product-image-container  second_img ">
-                                                <a class="product-img"><img src="{{ software.image.url }}" alt=""></a>
+                                                <a class="product-img" href="{% url 'product:index' software.id %}"
+                                                ><img src="{{ software.image.url }}"></a>
                                                 <!--Sale Label-->
                                                 <!-- <span class="sale">-95%</span> -->
                                                 <!-- <span class="new">Old</span> -->
@@ -104,7 +105,7 @@
                                         </div>
                                         <div class="right-block">
                                             <div class="caption">
-                                                <h4><a href="{% url 'product:index' software.id%}">{{ software.name }}</a>
+                                                <h4><a href="{% url 'product:index' software.id %}">{{ software.name }}</a>
                                                 </h4>
                                                 <div class="ratings">
                                                 </div>
@@ -113,8 +114,7 @@
                                                 </div>
                                                 <div class="button-group">
                                                     <a class="addToCart btn btn-default"
-                                                       href="{% url 'products_catalog:cart_add_one' software.id %}">
-                                                        Купить </a>
+                                                       href="{% url 'products_catalog:cart_add_one' software.id %}"> Купить </a>
                                                 </div>
                                             </div>
                                         </div>
