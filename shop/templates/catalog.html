@@ -49,7 +49,7 @@
 		<div class="main-container container">
 			<ul class="header-main">
 				<li class="home"><a href="{% url 'index' %}" > Главная </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                <li class="catalog"><a href="{% url 'products_catalog:index' %}"> Каталог </a></li>
+                <li class="home"><a href="{% url 'products_catalog:index' %}"> Каталог </a></li>
 			</ul>
 				<!--Left Part Start -->
                 {# Тут было боковое меню!!! Как-то надо прихерачить как на главной! #}
@@ -69,34 +69,34 @@
 									<div class="text">
 										<p>Товаров 1 - 16 из 47</p>
 									</div>
-									<div class="form-group short-by">
-										<label class="control-label" for="input-sort">Sort By:</label>
-										<select id="input-sort" class="form-control" onchange="location = this.value;">
-											<option value="" selected="selected">Default </option>
-											<option value="">Name (A - Z)</option>
-											<option value="">Name (Z - A)</option>
-											<option value="">Price (Low &gt; High)</option>
-											<option value="">Price (High &gt; Low)</option>
-											<option value="">Rating (Highest)</option>
-											<option value="">Rating (Lowest)</option>
-											<option value="">Model (A - Z)</option>
-											<option value="">Model (Z - A)</option>
-										</select>
-									</div>
+{#									<div class="form-group short-by">#}
+{#										<label class="control-label" for="input-sort">Sort By:</label>#}
+{#										<select id="input-sort" class="form-control" onchange="location = this.value;">#}
+{#											<option value="" selected="selected">Default </option>#}
+{#											<option value="">Name (A - Z)</option>#}
+{#											<option value="">Name (Z - A)</option>#}
+{#											<option value="">Price (Low &gt; High)</option>#}
+{#											<option value="">Price (High &gt; Low)</option>#}
+{#											<option value="">Rating (Highest)</option>#}
+{#											<option value="">Rating (Lowest)</option>#}
+{#											<option value="">Model (A - Z)</option>#}
+{#											<option value="">Model (Z - A)</option>#}
+{#										</select>#}
+{#									</div>#}
 								</div>
 							</div>
 						</div>
 						<!-- //end Filters -->
 						<!--changed listings-->
                         <div class="products-list grid">
-                            <h3 class="modtitle"> {{ software_category.0.name }} </h3>
+                            <h3 class="modtitle"> {{ software.name }} </h3>
                             <hr> <hr> <hr>
-                            {% for one_software_antivirus in software_antivirus_protection %}
+                            {% for software in software %}
                                 <div class="product-layout">
                                     <div class="product-item-container">
                                         <div class="left-block">
                                             <div class="product-image-container  second_img ">
-                                                <a href="#" class="product-img"><img src="{{ one_software_antivirus.image.url }}" alt=""></a>
+                                                <a class="product-img"><img src="{{ software.image.url }}" alt=""></a>
                                                 <!--Sale Label-->
                                                 <!-- <span class="sale">-95%</span> -->
                                                 <!-- <span class="new">Old</span> -->
@@ -104,16 +104,16 @@
                                         </div>
                                         <div class="right-block">
                                             <div class="caption">
-                                                <h4><a href="{% url 'product' %}">{{ one_software_antivirus.name }}</a>
+                                                <h4><a href="{% url 'product:index' software.id%}">{{ software.name }}</a>
                                                 </h4>
                                                 <div class="ratings">
                                                 </div>
                                                 <div class="price">
-                                                    <span class="price">{{ one_software_antivirus.price }} ₽</span>
+                                                    <span class="price">{{ software.price }} ₽</span>
                                                 </div>
                                                 <div class="button-group">
                                                     <a class="addToCart btn btn-default"
-                                                       href="{% url 'products_catalog:cart_add_one' one_software_antivirus.id %}">
+                                                       href="{% url 'products_catalog:cart_add_one' software.id %}">
                                                         Купить </a>
                                                 </div>
                                             </div>
@@ -122,77 +122,6 @@
                                 </div>
                             {% endfor %}
                         </div>
-                        <!--// End Changed listings-->
-                        <div class="products-list grid">
-                            <h3 class="modtitle"> {{ software_category.1.name }} </h3>
-                            <hr><hr><hr>
-                            {% for one_software_office in software_office %}
-                                <div class="product-layout">
-                                    <div class="product-item-container">
-                                        <div class="left-block">
-                                            <div class="product-image-container  second_img ">
-                                                <a href="#" class="product-img"><img
-                                                        src="{{ one_software_office.image.url }}" alt=""></a>
-                                                <!--Sale Label-->
-                                                <!-- <span class="sale">-95%</span> -->
-                                                <!-- <span class="new">Old</span> -->
-                                            </div>
-                                        </div>
-                                        <div class="right-block">
-                                            <div class="caption">
-                                                <h4><a href="{% url 'product' %}">{{ one_software_office.name }}</a>
-                                                </h4>
-                                                <div class="ratings">
-                                                </div>
-                                                <div class="price">
-                                                    <span class="price">{{ one_software_office.price }} ₽</span>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a class="addToCart btn btn-default"
-                                                       href="{% url 'products_catalog:cart_add_one' one_software_office.id %}">
-                                                        Купить </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                        <div class="products-list grid">
-                            <h3 class="modtitle"> {{ software_category.2.name }} </h3>
-                            <hr><hr><hr>
-                            {% for one_operating_systems in software_operating_systems %}
-                                <div class="product-layout">
-                                    <div class="product-item-container">
-                                        <div class="left-block">
-                                            <div class="product-image-container  second_img ">
-                                                <a href="#" class="product-img"><img src="{{ one_operating_systems.image.url }}" alt=""></a>
-                                                <!--Sale Label-->
-                                                <!-- <span class="sale">-95%</span> -->
-                                                <!-- <span class="new">Old</span> -->
-                                            </div>
-                                        </div>
-                                        <div class="right-block">
-                                            <div class="caption">
-                                                <h4><a href="{% url 'product' %}">{{ one_operating_systems.name }}</a>
-                                                </h4>
-                                                <div class="ratings">
-                                                </div>
-                                                <div class="price">
-                                                    <span class="price">{{ one_operating_systems.price }} ₽</span>
-                                                </div>
-                                                <div class="button-group">
-                                                    <a class="addToCart btn btn-default"
-                                                       href="{% url 'products_catalog:cart_add_one' one_operating_systems.id %}">
-                                                        Купить </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                        <!-- Filters -->
 						<div class="product-filter filters-panel">
 							<div class="row">
 								<div class="col-md-5 visible-lg">
@@ -203,11 +132,13 @@
 									</div>
 									<div class="box-pagination text-right">
 										<ul class="pagination">
-											<li class="active"><span>1</span></li>
-											<li><a href="#" >2</a></li>
-											<li><a href="#" >3</a></li>
-											<li><a href="#" >4</a></li>
-											<li><a href="#" ><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
+                                        {% for page in software.paginator.page_range %}
+                                            <li><a href="{% url 'products_catalog:paginator' page %}" >{{ page }}</a></li>
+                                        {% endfor %}
+											<li><a href="{% if software.has_next %} {% url 'products_catalog:paginator' software.next_page_number %} {% else %} # {% endif %}">
+                                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                            </a>
+                                            </li>
 										</ul>
 									</div>
 								</div>

@@ -3,6 +3,8 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
 from shop.forms import ShopFaqForm
 from shop.models import SoftwareCategory, Software, FeaturesSoftware, DevelopmentTeam, FAQ, Cart
+from shop.models import SoftwareCategory, Software, DevelopmentTeam, FAQ, Cart
+from django.core.paginator import Paginator
 
 
 def title_for_basic_template():
@@ -25,10 +27,10 @@ def data_for_basic_template(request):
 
 def all_soft():
     data = {
-        "all_soft": Software.objects.all(),
-        "software_operating_systems": Software.objects.filter(category__name='Операционные системы'),
-        "software_office": Software.objects.filter(category__name='Офисное ПО'),
-        "software_antivirus_protection": Software.objects.filter(category__name='Антивирусная защита')
+        # "all_soft": Software.objects.all(),
+        # "software_operating_systems": Software.objects.filter(category__name='Операционные системы'),
+        # "software_office": Software.objects.filter(category__name='Офисное ПО'),
+        # "software_antivirus_protection": Software.objects.filter(category__name='Антивирусная защита')
     }
     return data
 
@@ -83,22 +85,38 @@ def faq(request):
     return render(request, 'faq.html', {**context, **data_for_basic_template(request)})
 
 
-def product(request):
-    title_product = 'Описание программного обеспечения - '
-
+def product(request, software_id):
+    title_product = 'Описание програмного обеспечения - '
+    software = Software.objects.get(id=software_id)
+    category = SoftwareCategory.objects.get(id=software.category_id)
     context = {
         'page_title': title_product + title_for_basic_template(),
+        'software_name': software.name,
+        'software_image': software.image.url,
+        'software_price': software.price,
+        'software_quantity': software.quantity,
+        'software_category_id': software.category_id,
+        'software_category_name': category.name,
     }
-    return render(request, 'product.html', {**context, **data_for_basic_template(request)})
+    return render(request, 'product.html', context)
 
 
-def products_catalog(request):
+def products_catalog(request, category_id=None, page_number=1):
     title_product_catalog = 'Каталог программного обеспечения - '
+    if category_id:
+        software = Software.objects.filter(category_id=category_id)
+    else:
+        software = Software.objects.all()
 
-    context = {
-        "page_title": title_product_catalog + title_for_basic_template(),
+    paginator = Paginator(software, per_page=6)
+    software_paginator = paginator.page(page_number)
+
+    context = {"page_title": title_product_catalog + title_for_basic_template(),
+               "categories": SoftwareCategory.objects.all(),
+               "software": software_paginator,
     }
-    return render(request, 'catalog.html', {**context, **data_for_basic_template(request), **all_soft()})
+
+    return render(request, 'catalog.html', context)
 
 
 @login_required
