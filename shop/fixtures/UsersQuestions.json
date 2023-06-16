@@ -1,0 +1,32 @@
+[
+  {
+	"model": "shop.usersquestions",
+	"pk": 1,
+	"fields": {
+	  "user": 4,
+	  "userquestion": "Как получить заказ другому человеку ?",
+	  "question_timestamp": "2023-06-06T20:16:17.076Z",
+	  "upload": ""
+	}
+  },
+  {
+	"model": "shop.usersquestions",
+	"pk": 2,
+	"fields": {
+	  "user": 4,
+	  "userquestion": "Лицензионный ключ не подходит к купленному продукту ?",
+	  "question_timestamp": "2023-06-06T20:17:40.724Z",
+	  "upload": ""
+	}
+  },
+  {
+	"model": "shop.usersquestions",
+	"pk": 10,
+	"fields": {
+	  "user": 2,
+	  "userquestion": "Тест сохранения файла",
+	  "question_timestamp": "2023-06-16T10:53:31.434Z",
+	  "upload": "question_user/2_test1/16-06-2023_13-53-31_комманды.txt"
+	}
+  }
+]
