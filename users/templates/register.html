@@ -77,29 +77,17 @@
                 </div>
                 <div class="form-group required">
                     <label class="control-label" for="{{ form.password1.id_for_label }}" > Пароль </label>
-                    {{ form.password1 }}
+                {{ form.password1 }}
                 </div>
                 <div class="form-group required">
                     <label class="control-label" for="{{ form.password2.id_for_label }}" > Подтвержение пароля </label>
                     {{ form.password2 }}
+                    {% if form.password2.errors %}
+                    <div class="alert-danger">
+                        <strong> {{ form.password2.errors }} </strong>
+                    </div>
+                    {% endif %}
                 </div>
-            <!-- Message about registration errors -->
-            {% if form.errors %}
-                <div class="alert-danger">
-                    {{ form.errors }}
-
-                </div>
-
-                {% for error in form.errors %}
-                    {{ error }}
-                {% endfor %}
-
-                    {{ form.subject.errors }}
-                    {{ form.subject.label_tag }}
-                    {{ form.subject }}
-
-            {% endif %}
-            <!-- //Message about registration errors -->
                 <br><br>
                 <div class="buttons">
                     <div class="pull-right">

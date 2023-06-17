@@ -1,6 +1,7 @@
 from phonenumber_field.modelfields import PhoneNumberField
 from users.models import User
 from django.db import models
+from datetime import datetime
 from django_ckeditor_5.fields import CKEditor5Field
 
 
@@ -27,7 +28,6 @@ class Software(models.Model):
     class Meta:
         verbose_name_plural = "Програмное обеспечение"
         verbose_name = "программное обеспечение"
-
 
     def __str__(self):
         return f'Software: {self.name} ' \
@@ -84,8 +84,7 @@ class FAQ(models.Model):
         verbose_name = "полезная/справочная информация"
 
     def __str__(self):
-        return f'Question: {self.question} ' \
-               f'| Answer: {self.answer} '
+        return f'Question: {self.question} '
 
 
 class CartQuerySet(models.QuerySet):
@@ -115,7 +114,7 @@ class Cart(models.Model):
 
 def user_directory_path(instance, filename):
     return 'question_user/{0}_{1}/{2}_{3}'.format(instance.user_id, instance.user.username,
-                                                  instance.question_timestamp, filename)
+                                                  datetime.now().strftime("%d-%m-%Y_%H-%M-%S"), filename)
 
 
 class UsersQuestions(models.Model):

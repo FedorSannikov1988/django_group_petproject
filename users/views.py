@@ -45,7 +45,7 @@ def register(request):
             username_form = form.save(commit=False)
             username_form.username = form.cleaned_data['email']
             username_form.save()
-            messages.success(request,'Вы успешно зарегистрированы!')
+            messages.success(request, 'Вы успешно зарегистрированы!')
             return HttpResponseRedirect(reverse('users:login'))
     else:
         form = UserRegisterForm()

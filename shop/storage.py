@@ -8,16 +8,15 @@ from django.core.files.storage import FileSystemStorage
 
 
 class CustomStorage(FileSystemStorage):
-    def get_folder_name(self):
-        return datetime.now().strftime('%Y/%m/%d')
 
     def get_valid_name(self, name):
-        return name
+        return datetime.now().strftime("%d-%m-%Y_%H-%M-%S")+"_"+name
 
     def _save(self, name, content):
-        folder_name = self.get_folder_name()
-        name = os.path.join(folder_name, self.get_valid_name(name))
+        name = os.path.join(self.get_valid_name(name))
         return super()._save(name, content)
 
-    location = os.path.join(settings.MEDIA_ROOT, 'uploads/')
-    base_url = urljoin(settings.MEDIA_URL, 'uploads/')
+    name_folder = "images_for_faq_answer/"
+    location = os.path.join(settings.MEDIA_ROOT, name_folder)
+    base_url = urljoin(settings.MEDIA_URL, name_folder)
+

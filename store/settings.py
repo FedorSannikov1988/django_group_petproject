@@ -58,8 +58,12 @@ WSGI_APPLICATION = 'store.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'shop_db',
+        'USER': 'admin',
+        'PASSWORD': '1',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -99,7 +103,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = 'media/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -136,8 +139,9 @@ customColorPalette = [
     },
 ]
 
-# CKEDITOR_5_CUSTOM_CSS = 'path_to.css'  # optional
-CKEDITOR_5_FILE_STORAGE = "shop.storage.CustomStorage"  # optional
+
+CKEDITOR_5_FILE_STORAGE = "shop.storage.CustomStorage"
+
 CKEDITOR_5_CONFIGS = {
     'default': {
         'toolbar': ['heading', '|', 'bold', 'italic', 'link',
