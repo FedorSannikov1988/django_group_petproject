@@ -1,18 +1,14 @@
 import os
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-0^o=sxfb5_6#jpo&*)jsffrat^*yo#f-+)p(aiijo7!kp@_&ym'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -20,10 +16,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'phonenumber_field',
+    'django_ckeditor_5',
+
     'shop',
     'users',
-    'django_ckeditor_5',
 ]
 
 MIDDLEWARE = [
@@ -92,13 +90,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-#закрыть перед запуском python manage.py collectstatic
-STATICFILES_DIRS = (
-    BASE_DIR / 'static',
-)
-
-#открыть перед запуском python manage.py collectstatic
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (BASE_DIR / 'static', )
 
 MEDIA_URL = 'media/'
 
@@ -200,7 +192,5 @@ CKEDITOR_5_CONFIGS = {
             'startIndex': 'true',
             'reversed': 'true',
         }
-
     }
-
 }
