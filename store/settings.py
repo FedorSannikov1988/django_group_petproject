@@ -98,11 +98,12 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Users
-
 AUTH_USER_MODEL = 'users.User'
 
 LOGIN_URL = '/input_user/login/'
+
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 customColorPalette = [
     {
@@ -130,7 +131,6 @@ customColorPalette = [
         'label': 'Blue'
     },
 ]
-
 
 CKEDITOR_5_FILE_STORAGE = "shop.storage.CustomStorage"
 
