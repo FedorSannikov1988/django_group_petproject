@@ -1,18 +1,14 @@
 import os
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-0^o=sxfb5_6#jpo&*)jsffrat^*yo#f-+)p(aiijo7!kp@_&ym'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -20,10 +16,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
+
     'phonenumber_field',
+    'django_ckeditor_5',
+
     'shop',
     'users',
-    'django_ckeditor_5',
 ]
 
 MIDDLEWARE = [
@@ -58,8 +57,12 @@ WSGI_APPLICATION = 'store.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'shop_db',
+        'USER': 'admin',
+        'PASSWORD': '1',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -88,18 +91,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-#закрыть перед запуском python manage.py collectstatic
-STATICFILES_DIRS = (
-    BASE_DIR / 'static',
-)
-
-#открыть перед запуском python manage.py collectstatic
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (BASE_DIR / 'static', )
 
 MEDIA_URL = 'media/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -136,8 +132,9 @@ customColorPalette = [
     },
 ]
 
-# CKEDITOR_5_CUSTOM_CSS = 'path_to.css'  # optional
-CKEDITOR_5_FILE_STORAGE = "shop.storage.CustomStorage"  # optional
+
+CKEDITOR_5_FILE_STORAGE = "shop.storage.CustomStorage"
+
 CKEDITOR_5_CONFIGS = {
     'default': {
         'toolbar': ['heading', '|', 'bold', 'italic', 'link',
@@ -196,7 +193,5 @@ CKEDITOR_5_CONFIGS = {
             'startIndex': 'true',
             'reversed': 'true',
         }
-
     }
-
 }

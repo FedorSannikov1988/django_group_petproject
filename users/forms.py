@@ -14,7 +14,7 @@ class UserLoginForm(forms.Form):
         widget=forms.PasswordInput(
         attrs={'class': 'form-control',
                'placeholder': 'Пароль'}))
-    field_order = ["username", "password"]
+    field_order = ("username", "password",)
 
 
 class UserRegisterForm(UserCreationForm):
@@ -30,12 +30,12 @@ class UserRegisterForm(UserCreationForm):
                    'placeholder': 'Фамилия'}))
     username = forms.CharField(
         required=False,
-        label="Логин",
+        label="Имя пользователя",
         widget=forms.TextInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Логин'}))
     email = forms.EmailField(
-        label="Эл.почта",
+        label="email",
         widget=forms.EmailInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Эл.почта'}))
@@ -45,7 +45,7 @@ class UserRegisterForm(UserCreationForm):
             attrs={'class': 'form-control',
                    'placeholder': 'Пароль'}))
     password2 = forms.CharField(
-        label="Пароль",
+        label="Подтвердить пароль",
         widget=forms.PasswordInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Подтвердите пароль'}))
@@ -53,8 +53,7 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name',
-                  'username', 'email', 'password1', 'password2')
-
+                  'username', 'email', 'password1', 'password2',)
 
 class UserProfileForm(UserChangeForm):
     first_name = forms.CharField(
@@ -89,4 +88,4 @@ class UserProfileForm(UserChangeForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name',
-                  'image', 'username', 'email')
+                  'image', 'username', 'email',)
