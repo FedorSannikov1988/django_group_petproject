@@ -1,9 +1,14 @@
+import uuid
+from datetime import timedelta
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib import auth, messages
 from django.urls import reverse
+from django.utils.timezone import now
+
 from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm
-from users.models import User
+from users.models import User, EmailVerification
 from shop.views import title_for_basic_template, data_for_basic_template
 
 
@@ -45,6 +50,13 @@ def register(request):
             username_form = form.save(commit=False)
             username_form.username = form.cleaned_data['email']
             username_form.save()
+            user = User.objects.get(username=username_form.username)
+            expiration = now() + timedelta(hours=48)
+            record = EmailVerification.objects.create(code=uuid.uuid4(),
+                                                      user=user,
+                                                      expiration=expiration)
+            record.send_verification_email()
+
             messages.success(request, 'Вы успешно зарегистрированы!')
             return HttpResponseRedirect(reverse('users:login'))
     else:
@@ -55,6 +67,26 @@ def register(request):
         'page_title': title_register + title_for_basic_template()
     }
     return render(request, 'register.html', context)
+
+
+def email_verification(request, email, code):
+    title_register = 'Подтверждение адреса электронной почты - '
+
+    user = User.objects.get(email=email)
+    for_email_verification = EmailVerification.objects.filter(user=user,
+                                                              code=code)
+
+    if for_email_verification.exists() and \
+            not for_email_verification.first().is_expired():
+        user.is_verified_email = True
+        user.save()
+    else:
+        return HttpResponseRedirect(reverse('index'))
+
+    context = {
+        'page_title': title_register + title_for_basic_template()
+    }
+    return render(request, 'email_verification.html', context)
 
 
 @login_required

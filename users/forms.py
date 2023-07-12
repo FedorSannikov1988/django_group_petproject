@@ -55,6 +55,7 @@ class UserRegisterForm(UserCreationForm):
         fields = ('first_name', 'last_name',
                   'username', 'email', 'password1', 'password2',)
 
+
 class UserProfileForm(UserChangeForm):
     first_name = forms.CharField(
         label="Имя",
