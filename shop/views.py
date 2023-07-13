@@ -110,6 +110,7 @@ def products_catalog(request, category_id=None, page_number=1):
     }
     return render(request, 'catalog.html', {**context, **data_for_basic_template(request)})
 
+
 def search_product(request):
     q = request.GET.get('q')
 
@@ -117,13 +118,14 @@ def search_product(request):
         vector = SearchVector('name')
         query = SearchQuery(q)
 
-        # softwares = Software.objects.filter(name__search=q)
         software = Software.objects.annotate(search=vector).filter(search=query)
     else:
         software = Software.objects.all()
-    context = {'software': software }
+
+    context = {'software': software}
 
     return render(request, 'catalog.html', context)
+
 
 @login_required
 def cart(request):
