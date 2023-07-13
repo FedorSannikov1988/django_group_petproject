@@ -1,9 +1,40 @@
-import os
 from pathlib import Path
+
+file_name_with_django_key = 'django.key'
+
+file_name_with_email_password = 'email.password'
+
+file_name_with_db_password = 'db.password'
+
+current_directory = Path.cwd()
+
+relative_path = current_directory.parent
+
+relative_path_django_key = relative_path / file_name_with_django_key
+
+relative_path_email_password = relative_path / file_name_with_email_password
+
+relative_path_db_password = relative_path / file_name_with_db_password
+
+path = {
+    'django.key': relative_path_django_key,
+    'email.password': relative_path_email_password,
+    'db.password': relative_path_db_password
+}
+
+password = {
+    'django.key': '',
+    'email.password': '',
+    'db.password': ''
+}
+
+for key in path:
+    with open(path[key], 'r') as data:
+        password[key] = data.read().replace('\n', '')
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-0^o=sxfb5_6#jpo&*)jsffrat^*yo#f-+)p(aiijo7!kp@_&ym'
+SECRET_KEY = password['django.key']
 
 DEBUG = True
 
@@ -20,7 +51,7 @@ EMAIL_PORT = 465
 
 EMAIL_HOST_USER = 'OnlineStoreTrainingProject@yandex.ru'
 
-EMAIL_HOST_PASSWORD = 'wkhiatskfcsvwvgf'
+EMAIL_HOST_PASSWORD = password['email.password']
 
 EMAIL_USE_SSL = True
 
@@ -32,10 +63,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.postgres',
-
     'phonenumber_field',
     'django_ckeditor_5',
-
     'shop',
     'users',
 ]
@@ -75,7 +104,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'shop_db',
         'USER': 'admin',
-        'PASSWORD': '1',
+        'PASSWORD': password['db.password'],
         'HOST': 'localhost',
         'PORT': '5432',
     }
