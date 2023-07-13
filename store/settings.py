@@ -10,16 +10,10 @@ current_directory = Path.cwd()
 
 relative_path = current_directory.parent
 
-relative_path_django_key = relative_path / file_name_with_django_key
-
-relative_path_email_password = relative_path / file_name_with_email_password
-
-relative_path_db_password = relative_path / file_name_with_db_password
-
 path = {
-    'django.key': relative_path_django_key,
-    'email.password': relative_path_email_password,
-    'db.password': relative_path_db_password
+    'django.key': relative_path / file_name_with_django_key,
+    'email.password': relative_path / file_name_with_django_key,
+    'db.password': relative_path / file_name_with_db_password
 }
 
 password = {
