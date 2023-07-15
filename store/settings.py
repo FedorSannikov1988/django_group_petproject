@@ -12,7 +12,7 @@ relative_path = current_directory.parent
 
 path = {
     'django.key': relative_path / file_name_with_django_key,
-    'email.password': relative_path / file_name_with_django_key,
+    'email.password': relative_path / file_name_with_email_password,
     'db.password': relative_path / file_name_with_db_password
 }
 
@@ -23,6 +23,7 @@ password = {
 }
 
 for key in path:
+    print(path[key])
     with open(path[key], 'r') as data:
         password[key] = data.read().replace('\n', '')
 
