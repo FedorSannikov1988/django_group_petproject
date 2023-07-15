@@ -1,18 +1,55 @@
-import os
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+file_name_with_django_key = 'django.key'
+
+file_name_with_email_password = 'email.password'
+
+file_name_with_db_password = 'db.password'
+
+current_directory = Path.cwd()
+
+relative_path = current_directory.parent
+
+path = {
+    'django.key': relative_path / file_name_with_django_key,
+    'email.password': relative_path / file_name_with_email_password,
+    'db.password': relative_path / file_name_with_db_password
+}
+
+password = {
+    'django.key': '',
+    'email.password': '',
+    'db.password': ''
+}
+
+for key in path:
+    print(path[key])
+    with open(path[key], 'r') as data:
+        password[key] = data.read().replace('\n', '')
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0^o=sxfb5_6#jpo&*)jsffrat^*yo#f-+)p(aiijo7!kp@_&ym'
+SECRET_KEY = password['django.key']
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-# Application definition
+DOMAIN_NAME = "http://localhost:8000"
+
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.yandex.ru'
+
+EMAIL_PORT = 465
+
+EMAIL_HOST_USER = 'OnlineStoreTrainingProject@yandex.ru'
+
+EMAIL_HOST_PASSWORD = password['email.password']
+
+EMAIL_USE_SSL = True
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -20,10 +57,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.postgres',
     'phonenumber_field',
+    'django_ckeditor_5',
     'shop',
     'users',
-    'django_ckeditor_5',
 ]
 
 MIDDLEWARE = [
@@ -61,7 +99,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'shop_db',
         'USER': 'admin',
-        'PASSWORD': '1',
+        'PASSWORD': password['db.password'],
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -92,18 +130,20 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+<<<<<<< HEAD
 #закрыть перед запуском python manage.py collectstatic
 STATICFILES_DIRS = (
    BASE_DIR / 'static',
 )
+=======
+STATICFILES_DIRS = (BASE_DIR / 'static', )
+>>>>>>> 68cdc54160c1d555336ce6b98dd510026bd51bb0
 
 MEDIA_URL = 'media/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Users
 
 AUTH_USER_MODEL = 'users.User'
 
@@ -135,7 +175,6 @@ customColorPalette = [
         'label': 'Blue'
     },
 ]
-
 
 CKEDITOR_5_FILE_STORAGE = "shop.storage.CustomStorage"
 
@@ -197,7 +236,5 @@ CKEDITOR_5_CONFIGS = {
             'startIndex': 'true',
             'reversed': 'true',
         }
-
     }
-
 }
