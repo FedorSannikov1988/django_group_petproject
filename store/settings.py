@@ -37,8 +37,8 @@ ALLOWED_HOSTS = ['*']
 
 DOMAIN_NAME = "http://localhost:8000"
 
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_HOST = 'smtp.yandex.ru'
 
@@ -130,14 +130,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-<<<<<<< HEAD
-#закрыть перед запуском python manage.py collectstatic
-STATICFILES_DIRS = (
-   BASE_DIR / 'static',
-)
-=======
 STATICFILES_DIRS = (BASE_DIR / 'static', )
->>>>>>> 68cdc54160c1d555336ce6b98dd510026bd51bb0
 
 MEDIA_URL = 'media/'
 

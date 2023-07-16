@@ -116,15 +116,6 @@ def exit_my_account(request):
 
 @login_required
 def delete_profile(request):
-<<<<<<< HEAD
-    # user = request.user
-    # if User.objects.filter(username=user).exists():
-    auth.logout(request)
-    User.objects.all().filter(username=request.user).delete()
-    return HttpResponseRedirect(reverse('index'))
-    # else:
-    #     return HttpResponseRedirect(request.META['HTTP_REFERER'])
-=======
     username = request.POST["username"]
     if User.objects.filter(username=username).exists():
         auth.logout(request)
@@ -132,4 +123,3 @@ def delete_profile(request):
         return HttpResponseRedirect(reverse('index'))
     else:
         return HttpResponseRedirect(request.META['HTTP_REFERER'])
->>>>>>> 68cdc54160c1d555336ce6b98dd510026bd51bb0
