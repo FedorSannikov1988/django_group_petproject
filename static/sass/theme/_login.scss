@@ -12,8 +12,15 @@
    
 }
 
-div.required .control-label:before {
+div.required {
+  .control-label:before {
     content: '* ';
     color: #F00;
     font-weight: bold;
+  }
+  //.optional-field:before {
+  //  content: '* ';
+  //  color: #006fff;
+  //  font-weight: bold;
+  //}
 }

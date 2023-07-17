@@ -123,3 +123,14 @@ def delete_profile(request):
         return HttpResponseRedirect(reverse('index'))
     else:
         return HttpResponseRedirect(request.META['HTTP_REFERER'])
+'''
+@login_required
+def delete_profile(request):
+    # user = request.user
+    # if User.objects.filter(username=user).exists():
+    auth.logout(request)
+    User.objects.all().filter(username=request.user).delete()
+    return HttpResponseRedirect(reverse('index'))
+    # else:
+    #     return HttpResponseRedirect(request.META['HTTP_REFERER'])
+'''

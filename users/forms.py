@@ -39,6 +39,29 @@ class UserRegisterForm(UserCreationForm):
         widget=forms.EmailInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Эл.почта'}))
+
+    # phone = forms.CharField(
+    #     label="Номер телефона",
+    #     widget=forms.TextInput(
+    #         attrs={'class': 'form-control',
+    #                'placeholder': 'Номер телефона'}))
+    # age = forms.IntegerField(
+    #     label="Возраст",
+    #     widget=forms.NumberInput(
+    #         attrs={'class': 'form-control',
+    #                'placeholder': 'Возраст'}))
+    # gender = forms.CharField(
+    #     label="Адрес",
+    #     widget=forms.TextInput(
+    #         attrs={'class': 'form-control',
+    #                'placeholder': 'Ваш адрес'}))
+    # address = forms.CharField(
+    #     label="Пол",
+    #     widget=forms.TextInput(
+    #         attrs={'class': 'form-control',
+    #                'placeholder': 'Пол'}))
+
+
     password1 = forms.CharField(
         label=("Пароль"),
         widget=forms.PasswordInput(
