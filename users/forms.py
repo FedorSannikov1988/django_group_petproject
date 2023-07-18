@@ -40,26 +40,26 @@ class UserRegisterForm(UserCreationForm):
             attrs={'class': 'form-control',
                    'placeholder': 'Эл.почта'}))
 
-    # phone = forms.CharField(
-    #     label="Номер телефона",
-    #     widget=forms.TextInput(
-    #         attrs={'class': 'form-control',
-    #                'placeholder': 'Номер телефона'}))
-    # age = forms.IntegerField(
-    #     label="Возраст",
-    #     widget=forms.NumberInput(
-    #         attrs={'class': 'form-control',
-    #                'placeholder': 'Возраст'}))
-    # gender = forms.CharField(
-    #     label="Адрес",
-    #     widget=forms.TextInput(
-    #         attrs={'class': 'form-control',
-    #                'placeholder': 'Ваш адрес'}))
-    # address = forms.CharField(
-    #     label="Пол",
-    #     widget=forms.TextInput(
-    #         attrs={'class': 'form-control',
-    #                'placeholder': 'Пол'}))
+    phone = forms.CharField(
+        label="Номер телефона",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Номер телефона'}))
+    birthday = forms.DateField(
+        label="День рождения",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'День рождения'}))
+    gender = forms.CharField(
+        label="Адрес",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Ваш адрес'}))
+    address = forms.CharField(
+        label="Пол",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Пол'}))
 
 
     password1 = forms.CharField(
@@ -76,7 +76,7 @@ class UserRegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name',
-                  'username', 'email', 'password1', 'password2',)
+                  'username', 'email', 'phone', 'birthday', 'gender', 'address', 'password1', 'password2',)
 
 
 class UserProfileForm(UserChangeForm):
