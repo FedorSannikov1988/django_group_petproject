@@ -1056,11 +1056,11 @@ div.required .control-label:before {
   content: '* ';
   color: #F00;
   font-weight: bold; }
-  /*div.requared .optional-field:before {*/
-  /*  content: '* ';*/
-  /*  color: #006fff;*/
-  /*  font-weight: bold; }*/
 
+div.optional .optional-field:before {
+  /*content: '* ';*/
+  /*color: #006fff;*/
+  font-weight: bold;}
 /*******************************************************************
 ******                SO Framework: Sass Menu                 ******
 ********************************************************************/

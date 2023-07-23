@@ -1,4 +1,3 @@
-from typing import re
 from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.db import models
@@ -12,22 +11,11 @@ class User(AbstractUser):
     image = models.ImageField(null=True, blank=True, upload_to='images_users')
     is_verified_email = models.BooleanField(default=False)
     email = models.EmailField(unique=True, blank=False)
+    surname = models.CharField(max_length=150, blank=True)
     birthday = models.DateField(null=True, blank=False)
-    gender = models.TextField(max_length=1, null=True, blank=False)
-    phone = models.TextField(null=True, blank=True, unique=True)
-    address = models.CharField(max_length=150, null=True, blank=True)
-
-    # def clean_birthday(self):
-    #     if self.birthday is not None and (self.birthday < 18 or self.birthday > 150):
-    #         raise ValidationError("Возраст должен быть указан в диапозоне от 18 до 150!") # make validate function
-    #
-    # def clean_gender(self):
-    #     if self.gender is not None and (self.gender.lower() != 'M' or self.gender.lower() != 'F'):
-    #         raise ValidationError("Укажите пол используя одну из двух букв M или F!")
-    #
-    # def clean_phone(self):
-    #     if not re.match(r'^\d+$', self.phone):
-    #         raise ValidationError("Номер телефона должен состоять только из цифр!")
+    gender = models.TextField(max_length=2, null=True, blank=False)
+    phone = models.TextField(null=True, blank=False, unique=True)
+    address = models.CharField(max_length=150, null=True, blank=False)
 
     def __str__(self):
         return f'Login: {self.username} ' \

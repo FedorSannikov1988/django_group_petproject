@@ -1,0 +1,90 @@
+{% extends 'base_entry.html' %}
+{% load static %}
+
+<!-- Favicon
+============================================ -->
+{% block favicon %}
+{#<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/apple-touch-icon-144-precomposed.png' %}">#}
+{#<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/apple-touch-icon-114-precomposed.png' %}">#}
+{#<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/apple-touch-icon-72-precomposed.png' %}">#}
+{#<link rel="apple-touch-icon-precomposed" href="{% static 'ico/apple-touch-icon-57-precomposed.png' %}">#}
+<link rel="shortcut icon" href="{% static 'ico/favicon.png' %}">
+{% endblock %}
+
+<!-- Libs CSS
+============================================ -->
+{% block libs_css %}
+<link href="{% static 'css/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+<link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
+<link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
+<link href="{% static 'js/owl-carousel/assets/owl.theme.default.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
+<link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
+{% endblock %}
+
+<!-- Theme CSS
+============================================ -->
+{% block theme_css %}
+<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
+<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
+<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
+<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
+<link href="{% static 'css/header1.css' %}" rel="stylesheet">
+<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block stile_body_two_line %}
+    <body class="res layout-subpage">
+        <div id="wrapper" class="wrapper-full ">
+{% endblock %}
+
+<!-- Main Container  -->
+{% block main_container %}
+<div class="row">
+    <div>
+        <h1 style="text-align: center"><b>Вы уверены, что хотите удалить аккаунт?</b></h1>
+        <br>
+        <h4 style="text-align: center; color: #DA2723">* восстановить аккаунт будет невозможно, вся история покупок и программа лояльности будут потеряны навсегда </h4>
+    </div>
+    <br>
+    <form action="{% url 'users:register' %}" method="post" novalidate style="margin-left: 20px; width:630px;">
+        {% csrf_token %}
+        <div class="buttons clearfix">
+            <div class="text-center">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'users:my_account' %}" class="btn btn-md btn-primary" title="Назад">Назад</a>
+                {% endif %}
+                <a href="{% url 'users:delete_profile' %}" class="btn btn-md btn-danger" title="Удалить аккаунт" style="margin-left: 30px;">Удалить аккаунт</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div>
+    <br>
+</div>
+{% endblock %}
+<!-- //Main Container -->
+
+<!-- Include Libs & Plugins
+============================================ -->
+{% block libs_and_plugins %}
+<script type="text/javascript" src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/owl-carousel/owl.carousel.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/themejs/libs.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/unveil/jquery.unveil.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/countdown/jquery.countdown.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/datetimepicker/moment.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
+{% endblock %}
+
+<!-- Theme files
+============================================ -->
+{% block theme_files %}
+<script type="text/javascript" src="{% static 'js/themejs/so_megamenu.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/themejs/addtocart.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/themejs/application.js' %}"></script>
+{% endblock %}

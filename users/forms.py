@@ -1,3 +1,6 @@
+import re
+from datetime import datetime
+
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from users.models import User
 from django import forms
@@ -40,6 +43,12 @@ class UserRegisterForm(UserCreationForm):
             attrs={'class': 'form-control',
                    'placeholder': 'Эл.почта'}))
 
+    surname = forms.CharField(
+        required=False,
+        label="Отчество",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Отчество'}))
     phone = forms.CharField(
         label="Номер телефона",
         widget=forms.TextInput(
@@ -47,19 +56,19 @@ class UserRegisterForm(UserCreationForm):
                    'placeholder': 'Номер телефона'}))
     birthday = forms.DateField(
         label="День рождения",
+        widget=forms.DateInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'День рождения в формате гггг-мм-дд'}))
+    gender = forms.CharField(
+        label="Пол",
         widget=forms.TextInput(
             attrs={'class': 'form-control',
-                   'placeholder': 'День рождения'}))
-    gender = forms.CharField(
+                   'placeholder': 'Ваш пол'}))
+    address = forms.CharField(
         label="Адрес",
         widget=forms.TextInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Ваш адрес'}))
-    address = forms.CharField(
-        label="Пол",
-        widget=forms.TextInput(
-            attrs={'class': 'form-control',
-                   'placeholder': 'Пол'}))
 
 
     password1 = forms.CharField(
@@ -73,9 +82,29 @@ class UserRegisterForm(UserCreationForm):
             attrs={'class': 'form-control',
                    'placeholder': 'Подтвердите пароль'}))
 
+    def clean_gender(self):
+        gender = self.cleaned_data.get('gender')
+        if gender != 'M' and gender != 'F' and gender != 'm' and gender != 'f':
+            raise forms.ValidationError("Укажите пол используя одну из двух букв M или F!")
+        return gender
+
+    def clean_phone(self):
+        phone = self.cleaned_data.get('phone')
+        if not re.match(r'^\d+$', phone):
+            raise forms.ValidationError("Номер телефона должен состоять только из цифр!")
+        return phone
+
+    def clean_birthday(self):
+        birthday = self.cleaned_data.get('birthday')
+        today = datetime.now().date()
+        days = (today - birthday).days
+        if days < 6570:
+            raise forms.ValidationError("Вам еще нет 18 лет, вы не можете совершать покупки...")
+        return birthday
+
     class Meta:
         model = User
-        fields = ('first_name', 'last_name',
+        fields = ('first_name', 'last_name', 'surname',
                   'username', 'email', 'phone', 'birthday', 'gender', 'address', 'password1', 'password2',)
 
 

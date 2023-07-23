@@ -89,6 +89,9 @@
                                         пользователя </label>
                                     <b> <br> {{ form.last_name }} </b>
                                 </div>
+
+{#                                set surname field trough if logic#}
+
                                 <div class="form-group required">
                                     <label class="clearable-file-input" for="{{ form.image.id_for_label }}"> Фотография
                                         пользователя </label>
@@ -117,7 +120,9 @@
                             <div class="pull-right">
                                 <input type="submit" value="Сохранить изминения" class="btn btn-md btn-primary"
                                        style="margin-right: 450px;"/>
-                                <input formaction="{% url 'users:delete_profile' %}" type="submit"
+{#                                <input formaction="{% url 'users:delete_profile' %}" type="submit" value="Удалить аккаунт" class="btn btn-md btn-danger"#}
+{#                                       style="margin-right: 35px;"/>#}
+                                <input formaction="{% url 'users:delete_user_confirmation' %}" type="submit"
                                        value="Удалить аккаунт" class="btn btn-md btn-danger"
                                        style="margin-right: 35px;"/>
                             </div>

@@ -89,6 +89,15 @@ def email_verification(request, email, code):
     return render(request, 'email_verification.html', context)
 
 
+def delete_user_confirmation(request):
+    title_index = 'Подтверждение удаления - '
+
+    context = {
+        "page_title": title_index + title_for_basic_template()
+    }
+    return render(request, 'delete_user_confirmation.html', {**context, **data_for_basic_template(request)})
+
+
 @login_required
 def my_account(request):
     title_my_account = 'Личный кабинет - '
@@ -116,21 +125,11 @@ def exit_my_account(request):
 
 @login_required
 def delete_profile(request):
-    username = request.POST["username"]
-    if User.objects.filter(username=username).exists():
+    print('!!!!!!!!!!')
+    user = request.user
+    if User.objects.filter(username=user.username).exists():
+        User.objects.all().filter(username=request.user.username).delete()
         auth.logout(request)
-        User.objects.filter(username=username).delete()
         return HttpResponseRedirect(reverse('index'))
     else:
         return HttpResponseRedirect(request.META['HTTP_REFERER'])
-'''
-@login_required
-def delete_profile(request):
-    # user = request.user
-    # if User.objects.filter(username=user).exists():
-    auth.logout(request)
-    User.objects.all().filter(username=request.user).delete()
-    return HttpResponseRedirect(reverse('index'))
-    # else:
-    #     return HttpResponseRedirect(request.META['HTTP_REFERER'])
-'''
