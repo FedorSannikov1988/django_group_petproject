@@ -1,4 +1,3 @@
-from django.core.exceptions import ValidationError
 from django.core.mail import send_mail
 from django.db import models
 from django.contrib.auth.models import AbstractUser
@@ -15,7 +14,7 @@ class User(AbstractUser):
     birthday = models.DateField(null=True, blank=False)
     gender = models.TextField(max_length=2, null=True, blank=False)
     phone = models.TextField(null=True, blank=False, unique=True)
-    address = models.CharField(max_length=150, null=True, blank=False)
+    address = models.CharField(max_length=150, null=True, blank=False) # try Django Address
 
     def __str__(self):
         return f'Login: {self.username} ' \
