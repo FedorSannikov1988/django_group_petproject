@@ -125,7 +125,6 @@ def exit_my_account(request):
 
 @login_required
 def delete_profile(request):
-    print('!!!!!!!!!!')
     user = request.user
     if User.objects.filter(username=user.username).exists():
         User.objects.all().filter(username=request.user.username).delete()
