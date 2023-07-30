@@ -4,11 +4,16 @@ from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
 from django.core.paginator import Paginator
 from shop.forms import ShopFaqForm
-from shop.models import FeaturesSoftware, SoftwareCategory, Software, DevelopmentTeam, FAQ, Cart
+from shop.models import FeaturesSoftware, \
+                        SoftwareCategory, \
+                        Software, \
+                        DevelopmentTeam, \
+                        FAQ, \
+                        Cart
 
 
 def title_for_basic_template():
-    text = 'Дипломный проект студентов GB'
+    text: str = 'Дипломный проект студентов GB'
     return text
 
 
@@ -103,10 +108,9 @@ def products_catalog(request, category_id=None, page_number=1):
     software_paginator = paginator.page(page_number)
 
     context = {
-                "page_title": title_product_catalog + title_for_basic_template(),
-                "categories": SoftwareCategory.objects.all(),
-                "software": software_paginator
-
+        "page_title": title_product_catalog + title_for_basic_template(),
+        "categories": SoftwareCategory.objects.all(),
+        "software": software_paginator
     }
     return render(request, 'catalog.html', {**context, **data_for_basic_template(request)})
 
@@ -123,7 +127,6 @@ def search_product(request):
         software = Software.objects.all()
 
     context = {'software': software}
-
     return render(request, 'catalog.html', context)
 
 
@@ -133,7 +136,7 @@ def cart(request):
 
     cart_user_small = Cart.objects.filter(user=request.user)
 
-    cart_user_big = []
+    cart_user_big: list = []
 
     for one_purchase in cart_user_small:
         featuresSoftware = FeaturesSoftware.objects.filter(id=one_purchase.software.id).first()
@@ -152,7 +155,6 @@ def cart(request):
                     'software_price': one_purchase.software.price,
                     'one_purchase_sum': one_purchase.sum
         }
-
         cart_user_big.append(new_line)
 
     context = {

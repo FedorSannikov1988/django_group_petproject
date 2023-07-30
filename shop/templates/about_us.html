@@ -52,17 +52,12 @@
                         <div id="content" class="col-sm-12 col-xs-12">
                             <div class="about-us about-demo-1">
                                 <div class="row">
-                                    <div class="about-us">
-                                        <div class="text-center">
-                                            <p> Мы является студентами GeekBrains. Данный интернет магазин является нашим совместным дипломным проектом. </p>
-                                        </div>
-                                    </div>
                                 </div>
                                 <p><br><br><br></p>
                                 <div class="row">
                                     <div class="col-xs-12 col-lg-12 col-md-12 our-team">
                                         <div class="our-team-content">
-                                            <h2 class="about-title line-hori"><span>Студенты участвующие в проекте</span></h2>
+                                            <h2 class="about-title line-hori"><span>Разработчики учебного проекта</span></h2>
                                             <div class="our-team-slider">
                                                 <div class="owl-carousel carousel-member" data-loop="yes" data-nav="yes" data-dots="no" data-margin="15" data-items_xs="1" data-items_sm="3" data-items_md="4">
                                                     {% for one_developer in development_team %}
@@ -116,7 +111,5 @@
 <!-- Theme files
 ============================================ -->
 {% block theme_files %}
-<script type="text/javascript" src="{% static 'js/themejs/so_megamenu.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/themejs/addtocart.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/themejs/application.js' %}"></script>
 {% endblock %}

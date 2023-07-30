@@ -114,7 +114,7 @@ class Cart(models.Model):
 
 def user_directory_path(instance, filename):
     return 'question_user/{0}_{1}/{2}_{3}'.format(instance.user_id, instance.user.username,
-                                                  datetime.now().strftime("%d-%m-%Y_%H-%M-%S"), filename)
+                                            datetime.now().strftime("%d-%m-%Y_%H-%M-%S"), filename)
 
 
 class UsersQuestions(models.Model):
@@ -123,11 +123,11 @@ class UsersQuestions(models.Model):
     question_timestamp = models.DateTimeField(auto_now_add=True, null=True)
     upload = models.FileField(upload_to=user_directory_path, null=True, blank=True)
 
-    class Meta:
-        verbose_name_plural = "Вопросы от пользователей"
-        verbose_name = "вопросы от пользователей"
-
     def __str__(self):
         return f'Question: {self.userquestion} ' \
                f'| Date Question: {self.question_timestamp} ' \
                f'| Upload: {self.upload} '
+
+    class Meta:
+        verbose_name_plural = "Вопросы от пользователей"
+        verbose_name = "вопросы от пользователей"

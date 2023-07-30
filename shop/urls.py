@@ -1,5 +1,9 @@
 from django.urls import path
-from shop.views import products_catalog, cart_add_one, cart_delete_one, cart_remove, product
+from shop.views import products_catalog, \
+                       cart_add_one, \
+                       cart_delete_one, \
+                       cart_remove, \
+                       product
 
 app_name = 'products_catalog'
 
