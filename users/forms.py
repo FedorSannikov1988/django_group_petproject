@@ -107,7 +107,7 @@ class UserCreatNewPasswordForm(UserCreationForm):
             attrs={'class': 'form-control',
                    'placeholder': 'Пароль'}))
     password2 = forms.CharField(
-        label="Подтвердить пароль",
+        label="Подтвердите пароль",
         widget=forms.PasswordInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Подтвердите пароль'}))

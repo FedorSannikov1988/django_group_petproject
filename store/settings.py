@@ -1,5 +1,6 @@
 from pathlib import Path
 
+# --------------------------------------------------------
 file_name_with_django_key = 'django.key'
 
 file_name_with_email_password = 'email.password'
@@ -22,13 +23,12 @@ password = {
     'db.password': ''
 }
 
-print("Здесь должны файлы с парролями:")
+print("Здесь должны 'лежать' файлы с парролями:")
 
 for key in path:
     print(path[key])
     with open(path[key], 'r') as data:
         password[key] = data.read().replace('\n', '')
-
 # --------------------------------------------------------
 
 BASE_DIR = Path(__file__).resolve().parent.parent

@@ -29,10 +29,11 @@ class EmailVerification(models.Model):
         verification_link = f"{settings.DOMAIN_NAME}{half_link}"
 
         subject = f"Подтверждение электронной почты"
-
         message = f"Для подтверждения учетной записи: " \
                   f"{self.user.first_name} {self.user.last_name} " \
-                  f"перейдите по ссылке: {verification_link} ."
+                  f"перейдите по ссылке: {verification_link} ." \
+                  f"Cсылка активна 48 часов момента отправки " \
+                  f"данного письма."
 
         send_mail(
             subject=subject,
@@ -65,7 +66,7 @@ class PasswordRecovery(models.Model):
         password_recovery_link = f"{settings.DOMAIN_NAME}{half_link}"
 
         subject = "Восстановление пароля"
-        message = f"Для смены пароля перейдите поссылке: {password_recovery_link} ." \
+        message = f"Для смены пароля перейдите по ссылке: {password_recovery_link} ." \
                   f" Cсылка активна 48 часов момента отправки данного письма."
 
         send_mail(

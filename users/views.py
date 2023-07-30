@@ -20,15 +20,16 @@ from shop.views import title_for_basic_template, \
 
 
 def login(request):
-    title_login = 'Вход в учетную запись - '
-    message_error = ''
+    title_login: str = 'Вход в личный кабинет - '
+    message_error: str = ''
 
     if request.method == 'POST':
         form = UserLoginForm(data=request.POST)
         if form.is_valid():
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password"]
-            user = auth.authenticate(username=username, password=password)
+            user = auth.authenticate(username=username,
+                                     password=password)
             if user:
                 auth.login(request, user)
                 return HttpResponseRedirect(reverse('users:my_account'))
@@ -36,7 +37,8 @@ def login(request):
                 if User.objects.filter(username=username).exists():
                     message_error = 'Неверный пароль'
                 else:
-                    message_error = 'Учетной записи с таким именем пользователя нет в базе данных'
+                    message_error = 'Учетной записи с таким именем ' \
+                                    'пользователя нет в базе данных'
     else:
         form = UserLoginForm(data=request.POST)
 
@@ -49,7 +51,7 @@ def login(request):
 
 
 def register(request):
-    title_register = 'Регистрация - '
+    title_register: str = 'Регистрация - '
 
     if request.method == 'POST':
         form = UserRegisterForm(data=request.POST)
@@ -70,18 +72,19 @@ def register(request):
         form = UserRegisterForm()
 
     context = {
-        'form': form,
-        'page_title': title_register + title_for_basic_template()
+        'page_title': title_register + title_for_basic_template(),
+        'form': form
     }
     return render(request, 'register.html', context)
 
 
 def email_verification(request, email, code):
-    title_register = 'Подтверждение адреса электронной почты - '
+    title_register: str = 'Подтверждение адреса электронной почты - '
 
     user = User.objects.get(email=email)
-    for_email_verification = EmailVerification.objects.filter(user=user,
-                                                              code=code)
+    for_email_verification = \
+        EmailVerification.objects.filter(user=user,
+                                         code=code)
 
     if for_email_verification.exists() and \
             not for_email_verification.first().is_expired():
@@ -97,9 +100,9 @@ def email_verification(request, email, code):
 
 
 def forgot_password(request):
-    title_register = 'Востановление пароля - '
-    message_error = ''
-    message_success = ''
+    title_register: str = 'Востановление пароля - '
+    message_error: str = ''
+    message_success: str = ''
 
     if request.method == 'POST':
         form = UserRecoveryPasswordForm(data=request.POST)
@@ -113,15 +116,14 @@ def forgot_password(request):
                                                          user=user,
                                                          expiration=expiration)
                 record.send_password_recovery_email()
-                message_success = f'''На электронную почту {email}
-                                      отправлено письмо содержащее ссылку для 
-                                      востановления пароля'''
+                message_success = f"На электронную почту {email} " \
+                                  f"отправлено письмо содержащее " \
+                                  f"ссылку для востановления пароля."
 
             else:
-                message_error = f'''Учетной записи с таким адресом
-                                    электронной почты не существует
-                                    или электроная почта не
-                                    подтверждена'''
+                message_error = f"Учетной записи с таким адресом " \
+                                f"электронной почты не существует " \
+                                f"или электроная почта не подтверждена."
     else:
         form = UserRecoveryPasswordForm()
 
@@ -135,7 +137,8 @@ def forgot_password(request):
 
 
 def create_new_password(request, email, code):
-    title_register = 'Создание нового пароля - '
+    title_register: str \
+        ='Создание нового пароля взамен забытого - '
 
     user = User.objects.get(email=email)
     application_for_new_password = \
@@ -150,7 +153,7 @@ def create_new_password(request, email, code):
                 new_password = form.cleaned_data['password2']
                 user.set_password(new_password)
                 user.save()
-                messages.success(request, 'Ваш пароль был изминен !')
+                messages.success(request, 'Ваш пароль изминен !')
                 return HttpResponseRedirect(reverse('users:login'))
         else:
             form = UserCreatNewPasswordForm()
@@ -168,10 +171,12 @@ def create_new_password(request, email, code):
 
 @login_required
 def my_account(request):
-    title_my_account = 'Личный кабинет - '
+    title_my_account: str = 'Личный кабинет - '
 
     if request.method == 'POST':
-        form = UserProfileForm(instance=request.user, data=request.POST, files=request.FILES)
+        form = UserProfileForm(instance=request.user,
+                               data=request.POST,
+                               files=request.FILES)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse('users:my_account'))
@@ -182,7 +187,8 @@ def my_account(request):
         'form': form,
         'page_title': title_my_account + title_for_basic_template(),
     }
-    return render(request, 'my_account.html', {**context, **data_for_basic_template(request)})
+    return render(request, 'my_account.html',
+                  {**context, **data_for_basic_template(request)})
 
 
 @login_required
