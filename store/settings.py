@@ -22,10 +22,14 @@ password = {
     'db.password': ''
 }
 
+print("Здесь должны файлы с парролями:")
+
 for key in path:
     print(path[key])
     with open(path[key], 'r') as data:
         password[key] = data.read().replace('\n', '')
+
+# --------------------------------------------------------
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -37,8 +41,8 @@ ALLOWED_HOSTS = ['*']
 
 DOMAIN_NAME = "http://localhost:8000"
 
-#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_HOST = 'smtp.yandex.ru'
 
@@ -130,7 +134,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = (BASE_DIR / 'static', )
+STATICFILES_DIRS = (BASE_DIR / 'static',)
 
 MEDIA_URL = 'media/'
 

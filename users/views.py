@@ -1,15 +1,22 @@
 import uuid
 from datetime import timedelta
-
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, HttpResponseRedirect
-from django.contrib import auth, messages
+from django.shortcuts import render, \
+                             HttpResponseRedirect
+from django.contrib import auth, \
+                           messages
 from django.urls import reverse
 from django.utils.timezone import now
-
-from users.forms import UserLoginForm, UserRegisterForm, UserProfileForm
-from users.models import User, EmailVerification
-from shop.views import title_for_basic_template, data_for_basic_template
+from users.forms import UserLoginForm, \
+                        UserRegisterForm, \
+                        UserProfileForm, \
+                        UserRecoveryPasswordForm, \
+                        UserCreatNewPasswordForm
+from users.models import User, \
+                         EmailVerification, \
+                         PasswordRecovery
+from shop.views import title_for_basic_template, \
+                       data_for_basic_template
 
 
 def login(request):
@@ -89,6 +96,76 @@ def email_verification(request, email, code):
     return render(request, 'email_verification.html', context)
 
 
+def forgot_password(request):
+    title_register = 'Востановление пароля - '
+    message_error = ''
+    message_success = ''
+
+    if request.method == 'POST':
+        form = UserRecoveryPasswordForm(data=request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            if User.objects.filter(email=email).exists() \
+                    and User.objects.get(email=email).is_verified_email:
+                user = User.objects.get(email=email)
+                expiration = now() + timedelta(hours=48)
+                record = PasswordRecovery.objects.create(code=uuid.uuid4(),
+                                                         user=user,
+                                                         expiration=expiration)
+                record.send_password_recovery_email()
+                message_success = f'''На электронную почту {email}
+                                      отправлено письмо содержащее ссылку для 
+                                      востановления пароля'''
+
+            else:
+                message_error = f'''Учетной записи с таким адресом
+                                    электронной почты не существует
+                                    или электроная почта не
+                                    подтверждена'''
+    else:
+        form = UserRecoveryPasswordForm()
+
+    context = {
+        'page_title': title_register + title_for_basic_template(),
+        'message_success': message_success,
+        'message_error': message_error,
+        'form': form
+    }
+    return render(request, 'forgot_password.html', context)
+
+
+def create_new_password(request, email, code):
+    title_register = 'Создание нового пароля - '
+
+    user = User.objects.get(email=email)
+    application_for_new_password = \
+        PasswordRecovery.objects.filter(user=user,
+                                        code=code)
+
+    if application_for_new_password.exists() and \
+            not application_for_new_password.first().is_expired():
+        if request.method == 'POST':
+            form = UserCreatNewPasswordForm(data=request.POST)
+            if form.is_valid():
+                new_password = form.cleaned_data['password2']
+                user.set_password(new_password)
+                user.save()
+                messages.success(request, 'Ваш пароль был изминен !')
+                return HttpResponseRedirect(reverse('users:login'))
+        else:
+            form = UserCreatNewPasswordForm()
+    else:
+        return HttpResponseRedirect(reverse('index'))
+
+    context = {
+        'page_title': title_register + title_for_basic_template(),
+        'form': form,
+        'email': email,
+        'code': code
+    }
+    return render(request, 'new_password.html', context)
+
+
 @login_required
 def my_account(request):
     title_my_account = 'Личный кабинет - '
@@ -109,12 +186,6 @@ def my_account(request):
 
 
 @login_required
-def exit_my_account(request):
-    auth.logout(request)
-    return HttpResponseRedirect(reverse('index'))
-
-
-@login_required
 def delete_profile(request):
     username = request.POST["username"]
     if User.objects.filter(username=username).exists():
@@ -123,3 +194,9 @@ def delete_profile(request):
         return HttpResponseRedirect(reverse('index'))
     else:
         return HttpResponseRedirect(request.META['HTTP_REFERER'])
+
+
+@login_required
+def exit_my_account(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('index'))
