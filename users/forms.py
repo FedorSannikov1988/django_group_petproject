@@ -138,7 +138,45 @@ class UserProfileForm(UserChangeForm):
             attrs={'class': 'form-control',
                    'placeholder': 'Фото'}))
 
+    surname = forms.CharField(
+        required=False,
+        label="Отчество",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Отчество'}))
+    phone = forms.CharField(
+        label="Номер телефона",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Номер телефона'}))
+    birthday = forms.DateField(
+        label="День рождения",
+        widget=forms.DateInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'День рождения в формате гггг-мм-дд'}))
+    gender = forms.CharField(
+        label="Пол",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Ваш пол'}))
+    address = forms.CharField(
+        label="Адрес",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Ваш адрес'}))
+
+    # password1 = forms.CharField(
+    #     label=("Пароль"),
+    #     widget=forms.PasswordInput(
+    #         attrs={'class': 'form-control',
+    #                'placeholder': 'Пароль'}))
+    # password2 = forms.CharField(
+    #     label=("Подтвердить пароль"),
+    #     widget=forms.PasswordInput(
+    #         attrs={'class': 'form-control',
+    #                'placeholder': 'Подтвердите пароль'}))
+
     class Meta:
         model = User
         fields = ('first_name', 'last_name',
-                  'image', 'username', 'email',)
+                  'image', 'username', 'email', 'surname', 'phone', 'birthday', 'gender', 'address',)

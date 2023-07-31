@@ -104,7 +104,25 @@ def my_account(request):
 
     if request.method == 'POST':
         form = UserProfileForm(instance=request.user, data=request.POST, files=request.FILES)
+        # new_password = form.cleaned_data['password2']
+        # user.set_password(new_password)
+        # user.save()
+
+        print(form)
+        print('---------------------------------')
+        print(form.cleaned_data['first_name'])
+        print(form.cleaned_data['last_name'])
+        print(form.cleaned_data['email'])
+        print(form.cleaned_data['username'])
+        print(form.cleaned_data['surname'])
+        print(form.cleaned_data['phone'])
+        print(form.cleaned_data['birthday'])
+        print(form.cleaned_data['gender'])
+        print(form.cleaned_data['address'])
+        print('---------------------------------')
+
         if form.is_valid():
+            print(form)
             form.save()
             return HttpResponseRedirect(reverse('users:my_account'))
     else:

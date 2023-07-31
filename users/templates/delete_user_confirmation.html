@@ -37,10 +37,10 @@
     <br>
     <form action="{% url 'users:register' %}" method="post" novalidate style="margin-left: auto; margin-right: auto; width: 400px; ">
     {% csrf_token %}
-    <div style="display: flex; justify-content: center; margin: 40px 0px 150px 0px">
-        <a href="{% url 'users:my_account' %}" class="btn btn-md btn-primary" style="margin-right: 30px;" title="Назад">Назад</a>
-        <input formaction="{% url 'users:delete_profile' %}" type="submit" value="Удалить аккаунт" class="btn btn-md btn-danger">
-    </div>
+        <div style="display: flex; justify-content: center; margin: 40px 0px 150px 0px">
+            <a href="{% url 'users:my_account' %}" class="btn btn-md btn-primary" style="margin-right: 30px;" title="Назад">Назад</a>
+            <input formaction="{% url 'users:delete_profile' %}" type="submit" value="Удалить аккаунт" class="btn btn-md btn-danger">
+        </div>
     </form>
 {% endblock %}
 <!-- //Main Container -->
