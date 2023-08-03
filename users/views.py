@@ -108,23 +108,30 @@ def my_account(request):
         # user.set_password(new_password)
         # user.save()
 
-        print(form)
-        print('---------------------------------')
-        print(form.cleaned_data['first_name'])
-        print(form.cleaned_data['last_name'])
-        print(form.cleaned_data['email'])
-        print(form.cleaned_data['username'])
-        print(form.cleaned_data['surname'])
-        print(form.cleaned_data['phone'])
-        print(form.cleaned_data['birthday'])
-        print(form.cleaned_data['gender'])
-        print(form.cleaned_data['address'])
-        print('---------------------------------')
-
         if form.is_valid():
+            print('///////////////////')
             print(form)
             form.save()
             return HttpResponseRedirect(reverse('users:my_account'))
+        else:
+            print('**********')
+            initial_data = {'username': request.user.email}
+            form = UserProfileForm(instance=request.user, initial=initial_data)
+            print(form)
+            form.save()
+            if form.is_valid():
+                print('++++++++++++++++')
+                form.save()
+                return HttpResponseRedirect(reverse('users:my_account'))
+            # print(form.cleaned_data['username'])
+            # print(form.cleaned_data['first_name'])
+            # print(form.cleaned_data['last_name'])
+            # print(form.cleaned_data['email'])
+            # print(form.cleaned_data['surname'])
+            # print(form.cleaned_data['phone'])
+            # print(form.cleaned_data['birthday'])
+            # print(form.cleaned_data['gender'])
+            # print(form.cleaned_data['address'])
     else:
         form = UserProfileForm(instance=request.user)
 
