@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.postgres.search import SearchQuery,SearchVector
+from django.contrib.postgres.search import SearchQuery, SearchVector
 from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
 from django.core.paginator import Paginator
@@ -103,9 +103,9 @@ def products_catalog(request, category_id=None, page_number=1):
     software_paginator = paginator.page(page_number)
 
     context = {
-                "page_title": title_product_catalog + title_for_basic_template(),
-                "categories": SoftwareCategory.objects.all(),
-                "software": software_paginator
+        "page_title": title_product_catalog + title_for_basic_template(),
+        "categories": SoftwareCategory.objects.all(),
+        "software": software_paginator
 
     }
     return render(request, 'catalog.html', {**context, **data_for_basic_template(request)})
@@ -139,18 +139,18 @@ def cart(request):
         featuresSoftware = FeaturesSoftware.objects.filter(id=one_purchase.software.id).first()
 
         new_line = {
-                    'image': one_purchase.software.image,
-                    'name': one_purchase.software.name,
-                    'software_id': one_purchase.software.id,
-                    'one_purchase_id': one_purchase.id,
-                    'description': featuresSoftware.description,
-                    'operating_system': featuresSoftware.operating_system,
-                    'video_card': featuresSoftware.video_card,
-                    'hard_disk_mb': featuresSoftware.hard_disk_mb,
-                    'min_ram_mb': featuresSoftware.min_ram_mb,
-                    'quantity_in_card': one_purchase.quantity,
-                    'software_price': one_purchase.software.price,
-                    'one_purchase_sum': one_purchase.sum
+            'image': one_purchase.software.image,
+            'name': one_purchase.software.name,
+            'software_id': one_purchase.software.id,
+            'one_purchase_id': one_purchase.id,
+            'description': featuresSoftware.description,
+            'operating_system': featuresSoftware.operating_system,
+            'video_card': featuresSoftware.video_card,
+            'hard_disk_mb': featuresSoftware.hard_disk_mb,
+            'min_ram_mb': featuresSoftware.min_ram_mb,
+            'quantity_in_card': one_purchase.quantity,
+            'software_price': one_purchase.software.price,
+            'one_purchase_sum': one_purchase.sum
         }
 
         cart_user_big.append(new_line)

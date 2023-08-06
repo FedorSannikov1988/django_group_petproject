@@ -104,34 +104,25 @@ def my_account(request):
 
     if request.method == 'POST':
         form = UserProfileForm(instance=request.user, data=request.POST, files=request.FILES)
-        # new_password = form.cleaned_data['password2']
-        # user.set_password(new_password)
-        # user.save()
 
-        if form.is_valid():
-            print('///////////////////')
-            print(form)
-            form.save()
-            return HttpResponseRedirect(reverse('users:my_account'))
-        else:
-            print('**********')
-            initial_data = {'username': request.user.email}
-            form = UserProfileForm(instance=request.user, initial=initial_data)
-            print(form)
-            form.save()
+        if request.user.is_superuser or request.user.is_staff:
             if form.is_valid():
-                print('++++++++++++++++')
                 form.save()
                 return HttpResponseRedirect(reverse('users:my_account'))
-            # print(form.cleaned_data['username'])
-            # print(form.cleaned_data['first_name'])
-            # print(form.cleaned_data['last_name'])
-            # print(form.cleaned_data['email'])
-            # print(form.cleaned_data['surname'])
-            # print(form.cleaned_data['phone'])
-            # print(form.cleaned_data['birthday'])
-            # print(form.cleaned_data['gender'])
-            # print(form.cleaned_data['address'])
+
+            else:
+                form = UserProfileForm(instance=request.user)
+
+        else:
+            form = UserProfileForm(instance=request.user,
+                                   data={'username': form.data['email'], 'email': form.data['email'],
+                                         'first_name': form.data['first_name'], 'last_name': form.data['last_name'],
+                                         'surname': form.data['surname'], 'phone': form.data['phone'],
+                                         'birthday': form.data['birthday'], 'address': form.data['address'],
+                                         'gender': form.data['gender']}, files=request.FILES)
+
+            if form.is_valid():
+                form.save()
     else:
         form = UserProfileForm(instance=request.user)
 
