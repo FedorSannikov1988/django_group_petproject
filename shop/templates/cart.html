@@ -39,7 +39,7 @@
     <body class="res layout-subpage">
         <div id="wrapper" class="wrapper-full ">
 {% endblock %}
-2
+
 <!-- Block Spotlight1  -->
 {% block spotlight1 %}
 {% endblock %}
@@ -52,56 +52,88 @@
                 <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
                 <li>Корзина покупок</li>
             </ul>
+        {% if big_cart %}
             <div class="row">
             <!--Middle Part Start-->
             <div id="content" class="col-sm-12">
             <p><br><br><br></p>
+
             <div class="table-responsive form-group">
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <td class="text-center">Логотип/Эмблема</td>
-                            <td class="text-center">Програмное обеспечение</td>
+                            <td class="text-center">Обложка</td>
+                            <td class="text-center">Название</td>
+                            <td class="text-center">Описание</td>
+                            <td class="text-center">Опер. система</td>
+                            <td class="text-center">Видеокарта</td>
+                            <td class="text-center">Жесткий диск, Мб</td>
+                            <td class="text-center">ОЗУ, Мб</td>
                             <td class="text-center">Количество лицензий</td>
                             <td class="text-center">Цена за одну лицензию</td>
                             <td class="text-center">Цена за все лицензии</td>
                         </tr>
                     </thead>
                     <tbody>
-                    {% for one_purchase in cart %}
+                    {% for one_purchase in big_cart %}
                         <tr>
                             <td class="text-center" style="width:70px;">
                                 <a href="#">
-                                    <img src="{{ one_purchase.software.image.url }}"  class="preview" style="width:70px">
+                                    <img src="{{ one_purchase.image.url }}" class="preview" style="width:70px">
                                 </a>
                             </td>
-                            <td class="text-center" style="padding-top: 50px; width:300px;">
+                            <td class="text-center" style="padding-top: 40px; width:100px;">
                                 <a href="#">
                                      <strong>
-                                         {{ one_purchase.software.name }}
+                                         {{ one_purchase.name }}
                                      </strong>
                                 </a>
                             </td>
-                            <td class="text-center" style="padding-top: 50px; width:60px;">
+                            <td class="text-center" style="padding-top: 40px; width:100px;">
+                                <strong>
+                                    {{ one_purchase.description }}
+                                </strong>
+                            </td>
+                            <td class="text-center" style="padding-top: 40px; width:70px;">
+                                <strong>
+                                    {{ one_purchase.operating_system }}
+                                </strong>
+                            </td>
+                            <td class="text-center" style="padding-top: 40px; width:30px;">
+                                <strong>
+                                    {{ one_purchase.video_card }}
+                                </strong>
+                            </td>
+                            <td class="text-center" style="padding-top: 40px; width:30px;">
+                                <strong>
+                                    {{ one_purchase.hard_disk_mb }}
+                                </strong>
+                            </td>
+                            <td class="text-center" style="padding-top: 40px; width:30px;">
+                                <strong>
+                                    {{ one_purchase.min_ram_mb }}
+                                </strong>
+                            </td>
+                            <td class="text-center" style="padding-top: 35px; width:100px;">
                                 <div class="input-group btn-block quantity">
                                     <form>
-                                        <span class="input-group-btn " style="bottom: 14.5px;">
-                                            <input type="text" class="form-control"  value="{{ one_purchase.quantity }}" style="width:50px; left:65px; padding-left: 15px;"/>
-                                            <input formaction="{% url 'products_catalog:cart_delete_one'  one_purchase.software.id %}" type="submit" value="-" class="btn btn-default" style="width:50px; right:50px;" />
-                                            <input formaction="{% url 'products_catalog:cart_add_one' one_purchase.software.id %}" type="submit" value="+" class="btn btn-default" style="width:50px;" />
-                                            <input formaction="{% url 'products_catalog:cart_remove' one_purchase.id %}" type="submit" value="x" class="btn btn-danger" style="width:50px;" />
+                                        <span class="input-group-btn " >
+                                            <input type="text" class="form-control"  value="{{ one_purchase.quantity_in_card }}" style="width:52px; padding-left: 20px;"/>
+                                            <input formaction="{% url 'products_catalog:cart_delete_one'  one_purchase.software_id %}" type="submit" value="-" class="btn btn-default" style="width:38px;" />
+                                            <input formaction="{% url 'products_catalog:cart_add_one' one_purchase.software_id %}" type="submit" value="+" class="btn btn-default" style="width:38px;" />
+                                            <input formaction="{% url 'products_catalog:cart_remove' one_purchase.one_purchase_id %}" type="submit" value="x" class="btn btn-danger" style="width:38px;" />
                                         </span>
                                     </form>
                                 </div>
                             </td>
-                            <td class="text-center" style="padding-top: 50px; width:110px;"> {{ one_purchase.software.price }} ₽ </td>
-                            <td class="text-center" style="padding-top: 50px; width:110px;"> {{ one_purchase.sum }} ₽ </td>
+                            <td class="text-center" style="padding-top: 40px; width:60px;"> {{ one_purchase.software_price }} ₽ </td>
+                            <td class="text-center" style="padding-top: 40px; width:60px;"> {{ one_purchase.one_purchase_sum }} ₽ </td>
                         </tr>
                     {% endfor %}
                     </tbody>
                     <tbody>
                         <tr>
-                            <td class="text-center" colspan="4" >
+                            <td class="text-center" colspan="9" >
                                 <strong>
                                     Итого:
                                 </strong>
@@ -109,7 +141,7 @@
                             <td class="text-center">
                                 <div style="color: red">
                                     <strong>
-                                        {{ cart.total_sum }} ₽
+                                        {{ big_cart_total_sum }} ₽
                                     </strong>
                                 </div>
                             </td>
@@ -123,6 +155,17 @@
                     <div class="pull-right"><a href="#" class="btn btn-primary">Купить</a></div>
                 </div>
             </div>
+        {% else %}
+        <br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br>
+                <h1 class="text-center">
+                    <strong>
+                    Корзина пуста
+                    </strong>
+                </h1>
+            <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br>
+        {% endif %}
                 <!--Middle Part End -->
             </div>
         </div>

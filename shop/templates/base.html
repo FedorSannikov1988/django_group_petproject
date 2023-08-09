@@ -46,7 +46,6 @@
                                         <li class="signin"><a href="{% url 'users:login' %}" class="top-link-checkout" title="Войти"><span>Войти</span></a></li>
                                         <li class="register"><a href="{% url 'users:register' %}" title="Регистрация"><span> Регистрация </span></a></li>
                                     {% endif %}
-
                                     {% if user.is_superuser %}
                                         <li class="signin"><a href="{% url 'admin:index' %}" class="top-link-checkout" title="Панель-администратора"><span>Войти в панель-администратора</span></a></li>
                                     {% endif %}
@@ -68,11 +67,11 @@
 						<!-- //Logo -->
 						<!-- Search -->
 						<div id="sosearchpro" class="col-xs-12 col-sm-8 col-md-5 search-pro">
-							<form method="GET" action="{% url 'index' %}">
+							<form method="GET" action="{% url 'search' %}">
 								<div id="search0" class="search input-group">
-									<input class="autosearch-input form-control" type="text" value="" size="60" autocomplete="off" placeholder="Поиск програмного обеспечения ... " name="search">
+									<input class="autosearch-input form-control" type="text" value="" size="60" autocomplete="off" placeholder="Поиск программного обеспечения ... " name="q">
 									<span class="input-group-btn">
-										<button type="submit" class="button-search btn btn-primary" name="submit_search"><i class="fa fa-search"></i></button>
+										<button type="submit" class="button-search btn btn-primary"><i class="fa fa-search"></i></button>
 									</span>
 								</div>
 							</form>
@@ -116,9 +115,9 @@
 																	<div class="row">
                                                                         {% for one_software_category in software_category %}
                                                                             <div class="col-md-4 image">
-                                                                                <a href="{% url 'products_catalog:index' %}"><img src="{{ one_software_category.image.url }}"></a>
+                                                                                <a href="{% url 'products_catalog:category' one_software_category.id %}"><img src="{{ one_software_category.image.url }}"></a>
                                                                                 <div class="center title-submenu"></div>
-                                                                                <a href="{% url 'products_catalog:index' %}"> <div class="text-center"> <h3> <strong> {{ one_software_category.name }} </strong> </h3> </div> </a>
+                                                                                <a href="{% url 'products_catalog:category' one_software_category.id%}"> <div class="text-center"> <h3> <strong> {{ one_software_category.name }} </strong> </h3> </div> </a>
                                                                             </div>
                                                                         {% endfor %}
 																	</div>
@@ -195,7 +194,7 @@
         </section>
     </footer>
 <!-- //Footer Container -->
-</div>
+
 
 <!-- Include Libs & Plugins
 ============================================ -->
