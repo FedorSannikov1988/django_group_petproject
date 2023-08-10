@@ -150,6 +150,7 @@ def create_new_password(request, email, code):
         if request.method == 'POST':
             form = UserCreatNewPasswordForm(data=request.POST)
             if form.is_valid():
+                #form.save()
                 new_password = form.cleaned_data['password2']
                 user.set_password(new_password)
                 user.save()
