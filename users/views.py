@@ -1,5 +1,6 @@
 import uuid
 from datetime import timedelta
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, \
                              HttpResponseRedirect
@@ -170,6 +171,15 @@ def create_new_password(request, email, code):
     return render(request, 'new_password.html', context)
 
 
+def delete_user_confirmation(request):
+    title_index = 'Подтверждение удаления - '
+
+    context = {
+        "page_title": title_index + title_for_basic_template()
+    }
+    return render(request, 'delete_user_confirmation.html', {**context, **data_for_basic_template(request)})
+
+
 @login_required
 def my_account(request):
     title_my_account: str = 'Личный кабинет - '
@@ -178,9 +188,26 @@ def my_account(request):
         form = UserProfileForm(instance=request.user,
                                data=request.POST,
                                files=request.FILES)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('users:my_account'))
+        form = UserProfileForm(instance=request.user, data=request.POST, files=request.FILES)
+
+        if request.user.is_superuser or request.user.is_staff:
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect(reverse('users:my_account'))
+
+            else:
+                form = UserProfileForm(instance=request.user)
+
+        else:
+            form = UserProfileForm(instance=request.user,
+                                   data={'username': form.data['email'], 'email': form.data['email'],
+                                         'first_name': form.data['first_name'], 'last_name': form.data['last_name'],
+                                         'surname': form.data['surname'], 'phone': form.data['phone'],
+                                         'birthday': form.data['birthday'], 'address': form.data['address'],
+                                         'gender': form.data['gender']}, files=request.FILES)
+
+            if form.is_valid():
+                form.save()
     else:
         form = UserProfileForm(instance=request.user)
 
@@ -194,10 +221,10 @@ def my_account(request):
 
 @login_required
 def delete_profile(request):
-    username = request.POST["username"]
-    if User.objects.filter(username=username).exists():
+    user = request.user
+    if User.objects.filter(username=user.username).exists():
+        User.objects.all().filter(username=request.user.username).delete()
         auth.logout(request)
-        User.objects.filter(username=username).delete()
         return HttpResponseRedirect(reverse('index'))
     else:
         return HttpResponseRedirect(request.META['HTTP_REFERER'])

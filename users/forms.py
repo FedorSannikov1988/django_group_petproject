@@ -1,5 +1,9 @@
 from django.contrib.auth.forms import UserCreationForm, \
                                       UserChangeForm
+import re
+from datetime import datetime
+
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from users.models import User
 from django import forms
 
@@ -39,21 +43,67 @@ class UserRegisterForm(UserCreationForm):
         widget=forms.EmailInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Эл.почта'}))
+    surname = forms.CharField(
+        required=False,
+        label="Отчество",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Отчество'}))
+    phone = forms.CharField(
+        label="Номер телефона",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Номер телефона'}))
+    birthday = forms.DateField(
+        label="День рождения",
+        widget=forms.DateInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'День рождения в формате гггг-мм-дд'}))
+    gender = forms.CharField(
+        label="Пол",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Ваш пол'}))
+    address = forms.CharField(
+        label="Адрес",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Ваш адрес'}))
     password1 = forms.CharField(
-        label="Пароль",
+        label=("Пароль"),
         widget=forms.PasswordInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Пароль'}))
     password2 = forms.CharField(
-        label="Подтвердить пароль",
+        label=("Подтвердить пароль"),
         widget=forms.PasswordInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Подтвердите пароль'}))
 
+    def clean_gender(self):
+        gender = self.cleaned_data.get('gender')
+        if gender != 'М' and gender != 'Ж' and gender != 'м' and gender != 'ж':
+            raise forms.ValidationError("Укажите пол используя одну из двух букв М или Ж!")
+        return gender
+
+    def clean_phone(self):
+        phone = self.cleaned_data.get('phone')
+        if not re.match(r'^\d+$', phone):
+            raise forms.ValidationError("Номер телефона должен состоять только из цифр!")
+        return phone
+
+    def clean_birthday(self):
+        birthday = self.cleaned_data.get('birthday')
+        today = datetime.now().date()
+        days = (today - birthday).days
+        if days < 6570:
+            raise forms.ValidationError("Вам еще нет 18 лет, вы не можете совершать покупки...")
+        return birthday
+
     class Meta:
         model = User
-        fields = ('first_name', 'last_name',
-                  'username', 'email', 'password1', 'password2',)
+        fields = ('first_name', 'last_name', 'surname',
+                  'username', 'email', 'phone', 'birthday', 'gender', 'address', 'password1', 'password2',)
 
 
 class UserProfileForm(UserChangeForm):
@@ -85,11 +135,37 @@ class UserProfileForm(UserChangeForm):
         widget=forms.FileInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Фото'}))
+    surname = forms.CharField(
+        required=False,
+        label="Отчество",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Отчество'}))
+    phone = forms.CharField(
+        label="Номер телефона",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Номер телефона'}))
+    birthday = forms.DateField(
+        label="День рождения",
+        widget=forms.DateInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'День рождения в формате гггг-мм-дд'}))
+    gender = forms.CharField(
+        label="Пол",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Ваш пол'}))
+    address = forms.CharField(
+        label="Адрес",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Ваш адрес'}))
 
     class Meta:
         model = User
         fields = ('first_name', 'last_name',
-                  'image', 'username', 'email',)
+                  'image', 'username', 'email', 'surname', 'phone', 'birthday', 'gender', 'address',)
 
 
 class UserRecoveryPasswordForm(forms.Form):

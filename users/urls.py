@@ -6,7 +6,8 @@ from users.views import login, \
                         delete_profile, \
                         email_verification, \
                         forgot_password, \
-                        create_new_password
+                        create_new_password, \
+                        delete_user_confirmation
 
 app_name = 'users'
 
@@ -34,5 +35,8 @@ urlpatterns = [
          name='forgot_password'),
     path("create_new_password/<str:email>/<uuid:code>/",
          create_new_password,
-         name='create_new_password')
+         name='create_new_password'),
+    path("delete_user_confirmation/", delete_user_confirmation, name='delete_user_confirmation'),
+
+    path("verify/<str:email>/<uuid:code>/", email_verification, name='email_verification'),
 ]

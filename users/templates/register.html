@@ -4,13 +4,14 @@
 <!-- Libs CSS
 ============================================ -->
 {% block libs_css %}
-<link href="{% static 'css/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" >
+<link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
 <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
 {% endblock %}
 
 <!-- Theme CSS
 ============================================ -->
 {% block theme_css %}
+<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
 <link href="{% static 'css/footer1.css' %}" rel="stylesheet">
 <link href="{% static 'css/header1.css' %}" rel="stylesheet">
 <link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
@@ -52,15 +53,74 @@
                 <div class="form-group required" >
                     <label class="control-label" for="{{ form.first_name.id_for_label }}" > Имя </label>
                     {{ form.first_name }}
+                    {% if form.first_name.errors %}
+                    <div class="alert-danger">
+                        <strong> {{ form.first_name.errors }} </strong>
+                    </div>
+                    {% endif %}
                 </div>
                 <div class="form-group required" >
                     <label class="control-label" for="{{ form.last_name.id_for_label }}" > Фамилия </label>
                     {{ form.last_name }}
+                    {% if form.last_name.errors %}
+                    <div class="alert-danger">
+                        <strong> {{ form.last_name.errors }} </strong>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="form-group optional" >
+                    <label class="optional-field" for="{{ form.surname.id_for_label }}" > Отчество </label>
+                    {{ form.surname }}
                 </div>
                 <div class="form-group required" >
                     <label class="control-label" for="{{ form.email.id_for_label }}" > Электронная почта </label>
                     {{ form.email }}
+                    {% if form.email.errors %}
+                    <div class="alert-danger">
+                        <strong> {{ form.email.errors }} </strong>
+                    </div>
+                    {% endif %}
                 </div>
+
+                <!-- New code block for new form fields -->
+                <div class="form-group required" >
+                    <label class="control-label" for="{{ form.phone.id_for_label }}" > Номер телефона </label>
+                    {{ form.phone }}
+                    {% if form.phone.errors %}
+                    <div class="alert-danger">
+                        <strong> {{ form.phone.errors }} </strong>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="form-group required" >
+                    <label class="control-label" for="{{ form.birthday.id_for_label }}" > День рождения </label>
+                    {{ form.birthday }}
+                    {% if form.birthday.errors %}
+                    <div class="alert-danger">
+                        <strong> {{ form.birthday.errors }} </strong>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="form-group required" >
+                    <label class="control-label" for="{{ form.gender.id_for_label }}" > Пол </label>
+                    {{ form.gender }}
+                    {% if form.gender.errors %}
+                    <div class="alert-danger">
+                        <strong> {{ form.gender.errors }} </strong>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="form-group required" >
+                    <label class="control-label" for="{{ form.address.id_for_label }}" > Адрес </label>
+                    {{ form.address }}
+                    {% if form.address.errors %}
+                    <div class="alert-danger">
+                        <strong> {{ form.address.errors }} </strong>
+                    </div>
+                    {% endif %}
+                </div>
+                <!-- //New code block for new form fields -->
+
                 <div class="form-group required">
                     <label class="control-label" for="{{ form.password1.id_for_label }}" > Пароль </label>
                 {{ form.password1 }}

@@ -6,6 +6,7 @@
 {% block libs_css %}
 <link href="{% static 'css/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" >
 <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
 {% endblock %}
 
 <!-- Theme CSS
@@ -19,7 +20,7 @@
 
 {% block stile_body_two_line %}
     <body class="res layout-subpage">
-        <div id="wrapper" class="wrapper-full ">
+    <div id="wrapper" class="wrapper-full ">
 {% endblock %}
 
 <!-- Block Spotlight1  -->
@@ -29,74 +30,108 @@
 
 <!-- Main Container  -->
 {% block main_container %}
-		<div class="main-container container">
-			<ul class="header-main ">
-				<li class="home"><a href="{% url 'index' %}"> Главная </a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-				<li> Профиль </li>
-			</ul>
-            <p><br><br></p>
-			<div class="row">
-                <div class="center">
-                    <div class="text-center"> <img class="image-size" src="{% if user.image %} {{ user.image.url }} {% else %} {% static 'img/no_avatar/man.png' %} {% endif %}"> </div>
+    <div class="main-container container">
+        <ul class="header-main ">
+            <li class="home"><a href="{% url 'index' %}"> Главная </a><i class="fa fa-angle-right"
+                                                                         aria-hidden="true"></i></li>
+            <li> Профиль</li>
+        </ul>
+        <p><br><br></p>
+        <div class="row">
+            <div class="center">
+                <div class="text-center"><img class="image-size" src="{% if user.image %} {{ user.image.url }} {% else %} {% static 'img/no_avatar/man.png' %} {% endif %}">
                 </div>
-                <br><hr><br>
-                <p><br><br></p>
-				<!--Middle Part Start-->
-				<div class="col-sm-9" id="content">
-                    <form method="post"  enctype="multipart/form-data" action="{% url 'users:my_account'  %}">
-                        {% csrf_token %}
-						<div class="row">
-							<div class="col-sm-6">
-								<fieldset id="personal-details">
-									<legend>Данные пользователя</legend>
-                                        {% if user.is_superuser or user.is_staff %}
+            </div>
+            <br>
+            <hr>
+            <br>
+            <p><br><br></p>
+            <!--Middle Part Start-->
+            <div class="col-sm-9" id="content">
+                <form method="post" enctype="multipart/form-data" action="{% url 'users:my_account' %}">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <fieldset id="personal-details">
+                                <legend>Данные пользователя</legend>
+                                {% if user.is_superuser or user.is_staff %}
                                     <div class="form-group required">
-										<label for="{{ form.username.id_for_label }}" class="control-label"> Имя пользователя </label>
-                                            <b> <br> {{ form.username }} </b>
-									</div>
-                                        {% endif %}
-									<div class="form-group required">
-										<label for="{{ form.first_name.id_for_label }}" class="control-label"> Имя </label>
-                                        <b> <br> {{ form.first_name }} </b>
-									</div>
-									<div class="form-group required">
-                                        <label for="{{ form.last_name.id_for_label }}" class="control-label"> Фамилия пользователя </label>
-                                        <b> <br> {{ form.last_name }} </b>
-									</div>
-                                    <div class="form-group required">
-										<label  class="clearable-file-input" for="{{ form.image.id_for_label }}"> Фотография пользователя </label>
-                                        <b> <br> {{ form.image }} </b>
-									</div>
-								</fieldset>
-								<br>
-							</div>
-							<div class="col-sm-6">
-								<fieldset>
-									<legend>Контактная информация</legend>
-									<div class="form-group required">
-                                        {% if not user.is_superuser or not user.is_staff %}
-										<label for="input-email" class="control-label">E-Mail - Имя пользователя</label>
-                                            {% else %}
-                                            <label for="input-email" class="control-label">E-Mail</label>
-                                        {% endif %}
-                                        <b> <br> {{ form.email }} </b>
-									</div>
-								</fieldset>
-							</div>
-						</div>
-                        <br><br><br><br><br><br>
-						<div class="row">
-						    <div class="buttons clearfix">
-							    <div class="pull-right">
-                                    <input type="submit" value="Сохранить изминения" class="btn btn-md btn-primary"  style="margin-right: 450px;" />
-                                    <input formaction="{% url 'users:delete_profile' %}" type="submit" value="Удалить аккаунт" class="btn btn-md btn-danger" style="margin-right: 35px;" />
-							    </div>
-						    </div>
+                                        <label for="{{ form.username.id_for_label }}" class="control-label"> Имя
+                                            пользователя </label>
+                                        <b> <br> {{ form.username }} </b>
+                                    </div>
+                                {% endif %}
+                                <div class="form-group required">
+                                    <label for="{{ form.first_name.id_for_label }}" class="control-label"> Имя </label>
+                                    <b> <br> {{ form.first_name }} </b>
+                                </div>
+                                <div class="form-group required">
+                                    <label for="{{ form.last_name.id_for_label }}" class="control-label"> Фамилия
+                                        пользователя </label>
+                                    <b> <br> {{ form.last_name }} </b>
+                                </div>
+
+                                <div class="form-group required">
+                                    <label for="{{ form.surname.id_for_label }}" class="control-label"> Отчество </label>
+                                    <b> <br> {{ form.surname }} </b>
+                                </div>
+
+                                <div class="form-group required">
+                                    <label class="clearable-file-input" for="{{ form.image.id_for_label }}"> Фотография
+                                        пользователя </label>
+                                    <b> <br> {{ form.image }} </b>
+                                </div>
+                            </fieldset>
+                            <br>
                         </div>
-					</form>
-				</div>
-				<!--Middle Part End-->
-			</div>
-		</div>
+                        <div class="col-sm-6">
+                            <fieldset>
+                                <legend>Контактная информация</legend>
+                                <div class="form-group required">
+                                    {% if not user.is_superuser or not user.is_staff %}
+                                        <label for="input-email" class="control-label">E-Mail - Имя пользователя</label>
+                                    {% else %}
+                                        <label for="input-email" class="control-label">E-Mail</label>
+                                    {% endif %}
+                                    <b> <br> {{ form.email }} </b>
+                                </div>
+
+                                <div class="form-group required">
+                                    <label for="{{ form.phone.id_for_label }}" class="control-label"> Телефон </label>
+                                    <b> <br> {{ form.phone }} </b>
+                                </div>
+                                <div class="form-group required">
+                                    <label for="{{ form.birthday.id_for_label }}" class="control-label"> Дата рождения </label>
+                                    <b> <br> {{ form.birthday }} </b>
+                                </div>
+                                <div class="form-group required">
+                                    <label for="{{ form.gender.id_for_label }}" class="control-label"> Пол </label>
+                                    <b> <br> {{ form.gender }} </b>
+                                </div>
+                                <div class="form-group required">
+                                    <label for="{{ form.address.id_for_label }}" class="control-label"> Адрес </label>
+                                    <b> <br> {{ form.address }} </b>
+                                </div>
+
+                            </fieldset>
+                        </div>
+                    </div>
+                    <br><br><br><br><br><br>
+                    <div class="row">
+                        <div class="buttons clearfix">
+                            <div class="pull-right">
+                                <input type="submit" value="Сохранить изминения" class="btn btn-md btn-primary"
+                                       style="margin-right: 450px;"/>
+                                <input formaction="{% url 'users:delete_user_confirmation' %}" type="submit"
+                                       value="Удалить аккаунт" class="btn btn-md btn-danger"
+                                       style="margin-right: 35px;"/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--Middle Part End-->
+        </div>
+    </div>
 {% endblock %}
 <!-- //Main Container -->

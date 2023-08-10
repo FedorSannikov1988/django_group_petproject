@@ -10,6 +10,11 @@ class User(AbstractUser):
     image = models.ImageField(null=True, blank=True, upload_to='images_users')
     is_verified_email = models.BooleanField(default=False)
     email = models.EmailField(unique=True, blank=False)
+    surname = models.CharField(max_length=150, blank=True)
+    birthday = models.DateField(null=True, blank=False)
+    gender = models.TextField(max_length=2, null=True, blank=False)
+    phone = models.TextField(null=True, blank=False, unique=True)
+    address = models.CharField(max_length=150, null=True, blank=False) # try Django Address
 
     def __str__(self):
         return f'Login: {self.username} ' \

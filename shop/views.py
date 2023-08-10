@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.contrib.postgres.search import SearchQuery,SearchVector
+from django.contrib.postgres.search import SearchQuery, SearchVector
 from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
 from django.core.paginator import Paginator
