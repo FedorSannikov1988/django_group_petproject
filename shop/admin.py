@@ -1,5 +1,6 @@
 from django.contrib import admin
-from shop.models import SoftwareCategory, \
+from shop.models import ImageCollectionForIndex,\
+                        SoftwareCategory, \
                         FeaturesSoftware, \
                         DevelopmentTeam, \
                         UsersQuestions, \
@@ -8,11 +9,19 @@ from shop.models import SoftwareCategory, \
                         FAQ
 
 
+@admin.register(ImageCollectionForIndex)
+class ImageCollectionForIndexAdmin(admin.ModelAdmin):
+    list_display = ["name"]
+    search_fields = ["name"]
+    ordering = ["name"]
+
+
 @admin.register(FAQ)
 class FAQAdmin(admin.ModelAdmin):
     list_display = ["question"]
     search_fields = ["question"]
     ordering = ["question"]
+    fields = ["name", "image"]
 
 
 @admin.register(UsersQuestions)
@@ -56,12 +65,15 @@ class DevelopmentTeamAdmin(admin.ModelAdmin):
     fields = [("firstname", "lastname", "patronymic"),
               ("telephone", "mail"),
               "role", "description_work", "image"]
-    search_fields = ["firstname", "lastname", "patronymic"]
-    ordering = ["firstname", "lastname", "patronymic"]
+    search_fields = ["firstname", "lastname",
+                     "patronymic"]
+    ordering = ["firstname", "lastname",
+                "patronymic"]
 
 
 class CartAdmin(admin.TabularInline):
     model = Cart
-    fields = ["software", "quantity", "created_timestamp"]
+    fields = ["software", "quantity",
+              "created_timestamp"]
     readonly_fields = ["created_timestamp"]
     extra = 0

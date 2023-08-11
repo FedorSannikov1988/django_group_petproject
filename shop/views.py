@@ -7,16 +7,17 @@ from django.contrib.postgres.search import SearchQuery, \
                                            SearchVector
 from django.shortcuts import render, \
                              HttpResponseRedirect
-from shop.models import FeaturesSoftware, \
+from shop.models import ImageCollectionForIndex,\
+                        FeaturesSoftware, \
                         SoftwareCategory, \
-                        Software, \
                         DevelopmentTeam, \
-                        FAQ, \
-                        Cart
+                        Software, \
+                        Cart, \
+                        FAQ
 
 
 def title_for_basic_template():
-    text: str = 'Дипломный проект студентов GB'
+    text: str = 'Дипломная работа'
     return text
 
 
@@ -36,7 +37,14 @@ def data_for_basic_template(request):
 def index(request):
     title_index = 'Главная страница - '
 
+    if ImageCollectionForIndex.objects.all().exists():
+        all_image = \
+            ImageCollectionForIndex.objects.all()
+    else:
+        all_image = None
+
     context = {
+        "all_image": all_image,
         "page_title": title_index + title_for_basic_template()
     }
     return render(request, 'index.html',
@@ -119,7 +127,7 @@ def products_catalog(request, category_id=None, page_number=1):
     else:
         software = Software.objects.all()
 
-    paginator = Paginator(software, per_page=6)
+    paginator = Paginator(software.order_by('id'), per_page=6)
     software_paginator = paginator.page(page_number)
 
     context = {
@@ -151,14 +159,17 @@ def search_product(request):
 
 @login_required
 def cart(request):
-    title_cart = 'Корзина покупателя - '
+    title_cart = \
+        'Большая корзина (для сравнения товаров) - '
 
     cart_user_small = \
         Cart.objects.filter(user=request.user)
 
     cart_user_big: list = []
 
-    for one_purchase in cart_user_small:
+    for one_purchase in \
+            cart_user_small.order_by('id'):
+
         features_software = \
             FeaturesSoftware.objects.filter(id=one_purchase.software.id).first()
 

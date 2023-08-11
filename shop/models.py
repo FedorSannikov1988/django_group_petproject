@@ -5,6 +5,18 @@ from django_ckeditor_5.fields import CKEditor5Field
 from phonenumber_field.modelfields import PhoneNumberField
 
 
+class ImageCollectionForIndex(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(null=True, blank=True, upload_to='images_for_index')
+
+    def __str__(self):
+        return f'Picture name: {self.name}'
+
+    class Meta:
+        verbose_name_plural = "Картинки на главной страницы"
+        verbose_name = "картинки на главной страницы"
+
+
 class SoftwareCategory(models.Model):
     name = models.CharField(max_length=50, null=False, unique=True)
     description = models.TextField(max_length=2000, null=True, blank=True)

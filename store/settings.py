@@ -37,7 +37,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = password['django.key']
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 

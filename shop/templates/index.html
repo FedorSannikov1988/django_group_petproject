@@ -64,15 +64,14 @@
                             </div>
                         </div>
                         <!--//Слайдер с 2-мя картинками main_index_picture1.jpg-->
-                        <div id="yt_header_right" class="col-sm-12 col-md-9 col-lg-9 ">
+                        <div id="yt_header_right" class="col-sm-12 col-md-9 col-lg-9" >
                             <div class="slider-container ">
                                 <div class="owl-carousel owl-slider-1 owl" data-dots="yes" data-nav="yes" data-loop="yes" data-items_xs="1" data-items_sm="1" data-items_md="1" data-margin="0" >
-                                    <div class="img-slider">
-                                        <a href="#"><img src="{% static 'img/index/main_index_picture1.jpg' %}" alt="картинка №1"></a>
-                                    </div>
-                                    <div class="img-slider">
-                                        <a href="#"><img src="{% static 'img/index/main_index_picture2.jpg' %}" alt="картинка №2"></a>
-                                    </div>
+                                    {% for one_image in all_image %}
+                                        <div class="img-slider">
+                                            <a href="#"><img src="{{ one_image.image.url }}" alt="{{ one_image.name }}"></a>
+                                        </div>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
