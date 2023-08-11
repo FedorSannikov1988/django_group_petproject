@@ -36,7 +36,8 @@ def index(request):
     context = {
         "page_title": title_index + title_for_basic_template()
     }
-    return render(request, 'index.html', {**context, **data_for_basic_template(request)})
+    return render(request, 'index.html',
+                  {**context, **data_for_basic_template(request)})
 
 
 def sitemap(request):
@@ -45,7 +46,8 @@ def sitemap(request):
     context = {
         'page_title': title_sitemap + title_for_basic_template()
     }
-    return render(request, 'sitemap.html', {**context, **data_for_basic_template(request)})
+    return render(request, 'sitemap.html',
+                  {**context, **data_for_basic_template(request)})
 
 
 def about_us(request):

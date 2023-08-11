@@ -1,8 +1,8 @@
-from django.contrib import admin
-from users.models import User, \
-                         EmailVerification, \
-                         PasswordRecovery
+from users.models import EmailVerification, \
+                         PasswordRecovery, \
+                         User
 from shop.admin import CartAdmin
+from django.contrib import admin
 
 
 @admin.register(User)
@@ -25,7 +25,8 @@ class EmailVerificationAdmin(admin.ModelAdmin):
 
 @admin.register(PasswordRecovery)
 class PasswordRecoveryAdmin(admin.ModelAdmin):
-    list_display = ["code", "user", "expiration"]
+    list_display = ["code", "user", "expiration",
+                    "link_used"]
     fields = ["code", "user", "created",
-              "expiration"]
+              "expiration", "link_used"]
     readonly_fields = ["created"]

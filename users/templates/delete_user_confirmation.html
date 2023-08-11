@@ -1,11 +1,6 @@
 {% extends 'base_entry.html' %}
 {% load static %}
 
-<!-- Favicon
-============================================ -->
-{% block favicon %}
-<link rel="shortcut icon" href="{% static 'ico/favicon.png' %}">
-{% endblock %}
 
 <!-- Libs CSS
 ============================================ -->
@@ -19,7 +14,7 @@
 <link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
 <link href="{% static 'css/footer1.css' %}" rel="stylesheet">
 <link href="{% static 'css/header1.css' %}" rel="stylesheet">
-<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
+<link href="{% static 'css/theme.css' %}" id="color_scheme" rel="stylesheet" >
 {% endblock %}
 
 {% block stile_body_two_line %}
@@ -32,7 +27,8 @@
     <div class="text-center" style="margin-top: 150px">
         <h1><b>Вы уверены, что хотите удалить аккаунт?</b></h1>
         <br>
-        <h4 style="color: #DA2723">* восстановить аккаунт будет невозможно, вся история покупок и программа лояльности будут потеряны навсегда </h4>
+        <h4 style="color: #DA2723">* восстановить аккаунт будет невозможно, вся история покупок
+                                                 и программа лояльности будут потеряны навсегда </h4>
     </div>
     <br>
     <form action="{% url 'users:register' %}" method="post" novalidate style="margin-left: auto; margin-right: auto; width: 400px; ">
@@ -44,13 +40,3 @@
     </form>
 {% endblock %}
 <!-- //Main Container -->
-
-<!-- Include Libs & Plugins
-============================================ -->
-{% block libs_and_plugins %}
-{% endblock %}
-
-<!-- Theme files
-============================================ -->
-{% block theme_files %}
-{% endblock %}

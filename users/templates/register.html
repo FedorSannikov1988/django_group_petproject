@@ -4,14 +4,13 @@
 <!-- Libs CSS
 ============================================ -->
 {% block libs_css %}
-<link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+<link href="{% static 'css/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
 {% endblock %}
 
 <!-- Theme CSS
 ============================================ -->
 {% block theme_css %}
-<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
 <link href="{% static 'css/footer1.css' %}" rel="stylesheet">
 <link href="{% static 'css/header1.css' %}" rel="stylesheet">
 <link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
@@ -35,7 +34,7 @@
 
             <h3 class="title"> </h3>
 
-                <p>Если вы уже зарегистрированы, пожалуйста, <b><a href="{% url 'users:login' %}">войдите в свою учетную запись</a>.</b></p>
+                <p>Если вы уже зарегистрированы, пожалуйста, <b><a href="{% url 'users:login_user' %}">войдите в свою учетную запись</a>.</b></p>
             <br><br>
         <!-- Message about successful registration -->
             {% if messages %}
@@ -120,7 +119,6 @@
                     {% endif %}
                 </div>
                 <!-- //New code block for new form fields -->
-
                 <div class="form-group required">
                     <label class="control-label" for="{{ form.password1.id_for_label }}" > Пароль </label>
                 {{ form.password1 }}
@@ -146,13 +144,3 @@
 </div>
 {% endblock %}
 <!-- //Main Container -->
-
-<!-- Include Libs & Plugins
-============================================ -->
-{% block libs_and_plugins %}
-{% endblock %}
-
-<!-- Theme files
-============================================ -->
-{% block theme_files %}
-{% endblock %}

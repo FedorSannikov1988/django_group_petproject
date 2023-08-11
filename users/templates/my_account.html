@@ -71,7 +71,7 @@
                                     <b> <br> {{ form.last_name }} </b>
                                 </div>
 
-                                <div class="form-group required">
+                                <div class="form-group">
                                     <label for="{{ form.surname.id_for_label }}" class="control-label"> Отчество </label>
                                     <b> <br> {{ form.surname }} </b>
                                 </div>
@@ -105,17 +105,25 @@
                                     <b> <br> {{ form.birthday }} </b>
                                 </div>
                                 <div class="form-group required">
-                                    <label for="{{ form.gender.id_for_label }}" class="control-label"> Пол </label>
+                                    <label for="{{ form.gender.id_for_label }}" class="control-label"> Пол (М/Ж) </label>
                                     <b> <br> {{ form.gender }} </b>
                                 </div>
                                 <div class="form-group required">
                                     <label for="{{ form.address.id_for_label }}" class="control-label"> Адрес </label>
                                     <b> <br> {{ form.address }} </b>
                                 </div>
-
                             </fieldset>
                         </div>
                     </div>
+                            <div class="alert text-center">
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        {% if "success" in message.tags %}
+                                                <div class="alert-success" >{{ message }}</div>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
                     <br><br><br><br><br><br>
                     <div class="row">
                         <div class="buttons clearfix">

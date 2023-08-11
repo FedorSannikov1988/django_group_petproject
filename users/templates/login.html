@@ -29,10 +29,12 @@
         <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
         <li>Войти</li>
     </ul>
+    <br><br><br>
+    <br><br><br>
+    <br><br><br>
     <div class="row">
         <div id="content" class="col-sm-12">
             <div class="page-login">
-
                 <div class="account-border">
                     <div class="row">
                         <div class="col-sm-6 new-customer">
@@ -44,27 +46,28 @@
                                 <a href="{% url 'users:register' %}" class="btn btn-default pull-right">Регистрация</a>
                             </div>
                         </div>
-                        <form action="{% url 'users:login' %}" method="post">
+                        <form action="{% url 'users:login_user' %}" method="post">
                             <div class="col-sm-6 customer-login">
                                 <div class="well">
                                     <h2><i class="fa fa-file-text-o" aria-hidden="true"></i>Постоянный покупатель</h2>
                                     {% csrf_token %}
                                     <div class="form-group">
-                                        <label class="control-label" for="{{ form.username.id_for_label }}">Логин:</label>
+                                        <label class="control-label" for="{{ form.username.id_for_label }}">Адрес электронной почты:</label>
                                         <p>{{ form.username }}</p>
                                     </div>
                                     <div class="form-group">
                                         <label class="control-label" for="{{ form.password.id_for_label }}">Пароль:</label>
                                         <p>{{ form.password }}</p>
-                                        <div class="alert">
-                                            {% if messages or message_error %}
-                                                {% if messages %}
-                                                    {% for message in messages %}
+                                        <div class="alert text-center">
+                                            {% if messages %}
+                                                {% for message in messages %}
+                                                    {% if "error" in message.tags %}
+                                                        <div class="alert-danger">{{ message }}</div>
+                                                    {% endif %}
+                                                    {% if "success" in message.tags %}
                                                         <div class="alert-success" >{{ message }}</div>
-                                                    {% endfor %}
-                                                {% else %}
-                                                    <div class="alert-danger">{{ message_error }}</div>
-                                                {% endif %}
+                                                    {% endif %}
+                                                {% endfor %}
                                             {% endif %}
                                         </div>
                                     </div>
@@ -80,16 +83,9 @@
             </div>
         </div>
     </div>
+<br><br><br>
+<br><br><br>
+<br><br><br>
 </div>
 {% endblock %}
 <!-- //Main Container -->
-
-<!-- Include Libs & Plugins
-============================================ -->
-{% block libs_and_plugins %}
-{% endblock %}
-
-<!-- Theme files
-============================================ -->
-{% block theme_files %}
-{% endblock %}
