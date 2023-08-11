@@ -63,7 +63,8 @@ class DevelopmentTeam(models.Model):
     mail = models.EmailField(null=True, blank=True, unique=True)
     role = models.TextField(max_length=200, null=True, blank=True)
     description_work = models.TextField(null=True, blank=True)
-    image = models.ImageField(null=True, blank=True, upload_to='images_development_team')
+    image = models.ImageField(null=True, blank=True, upload_to=
+                                                     'images_development_team')
 
     def __str__(self):
         return f'Firstname: {self.firstname} ' \

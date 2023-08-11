@@ -6,7 +6,6 @@
 {% block libs_css %}
 <link href="{% static 'css/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" >
 <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
 {% endblock %}
 
 <!-- Theme CSS
@@ -39,7 +38,10 @@
         <p><br><br></p>
         <div class="row">
             <div class="center">
-                <div class="text-center"><img class="image-size" src="{% if user.image %} {{ user.image.url }} {% else %} {% static 'img/no_avatar/man.png' %} {% endif %}">
+                <div class="text-center">
+                    <img class="image-size" src="{% if user.image %} {{ user.image.url }}
+                {% elif user.gender == "М" %} {% static 'img/no_avatar/man.png' %}
+                {% else %} {% static 'img/no_avatar/woman.png' %} {% endif %}">
                 </div>
             </div>
             <br>
@@ -89,7 +91,7 @@
                                 <legend>Контактная информация</legend>
                                 <div class="form-group required">
                                     {% if not user.is_superuser or not user.is_staff %}
-                                        <label for="input-email" class="control-label">E-Mail - Имя пользователя</label>
+                                        <label for="input-email" class="control-label">E-Mail</label>
                                     {% else %}
                                         <label for="input-email" class="control-label">E-Mail</label>
                                     {% endif %}
@@ -143,3 +145,15 @@
     </div>
 {% endblock %}
 <!-- //Main Container -->
+
+<!-- Include Libs & Plugins
+============================================ -->
+{% block libs_and_plugins %}
+<script type="text/javascript" src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+{% endblock %}
+
+<!-- Theme files
+============================================ -->
+{% block theme_files %}
+{% endblock %}

@@ -1,9 +1,12 @@
-from django.contrib.auth.decorators import login_required
-from django.contrib.postgres.search import SearchQuery, SearchVector
-from django.shortcuts import render, HttpResponseRedirect
 from django.urls import reverse
-from django.core.paginator import Paginator
 from shop.forms import ShopFaqForm
+from django.contrib.messages import error
+from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
+from django.contrib.postgres.search import SearchQuery, \
+                                           SearchVector
+from django.shortcuts import render, \
+                             HttpResponseRedirect
 from shop.models import FeaturesSoftware, \
                         SoftwareCategory, \
                         Software, \
@@ -57,7 +60,8 @@ def about_us(request):
         "page_title": title_about_us + title_for_basic_template(),
         "development_team": DevelopmentTeam.objects.all(),
     }
-    return render(request, 'about_us.html', {**context, **data_for_basic_template(request)})
+    return render(request, 'about_us.html',
+                  {**context, **data_for_basic_template(request)})
 
 
 def faq(request):
@@ -74,18 +78,23 @@ def faq(request):
                 form.add_error(None, 'Ошибка отправки данных!')
     else:
         form = ShopFaqForm()
+
     context = {
-        'page_title': title_faq + title_for_basic_template(),
+        'form': form,
         'faq': FAQ.objects.all(),
-        'form': form
+        'page_title': title_faq + title_for_basic_template(),
     }
-    return render(request, 'faq.html', {**context, **data_for_basic_template(request)})
+    return render(request, 'faq.html',
+                  {**context, **data_for_basic_template(request)})
 
 
 def product(request, software_id):
     title_product = 'Описание програмного обеспечения - '
-    software = Software.objects.get(id=software_id)
-    category = SoftwareCategory.objects.get(id=software.category_id)
+    software = \
+        Software.objects.get(id=software_id)
+    category = \
+        SoftwareCategory.objects.get(id=software.category_id)
+
     context = {
         'page_title': title_product + title_for_basic_template(),
         'software_id': software_id,
@@ -96,13 +105,17 @@ def product(request, software_id):
         'software_category_id': software.category_id,
         'software_category_name': category.name,
     }
-    return render(request, 'product.html', {**context, **data_for_basic_template(request)})
+    return render(request, 'product.html',
+                  {**context, **data_for_basic_template(request)})
 
 
 def products_catalog(request, category_id=None, page_number=1):
-    title_product_catalog = 'Каталог программного обеспечения - '
+    title_product_catalog = \
+        'Каталог программного обеспечения - '
+
     if category_id:
-        software = Software.objects.filter(category_id=category_id)
+        software = \
+            Software.objects.filter(category_id=category_id)
     else:
         software = Software.objects.all()
 
@@ -114,7 +127,8 @@ def products_catalog(request, category_id=None, page_number=1):
         "categories": SoftwareCategory.objects.all(),
         "software": software_paginator
     }
-    return render(request, 'catalog.html', {**context, **data_for_basic_template(request)})
+    return render(request, 'catalog.html',
+                  {**context, **data_for_basic_template(request)})
 
 
 def search_product(request):
@@ -124,35 +138,40 @@ def search_product(request):
         vector = SearchVector('name')
         query = SearchQuery(q)
 
-        software = Software.objects.annotate(search=vector).filter(search=query)
+        software = \
+            Software.objects.annotate(search=vector).filter(search=query)
     else:
-        software = Software.objects.all()
+        software = \
+            Software.objects.all()
 
     context = {'software': software}
-    return render(request, 'catalog.html', context)
+    return render(request, 'catalog.html',
+                  {**context, **data_for_basic_template(request)})
 
 
 @login_required
 def cart(request):
-    title_cart = 'Большая корзина покупателя - '
+    title_cart = 'Корзина покупателя - '
 
-    cart_user_small = Cart.objects.filter(user=request.user)
+    cart_user_small = \
+        Cart.objects.filter(user=request.user)
 
     cart_user_big: list = []
 
     for one_purchase in cart_user_small:
-        featuresSoftware = FeaturesSoftware.objects.filter(id=one_purchase.software.id).first()
+        features_software = \
+            FeaturesSoftware.objects.filter(id=one_purchase.software.id).first()
 
         new_line = {
                     'image': one_purchase.software.image,
                     'name': one_purchase.software.name,
                     'software_id': one_purchase.software.id,
                     'one_purchase_id': one_purchase.id,
-                    'description': featuresSoftware.description,
-                    'operating_system': featuresSoftware.operating_system,
-                    'video_card': featuresSoftware.video_card,
-                    'hard_disk_mb': featuresSoftware.hard_disk_mb,
-                    'min_ram_mb': featuresSoftware.min_ram_mb,
+                    'description': features_software.description,
+                    'operating_system': features_software.operating_system,
+                    'video_card': features_software.video_card,
+                    'hard_disk_mb': features_software.hard_disk_mb,
+                    'min_ram_mb': features_software.min_ram_mb,
                     'quantity_in_card': one_purchase.quantity,
                     'software_price': one_purchase.software.price,
                     'one_purchase_sum': one_purchase.sum
@@ -165,22 +184,33 @@ def cart(request):
         'big_cart_total_sum': cart_user_small.total_sum,
         'page_title': title_cart + title_for_basic_template(),
     }
-    return render(request, 'cart.html', {**context, **data_for_basic_template(request)})
+    return render(request, 'cart.html',
+                  {**context, **data_for_basic_template(request)})
 
 
 @login_required
 def cart_add_one(request, software_id):
     user = request.user
-    software = Software.objects.get(id=software_id)
-    carts = Cart.objects.filter(user=user, software=software)
+    software = \
+        Software.objects.get(id=software_id)
+    carts = \
+        Cart.objects.filter(user=user,
+                            software=software)
 
     if not carts.exists():
-        Cart.objects.create(user=user, software=software, quantity=1)
+        Cart.objects.create(user=user,
+                            software=software,
+                            quantity=1)
     else:
         cart = carts.last()
         if software.quantity > cart.quantity:
             cart.quantity += 1
             cart.save()
+        else:
+            message_error_for_user = \
+                'Больше данного тавара нет ' \
+                'на складе.'
+            error(request, message_error_for_user)
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
