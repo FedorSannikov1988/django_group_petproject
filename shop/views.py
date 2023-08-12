@@ -100,6 +100,8 @@ def product(request, software_id):
     title_product = 'Описание програмного обеспечения - '
     software = \
         Software.objects.get(id=software_id)
+    software_description = \
+        FeaturesSoftware.objects.get(id=software_id)
     category = \
         SoftwareCategory.objects.get(id=software.category_id)
 
@@ -109,9 +111,19 @@ def product(request, software_id):
         'software_name': software.name,
         'software_image': software.image.url,
         'software_price': software.price,
-        'software_quantity': software.quantity,
+        'software_quantity':software.quantity,
         'software_category_id': software.category_id,
         'software_category_name': category.name,
+        'software_description':
+            software_description.description,
+        'software_description_min_ram_mb':
+            software_description.min_ram_mb,
+        'software_description_video_card':
+            software_description.video_card,
+        'software_description_hard_disk_mb':
+            software_description.hard_disk_mb,
+        'software_description_operating_system':
+            software_description.operating_system,
     }
     return render(request, 'product.html',
                   {**context, **data_for_basic_template(request)})
