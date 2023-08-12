@@ -15,6 +15,8 @@ from shop.models import ImageCollectionForIndex,\
                         Cart, \
                         FAQ
 
+NUMBER_ITEM_PER_CATALOG_PAGE: int = 6
+
 
 def title_for_basic_template():
     text: str = 'Дипломная работа'
@@ -112,8 +114,10 @@ def product(request, software_id):
         'software_image': software.image.url,
         'software_price': software.price,
         'software_quantity':software.quantity,
-        'software_category_id': software.category_id,
-        'software_category_name': category.name,
+        'software_category_id':
+            software.category_id,
+        'software_category_name':
+            category.name,
         'software_description':
             software_description.description,
         'software_description_min_ram_mb':
@@ -129,31 +133,54 @@ def product(request, software_id):
                   {**context, **data_for_basic_template(request)})
 
 
-def products_catalog(request, category_id=None, page_number=1):
+def products_catalog(request, category_id=None,
+                     page_number: int = 1):
     title_product_catalog = \
         'Каталог программного обеспечения - '
 
+    start_number: int = 1
+    stop_number: int = \
+        NUMBER_ITEM_PER_CATALOG_PAGE
+
+    if page_number != 1:
+        start_number = \
+            NUMBER_ITEM_PER_CATALOG_PAGE + 1
+        stop_number = \
+            NUMBER_ITEM_PER_CATALOG_PAGE * page_number
+
     if category_id:
         software = \
-            Software.objects.filter(category_id=category_id)
+            Software.objects.filter(category_id=
+                                    category_id)
     else:
         software = Software.objects.all()
 
-    paginator = Paginator(software.order_by('id'), per_page=6)
+    count_all_software: int = software.count()
+
+    if count_all_software < stop_number:
+        stop_number = count_all_software
+
+    paginator = Paginator(object_list=software.order_by('id'),
+                          per_page=NUMBER_ITEM_PER_CATALOG_PAGE)
     software_paginator = paginator.page(page_number)
 
     context = {
         "page_title": title_product_catalog + title_for_basic_template(),
         "categories": SoftwareCategory.objects.all(),
-        "software": software_paginator
+        "software": software_paginator,
+        "count_all_software": count_all_software,
+        "start_number": start_number,
+        "stop_number": stop_number,
     }
     return render(request, 'catalog.html',
                   {**context, **data_for_basic_template(request)})
 
 
 def search_product(request):
-    q = request.GET.get('q')
+    title_search_product = \
+        'Результаты поиска - '
 
+    q = request.GET.get('q')
     if q:
         vector = SearchVector('name')
         query = SearchQuery(q)
@@ -164,7 +191,21 @@ def search_product(request):
         software = \
             Software.objects.all()
 
-    context = {'software': software}
+    start_number: int = 0
+    software_count: int = \
+        software.count()
+
+    if software_count != 0:
+        start_number: int = \
+            software_count - (software_count - 1)
+
+    context = {
+        "software": software,
+        "start_number": start_number,
+        "stop_number": software_count,
+        "count_all_software": software_count,
+        "page_title": title_search_product + title_for_basic_template(),
+    }
     return render(request, 'catalog.html',
                   {**context, **data_for_basic_template(request)})
 
