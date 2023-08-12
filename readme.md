@@ -25,10 +25,11 @@ python manage.py loaddata shop/fixtures/<имя фикстуры>
 ### Актуальные медиафайлы (папка media):
 https://disk.yandex.ru/d/LHKe-C0lMaZNsA
 
-### Файлы с паролями о проекта db.password, django.key, email.password:
+### Архив (password files.zip) с файлами паролей для проекта db.password, django.key, email.password:
 https://disk.yandex.ru/d/hz2HxRLMnIrqKw
 
-##### Внимание: Архив с файлами: db.password, django.key, email.password запаролен.
+##### Внимание:
+##### Архив с файлами db.password, django.key, email.password защищен паролем.
 ##### Пароль можно получить у команды разработки проекта.
 
 ### Создание базы даных PostgreSQL:
