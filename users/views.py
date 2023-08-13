@@ -301,7 +301,17 @@ def my_account(request):
             message_success_for_user: str = \
                 "Изминения сохранены"
             success(request, message_success_for_user)
-            return HttpResponseRedirect(reverse('users:my_account'))
+        else:
+            message_error_for_user = \
+                "Внимание изминения не могут быть сохранены !"
+
+            if User.objects.filter(phone=form.data['phone']).exists():
+                message_error_for_user += " "\
+                    "Пользователь с таким номером " \
+                    "телефона уже существует в " \
+                    "базе данных !"
+            error(request, message_error_for_user)
+        return HttpResponseRedirect(reverse('users:my_account'))
 
     form = UserProfileForm(instance=request.user)
 
