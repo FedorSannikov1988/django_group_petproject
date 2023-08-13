@@ -90,6 +90,13 @@
                                                 </div>
 											</div>
 										</div>
+                                        <div class="alert text-center">
+                                            {% if messages %}
+                                                {% for message in messages %}
+                                                    <div class="alert-danger"> <strong> {{ message }} </strong></div>
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
 									</div>
 									<!-- end box info product -->
 								</div>
