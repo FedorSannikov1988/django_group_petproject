@@ -1,5 +1,19 @@
 from django.contrib import admin
-from shop.models import SoftwareCategory, Software, FeaturesSoftware, DevelopmentTeam, FAQ, UsersQuestions, Cart
+from shop.models import ImageCollectionForIndex,\
+                        SoftwareCategory, \
+                        FeaturesSoftware, \
+                        DevelopmentTeam, \
+                        UsersQuestions, \
+                        Software, \
+                        Cart, \
+                        FAQ
+
+
+@admin.register(ImageCollectionForIndex)
+class ImageCollectionForIndexAdmin(admin.ModelAdmin):
+    list_display = ["name"]
+    search_fields = ["name"]
+    ordering = ["name"]
 
 
 @admin.register(FAQ)
@@ -7,13 +21,16 @@ class FAQAdmin(admin.ModelAdmin):
     list_display = ["question"]
     search_fields = ["question"]
     ordering = ["question"]
+    fields = ["name", "image"]
 
 
 @admin.register(UsersQuestions)
 class UsersQuestionsAdmin(admin.ModelAdmin):
     list_display = ["user", "question_timestamp"]
-    fields = [("user", "question_timestamp"), "userquestion", "upload"]
-    readonly_fields = ["user", "userquestion", "question_timestamp", "upload"]
+    fields = [("user", "question_timestamp"),
+              "userquestion", "upload"]
+    readonly_fields = ["user", "userquestion",
+                       "question_timestamp", "upload"]
     ordering = ["user", "question_timestamp"]
 
 
@@ -26,10 +43,13 @@ class SoftwareCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Software)
 class SoftwareAdmin(admin.ModelAdmin):
-    list_display = ["name", "category", "quantity", "price"]
-    fields = [("name", "category"), ("price", "quantity"), "image"]
+    list_display = ["name", "category",
+                    "quantity", "price"]
+    fields = [("name", "category"),
+              ("price", "quantity"), "image"]
     search_fields = ["name", "category"]
-    ordering = ["name", "category", "quantity", "price"]
+    ordering = ["name", "category",
+                "quantity", "price"]
 
 
 @admin.register(FeaturesSoftware)
@@ -42,13 +62,18 @@ class FeaturesSoftwareAdmin(admin.ModelAdmin):
 @admin.register(DevelopmentTeam)
 class DevelopmentTeamAdmin(admin.ModelAdmin):
     list_display = ["firstname", "lastname", "patronymic"]
-    fields = [("firstname", "lastname", "patronymic"), ("telephone", "mail"), "role", "description_work", "image"]
-    search_fields = ["firstname", "lastname", "patronymic"]
-    ordering = ["firstname", "lastname", "patronymic"]
+    fields = [("firstname", "lastname", "patronymic"),
+              ("telephone", "mail"),
+              "role", "description_work", "image"]
+    search_fields = ["firstname", "lastname",
+                     "patronymic"]
+    ordering = ["firstname", "lastname",
+                "patronymic"]
 
 
 class CartAdmin(admin.TabularInline):
     model = Cart
-    fields = ["software", "quantity", "created_timestamp"]
+    fields = ["software", "quantity",
+              "created_timestamp"]
     readonly_fields = ["created_timestamp"]
     extra = 0

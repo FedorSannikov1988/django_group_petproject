@@ -1,9 +1,12 @@
-import re
-from datetime import datetime
-
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, \
+                                      UserChangeForm
+from django.utils.timezone import now
 from users.models import User
 from django import forms
+import re
+
+MIN_AGE_MAKING_TRANSACTION_DAYS: int = 6570
+MAX_LEN_PASS: int = 30
 
 
 class UserLoginForm(forms.Form):
@@ -11,16 +14,21 @@ class UserLoginForm(forms.Form):
         label="Логин",
         widget=forms.TextInput(
             attrs={'class': 'form-control',
-                   'placeholder': 'Имя пользователя'}))
+                   'placeholder': 'Адрес электронной почты'}))
     password = forms.CharField(
-        max_length=20,
+        max_length=MAX_LEN_PASS,
         widget=forms.PasswordInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Пароль'}))
-    field_order = ("username", "password",)
 
 
 class UserRegisterForm(UserCreationForm):
+    username = forms.CharField(
+        required=False,
+        label="Логин",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Логин'}))
     first_name = forms.CharField(
         label="Имя",
         widget=forms.TextInput(
@@ -31,23 +39,17 @@ class UserRegisterForm(UserCreationForm):
         widget=forms.TextInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Фамилия'}))
-    username = forms.CharField(
-        required=False,
-        label="Имя пользователя",
-        widget=forms.TextInput(
-            attrs={'class': 'form-control',
-                   'placeholder': 'Логин'}))
-    email = forms.EmailField(
-        label="email",
-        widget=forms.EmailInput(
-            attrs={'class': 'form-control',
-                   'placeholder': 'Эл.почта'}))
     surname = forms.CharField(
         required=False,
         label="Отчество",
         widget=forms.TextInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Отчество'}))
+    email = forms.EmailField(
+        label="email",
+        widget=forms.EmailInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Эл.почта'}))
     phone = forms.CharField(
         label="Номер телефона",
         widget=forms.TextInput(
@@ -57,55 +59,77 @@ class UserRegisterForm(UserCreationForm):
         label="День рождения",
         widget=forms.DateInput(
             attrs={'class': 'form-control',
-                   'placeholder': 'День рождения в формате гггг-мм-дд'}))
+                   'placeholder':
+                       'День рождения в '
+                       'формате гггг-мм-дд'}))
     gender = forms.CharField(
         label="Пол",
         widget=forms.TextInput(
             attrs={'class': 'form-control',
-                   'placeholder': 'Ваш пол'}))
+                   'placeholder': 'Ваш пол (М/Ж)'}))
     address = forms.CharField(
         label="Адрес",
         widget=forms.TextInput(
             attrs={'class': 'form-control',
-                   'placeholder': 'Ваш адрес'}))
+                   'placeholder': 'Ваш адрес '
+                                  '(не более 150 символов)'}))
     password1 = forms.CharField(
-        label=("Пароль"),
+        label="Пароль",
         widget=forms.PasswordInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Пароль'}))
     password2 = forms.CharField(
-        label=("Подтвердить пароль"),
+        label="Подтвердить пароль",
         widget=forms.PasswordInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Подтвердите пароль'}))
 
     def clean_gender(self):
         gender = self.cleaned_data.get('gender')
-        if gender != 'М' and gender != 'Ж' and gender != 'м' and gender != 'ж':
-            raise forms.ValidationError("Укажите пол используя одну из двух букв М или Ж!")
+        if gender != 'М' and gender != 'Ж':
+            text_error: str = \
+                "Укажите пол используя одну " \
+                "из двух букв верхнего регистра " \
+                "М или Ж!"
+            raise forms.ValidationError(text_error)
         return gender
 
     def clean_phone(self):
         phone = self.cleaned_data.get('phone')
         if not re.match(r'^\d+$', phone):
-            raise forms.ValidationError("Номер телефона должен состоять только из цифр!")
+            text_error: str = \
+                "Номер телефона должен состоять " \
+                "только из цифр!"
+            raise forms.ValidationError(text_error)
         return phone
 
     def clean_birthday(self):
         birthday = self.cleaned_data.get('birthday')
-        today = datetime.now().date()
-        days = (today - birthday).days
-        if days < 6570:
-            raise forms.ValidationError("Вам еще нет 18 лет, вы не можете совершать покупки...")
+        days = (now().date() - birthday).days
+        if days < MIN_AGE_MAKING_TRANSACTION_DAYS:
+            text_error: str = \
+                "Вам еще нет 18 лет, вы не можете " \
+                "совершать покупки в нашем магазине"
+            raise forms.ValidationError(text_error)
         return birthday
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'surname',
-                  'username', 'email', 'phone', 'birthday', 'gender', 'address', 'password1', 'password2',)
+        fields = ('first_name', 'last_name',
+                  'surname', 'username',
+                  'email', 'phone',
+                  'birthday', 'gender',
+                  'address', 'password1',
+                  'password2',)
 
 
 class UserProfileForm(UserChangeForm):
+    username = forms.CharField(
+        label="Логин",
+        widget=forms.TextInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Логин',
+                   'readonly': True}))
     first_name = forms.CharField(
         label="Имя",
         widget=forms.TextInput(
@@ -116,12 +140,12 @@ class UserProfileForm(UserChangeForm):
         widget=forms.TextInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Фамилия'}))
-    username = forms.CharField(
-        label="Логин",
+    surname = forms.CharField(
+        required=False,
+        label="Отчество",
         widget=forms.TextInput(
             attrs={'class': 'form-control',
-                   'placeholder': 'Логин',
-                   'readonly': True}))
+                   'placeholder': 'Отчество'}))
     email = forms.EmailField(
         label="Эл.почта",
         widget=forms.EmailInput(
@@ -134,12 +158,6 @@ class UserProfileForm(UserChangeForm):
         widget=forms.FileInput(
             attrs={'class': 'form-control',
                    'placeholder': 'Фото'}))
-    surname = forms.CharField(
-        required=False,
-        label="Отчество",
-        widget=forms.TextInput(
-            attrs={'class': 'form-control',
-                   'placeholder': 'Отчество'}))
     phone = forms.CharField(
         label="Номер телефона",
         widget=forms.TextInput(
@@ -149,7 +167,8 @@ class UserProfileForm(UserChangeForm):
         label="День рождения",
         widget=forms.DateInput(
             attrs={'class': 'form-control',
-                   'placeholder': 'День рождения в формате гггг-мм-дд'}))
+                   'placeholder': 'День рождения в '
+                                  'формате гггг-мм-дд'}))
     gender = forms.CharField(
         label="Пол",
         widget=forms.TextInput(
@@ -164,4 +183,28 @@ class UserProfileForm(UserChangeForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name',
-                  'image', 'username', 'email', 'surname', 'phone', 'birthday', 'gender', 'address',)
+                  'username', 'image',
+                  'email', 'surname',
+                  'phone', 'birthday',
+                  'gender', 'address',)
+
+
+class UserRecoveryPasswordForm(forms.Form):
+    email = forms.EmailField(
+        label="email",
+        widget=forms.EmailInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Ваш email'}))
+
+
+class UserCreatNewPasswordForm(forms.Form):
+    password1 = forms.CharField(
+        max_length=MAX_LEN_PASS,
+        widget=forms.PasswordInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Пароль'}))
+    password2 = forms.CharField(
+        max_length=MAX_LEN_PASS,
+        widget=forms.PasswordInput(
+            attrs={'class': 'form-control',
+                   'placeholder': 'Подтвердите пароль'}))

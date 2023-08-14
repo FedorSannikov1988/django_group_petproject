@@ -1,38 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<!-- Favicon
-============================================ -->
-{% block favicon %}
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/apple-touch-icon-144-precomposed.png' %}">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/apple-touch-icon-114-precomposed.png' %}">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/apple-touch-icon-72-precomposed.png' %}">
-<link rel="apple-touch-icon-precomposed" href="{% static 'ico/apple-touch-icon-57-precomposed.png' %}">
-<link rel="shortcut icon" href="{% static 'ico/favicon.png' %}">
-{% endblock %}
-
 <!-- Libs CSS
 ============================================ -->
 {% block libs_css %}
-<link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
+<link href="{% static 'css/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
-<link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
-<link href="{% static 'js/owl-carousel/assets/owl.carousel.css' %}" rel="stylesheet">
-<link href="{% static 'js/owl-carousel/assets/owl.theme.default.min.css' %}" rel="stylesheet">
-<link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
-<link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
 {% endblock %}
 
 <!-- Theme CSS
 ============================================ -->
 {% block theme_css %}
-<link href="{% static 'css/themecss/cpanel.css' %}" rel='stylesheet'  type='text/css' media='all' />
-<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
-<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
-<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
-<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
-<link href="{% static 'css/header1.css' %}" rel="stylesheet">
-<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
+    <link href="{% static 'css/footer1.css' %}" rel="stylesheet">
+    <link href="{% static 'css/header1.css' %}" rel="stylesheet">
+    <link href="{% static 'css/theme.css' %}" rel="stylesheet" id="color_scheme">
+    <link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block stile_body_two_line %}
@@ -57,7 +39,13 @@
             <!--Middle Part Start-->
             <div id="content" class="col-sm-12">
             <p><br><br><br></p>
-
+                <div class="alert text-center">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert-danger">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
             <div class="table-responsive form-group">
                 <table class="table table-bordered">
                     <thead>
@@ -78,12 +66,12 @@
                     {% for one_purchase in big_cart %}
                         <tr>
                             <td class="text-center" style="width:70px;">
-                                <a href="#">
-                                    <img src="{{ one_purchase.image.url }}" class="preview" style="width:70px">
+                                <a href="{% url 'product:index' one_purchase.software_id %}">
+                                    <img src="{{ one_purchase.image.url }}" class="preview" style="width:70px" alt="">
                                 </a>
                             </td>
                             <td class="text-center" style="padding-top: 40px; width:100px;">
-                                <a href="#">
+                                <a href="{% url 'product:index' one_purchase.software_id %}">
                                      <strong>
                                          {{ one_purchase.name }}
                                      </strong>
@@ -117,7 +105,7 @@
                             <td class="text-center" style="padding-top: 35px; width:100px;">
                                 <div class="input-group btn-block quantity">
                                     <form>
-                                        <span class="input-group-btn " >
+                                        <span class="input-group-btn ">
                                             <input type="text" class="form-control"  value="{{ one_purchase.quantity_in_card }}" style="width:52px; padding-left: 20px;"/>
                                             <input formaction="{% url 'products_catalog:cart_delete_one'  one_purchase.software_id %}" type="submit" value="-" class="btn btn-default" style="width:38px;" />
                                             <input formaction="{% url 'products_catalog:cart_add_one' one_purchase.software_id %}" type="submit" value="+" class="btn btn-default" style="width:38px;" />
@@ -133,7 +121,7 @@
                     </tbody>
                     <tbody>
                         <tr>
-                            <td class="text-center" colspan="9" >
+                            <td class="text-center" colspan="9">
                                 <strong>
                                     Итого:
                                 </strong>
@@ -156,15 +144,18 @@
                 </div>
             </div>
         {% else %}
-        <br><br><br><br><br><br>
-            <br><br><br><br><br><br><br><br>
+            <style> .indented_for_car {
+                padding-top: 300px;
+                padding-bottom: 300px;
+                }
+            </style>
+            <div class="indented_for_car">
                 <h1 class="text-center">
                     <strong>
-                    Корзина пуста
+                    Вы не совершили еще не одной покупки !
                     </strong>
                 </h1>
-            <br><br><br><br><br><br><br><br>
-        <br><br><br><br><br><br>
+            </div>
         {% endif %}
                 <!--Middle Part End -->
             </div>
@@ -180,22 +171,13 @@
 <!-- Include Libs & Plugins
 ============================================ -->
 {% block libs_and_plugins %}
-<script type="text/javascript" src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/owl-carousel/owl.carousel.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/themejs/libs.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/unveil/jquery.unveil.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/countdown/jquery.countdown.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/datetimepicker/moment.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
 {% endblock %}
 
 <!-- Theme files
 ============================================ -->
 {% block theme_files %}
-<script type="text/javascript" src="{% static 'js/themejs/so_megamenu.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/themejs/addtocart.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/themejs/application.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/themejs/so_megamenu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/themejs/application.js' %}"></script>
 {% endblock %}

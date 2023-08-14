@@ -1,9 +1,8 @@
 from pathlib import Path
 
+# --------------------------------------------------------
 file_name_with_django_key = 'django.key'
-
 file_name_with_email_password = 'email.password'
-
 file_name_with_db_password = 'db.password'
 
 current_directory = Path.cwd()
@@ -22,10 +21,17 @@ password = {
     'db.password': ''
 }
 
+print("Здесь должны 'лежать' файлы с парролями:")
+
 for key in path:
     print(path[key])
     with open(path[key], 'r') as data:
         password[key] = data.read().replace('\n', '')
+# --------------------------------------------------------
+
+EMAIL_CONFIRMATION_TIME_HOURS: int = 48
+
+PASSWORD_RECOVERY_TIME_HOURS: int = 48
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -42,7 +48,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 EMAIL_HOST = 'smtp.yandex.ru'
 
-EMAIL_PORT = 465
+EMAIL_PORT: int = 465
 
 EMAIL_HOST_USER = 'OnlineStoreTrainingProject@yandex.ru'
 
@@ -130,7 +136,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = (BASE_DIR / 'static', )
+STATICFILES_DIRS = (BASE_DIR / 'static',)
 
 MEDIA_URL = 'media/'
 

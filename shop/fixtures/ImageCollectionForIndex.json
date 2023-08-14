@@ -1,0 +1,18 @@
+[
+  {
+	"model": "shop.imagecollectionforindex",
+	"pk": 2,
+	"fields": {
+	  "name": "One",
+	  "image": "images_for_index/main_index_picture1.jpg"
+	}
+  },
+  {
+	"model": "shop.imagecollectionforindex",
+	"pk": 3,
+	"fields": {
+	  "name": "Two",
+	  "image": "images_for_index/main_index_picture2.jpg"
+	}
+  }
+]

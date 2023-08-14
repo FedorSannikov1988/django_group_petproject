@@ -15,23 +15,23 @@
                     {% for one_purchase in cart %}
                     <tr>
                         <td class="text-center">
-                            <a href="#"> <img src="{{ one_purchase.software.image.url }}" style="width:70px" > </a>
+                            <a href="{% url 'product:index' one_purchase.software.id %}"> <img src="{{ one_purchase.software.image.url }}" style="width:70px"> </a>
                         </td>
                         <td class="text-center">
-                            <a href="#"> {{ one_purchase.software.name }} </a>
+                            <a href="{% url 'product:index' one_purchase.software.id %}"> {{ one_purchase.software.name }} </a>
                         </td>
                         <td class="text-center">
                             {{ one_purchase.quantity }}
                         </td>
                         <td class="text-center">{{ one_purchase.sum }} ₽</td>
                         <td class="text-center">
-                            <a class="fa fa-times fa-minus" href="{% url 'products_catalog:cart_delete_one'  one_purchase.software.id %}"></a>
+                            <a class="fa fa-times fa-minus" href="{% url 'products_catalog:cart_delete_one' one_purchase.software.id %}"></a>
                         </td>
                         <td class="text-center">
                             <a class="fa fa-times fa-plus" href="{% url 'products_catalog:cart_add_one' one_purchase.software.id %}"></a>
                         </td>
                         <td class="text-center">
-                            <a class="fa fa-times fa-" href="{% url 'products_catalog:cart_remove' one_purchase.id %}"></a>
+                            <a class="fa fa-times " href="{% url 'products_catalog:cart_remove' one_purchase.id %}"></a>
                         </td>
                     </tr>
                     {% endfor %}

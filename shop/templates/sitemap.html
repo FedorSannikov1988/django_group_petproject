@@ -1,38 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<!-- Favicon
-============================================ -->
-{% block favicon %}
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/apple-touch-icon-144-precomposed.png' %}">
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/apple-touch-icon-114-precomposed.png' %}">
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/apple-touch-icon-72-precomposed.png' %}">
-<link rel="apple-touch-icon-precomposed" href="{% static 'ico/apple-touch-icon-57-precomposed.png' %}">
-<link rel="shortcut icon" href="{% static 'ico/favicon.png' %}">
-{% endblock %}
-
 <!-- Libs CSS
 ============================================ -->
 {% block libs_css %}
-<link rel="stylesheet" href="{% static 'css/bootstrap/css/bootstrap.min.css' %}">
-<link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
-<link href="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet">
-<link href="{% static 'js/owl-carousel/owl.carousel.css' %}" rel="stylesheet">
-<link href="{% static 'js/owl-carousel/assets/owl.theme.default.min.css' %}" rel="stylesheet">
-<link href="{% static 'css/themecss/lib.css' %}" rel="stylesheet">
-<link href="{% static 'js/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" >
+    <link href="{% static 'css/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
 {% endblock %}
 
 <!-- Theme CSS
 ============================================ -->
 {% block theme_css %}
-<link href="{% static 'css/themecss/cpanel.css' %}" rel='stylesheet'  type='text/css' media='all' />
-<link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
-<link href="{% static 'css/themecss/so-categories.css' %}" rel="stylesheet">
-<link href="{% static 'css/themecss/so-listing-tabs.css' %}" rel="stylesheet">
-<link href="{% static 'css/footer1.css' %}" rel="stylesheet">
-<link href="{% static 'css/header1.css' %}" rel="stylesheet">
-<link id="color_scheme" href="{% static 'css/theme.css' %}" rel="stylesheet">
+    <link href="{% static 'css/footer1.css' %}" rel="stylesheet">
+    <link href="{% static 'css/header1.css' %}" rel="stylesheet">
+    <link href="{% static 'css/theme.css' %}" rel="stylesheet" id="color_scheme">
+    <link href="{% static 'css/themecss/so_megamenu.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block stile_body_two_line %}
@@ -51,7 +33,12 @@
                 <ul class="header-main ">
                     <li class="home"><a href="{% url 'index' %}">Главная</a><i class="fa fa-angle-right" aria-hidden="true"></i></li>
                 </ul>
-                <div class="row">
+                <style> .indented {
+                    padding-top: 200px;
+                    padding-bottom: 300px;
+                }
+                </style>
+                <div class="row indented">
                     <div id="content" class="col-sm-12">
                         <br><br><br>
                         <div class="row">
@@ -60,15 +47,16 @@
                                     <li> <a href="{% url 'index' %}"> Главная </a> </li>
                                     <li> <a href="{% url 'products_catalog:index' %}"> Каталог </a>
                                         <ul class="sitemap">
-                                            <li><a href="{% url 'products_catalog:index' %}"> Антивирусная защита </a> </li>
-                                            <li><a href="{% url 'products_catalog:index' %}"> Офисное ПО </a> </li>
-                                            <li><a href="{% url 'products_catalog:index' %}"> Операционные системы </a> </li>
+                                        {% for one_category in software_category %}
+                                            <li><a href="{% url 'products_catalog:category' one_category.id %}"> <span> {{ one_category.name }} </span> </a> </li>
+                                        {% endfor %}
                                         </ul>
                                     </li>
                                     <li> <a href="{% url 'users:my_account' %}"> Личный кабинет </a>
                                         <ul class="sitemap">
-                                            <li><a href="{% url 'users:login' %}"> Вход </a> </li>
+                                            <li><a href="{% url 'users:login_user' %}"> Вход </a> </li>
                                             <li><a href="{% url 'users:register' %}"> Регистрация </a> </li>
+                                            <li><a href="{% url 'users:forgot_password' %}"> Забыл пароль </a> </li>
                                         </ul>
                                     </li>
                                     <li> <a href="{% url 'cart' %}"> Корзина </a> </li>
@@ -108,22 +96,13 @@
 <!-- Include Libs & Plugins
 ============================================ -->
 {% block libs_and_plugins %}
-<script type="text/javascript" src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/owl-carousel/owl.carousel.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/themejs/libs.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/unveil/jquery.unveil.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/countdown/jquery.countdown.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/dcjqaccordion/jquery.dcjqaccordion.2.8.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/datetimepicker/moment.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/jquery-ui/jquery-ui.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
 {% endblock %}
 
 <!-- Theme files
 ============================================ -->
 {% block theme_files %}
-<script type="text/javascript" src="{% static 'js/themejs/so_megamenu.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/themejs/addtocart.js' %}"></script>
-<script type="text/javascript" src="{% static 'js/themejs/application.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/themejs/so_megamenu.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/themejs/application.js' %}"></script>
 {% endblock %}
