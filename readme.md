@@ -23,7 +23,7 @@
 python manage.py loaddata shop/fixtures/<имя фикстуры>
 
 ### Актуальные медиафайлы (папка media):
-https://disk.yandex.ru/d/LHKe-C0lMaZNsA
+https://disk.yandex.ru/d/IPC8WI9Xg12TUA
 
 ### Архив (password files.zip) с файлами паролей для проекта db.password, django.key, email.password:
 https://disk.yandex.ru/d/hz2HxRLMnIrqKw
