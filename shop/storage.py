@@ -17,4 +17,3 @@ class CustomStorage(FileSystemStorage):
     name_folder = "images_for_faq_answer/"
     location = os.path.join(settings.MEDIA_ROOT, name_folder)
     base_url = urljoin(settings.MEDIA_URL, name_folder)
-
