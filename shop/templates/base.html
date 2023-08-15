@@ -16,7 +16,7 @@
 
 <!-- Favicon
 ============================================ -->
-{% block favicon %} {% endblock %}
+<link rel="shortcut icon" href="{% static 'ico/favicon.png' %}">
 
 <!-- Libs CSS
 ============================================ -->
@@ -43,10 +43,9 @@
                                         <li class="account"><a href="{% url 'users:my_account' %}" class="top-link-checkout" title="Личный кабиинет"><span>Личный кабинет</span></a></li>
                                         <li class="signin"><a href="{% url 'users:exit_my_account' %}" class="top-link-checkout" title="Выйти"><span>Выйти</span></a></li>
                                     {% else %}
-                                        <li class="signin"><a href="{% url 'users:login' %}" class="top-link-checkout" title="Войти"><span>Войти</span></a></li>
+                                        <li class="signin"><a href="{% url 'users:login_user' %}" class="top-link-checkout" title="Войти"><span>Войти</span></a></li>
                                         <li class="register"><a href="{% url 'users:register' %}" title="Регистрация"><span> Регистрация </span></a></li>
                                     {% endif %}
-
                                     {% if user.is_superuser %}
                                         <li class="signin"><a href="{% url 'admin:index' %}" class="top-link-checkout" title="Панель-администратора"><span>Войти в панель-администратора</span></a></li>
                                     {% endif %}
@@ -68,11 +67,11 @@
 						<!-- //Logo -->
 						<!-- Search -->
 						<div id="sosearchpro" class="col-xs-12 col-sm-8 col-md-5 search-pro">
-							<form method="GET" action="{% url 'index' %}">
+							<form method="GET" action="{% url 'search' %}">
 								<div id="search0" class="search input-group">
-									<input class="autosearch-input form-control" type="text" value="" size="60" autocomplete="off" placeholder="Поиск програмного обеспечения ... " name="search">
+									<input class="autosearch-input form-control" type="text" value="" size="60" autocomplete="off" placeholder="Поиск программного обеспечения ... " name="q">
 									<span class="input-group-btn">
-										<button type="submit" class="button-search btn btn-primary" name="submit_search"><i class="fa fa-search"></i></button>
+										<button type="submit" class="button-search btn btn-primary"><i class="fa fa-search"></i></button>
 									</span>
 								</div>
 							</form>
@@ -187,15 +186,20 @@
 						</div>
 					</div>
 				</div>
+            <!-- //Block Spotlight3  -->
                 <div>
-                <br><br><br><br><br><br><br>
-                <br><br><br><br><br><br><br>
+                    <style> .indented {
+                    padding-top: 100px;
+                    padding-bottom: 100px;
+                    } </style>
+                <div class="indented">
+                    <br>
+                </div>
                 </div>
                 </div>
         </section>
     </footer>
 <!-- //Footer Container -->
-
 
 <!-- Include Libs & Plugins
 ============================================ -->
