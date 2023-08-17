@@ -1,33 +1,14 @@
+from dotenv import load_dotenv
 from pathlib import Path
+import os
 
-# --------------------------------------------------------
-file_name_with_django_key = 'django.key'
-file_name_with_email_password = 'email.password'
-file_name_with_db_password = 'db.password'
-
-current_directory = Path.cwd()
-
-relative_path = current_directory.parent
-
-path = {
-    'django.key': relative_path / file_name_with_django_key,
-    'email.password': relative_path / file_name_with_email_password,
-    'db.password': relative_path / file_name_with_db_password
-}
+load_dotenv()
 
 password = {
-    'django.key': '',
-    'email.password': '',
-    'db.password': ''
+    'django.key': os.getenv('django_key'),
+    'email.password': os.getenv('email_password'),
+    'db.password': os.getenv('db_password')
 }
-
-print("Здесь должны 'лежать' файлы с парролями:")
-
-for key in path:
-    print(path[key])
-    with open(path[key], 'r') as data:
-        password[key] = data.read().replace('\n', '')
-# --------------------------------------------------------
 
 EMAIL_CONFIRMATION_TIME_HOURS: int = 48
 

@@ -25,16 +25,16 @@ python manage.py loaddata shop/fixtures/<имя фикстуры>
 ### Актуальные медиафайлы (папка media):
 https://disk.yandex.ru/d/IPC8WI9Xg12TUA
 
-### Архив (password files.zip) с файлами паролей для проекта db.password, django.key, email.password:
-https://disk.yandex.ru/d/hz2HxRLMnIrqKw
+### Архив с файлом .env:
+https://disk.yandex.ru/d/eY5sc6zQECOwSw
 
 ##### Внимание:
-##### Архив с файлами db.password, django.key, email.password защищен паролем.
+##### Архив с файлом .env защищен паролем.
 ##### Пароль можно получить у команды разработки проекта.
 
 ### Создание базы даных PostgreSQL:
 1. CREATE DATABASE shop_db;
-2. CREATE ROLE admin with password "введите пароль из файла db.password";
+2. CREATE ROLE admin with password "введите пароль из файла .env переменная db_password";
 3. ALTER ROLE "admin" WITH LOGIN;
 4. GRANT ALL PRIVILEGES ON DATABASE "shop_db" to admin;
 5. ALTER USER admin CREATEDB;
