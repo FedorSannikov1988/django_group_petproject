@@ -18,12 +18,24 @@ from shop.models import ImageCollectionForIndex,\
 NUMBER_ITEM_PER_CATALOG_PAGE: int = 6
 
 
-def title_for_basic_template():
+def title_for_basic_template() -> str:
+    """
+    :return:
+    Returns the string 'Thesis'.
+    This string is used in other functions
+    to form page headers.
+    """
     text: str = 'Дипломная работа'
     return text
 
 
-def data_for_basic_template(request):
+def data_for_basic_template(request) -> dict:
+    """
+    :param request:
+
+    :return:
+
+    """
     cart_user = None
 
     if not request.user.is_anonymous:
@@ -37,6 +49,18 @@ def data_for_basic_template(request):
 
 
 def index(request):
+    """
+    The index function displays the main
+    the web application page.
+
+    :param request:
+    request: a request object containing
+    information about the user's request.
+
+    :return:
+    Rendering result
+    HTML template "index.html".
+    """
     title_index = 'Главная страница - '
 
     if ImageCollectionForIndex.objects.all().exists():

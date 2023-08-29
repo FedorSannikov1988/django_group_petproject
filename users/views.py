@@ -326,9 +326,12 @@ def my_account(request):
 @login_required
 def delete_user_confirmation(request):
     """
-    Displays the user account deletion confirmation page.
+    Displays the user account deletion
+    confirmation page.
 
-    :return: display of the template `delete_user_confirmation.html` with context.
+    :return: display of the template
+    `delete_user_confirmation.html`
+    with context.
     """
     title_index = \
         'Подтверждение удаления ' \
@@ -356,7 +359,8 @@ def exit_my_account(request):
     """
     Logs out of the user account.
 
-    :return: display of the template `index.html` with context.
+    :return: display of the template
+    `index.html` with context.
     """
     logout(request)
     return HttpResponseRedirect(reverse('index'))
