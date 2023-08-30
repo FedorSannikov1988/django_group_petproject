@@ -30,6 +30,14 @@ password_recovery_time_hours = \
 
 
 def login_user(request):
+    """
+    Displays the login page for the personal account
+    and processes the user authentication form.
+
+    :return: Redirection to the user's personal account page
+    in case of successful authentication.
+    Otherwise, display the login page with the form.
+    """
     title_login: str = 'Вход в личный кабинет - '
 
     if request.method == 'POST':
@@ -61,6 +69,14 @@ def login_user(request):
 
 
 def register(request):
+    """
+    Processes the form to create a new user account.
+    Saves the user in the database by filling the username field with the data
+    from the email field.
+
+    :return: Redirecting to the login page in case of successful registration.
+    Otherwise, displaying the registration page with the form
+    """
     title_register: str = 'Регистрация покупателя - '
 
     if request.method == 'POST':
