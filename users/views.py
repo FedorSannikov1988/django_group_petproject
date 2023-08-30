@@ -3,23 +3,23 @@ from django.utils.timezone import now
 from django.contrib.auth.decorators import login_required
 from datetime import timedelta
 from django.shortcuts import render, \
-                             HttpResponseRedirect
+    HttpResponseRedirect
 from django.contrib.auth import authenticate, \
-                                login, \
-                                logout
+    login, \
+    logout
 from django.urls import reverse
 from django.contrib.messages import success, \
-                                    error
+    error
 from users.forms import UserLoginForm, \
-                        UserRegisterForm, \
-                        UserProfileForm, \
-                        UserRecoveryPasswordForm, \
-                        UserCreatNewPasswordForm
+    UserRegisterForm, \
+    UserProfileForm, \
+    UserRecoveryPasswordForm, \
+    UserCreatNewPasswordForm
 from users.models import User, \
-                         EmailVerification, \
-                         PasswordRecovery
+    EmailVerification, \
+    PasswordRecovery
 from shop.views import title_for_basic_template, \
-                       data_for_basic_template
+    data_for_basic_template
 from django.conf import settings
 
 QUANTITY_LIMIT_EMAIL_DAY: int = 5
@@ -66,7 +66,6 @@ def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(data=request.POST)
         if form.is_valid():
-
             username_form = form.save(commit=False)
             username_form.username = form.cleaned_data['email']
             username_form.save()
@@ -275,6 +274,15 @@ def create_new_password(request, email, code):
 
 @login_required
 def my_account(request):
+    """
+    Displays the user's personal account page and processes the form
+    to save changes to the user's profile.
+
+
+    :return: Redirection to the user's personal account page
+    in case of successful saving of profile changes. Otherwise,
+    redirect to the current page.
+    """
     title_my_account: str = 'Личный кабинет пользователя - '
 
     if request.method == 'POST':
@@ -306,10 +314,10 @@ def my_account(request):
                 "Внимание изминения не могут быть сохранены !"
 
             if User.objects.filter(phone=form.data['phone']).exists():
-                message_error_for_user += " "\
-                    "Пользователь с таким номером " \
-                    "телефона уже существует в " \
-                    "базе данных !"
+                message_error_for_user += " " \
+                                          "Пользователь с таким номером " \
+                                          "телефона уже существует в " \
+                                          "базе данных !"
             error(request, message_error_for_user)
         return HttpResponseRedirect(reverse('users:my_account'))
 
@@ -342,6 +350,13 @@ def delete_user_confirmation(request):
 
 @login_required
 def delete_profile(request):
+    """
+    The function takes username. If a user with that username exists,
+    then the user's profile is removed from the database.
+    If the user does not exist, then redirect to the previous page
+
+    :return: display of the template `index.html` with context.
+    """
     username: str = request.user.username
     if User.objects.filter(username=username).exists():
         User.objects.get(username=username).delete()
