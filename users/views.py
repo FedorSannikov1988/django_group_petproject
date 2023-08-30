@@ -1,26 +1,27 @@
 from uuid import uuid4
+from datetime import timedelta
+from django.urls import reverse
+from django.conf import settings
 from django.utils.timezone import now
 from django.contrib.auth.decorators import login_required
-from datetime import timedelta
 from django.shortcuts import render, \
-    HttpResponseRedirect
+                             HttpResponseRedirect
 from django.contrib.auth import authenticate, \
-    login, \
-    logout
-from django.urls import reverse
+                                logout, \
+                                login
 from django.contrib.messages import success, \
-    error
+                                    error
 from users.forms import UserLoginForm, \
-    UserRegisterForm, \
-    UserProfileForm, \
-    UserRecoveryPasswordForm, \
-    UserCreatNewPasswordForm
+                        UserRegisterForm, \
+                        UserProfileForm, \
+                        UserRecoveryPasswordForm, \
+                        UserCreatNewPasswordForm
 from users.models import User, \
-    EmailVerification, \
-    PasswordRecovery
+                         EmailVerification, \
+                         PasswordRecovery
 from shop.views import title_for_basic_template, \
-    data_for_basic_template
-from django.conf import settings
+                       data_for_basic_template
+
 
 QUANTITY_LIMIT_EMAIL_DAY: int = 5
 email_confirmation_time_hours = \
