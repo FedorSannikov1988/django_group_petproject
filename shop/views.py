@@ -75,6 +75,13 @@ def about_us(request):
 
 
 def faq(request):
+    """
+    Displays a page with useful information and processes the form
+    for the user to submit a question.
+
+    :return: Redirect to the FAQ page if the question was successfully submitted.
+    Otherwise, display the FAQ page with the form.
+    """
     title_faq = 'Полезная информация - '
     if request.method == 'POST':
         form = ShopFaqForm(data=request.POST, files=request.FILES)
