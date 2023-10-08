@@ -3,10 +3,10 @@
 ### Цель: Создать в команде интеренет приложения на Python используя веб-фреймворк Django.
 
 ### Комманда учеников:
-- Федор Санников (https://github.com/FedorSannikov1988; fedor.sannikov88@gmail.com) - фулстек-разработчик;
-- Артем Федотов (https://github.com/fedotoff144; fedotoff144@gmail.com) - фулстек-разработчик;
-- Михаил Зиновьев (https://github.com/ZinovevMY; mehan@list.ru) - фулстек-разработчик;
-- Анатолий Ступин (https://github.com/Trotil2001; trotil_2001@mail.ru) - фулстек-разработчик;
+- Федор Санников (<a href="https://github.com/FedorSannikov1988">GitHub</a>, email: fedor.sannikov88@gmail) - фулстек-разработчик;
+- Артем Федотов (<a href="https://github.com/fedotoff144">GitHub</a>, email: fedotoff144@gmail.com) - фулстек-разработчик;
+- Михаил Зиновьев (<a href="https://github.com/ZinovevMY">GitHub</a>, email: mehan@list.ru) - фулстек-разработчик;
+- Анатолий Ступин (<a href="https://github.com/Trotil2001">GitHub</a>, email: trotil_2001@mail.ru) - фулстек-разработчик;
 
 ### Технологии и инструменты:
  - Веб-фреймворк: Django версии 3.2;
@@ -28,11 +28,10 @@
 ### Команда для загрузки фикстуры:
 python manage.py loaddata shop/fixtures/<имя фикстуры>
 
-### Актуальные медиафайлы (папка media):
-https://disk.yandex.ru/d/IPC8WI9Xg12TUA
+### Актуальные медиафайлы (папка media): <a href="https://disk.yandex.ru/d/IPC8WI9Xg12TUA">media</a>
 
-### Архив с файлом .env:
-https://disk.yandex.ru/d/eY5sc6zQECOwSw
+
+### Архив с файлом .env: <a href="https://disk.yandex.ru/d/eY5sc6zQECOwSw">.env </a>
 
 ##### Внимание:
 ##### Архив с файлом .env защищен паролем.
@@ -44,3 +43,5 @@ https://disk.yandex.ru/d/eY5sc6zQECOwSw
 3. ALTER ROLE "admin" WITH LOGIN;
 4. GRANT ALL PRIVILEGES ON DATABASE "shop_db" to admin;
 5. ALTER USER admin CREATEDB;
+
+
